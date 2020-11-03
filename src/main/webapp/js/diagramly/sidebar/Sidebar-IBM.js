@@ -554,18 +554,14 @@
 					 d, d, '', 'Bridge', false, null, this.getTagsForStencil(gn, 'bridge', dt).join(' ')),
 			 this.createVertexTemplateEntry(s + 'CloudServices.svg;',
 					 d, d, '', 'Cloud Services', false, null, this.getTagsForStencil(gn, 'cloud services', dt).join(' ')),
+			 this.createVertexTemplateEntry(s + 'TransitGateway.svg;',
+					 d, d, '', 'Transit Gateway', false, null, this.getTagsForStencil(gn, 'transit gateway', dt).join(' ')),
 			 this.createVertexTemplateEntry(s + 'Internet.svg;',
 					 d, d, '', 'Internet', false, null, this.getTagsForStencil(gn, 'internet', dt).join(' ')),
 			 this.createVertexTemplateEntry(s + 'Enterprise.svg;',
-					 d, d, '', 'Data Center', false, null, this.getTagsForStencil(gn, 'dat acenter', dt).join(' ')),
+					 d, d, '', 'Data Center', false, null, this.getTagsForStencil(gn, 'data center', dt).join(' ')),
 			 this.createVertexTemplateEntry(s + 'Enterprise2.svg;',
-					 d, d * 0.8, '', 'Enterprise', false, null, this.getTagsForStencil(gn, 'enterprise', dt).join(' ')),
-			 this.createVertexTemplateEntry(s + 'PowerInstance.svg;',
-					 d, d, '', 'Power Instance', false, null, this.getTagsForStencil(gn, 'power instance', dt).join(' ')),
-			 this.createVertexTemplateEntry(s + 'TransitGateway.svg;',
-					 d, d, '', 'Transit Gateway', false, null, this.getTagsForStencil(gn, 'transit gateway', dt).join(' ')),
-			 this.createVertexTemplateEntry(s + 'BareMetalServer.svg;',
-					 d, d, '', 'Bare Metal Server', false, null, this.getTagsForStencil(gn, 'bare metal server', dt).join(' '))
+					 d, d * 0.8, '', 'Enterprise', false, null, this.getTagsForStencil(gn, 'enterprise', dt).join(' '))
 		];
 			   	
    		this.addPalette('ibmVPC', 'IBM / VPC', false, mxUtils.bind(this, function(content)
