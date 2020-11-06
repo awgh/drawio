@@ -61,35 +61,35 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	switch(prType)
 	{
 		case 'cloud':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm.cloudtag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'vpc':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm.vpctag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.vpctag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'region':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm.regiontag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.regiontag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'zone':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm.zonetag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.zonetag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'subnet':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm.subnettag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.subnettag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'public':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm.publictag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.publictag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'enterprise':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm.enterprisetag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.enterprisetag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'classic':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm.classictag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.classictag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		default:
