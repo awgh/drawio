@@ -97,4 +97,4 @@ mxShapeIBM1Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	}
 };
 
-mxCellRenderer.registerShape(mxShapeIBM1Box.prototype.cst.IBM_BOX, mxShapeIBMBox);
+mxCellRenderer.registerShape(mxShapeIBM1Box.prototype.cst.IBM_BOX, mxShapeIBM1Box);
