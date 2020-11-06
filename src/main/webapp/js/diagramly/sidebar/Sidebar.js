@@ -487,6 +487,8 @@
             			          {title: 'Citrix', id: 'citrix', image: IMAGE_PATH + '/sidebar-citrix.png'},
             			          {title: 'Google Cloud Platform', id: 'gcp2', image: IMAGE_PATH + '/sidebar-gcp2.png'},
             			          {title: 'IBM 1.0', id: 'ibm', image: IMAGE_PATH + '/sidebar-ibm.png'},
+            			          {title: 'IBM 1.1', id: 'ibm1', image: IMAGE_PATH + '/sidebar-ibm1.png'},
+            			          {title: 'IBM 2.0', id: 'ibm2', image: IMAGE_PATH + '/sidebar-ibm2.png'},
             			          {title: 'Kubernetes', id: 'kubernetes', image: IMAGE_PATH + '/sidebar-kubernetes.png'},
             			          {title: 'Network', id: 'network', image: IMAGE_PATH + '/sidebar-network.png'},
             			          {title: 'Office', id: 'office', image: IMAGE_PATH + '/sidebar-office.png'},
