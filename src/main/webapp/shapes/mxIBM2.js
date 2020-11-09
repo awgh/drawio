@@ -67,8 +67,6 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	c.setFillColor(strokeColor);
 	c.setStrokeColor('none');
 
-	return
-
 	var prType = mxUtils.getValue(this.state.style, 'prType', '');
 	
 	switch(prType)
