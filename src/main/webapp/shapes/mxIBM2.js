@@ -61,6 +61,24 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.rect(0, 0, w, h);
 	}
 
+	var prType = mxUtils.getValue(this.state.style, 'prType', '');
+	if (prType == 'classic')
+	{
+		// Swimlane
+		c.moveTo(0, 25);
+		c.lineTo(w, 25);
+
+		// Title bar
+		c.moveTo(1, 0);
+		c.lineTo(1, 25);
+		c.moveTo(2, 0);
+		c.lineTo(2, 25);
+		c.moveTo(3, 0);
+		c.lineTo(3, 25);
+		c.moveTo(4, 0);
+		c.lineTo(4, 25);
+	}
+
 	c.fillAndStroke();
 	
 	var strokeColor = mxUtils.getValue(this.state.style, 'strokeColor', 'none');
@@ -102,20 +120,6 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		case 'classic':
 			//var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.classictag');
 			//bgSt1.drawShape(c, this, 0, 0, 25, 25);
-
-			// Swimlane
-			c.moveTo(0, 25);
-			c.lineTo(w, 25);
-
-			// Title bar
-			c.moveTo(1, 0);
-			c.lineTo(1, 25);
-			c.moveTo(2, 0);
-			c.lineTo(2, 25);
-			c.moveTo(3, 0);
-			c.lineTo(3, 25);
-			c.moveTo(4, 0);
-			c.lineTo(4, 25);
 			break;
 		default:
 			break;
