@@ -51,7 +51,6 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	c.begin();
 
 	var rounded = mxUtils.getNumber(this.state.style, 'rounded', 0);
-	rounded = 1
 
 	if (rounded == 1)
 	{
@@ -67,7 +66,9 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	var strokeColor = mxUtils.getValue(this.state.style, 'strokeColor', 'none');
 	c.setFillColor(strokeColor);
 	c.setStrokeColor('none');
-	
+
+	return
+
 	var prType = mxUtils.getValue(this.state.style, 'prType', '');
 	
 	switch(prType)
