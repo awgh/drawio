@@ -50,6 +50,8 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	
 	c.begin();
 
+	var tagoffset = 0;
+
 	var rounded = mxUtils.getNumber(this.state.style, 'rounded', 0);
 
 	if (rounded == 1)
@@ -73,8 +75,10 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.lineTo(2, 25);
 		c.moveTo(3, 0);
 		c.lineTo(3, 25);
-		c.moveTo(4, 0);
-		c.lineTo(4, 25);
+		//c.moveTo(4, 0);
+		//c.lineTo(4, 25);
+
+		tagoffset = 4;
 	}
 
 	// Irregular shape
@@ -132,35 +136,35 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	{
 		case 'cloud':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
 			break;
 		case 'vpc':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.vpctag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
 			break;
 		case 'region':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.regiontag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
 			break;
 		case 'zone':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.zonetag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
 			break;
 		case 'subnet':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.subnettag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
 			break;
 		case 'public':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.publictag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
 			break;
 		case 'enterprise':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.enterprisetag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
 			break;
 		case 'classic':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.classictag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
 			break;
 		default:
 			break;
