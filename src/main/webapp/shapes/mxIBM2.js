@@ -62,21 +62,25 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	}
 
 	var prType = mxUtils.getValue(this.state.style, 'prType', '');
-	if (prType == 'classic')
+	switch(prType)
 	{
-		// Swimlane
-		c.moveTo(0, 25);
-		c.lineTo(w, 25);
+		case 'classic':
+			// Swimlane
+			c.moveTo(0, 25);
+			c.lineTo(w, 25);
 
-		// Title bar
-		c.moveTo(1, 0);
-		c.lineTo(1, 25);
-		c.moveTo(2, 0);
-		c.lineTo(2, 25);
-		c.moveTo(3, 0);
-		c.lineTo(3, 25);
-		c.moveTo(4, 0);
-		c.lineTo(4, 25);
+			// Title bar
+			c.moveTo(1, 0);
+			c.lineTo(1, 25);
+			c.moveTo(2, 0);
+			c.lineTo(2, 25);
+			c.moveTo(3, 0);
+			c.lineTo(3, 25);
+			c.moveTo(4, 0);
+			c.lineTo(4, 25);
+
+		default:
+			break;
 	}
 
 	c.fillAndStroke();
@@ -85,7 +89,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	c.setFillColor(strokeColor);
 	c.setStrokeColor('none');
 
-	var prType = mxUtils.getValue(this.state.style, 'prType', '');
+	//var prType = mxUtils.getValue(this.state.style, 'prType', '');
 	
 	switch(prType)
 	{
