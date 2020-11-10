@@ -4,7 +4,7 @@
     <foreground>
         <rect h="64" w="64" x="0" y="0"/>
         <fill/>
-        <fillcolor color="#ffffff"/>
+        <fillcolor color="#000000"/>
         <path>
             <move x="33.73" y="11.71"/>
             <curve x1="34.23" x2="34.73" x3="35.23" y1="11.71" y2="11.81" y3="11.81"/>
@@ -41,7 +41,7 @@
     <foreground>
         <rect h="64" w="64" x="0" y="0"/>
         <fill/>
-        <fillcolor color="#ffffff"/>
+        <fillcolor color="#000000"/>
         <path>
             <move x="32.03" y="9"/>
             <arc large-arc-flag="0" rx="0.94" ry="0.94" sweep-flag="0" x="31.1" x-axis-rotation="0" y="9.96"/>
