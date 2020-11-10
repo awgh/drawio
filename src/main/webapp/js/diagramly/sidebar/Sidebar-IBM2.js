@@ -564,7 +564,7 @@
 					 d, d * 0.8, '', 'Enterprise', false, null, this.getTagsForStencil(gn, 'enterprise', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibm2VPC', 'IBM 2.0 / VPC', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibm2VPC', 'IBM 2.0 / Cloud / VPC', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -617,7 +617,7 @@
 					 200, 200, 'Cloud Services', 'Cloud Services', true, null, this.getTagsForStencil(gn, 'cloud services', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibm2Boxes', 'IBM 2.0 / Boxes', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibm2Boxes', 'IBM 2.0 / Cloud / Boxes', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{

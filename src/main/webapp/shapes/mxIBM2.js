@@ -50,7 +50,8 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	
 	c.begin();
 
-	var tagoffset = 0;
+	// Start tag after color bar or leave space for rounded corner
+	var tagoffset = 3;
 
 	var rounded = mxUtils.getNumber(this.state.style, 'rounded', 0);
 
@@ -73,13 +74,6 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.lineTo(1, 25);
 		c.moveTo(2, 0);
 		c.lineTo(2, 25);
-		//c.moveTo(3, 0);
-		//c.lineTo(3, 25);
-		//c.moveTo(4, 0);
-		//c.lineTo(4, 25);
-
-		// Start tag after color bar
-		tagoffset = 3;
 	}
 
 	// Irregular shape
