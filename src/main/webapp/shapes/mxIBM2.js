@@ -138,16 +138,16 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'public':
-			//var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.publictag');
-			//bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.publictag');
+			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'enterprise':
-			//var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.enterprisetag');
-			//bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.enterprisetag');
+			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'classic':
-			//var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.classictag');
-			//bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.classictag');
+			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		default:
 			break;
