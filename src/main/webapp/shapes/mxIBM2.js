@@ -98,6 +98,14 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			c.moveTo(4, 0);
 			c.lineTo(4, 25);
 		}
+		if (prType == 'enterprise')
+		{
+			c.moveTo(-2, 6);
+			c.lineTo(2, 6);
+			c.lineTo(2, 8);
+			c.lineTo(-2, 8);
+			c.lineTo(-2, 6);
+		}
 	}
 
 	c.fillAndStroke();
