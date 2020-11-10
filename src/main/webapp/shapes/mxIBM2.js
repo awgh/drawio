@@ -52,19 +52,38 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 
 	var rounded = mxUtils.getNumber(this.state.style, 'rounded', 0);
 
+	var prType = mxUtils.getValue(this.state.style, 'prType', '');
+
 	if (rounded == 1)
 	{
 		c.roundrect(0, 0, w, h, 16)
 	}
 	else
 	{
-		c.rect(0, 0, w, h);
-	}
+		//c.rect(0, 0, w, h);
+		if (prType == 'public')
+		{
+			c.moveTo(0, 0);
+			c.lineTo(w/3, 0);
+			c.lineTo(w/3, h/2);
+			c.lineTo(2*(w/3), h/2);
+			c.lineTo(2*(w/3), h/3);
+			c.lineTo(w, h/3);
+			c.lineTo(w, h);
+			c.lineTo(0, h);
+			c.lineTo(0, 0);
+		}
+		else
+		{
+			c.moveTo(0, 0);
+			c.lineTo(w, 0);
+			c.lineTo(w, h);
+			c.lineTo(0, h);
+			c.lineTo(0, 0);
+		}
 
-	var prType = mxUtils.getValue(this.state.style, 'prType', '');
-	switch(prType)
-	{
-		case 'classic':
+		if (prType == 'classic')
+		{
 			// Swimlane
 			c.moveTo(0, 25);
 			c.lineTo(w, 25);
@@ -78,9 +97,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			c.lineTo(3, 25);
 			c.moveTo(4, 0);
 			c.lineTo(4, 25);
-
-		default:
-			break;
+		}
 	}
 
 	c.fillAndStroke();
