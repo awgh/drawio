@@ -108,10 +108,13 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	c.fillAndStroke();
 	
 	var strokeColor = mxUtils.getValue(this.state.style, 'strokeColor', 'none');
-	c.setFillColor(strokeColor);
-	c.setStrokeColor('none');
-
 	var fillColor = mxUtils.getValue(this.state.style, 'fillColor', 'none');
+
+	//c.setFillColor(strokeColor);
+	//c.setStrokeColor('none');
+
+	c.setFillColor(fillColor);
+	c.setStrokeColor(strokeColor);
 
 	var prType = mxUtils.getValue(this.state.style, 'prType', '');
 	
@@ -119,7 +122,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	{
 		case 'cloud':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25, fillColor);
+			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'vpc':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.vpctag');
