@@ -119,7 +119,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	{
 		case 'cloud':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			bgSt1.drawShape(c, this, 0, 0, 25, 25, false);
 			break;
 		case 'vpc':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.vpctag');
