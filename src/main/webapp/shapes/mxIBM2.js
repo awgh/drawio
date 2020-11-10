@@ -61,58 +61,51 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	else
 	{
 		//c.rect(0, 0, w, h);
-		if (prType == 'public')
-		{
-			c.moveTo(0, 0);
-			c.lineTo(w/3, 0);
-			c.lineTo(w/3, h/2);
-			c.lineTo(2*(w/3), h/2);
-			c.lineTo(2*(w/3), h/3);
-			c.lineTo(w, h/3);
-			c.lineTo(w, h);
-			c.lineTo(0, h);
-			c.lineTo(0, 0);
-		}
-		else
-		{
-			c.moveTo(0, 0);
-			c.lineTo(w, 0);
-			c.lineTo(w, h);
-			c.lineTo(0, h);
-			c.lineTo(0, 0);
-		}
-
-		if (prType == 'classic')
-		{
-			// Swimlane
-			c.moveTo(0, 25);
-			c.lineTo(w, 25);
-
-			// Title bar
-			c.moveTo(1, 0);
-			c.lineTo(1, 25);
-			c.moveTo(2, 0);
-			c.lineTo(2, 25);
-			c.moveTo(3, 0);
-			c.lineTo(3, 25);
-			c.moveTo(4, 0);
-			c.lineTo(4, 25);
-		}
-		if (prType == 'enterprise')
-		{
-			c.moveTo(-4, 5);
-			c.lineTo(4, 5);
-			c.lineTo(4, 10);
-			c.lineTo(-4, 10);
-			c.lineTo(-4, 5);
-
-			c.moveTo(-4, 15);
-			c.lineTo(4, 15);
-			c.lineTo(4, 20);
-			c.lineTo(-4, 20);
-			c.lineTo(-4, 15);
-		}
+		
+		c.moveTo(0, 0);
+		c.lineTo(w, 0);
+		c.lineTo(w, h);
+		c.lineTo(0, h);
+		c.lineTo(0, 0);
 	}
+
+	// Irregular shape
+	// c.moveTo(0, 0);
+	// c.lineTo(w/3, 0);
+	// c.lineTo(w/3, h/2);
+	// c.lineTo(2*(w/3), h/2);
+	// c.lineTo(2*(w/3), h/3);
+	// c.lineTo(w, h/3);
+	// c.lineTo(w, h);
+	// c.lineTo(0, h);
+	// c.lineTo(0, 0);
+
+	// Title line (similar to swimlane)
+	// c.moveTo(0, 25);
+	// c.lineTo(w, 25);
+
+	// Color bar
+	// c.moveTo(1, 0);
+	// c.lineTo(1, 25);
+	// c.moveTo(2, 0);
+	// c.lineTo(2, 25);
+	// c.moveTo(3, 0);
+	// c.lineTo(3, 25);
+	// c.moveTo(4, 0);
+	// c.lineTo(4, 25);
+
+	// Component bars
+	// c.moveTo(-4, 5);
+	// c.lineTo(4, 5);
+	// c.lineTo(4, 10);
+	// c.lineTo(-4, 10);
+	// c.lineTo(-4, 5);
+
+	// c.moveTo(-4, 15);
+	// c.lineTo(4, 15);
+	// c.lineTo(4, 20);
+	// c.lineTo(-4, 20);
+	// c.lineTo(-4, 15);
 
 	c.fillAndStroke();
 	
