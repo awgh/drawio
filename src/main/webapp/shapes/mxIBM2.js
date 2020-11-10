@@ -65,6 +65,16 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.lineTo(w, h);
 		c.lineTo(0, h);
 		c.lineTo(0, 0);
+
+		// Color bar
+		c.moveTo(1, 0);
+		c.lineTo(1, 25);
+		c.moveTo(2, 0);
+		c.lineTo(2, 25);
+		c.moveTo(3, 0);
+		c.lineTo(3, 25);
+		c.moveTo(4, 0);
+		c.lineTo(4, 25);
 	}
 
 	// Irregular shape
@@ -83,14 +93,14 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	// c.lineTo(w, 25);
 
 	// Color bar
-	// c.moveTo(1, 0);
-	// c.lineTo(1, 25);
-	// c.moveTo(2, 0);
-	// c.lineTo(2, 25);
-	// c.moveTo(3, 0);
-	// c.lineTo(3, 25);
-	// c.moveTo(4, 0);
-	// c.lineTo(4, 25);
+	c.moveTo(1, 0);
+	c.lineTo(1, 25);
+	c.moveTo(2, 0);
+	c.lineTo(2, 25);
+	c.moveTo(3, 0);
+	c.lineTo(3, 25);
+	c.moveTo(4, 0);
+	c.lineTo(4, 25);
 
 	// Component bars
 	// c.moveTo(-4, 5);
