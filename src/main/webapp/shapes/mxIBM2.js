@@ -52,8 +52,6 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 
 	var rounded = mxUtils.getNumber(this.state.style, 'rounded', 0);
 
-	var prType = mxUtils.getValue(this.state.style, 'prType', '');
-
 	if (rounded == 1)
 	{
 		c.roundrect(0, 0, w, h, 16)
@@ -113,13 +111,15 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	c.setFillColor(strokeColor);
 	c.setStrokeColor('none');
 
-	//var prType = mxUtils.getValue(this.state.style, 'prType', '');
+	var fillColor = mxUtils.getValue(this.state.style, 'fillColor', 'none');
+
+	var prType = mxUtils.getValue(this.state.style, 'prType', '');
 	
 	switch(prType)
 	{
 		case 'cloud':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25, true);
+			bgSt1.drawShape(c, this, 0, 0, 25, 25, fillColor);
 			break;
 		case 'vpc':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.vpctag');
