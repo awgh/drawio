@@ -105,6 +105,12 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			c.lineTo(4, 10);
 			c.lineTo(-4, 10);
 			c.lineTo(-4, 5);
+
+			c.moveTo(-4, 15);
+			c.lineTo(4, 15);
+			c.lineTo(4, 20);
+			c.lineTo(-4, 20);
+			c.lineTo(-4, 15);
 		}
 	}
 
