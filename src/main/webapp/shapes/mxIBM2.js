@@ -100,11 +100,11 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		}
 		if (prType == 'enterprise')
 		{
-			c.moveTo(-2, 6);
-			c.lineTo(2, 6);
-			c.lineTo(2, 8);
-			c.lineTo(-2, 8);
-			c.lineTo(-2, 6);
+			c.moveTo(-4, 5);
+			c.lineTo(4, 5);
+			c.lineTo(4, 10);
+			c.lineTo(-4, 10);
+			c.lineTo(-4, 5);
 		}
 	}
 
@@ -139,12 +139,12 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'public':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.publictag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			//var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.publictag');
+			//bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'enterprise':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.enterprisetag');
-			bgSt1.drawShape(c, this, 0, 0, 25, 25);
+			//var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.enterprisetag');
+			//bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'classic':
 			//var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.classictag');
