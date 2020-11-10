@@ -71,14 +71,15 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		// Color bar
 		c.moveTo(1, 0);
 		c.lineTo(1, 25);
-		//c.moveTo(2, 0);
-		//c.lineTo(2, 25);
+		c.moveTo(2, 0);
+		c.lineTo(2, 25);
 		//c.moveTo(3, 0);
 		//c.lineTo(3, 25);
 		//c.moveTo(4, 0);
 		//c.lineTo(4, 25);
 
-		tagoffset = 2;
+		// Start tag after color bar
+		tagoffset = 3;
 	}
 
 	// Irregular shape
