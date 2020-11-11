@@ -33,7 +33,7 @@ mxShapeIBM1Box.prototype.customProperties = [
 				   {val: 'vpc', dispName: 'VPC'}, 
 				   {val: 'region', dispName: 'Region'}, 
 				   {val: 'zone', dispName: 'Zone'}, 
-				   {val: 'subnet', dispName: 'Subnet ACL'}, 
+				   {val: 'subnet', dispName: 'Subnet:ACL'}, 
 				   {val: 'public', dispName: 'Public Network'}, 
 				   {val: 'enterprise', dispName: 'Enterprise Network'}, 
 				   {val: 'classic', dispName: 'Classic Infrastructure'},
@@ -99,27 +99,27 @@ mxShapeIBM1Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'services':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.classictag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.cloudtag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'account':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.classictag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.cloudtag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'instance':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.classictag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.cloudtag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'namespace':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.classictag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.cloudtag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'resource':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.classictag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.cloudtag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'security':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.classictag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.cloudtag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		default:
