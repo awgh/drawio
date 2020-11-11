@@ -58,18 +58,20 @@ mxShapeIBM1Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	//c.rect(0,0, w, h);
         c.moveTo(0, 0);
         c.lineTo(w, 0);
-        c.lineTo(w, y);
+        c.lineTo(w, h);
         c.lineTo(0, h);
         c.lineTo(0, 0);
-	c.fillAndStroke();
 
 	var dashed = mxUtils.getNumber(this.state.style, 'dashed', 0);
 	if (dashed == 1)
 	{
-		c.moveTo(1, 0);
-		c.lineTo(24, 0);
-		c.moveTo(0, 1);
-		c.lineTo(0, 24);
+		// Remove dashed border around tag.
+		c.setDashed(false)
+		c.moveTo(0, 0);
+		c.lineTo(25, 0);
+		c.moveTo(0, 0);
+		c.lineTo(0, 25);
+		c.setDashed(true)
 	}
 
 	c.fillAndStroke();
