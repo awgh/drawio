@@ -61,19 +61,6 @@ mxShapeIBM1Box.prototype.paintVertexShape = function(c, x, y, w, h)
         c.lineTo(w, h);
         c.lineTo(0, h);
         c.lineTo(0, 0);
-
-	var dashed = mxUtils.getNumber(this.state.style, 'dashed', 0);
-	if (dashed == 1)
-	{
-		// Remove dashed border around tag.
-		c.setDashed(false)
-		c.moveTo(0, 0);
-		c.lineTo(25, 0);
-		c.moveTo(0, 0);
-		c.lineTo(0, 25);
-		c.setDashed(true)
-	}
-
 	c.fillAndStroke();
 
 	var strokeColor = mxUtils.getValue(this.state.style, 'strokeColor', 'none');
@@ -137,7 +124,7 @@ mxShapeIBM1Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		case 'security':
-			bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.cloudtag');
+			bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm1.securitytag');
 			bgSt1.drawShape(c, this, 0, 0, 25, 25);
 			break;
 		default:
