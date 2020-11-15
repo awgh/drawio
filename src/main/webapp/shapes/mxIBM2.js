@@ -159,27 +159,27 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			break;
 		case 'services':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
                 case 'account':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
                 case 'instance':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
                 case 'namespace':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
                 case 'resource':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
                 case 'security':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitytag');
-                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
 		default:
 			break;
