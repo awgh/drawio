@@ -36,7 +36,13 @@ mxShapeIBM2Box.prototype.customProperties = [
 				   {val: 'subnet', dispName: 'Subnet ACL'}, 
 				   {val: 'public', dispName: 'Public Network'}, 
 				   {val: 'enterprise', dispName: 'Enterprise Network'}, 
-				   {val: 'classic', dispName: 'Classic Infrastructure'}]}
+				   {val: 'classic', dispName: 'Classic Infrastructure'},
+				   {val: 'services', dispName: 'Cloud Services'},
+                                   {val: 'account', dispName: 'Account Group'},
+                                   {val: 'instance', dispName: 'Instance Group'},
+                                   {val: 'namespace', dispName: 'Namespace Group'},
+                                   {val: 'resource', dispName: 'Resource Group'},
+                                   {val: 'security', dispName: 'Security Group'}]}
 ];
 
 /**
@@ -70,10 +76,10 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.lineTo(0, 0);
 
 		// Color bar
-		c.moveTo(1, 0);
-		c.lineTo(1, 25);
-		c.moveTo(2, 0);
-		c.lineTo(2, 25);
+		//c.moveTo(1, 0);
+		//c.lineTo(1, 25);
+		//c.moveTo(2, 0);
+		//c.lineTo(2, 25);
 	}
 
 	// Irregular shape
@@ -151,6 +157,30 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.classictag');
 			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
 			break;
+		case 'services':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        break;
+                case 'account':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        break;
+                case 'instance':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        break;
+                case 'namespace':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        break;
+                case 'resource':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        break;
+                case 'security':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitytag');
+                        bgSt1.drawShape(c, this, 0, 0, 25, 25);
+                        break;
 		default:
 			break;
 	}
