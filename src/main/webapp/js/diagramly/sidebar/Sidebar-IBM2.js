@@ -580,8 +580,9 @@
 		
 		var fns = [
 			 this.createVertexTemplateEntry(
-					 'shape=step;perimeter=stepPerimeter;whitespace=wrap;html=1;fixedSize=1',
-					 25, 25, 'General', 'General', true, null, null),
+					 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0',
+					 0, 0, 'General', 'General', true, null, null),
+
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;prType=cloud-ibm;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4376BB;strokeWidth=3;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
 					 200, 200, 'IBM Cloud', 'IBM Cloud', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
@@ -611,6 +612,10 @@
 					 200, 200, 'Resource Group', 'Resource Group', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
+					 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0',
+					 0, 0, 'VPC', 'VPC', true, null, null),
+
+			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;prType=vpc-ibm;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4376BB;strokeWidth=2;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
 					 200, 200, 'VPC', 'VPC', true, null, this.getTagsForStencil(gn, 'vpc virtual private cloud', dt).join(' ')),
 			 this.createVertexTemplateEntry(
@@ -622,6 +627,10 @@
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;prType=vpc-securitygroup;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#FF0000;strokeWidth=2;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
 					 200, 200, 'Security Group', 'Security Group', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
+
+			 this.createVertexTemplateEntry(
+					 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0',
+					 0, 0, 'Kubernetes', 'Kubernetes', true, null, null),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;prType=kube-namespacegroup;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4376BB;strokeWidth=2;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
