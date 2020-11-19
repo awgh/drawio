@@ -580,6 +580,9 @@
 		
 		var fns = [
 			 this.createVertexTemplateEntry(
+					 'shape=step;perimeter=stepPerimeter;whitespace=wrap;html=1;fixedSize=1',
+					 200, 200, 'General', 'General', true, null, null),
+			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;prType=cloud-ibm;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4376BB;strokeWidth=3;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
 					 200, 200, 'IBM Cloud', 'IBM Cloud', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 			 this.createVertexTemplateEntry(
