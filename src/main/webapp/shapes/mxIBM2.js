@@ -227,32 +227,32 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
 
-		// Internal Boxes
-		case 'cloud-pop':
+		// Network Boxes
+		case 'network-pop':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
-		case 'cloud-datacenter':
+		case 'network-datacenter':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
-		case 'cloud-overlay':
+		case 'network-overlay':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
-		case 'cloud-vlan':
+		case 'network-vlan':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
-		case 'cloud-servercontent':
+		case 'network-servers':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
-		case 'cloud-generalcontent':
+		case 'network-general':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
-		case 'cloud-networkcontent':
+		case 'network-other':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;

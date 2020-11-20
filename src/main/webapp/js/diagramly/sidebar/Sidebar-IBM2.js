@@ -577,14 +577,17 @@
 	{
 		s += 'boxes/';
 		var gn = 'boxes box ';
+					 
+		var deployedOnProperties = 'fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;rounded=0;whiteSpace=wrap;html=1;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
+		var deployedToProperties = 'fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;rounded=0;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
 		
 		var fns = [
 			 this.createVertexTemplateEntry(
-					 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0',
+					 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
 					 0, 0, 'Cloud', 'Cloud', true, null, null),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;prType=cloud-ibm;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4376BB;strokeWidth=3;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
+					 'shape=mxgraph.ibm2.box;prType=cloud-ibm;strokeWidth=3;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'IBM Cloud', 'IBM Cloud', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;prType=cloud-region;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#919191;strokeWidth=2;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
@@ -605,7 +608,7 @@
 				  	'shape=mxgraph.ibm2.box;prType=cloud-services;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4376BB;strokeWidth=1;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
 					 200, 200, 'Cloud Services', 'Cloud Services', true, null, this.getTagsForStencil(gn, 'cloud services', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;prType=cloud-accountgroup;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#C4982E;strokeWidth=2;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
+					 'shape=mxgraph.ibm2.box;prType=cloud-accountgroup;strokeWidth=2;strokeColor=#C4982E;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Account Group', 'Account Group', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;prType=cloud-resourcegroup;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#919191;strokeWidth=2;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
