@@ -29,20 +29,46 @@ mxShapeIBM2Box.prototype.cst = {
 
 mxShapeIBM2Box.prototype.customProperties = [
 	{name: 'prType', dispName: 'Box Type', defVal: 'cloud', type: 'enum', 
-		enumList: [{val: 'cloud', dispName: 'IBM Cloud'}, 
-				   {val: 'vpc', dispName: 'VPC'}, 
-				   {val: 'region', dispName: 'Region'}, 
-				   {val: 'zone', dispName: 'Zone'}, 
-				   {val: 'subnet', dispName: 'Subnet ACL'}, 
-				   {val: 'public', dispName: 'Public Network'}, 
-				   {val: 'enterprise', dispName: 'Enterprise Network'}, 
-				   {val: 'classic', dispName: 'Classic Infrastructure'},
-				   {val: 'services', dispName: 'Cloud Services'},
-                                   {val: 'account', dispName: 'Account Group'},
-                                   {val: 'instance', dispName: 'Instance Group'},
-                                   {val: 'namespace', dispName: 'Namespace Group'},
-                                   {val: 'resource', dispName: 'Resource Group'},
-                                   {val: 'security', dispName: 'Security Group'}]}
+		enumList: [
+			   // Cloud Boxes
+			   {val: 'cloud-ibm', dispName: 'IBM Cloud'}, 
+			   {val: 'cloud-region', dispName: 'Region'}, 
+			   {val: 'cloud-zone', dispName: 'Zone'}, 
+			   {val: 'cloud-public', dispName: 'Public Network'}, 
+			   {val: 'cloud-enterprise', dispName: 'Enterprise Network'}, 
+			   {val: 'cloud-classic', dispName: 'Classic Infrastructure'},
+			   {val: 'cloud-services', dispName: 'Cloud Services'},
+			   {val: 'cloud-foundry', dispName: 'Cloud Foundry'},
+                           {val: 'cloud-accountgroup', dispName: 'Account Group'},
+                           {val: 'cloud-resourcegroup', dispName: 'Resource Group'},
+
+			   // VPC Boxes
+			   {val: 'vpc-ibm', dispName: 'VPC'}, 
+			   {val: 'vpc-subnet', dispName: 'Subnet:ACL'}, 
+                           {val: 'vpc-virtualserver', dispName: 'Virtual Server'},
+                           {val: 'vpc-baremetal', dispName: 'Bare Metal Server'},
+                           {val: 'vpc-endpoints', dispName: 'Endpoints'},
+                           {val: 'vpc-instancegroup', dispName: 'Instance Group'},
+                           {val: 'vpc-securitygroup', dispName: 'Security Group'},
+
+			   // Kube Boxes
+                           {val: 'kube-ibm', dispName: 'IBM Kubernetes Cluster'},
+                           {val: 'kube-general', dispName: 'General Kubernetes Cluster'},
+                           {val: 'kube-openshift', dispName: 'OpenShift Cluster'},
+                           {val: 'kube-services', dispName: 'Kubernetes Services'},
+                           {val: 'kube-replicaset', dispName: 'Kubernetes Replica Set'},
+                           {val: 'kube-pod', dispName: 'Kubernetes Pod'},
+                           {val: 'kube-namespacegroup', dispName: 'Kubenetes Namespace Group'},
+
+			   // Network Boxes
+                           {val: 'network-pop', dispName: 'Point of Presence'},
+                           {val: 'network-datacenter', dispName: 'Data Center'},
+                           {val: 'network-overlay', dispName: 'Overlay Network'},
+                           {val: 'network-vlan', dispName: 'VLAN'},
+                           {val: 'network-server', dispName: 'Server Content'},
+                           {val: 'network-general', dispName: 'General Content'},
+                           {val: 'network-other', dispName: 'Other Content'}
+			  ]}
 ];
 
 /**
@@ -222,7 +248,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
-                case 'kube-namespace':
+                case 'kube-namespacegroup':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
@@ -244,7 +270,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
-		case 'network-servers':
+		case 'network-server':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
