@@ -127,7 +127,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.lineTo(0, 0);
 
 		// Determine tag position.
-		switch (pos)
+		switch (boxPos)
 		{
 			case 'left':
 				tagoffset = 0;
