@@ -645,7 +645,7 @@
 <shape aspect="variable" h="55.329" name="InstanceGroupTag" strokewidth="inherit" w="62.669">
     <connections/>
     <foreground>
-        <fillcolor color="#000000"/>
+        <fillcolor color="none"/>
         <strokewidth width="1"/>
         <path>
             <move x="0" y="55.329"/>
@@ -673,7 +673,7 @@
             <close/>
         </path>
         <stroke/>
-        <fillcolor color="#000000"/>
+        <fillcolor color="none"/>
         <strokewidth width="1"/>
         <path>
             <move x="13.982" y="46.794"/>
@@ -693,7 +693,7 @@
             <close/>
         </path>
         <stroke/>
-        <fillcolor color="#000000"/>
+        <fillcolor color="none"/>
         <strokewidth width="1"/>
         <path>
             <move x="8.289" y="53.212"/>
@@ -707,7 +707,7 @@
             <line x="38.318" y="21.669"/>
         </path>
         <stroke/>
-        <fillcolor color="#000000"/>
+        <fillcolor color="none"/>
         <strokewidth width="1"/>
         <path>
             <move x="40.173" y="35.956"/>
