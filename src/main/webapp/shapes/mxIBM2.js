@@ -76,18 +76,15 @@ mxShapeIBM2Box.prototype.customProperties = [
 			   {val: 'component', dispName: 'Component'} 
 			  ]},
 
-	{name: 'boxTagPos', dispName: 'Tag Position', defVal: 'left', type: 'enum', 
+	{name: 'boxIcon', dispName: 'Box Icon Position', defVal: 'left', type: 'enum', 
 		enumList: [
 			   {val: 'left', dispName: 'Left'}, 
 			   {val: 'middle', dispName: 'Middle'}, 
 			   {val: 'right', dispName: 'Right'} 
 			  ]},
 
-	{name: 'boxTagIcon', dispName: 'Tag Icon', defVal: 0, type: 'bool'},
-	{name: 'boxTagBar', dispName: 'Tag Bar', devVal: 0, type: 'bool'},
-	{name: 'boxTagFill', dispName: 'Tag Fill', defVal: 'none', type: 'color'},
-	{name: 'boxTitleBar', dispName: 'Title Bar', defVal: 'none', type: 'bool'},
-	{name: 'boxTitleFill', dispName: 'Title Fill', defVal: 'none', type: 'color'}
+	{name: 'boxBar', dispName: 'Box Bar', devVal: 0, type: 'bool'},
+	{name: 'boxLane', dispName: 'Box Lane', defVal: 'none', type: 'color'}
 ];
 
 /**
@@ -103,6 +100,8 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 
 	// Start tag after color bar or leave space for rounded corner
 	var tagoffset = 3;
+
+	var bar = mxUtils.getBoolean(this.state.style, 'boxBar', false);
 
 	var rounded = mxUtils.getNumber(this.state.style, 'rounded', 0);
 
@@ -121,10 +120,13 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.lineTo(0, 0);
 
 		// Color bar
-		//c.moveTo(1, 0);
-		//c.lineTo(1, 25);
-		//c.moveTo(2, 0);
-		//c.lineTo(2, 25);
+		//if (bar == 1)
+		//{
+			c.moveTo(1, 0);
+			c.lineTo(1, 2);
+			c.moveTo(2, 0);
+			c.lineTo(2, 25);
+		//}
 	}
 
 	// Irregular shape
