@@ -640,7 +640,7 @@
 					 'shape=mxgraph.ibm2.box;boxType=vpc-instancegroup;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Instance Group', 'Instance Group', true, null, this.getTagsForStencil(gn, 'instance group', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=vpc-securitygroup;strokeWidth=2;strokeColor=#FF0000;fillColor=none;' + deployedToProperties,
+					 'shape=mxgraph.ibm2.box;boxType=vpc-securitygroup;strokeWidth=2;strokeColor=#FF0000;fillColor=none;boxPos=right' + deployedToProperties,
 					 200, 200, 'Security Group', 'Security Group', true, null, this.getTagsForStencil(gn, 'security group', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(

@@ -130,7 +130,15 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		switch (boxPos)
 		{
 			case 'left':
-				tagoffset = 0;
+				if (boxBar == 1)
+				{
+					// Leave space for bar.
+					tagoffset = 3;
+				}
+				else
+				{
+					tagoffset = 0;
+				}
 				break;
 			case 'middle':
 				tagoffset = (w/2)-12;
@@ -149,9 +157,6 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			c.lineTo(1, 2);
 			c.moveTo(2, 0);
 			c.lineTo(2, 25);
-
-			// Leave space for bar.
-			tagoffset = 3;
 		}
 	}
 
