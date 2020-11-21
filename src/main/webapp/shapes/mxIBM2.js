@@ -124,7 +124,19 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.lineTo(w, 0);
 		c.lineTo(w, h);
 		c.lineTo(0, h);
-		c.lineTo(0, 0);
+		if (boxKind == 'component')
+		{
+			c.moveTo(0, 0)
+			c.lineTo(0, 5)
+			c.moveTo(0, 10)
+			c.lineTo(0, 15)
+			c.moveTo(0, 20)
+			c.lineTo(0, h)
+		}
+		else
+		{
+			c.lineTo(0, 0);
+		}
 
 		// Determine tag position.
 		switch (boxPos)
@@ -335,6 +347,14 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         break;
 		case 'network-other':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        break;
+
+		// Other Boxes
+		case 'other-component':
+                        break;
+		case 'other-middle':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitytag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
 			

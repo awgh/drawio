@@ -587,7 +587,7 @@
 		var fns = [
 			 this.createVertexTemplateEntry(
 					 sectionProperties,
-					 0, 0, 'Cloud', 'Cloud', true, null, null),
+					 0, 0, 'cloud', 'cloud', true, null, null),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=cloud-ibm;strokeWidth=3;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
@@ -619,7 +619,7 @@
 
 			 this.createVertexTemplateEntry(
 					 sectionProperties,
-					 0, 0, 'VPC', 'VPC', true, null, null),
+					 0, 0, 'vpc', 'vpc', true, null, null),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=vpc-ibm;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
@@ -628,7 +628,7 @@
 					 'shape=mxgraph.ibm2.box;boxType=vpc-subnet;strokeWidth=1;strokeColor=#00882B;fillColor=#E6F0E2;' + deployedOnProperties,
 					 200, 200, 'Subnet:ACL', 'Subnet:ACL', true, null, this.getTagsForStencil(gn, 'subnet acl', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=vpc-virtualserver;boxKind=component;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=vpc-virtualserver;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Virtual Server', 'Virtual Server', true, null, this.getTagsForStencil(gn, 'vsi virtual server instance', dt).join(' ')),
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=vpc-baremetal;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
@@ -640,13 +640,12 @@
 					 'shape=mxgraph.ibm2.box;boxType=vpc-instancegroup;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Instance Group', 'Instance Group', true, null, this.getTagsForStencil(gn, 'instance group', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=vpc-securitygroup;boxPos=middle;strokeWidth=2;strokeColor=#FF0000;fillColor=none;' + // deployedToProperties,
-					'fontStyle=0;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;rounded=0;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
+					 'shape=mxgraph.ibm2.box;boxType=vpc-securitygroup;boxPos=middle;strokeWidth=2;strokeColor=#FF0000;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Security Group', 'Security Group', true, null, this.getTagsForStencil(gn, 'security group', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 sectionProperties,
-					 0, 0, 'Kube', 'Kube', true, null, null),
+					 0, 0, 'kube', 'kube', true, null, null),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=kube-ibm;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
@@ -672,7 +671,7 @@
 
 			 this.createVertexTemplateEntry(
 					 sectionProperties,
-					 0, 0, 'Network', 'Network', true, null, null),
+					 0, 0, 'network', 'network', true, null, null),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=network-pop;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
@@ -694,7 +693,21 @@
 					 200, 200, 'General Content', 'General Content', true, null, this.getTagsForStencil(gn, 'general', dt).join(' ')),
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=network-other;strokeWidth=2;strokeColor=#DFF8FF;fillColor=#DFF8FF;' + deployedOnProperties,
-					 200, 200, 'Other Content', 'Other Content', true, null, this.getTagsForStencil(gn, 'other', dt).join(' '))
+					 200, 200, 'Other Content', 'Other Content', true, null, this.getTagsForStencil(gn, 'other', dt).join(' ')),
+
+			 this.createVertexTemplateEntry(
+					 sectionProperties,
+					 0, 0, 'other', 'other', true, null, null),
+
+			 this.createVertexTemplateEntry(
+					 'shape=mxgraph.ibm2.box;boxType=other-component;boxKind=component;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 200, 200, 'Component Box', 'Component Box', true, null, this.getTagsForStencil(gn, 'component', dt).join(' ')),
+
+			 this.createVertexTemplateEntry(
+					 'shape=mxgraph.ibm2.box;boxType=other-middle;boxPos=middle;strokeWidth=2;strokeColor=#FF0000;fillColor=none;' + // deployedToProperties,
+					'fontStyle=0;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;rounded=0;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
+					 200, 200, 'Middle Icon', 'Middle Icon', true, null, this.getTagsForStencil(gn, 'middle', dt).join(' '))
+
 		];
 			   	
    		this.addPalette('ibm2Boxes', 'IBM 2.0 / Cloud / Boxes', false, mxUtils.bind(this, function(content)
