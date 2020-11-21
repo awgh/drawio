@@ -611,6 +611,9 @@
 					 'shape=mxgraph.ibm2.box;boxType=cloud-services;strokeWidth=1;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Cloud Services', 'Cloud Services', true, null, this.getTagsForStencil(gn, 'cloud services', dt).join(' ')),
 			 this.createVertexTemplateEntry(
+					 'shape=mxgraph.ibm2.box;boxType=cloud-accessgroup;strokeWidth=2;strokeColor=#C4982E;fillColor=none;' + deployedToProperties,
+					 200, 200, 'Access Group', 'Access Group', true, null, this.getTagsForStencil(gn, 'access group', dt).join(' ')),
+			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=cloud-accountgroup;strokeWidth=2;strokeColor=#C4982E;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Account Group', 'Account Group', true, null, this.getTagsForStencil(gn, 'account group', dt).join(' ')),
 			 this.createVertexTemplateEntry(
@@ -704,7 +707,7 @@
 					 200, 200, 'Component Box', 'Component Box', true, null, this.getTagsForStencil(gn, 'component', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-middle;boxPos=middle;strokeWidth=2;strokeColor=#FF0000;fillColor=none;' + // deployedToProperties,
+					 'shape=mxgraph.ibm2.box;boxType=other-middle;boxPos=middle;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + // deployedToProperties,
 					'fontStyle=0;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;rounded=0;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
 					 200, 200, 'Middle Icon', 'Middle Icon', true, null, this.getTagsForStencil(gn, 'middle', dt).join(' '))
 

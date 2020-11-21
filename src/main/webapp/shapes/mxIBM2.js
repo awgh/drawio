@@ -39,6 +39,7 @@ mxShapeIBM2Box.prototype.customProperties = [
 			   {val: 'cloud-classic', dispName: 'Classic Infrastructure'},
 			   {val: 'cloud-services', dispName: 'Cloud Services'},
 			   {val: 'cloud-foundry', dispName: 'Cloud Foundry'},
+                           {val: 'cloud-accessgroup', dispName: 'Access Group'},
                            {val: 'cloud-accountgroup', dispName: 'Account Group'},
                            {val: 'cloud-resourcegroup', dispName: 'Resource Group'},
 
@@ -251,6 +252,10 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
+                case 'cloud-accessgroup':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        break;
                 case 'cloud-accountgroup':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
@@ -282,7 +287,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
                 case 'vpc-instancegroup':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.instancegrouptag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
                 case 'vpc-securitygroup':
@@ -354,7 +359,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		case 'other-component':
                         break;
 		case 'other-middle':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitytag');
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.instancegrouptag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
 			
