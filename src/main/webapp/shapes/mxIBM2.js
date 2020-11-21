@@ -143,7 +143,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		}
 
 		// Draw color bar.
-		if (bar == 1)
+		if (boxBar == 1)
 		{
 			c.moveTo(1, 0);
 			c.lineTo(1, 2);
