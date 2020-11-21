@@ -100,11 +100,11 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 
 	var tagoffset = 0;
 
-	var boxKind = mxUtils.getNumber(this.state.style, 'boxKind', 'node');
+	var boxKind = mxUtils.getValue(this.state.style, 'boxKind', 'node');
 
 	var boxBar = mxUtils.getNumber(this.state.style, 'boxBar', 0);
 
-	var boxPos = mxUtils.getNumber(this.state.style, 'boxPos', 'left');
+	var boxPos = mxUtils.getValue(this.state.style, 'boxPos', 'left');
 
 	var rounded = mxUtils.getNumber(this.state.style, 'rounded', 0);
 
