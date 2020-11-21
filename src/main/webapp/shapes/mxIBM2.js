@@ -28,7 +28,7 @@ mxShapeIBM2Box.prototype.cst = {
 };
 
 mxShapeIBM2Box.prototype.customProperties = [
-	{name: 'prType', dispName: 'Box Type', defVal: 'cloud', type: 'enum', 
+	{name: 'prType', dispName: 'Box Type', defVal: 'cloud-ibm', type: 'enum', 
 		enumList: [
 			   // Cloud Boxes
 			   {val: 'cloud-ibm', dispName: 'IBM Cloud'}, 
@@ -68,6 +68,12 @@ mxShapeIBM2Box.prototype.customProperties = [
                            {val: 'network-server', dispName: 'Server Content'},
                            {val: 'network-general', dispName: 'General Content'},
                            {val: 'network-other', dispName: 'Other Content'}
+			  ]},
+
+	{name: 'prKind', dispName: 'Box Kind', defVal: 'node', type: 'enum', 
+		enumList: [
+			   {val: 'node', dispName: 'Node'}, 
+			   {val: 'component', dispName: 'Component'} 
 			  ]}
 ];
 
