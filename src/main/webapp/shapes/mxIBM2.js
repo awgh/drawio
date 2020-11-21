@@ -76,7 +76,7 @@ mxShapeIBM2Box.prototype.customProperties = [
 			   {val: 'component', dispName: 'Component'} 
 			  ]},
 
-	{name: 'boxIcon', dispName: 'Box Icon Position', defVal: 'left', type: 'enum', 
+	{name: 'boxPos', dispName: 'Box Position', defVal: 'left', type: 'enum', 
 		enumList: [
 			   {val: 'left', dispName: 'Left'}, 
 			   {val: 'middle', dispName: 'Middle'}, 
@@ -98,34 +98,60 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	
 	c.begin();
 
-	// Start tag after color bar or leave space for rounded corner
-	var tagoffset = 3;
+	var tagoffset = 0;
 
-	var bar = mxUtils.getNumber(this.state.style, 'boxBar', 0);
+	var boxKind = mxUtils.getNumber(this.state.style, 'boxKind', 'node');
+
+	var boxBar = mxUtils.getNumber(this.state.style, 'boxBar', 0);
+
+	var boxPos = mxUtils.getNumber(this.state.style, 'boxPos', 'left');
 
 	var rounded = mxUtils.getNumber(this.state.style, 'rounded', 0);
 
 	if (rounded == 1)
 	{
 		c.roundrect(0, 0, w, h, 16)
+
+		// Leave space for rounded corner.
+		tagoffset = 3;
 	}
 	else
 	{
 		//c.rect(0, 0, w, h);
 		
+		// Draw box.
 		c.moveTo(0, 0);
 		c.lineTo(w, 0);
 		c.lineTo(w, h);
 		c.lineTo(0, h);
 		c.lineTo(0, 0);
 
-		// Color bar
+		// Determine tag position.
+		switch (pos)
+		{
+			case 'left':
+				tagoffset = 0;
+				break;
+			case 'middle':
+				tagoffset = (w/2)-12;
+				break;
+			case 'right':
+				tagoffset = w-25;
+				break;
+			default:
+				break;
+		}
+
+		// Draw color bar.
 		if (bar == 1)
 		{
 			c.moveTo(1, 0);
 			c.lineTo(1, 2);
 			c.moveTo(2, 0);
 			c.lineTo(2, 25);
+
+			// Leave space for bar.
+			tagoffset = 3;
 		}
 	}
 
