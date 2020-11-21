@@ -28,7 +28,7 @@ mxShapeIBM2Box.prototype.cst = {
 };
 
 mxShapeIBM2Box.prototype.customProperties = [
-	{name: 'prType', dispName: 'Box Type', defVal: 'cloud-ibm', type: 'enum', 
+	{name: 'boxType', dispName: 'Box Type', defVal: 'cloud-ibm', type: 'enum', 
 		enumList: [
 			   // Cloud Boxes
 			   {val: 'cloud-ibm', dispName: 'IBM Cloud'}, 
@@ -70,11 +70,24 @@ mxShapeIBM2Box.prototype.customProperties = [
                            {val: 'network-other', dispName: 'Other Content'}
 			  ]},
 
-	{name: 'prKind', dispName: 'Box Kind', defVal: 'node', type: 'enum', 
+	{name: 'boxKind', dispName: 'Box Kind', defVal: 'node', type: 'enum', 
 		enumList: [
 			   {val: 'node', dispName: 'Node'}, 
 			   {val: 'component', dispName: 'Component'} 
-			  ]}
+			  ]},
+
+	{name: 'boxTagPos', dispName: 'Tag Position', defVal: 'left', type: 'enum', 
+		enumList: [
+			   {val: 'left', dispName: 'Left'}, 
+			   {val: 'middle', dispName: 'Middle'}, 
+			   {val: 'right', dispName: 'Right'} 
+			  ]},
+
+	{name: 'boxTagIcon', dispName: 'Tag Icon', defVal: 0, type: 'bool'},
+	{name: 'boxTagBar', dispName: 'Tag Bar', devVal: 0, type: 'bool'},
+	{name: 'boxTagFill', dispName: 'Tag Fill', defVal: 'none', type: 'color'},
+	{name: 'boxTitleBar', dispName: 'Title Bar', defVal: 'none', type: 'bool'},
+	{name: 'boxTitleFill', dispName: 'Title Fill', defVal: 'none', type: 'color'}
 ];
 
 /**
@@ -153,9 +166,9 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	c.setFillColor(fillColor);
 	c.setStrokeColor(strokeColor);
 
-	var prType = mxUtils.getValue(this.state.style, 'prType', '');
+	var boxType = mxUtils.getValue(this.state.style, 'boxType', '');
 	
-	switch(prType)
+	switch(boxType)
 	{
 		// Cloud Boxes
 		case 'cloud-ibm':
