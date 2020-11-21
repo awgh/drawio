@@ -628,7 +628,7 @@
 					 'shape=mxgraph.ibm2.box;boxType=vpc-subnet;strokeWidth=1;strokeColor=#00882B;fillColor=#E6F0E2;' + deployedOnProperties,
 					 200, 200, 'Subnet:ACL', 'Subnet:ACL', true, null, this.getTagsForStencil(gn, 'subnet acl', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=vpc-virtualserver;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=vpc-virtualserver;boxKind=component;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Virtual Server', 'Virtual Server', true, null, this.getTagsForStencil(gn, 'vsi virtual server instance', dt).join(' ')),
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=vpc-baremetal;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,

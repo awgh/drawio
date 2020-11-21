@@ -258,8 +258,8 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
 			break;
 		case 'vpc-virtualserver':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        //bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        //bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
 		case 'vpc-baremetal':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
