@@ -150,9 +150,25 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 				break;
 		}
 
-		// Draw color bar.
-		if (boxBar == 1)
+		if (boxKind == 'component')
 		{
+			// Draw first component bar.
+			c.moveTo(-4, 5);
+			c.lineTo(4, 5);
+			c.lineTo(4, 10);
+			c.lineTo(-4, 10);
+			c.lineTo(-4, 5);
+
+			// Draw second component bar.
+			c.moveTo(-4, 15);
+			c.lineTo(4, 15);
+			c.lineTo(4, 20);
+			c.lineTo(-4, 20);
+			c.lineTo(-4, 15);
+		}
+		else if (boxBar == 1)
+		{
+			// Draw color bar.
 			c.moveTo(1, 0);
 			c.lineTo(1, 2);
 			c.moveTo(2, 0);
@@ -174,19 +190,6 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	// Title line (similar to swimlane)
 	// c.moveTo(0, 25);
 	// c.lineTo(w, 25);
-
-	// Component bars
-	// c.moveTo(-4, 5);
-	// c.lineTo(4, 5);
-	// c.lineTo(4, 10);
-	// c.lineTo(-4, 10);
-	// c.lineTo(-4, 5);
-
-	// c.moveTo(-4, 15);
-	// c.lineTo(4, 15);
-	// c.lineTo(4, 20);
-	// c.lineTo(-4, 20);
-	// c.lineTo(-4, 15);
 
 	c.fillAndStroke();
 	
