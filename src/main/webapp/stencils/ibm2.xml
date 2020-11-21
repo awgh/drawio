@@ -645,7 +645,7 @@
 <shape aspect="variable" h="55.329" name="InstanceGroupTag" strokewidth="inherit" w="62.669">
     <connections/>
     <foreground>
-        <fillcolor color="#00882B"/>
+        <fillcolor color="#000000"/>
         <strokewidth width="1"/>
         <path>
             <move x="0" y="55.329"/>
@@ -663,7 +663,7 @@
             <close/>
         </path>
         <fill/>
-        <strokecolor color="#FFFFFF"/>
+        <strokecolor color="#000000"/>
         <strokewidth width="3"/>
         <path>
             <move x="23.5" y="38.174"/>
@@ -673,7 +673,7 @@
             <close/>
         </path>
         <stroke/>
-        <fillcolor color="#00882B"/>
+        <fillcolor color="#000000"/>
         <strokewidth width="1"/>
         <path>
             <move x="13.982" y="46.794"/>
@@ -683,7 +683,7 @@
             <close/>
         </path>
         <fill/>
-        <strokecolor color="#FFFFFF"/>
+        <strokecolor color="#000000"/>
         <strokewidth width="3"/>
         <path>
             <move x="13.982" y="46.794"/>
@@ -693,21 +693,21 @@
             <close/>
         </path>
         <stroke/>
-        <fillcolor color="#00882B"/>
+        <fillcolor color="#000000"/>
         <strokewidth width="1"/>
         <path>
             <move x="8.289" y="53.212"/>
             <line x="40.365" y="19.52"/>
         </path>
         <fill/>
-        <strokecolor color="#FFFFFF"/>
+        <strokecolor color="#000000"/>
         <strokewidth width="3.649"/>
         <path>
             <move x="8.289" y="53.212"/>
             <line x="38.318" y="21.669"/>
         </path>
         <stroke/>
-        <fillcolor color="#FFFFFF"/>
+        <fillcolor color="#000000"/>
         <strokewidth width="1"/>
         <path>
             <move x="40.173" y="35.956"/>
