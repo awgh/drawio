@@ -68,7 +68,13 @@ mxShapeIBM2Box.prototype.customProperties = [
                            {val: 'network-vlan', dispName: 'VLAN'},
                            {val: 'network-server', dispName: 'Server Content'},
                            {val: 'network-general', dispName: 'General Content'},
-                           {val: 'network-other', dispName: 'Other Content'}
+                           {val: 'network-other', dispName: 'Other Content'},
+
+			   // Other Boxes
+                           {val: 'other-componentbox', dispName: 'Component Box'},
+                           {val: 'other-roundedbox', dispName: 'Rounded Box'},
+                           {val: 'other-instancegroup', dispName: 'Other Instance Group'},
+                           {val: 'other-securitygroup', dispName: 'Other Security Group'}
 			  ]},
 
 	{name: 'boxKind', dispName: 'Box Kind', defVal: 'node', type: 'enum', 
@@ -291,7 +297,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
                 case 'vpc-securitygroup':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitytag');
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitygrouptag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
 
@@ -367,7 +373,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
 		case 'other-securitygroup':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitytag');
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitygrouptag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
 			

@@ -387,7 +387,7 @@
         <fill/>
     </foreground>
 </shape>
-<shape aspect="variable" h="64" name="SecurityTag" strokewidth="inherit" w="64">
+<shape aspect="variable" h="64" name="SecurityGroupTag" strokewidth="inherit" w="64">
     <connections/>
     <foreground>
         <rect h="64" w="64" x="0" y="0"/>
