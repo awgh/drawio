@@ -83,11 +83,12 @@ mxShapeIBM2Box.prototype.customProperties = [
 			   {val: 'component', dispName: 'Component'} 
 			  ]},
 
-	{name: 'boxPos', dispName: 'Box Position', defVal: 'left', type: 'enum', 
+	{name: 'boxIcon', dispName: 'Box Icon', defVal: 'left', type: 'enum', 
 		enumList: [
 			   {val: 'left', dispName: 'Left'}, 
 			   {val: 'middle', dispName: 'Middle'}, 
-			   {val: 'right', dispName: 'Right'} 
+			   {val: 'right', dispName: 'Right'},
+			   {val: 'none', dispName: 'None'} 
 			  ]},
 
 	{name: 'boxBar', dispName: 'Box Bar', devVal: false, type: 'bool'},
@@ -370,6 +371,10 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         break;
 		case 'other-instancegroup':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.instancegrouptag');
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        break;
+		case 'other-instancegroupv1':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.instancegroupv1tag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
 		case 'other-securitygroup':

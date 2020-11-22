@@ -721,4 +721,83 @@
         <fill/>
     </foreground>
 </shape>
+<shape aspect="variable" h="55.329" name="InstanceGroupV1Tag" strokewidth="inherit" w="62.669">
+    <connections/>
+    <foreground>
+        <fillcolor color="#00882b"/>
+        <strokewidth width="1"/>
+        <path>
+            <move x="0" y="55.329"/>
+            <line x="62.669" y="55.329"/>
+            <line x="62.669" y="0"/>
+            <line x="0" y="0"/>
+            <close/>
+        </path>
+        <fill/>
+        <path>
+            <move x="23.5" y="38.174"/>
+            <line x="55.791" y="38.174"/>
+            <line x="55.791" y="5.883"/>
+            <line x="23.5" y="5.883"/>
+            <close/>
+        </path>
+        <fill/>
+        <strokecolor color="#ffffff"/>
+        <strokewidth width="3"/>
+        <path>
+            <move x="23.5" y="38.174"/>
+            <line x="55.791" y="38.174"/>
+            <line x="55.791" y="5.883"/>
+            <line x="23.5" y="5.883"/>
+            <close/>
+        </path>
+        <stroke/>
+        <fillcolor color="#00882b"/>
+        <strokewidth width="1"/>
+        <path>
+            <move x="13.982" y="46.794"/>
+            <line x="46.272" y="46.794"/>
+            <line x="46.272" y="14.503"/>
+            <line x="13.982" y="14.503"/>
+            <close/>
+        </path>
+        <fill/>
+        <strokecolor color="#ffffff"/>
+        <strokewidth width="3"/>
+        <path>
+            <move x="13.982" y="46.794"/>
+            <line x="46.272" y="46.794"/>
+            <line x="46.272" y="14.503"/>
+            <line x="13.982" y="14.503"/>
+            <close/>
+        </path>
+        <stroke/>
+        <fillcolor color="#00882b"/>
+        <strokewidth width="1"/>
+        <path>
+            <move x="8.289" y="53.212"/>
+            <line x="40.365" y="19.52"/>
+        </path>
+        <fill/>
+        <strokecolor color="#ffffff"/>
+        <strokewidth width="3.649"/>
+        <path>
+            <move x="8.289" y="53.212"/>
+            <line x="38.318" y="21.669"/>
+        </path>
+        <stroke/>
+        <fillcolor color="#ffffff"/>
+        <strokewidth width="1"/>
+        <path>
+            <move x="40.173" y="35.956"/>
+            <line x="37.434" y="35.926"/>
+            <line x="37.597" y="22.432"/>
+            <line x="24.125" y="23.256"/>
+            <line x="23.961" y="20.521"/>
+            <line x="40.367" y="19.521"/>
+            <close/>
+        </path>
+        <fill/>
+    </foreground>
+</shape>
 </shapes>
