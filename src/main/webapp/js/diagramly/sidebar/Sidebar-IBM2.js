@@ -717,7 +717,7 @@
 					 200, 200, 'Instance Group', 'Instance Group', true, null, this.getTagsForStencil(gn, 'middle', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-securitygroup,;boxPos=middle;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + // deployedToProperties,
+					 'shape=mxgraph.ibm2.box;boxType=other-securitygroup;boxPos=middle;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + // deployedToProperties,
 					'fontStyle=0;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;rounded=0;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;',
 					 200, 200, 'Security Group', 'Security Group', true, null, this.getTagsForStencil(gn, 'middle', dt).join(' '))
 
