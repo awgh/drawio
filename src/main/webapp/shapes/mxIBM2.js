@@ -356,10 +356,18 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         break;
 
 		// Other Boxes
-		case 'other-component':
+		case 'other-componentbox':
                         break;
-		case 'other-middle':
+		case 'other-roundedbox':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        break;
+		case 'other-instancegroup':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.instancegrouptag');
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        break;
+		case 'other-securitygroup':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitytag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
 			
