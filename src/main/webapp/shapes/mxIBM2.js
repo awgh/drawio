@@ -92,7 +92,8 @@ mxShapeIBM2Box.prototype.customProperties = [
 			  ]},
 
 	{name: 'boxBar', dispName: 'Box Bar', devVal: false, type: 'bool'},
-	{name: 'boxLane', dispName: 'Box Lane', defVal: 'none', type: 'color'}
+
+	{name: 'boxLane', dispName: 'Box Lane', defVal: false, type: 'bool'}
 ];
 
 /**
