@@ -141,7 +141,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.lineTo(w, 0);
 		c.lineTo(w, h);
 		c.lineTo(0, h);
-		if (boxKind == 'component')
+		if (boxKind == 'prescribedcomponent')
 		{
 			c.moveTo(0, 0)
 			c.lineTo(0, 5)
