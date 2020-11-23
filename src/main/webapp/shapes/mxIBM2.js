@@ -155,7 +155,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		// Determine tag position.
 		switch (boxIcon)
 		{
-			case 'left':
+			case 'topleft':
 				if (boxBar == 1)
 				{
 					// Leave space for bar.
@@ -166,10 +166,10 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 					tagoffset = 0;
 				}
 				break;
-			case 'middle':
+			case 'topmiddle':
 				tagoffset = (w/2)-12;
 				break;
-			case 'right':
+			case 'topright':
 				tagoffset = w-25;
 				break;
 			default:
