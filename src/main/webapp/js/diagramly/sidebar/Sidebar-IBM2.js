@@ -728,7 +728,11 @@
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=other-ibmcloud;strokeWidth=1;strokeColor=#4376BB;fillColor=none;boxLane=1' + deployedOnProperties,
-					 200, 200, 'IBM Cloud', 'IBM Cloud', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' '))
+					 200, 200, 'IBM Cloud', 'IBM Cloud', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
+
+			 this.createVertexTemplateEntry(
+					 'shape=mxgraph.ibm2.box;boxType=other-vpc;strokeWidth=2;strokeColor=#4376BB;fillColor=none;boxBar=1' + deployedOnProperties,
+					 200, 200, 'VPC', 'VPC', true, null, this.getTagsForStencil(gn, 'vpc virtual private cloud', dt).join(' '))
 
 		];
 			   	

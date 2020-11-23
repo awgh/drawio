@@ -113,7 +113,9 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 
 	var boxBar = mxUtils.getNumber(this.state.style, 'boxBar', 0);
 
-	var boxPos = mxUtils.getValue(this.state.style, 'boxPos', 'left');
+	var boxIcon = mxUtils.getValue(this.state.style, 'boxIcon', 'left');
+
+	var boxLane = mxUtils.getValue(this.state.style, 'boxLane', 0);
 
 	var rounded = mxUtils.getNumber(this.state.style, 'rounded', 0);
 
@@ -148,7 +150,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		}
 
 		// Determine tag position.
-		switch (boxPos)
+		switch (boxIcon)
 		{
 			case 'left':
 				if (boxBar == 1)
@@ -195,6 +197,13 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			c.moveTo(2, 0);
 			c.lineTo(2, 25);
 		}
+
+		if (boxLane == 1)
+		{
+			// Title line (similar to swimlane)
+			c.moveTo(0, 25);
+			c.lineTo(w, 25);
+		}
 	}
 
 	// Irregular shape
@@ -207,10 +216,6 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	// c.lineTo(w, h);
 	// c.lineTo(0, h);
 	// c.lineTo(0, 0);
-
-	// Title line (similar to swimlane)
-	// c.moveTo(0, 25);
-	// c.lineTo(w, 25);
 
 	c.fillAndStroke();
 	
@@ -380,6 +385,14 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         break;
 		case 'other-securitygroup':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitygrouptag');
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        break;
+		case 'other-ibmcloud':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        break;
+		case 'other-vpc':
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.vpctag');
                         bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
                         break;
 			
