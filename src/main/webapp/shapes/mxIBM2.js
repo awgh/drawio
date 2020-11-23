@@ -179,7 +179,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 				break;
 		}
 
-		if (boxKind == 'component')
+		if (boxKind == 'prescribedcomponent')
 		{
 			// Draw first component bar.
 			c.moveTo(-4, 5);
@@ -375,7 +375,9 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         break;
 
 		// Other Boxes
-		case 'other-componentbox':
+		case 'other-logicalcomponent':
+                        break;
+		case 'other-prescribedcomponent':
                         break;
 		case 'other-roundedbox':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
