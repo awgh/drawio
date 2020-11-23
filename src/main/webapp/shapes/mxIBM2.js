@@ -73,8 +73,11 @@ mxShapeIBM2Box.prototype.customProperties = [
 			   // Other Boxes
                            {val: 'other-componentbox', dispName: 'Component Box'},
                            {val: 'other-roundedbox', dispName: 'Rounded Box'},
-                           {val: 'other-instancegroup', dispName: 'Other Instance Group'},
-                           {val: 'other-securitygroup', dispName: 'Other Security Group'}
+                           {val: 'other-instancegroup', dispName: 'Instance Group 2'},
+                           {val: 'other-instancegroupv1', dispName: 'Instance Group 1'},
+                           {val: 'other-securitygroup', dispName: 'Security Group 2'},
+                           {val: 'other-ibmcloud', dispName: 'IBM Cloud 2'},
+                           {val: 'other-vpc', dispName: 'VPC 2'}
 			  ]},
 
 	{name: 'boxKind', dispName: 'Box Kind', defVal: 'node', type: 'enum', 
