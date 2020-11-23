@@ -703,8 +703,12 @@
 					 0, 0, 'other', 'other', true, null, null),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-componentbox;boxKind=component;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
-					 200, 200, 'Component Box', 'Component Box', true, null, this.getTagsForStencil(gn, 'component', dt).join(' ')),
+					 'shape=mxgraph.ibm2.box;boxType=other-logicalcomponent;boxKind=logicalcomponent;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 200, 200, 'Logical Component', 'Logical Component', true, null, this.getTagsForStencil(gn, 'logical component', dt).join(' ')),
+
+			 this.createVertexTemplateEntry(
+					 'shape=mxgraph.ibm2.box;boxType=other-prescribedcomponent;boxKind=prescribedcomponent;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 200, 200, 'Prescribed Component', 'Prescribed Component', true, null, this.getTagsForStencil(gn, 'prescribed component', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=other-roundedbox;boxKind=component;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + // deployedOnProperties,

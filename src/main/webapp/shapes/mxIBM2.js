@@ -71,7 +71,8 @@ mxShapeIBM2Box.prototype.customProperties = [
                            {val: 'network-other', dispName: 'Other Content'},
 
 			   // Other Boxes
-                           {val: 'other-componentbox', dispName: 'Component Box'},
+                           {val: 'other-logicalcomponent', dispName: 'Logical Component'},
+                           {val: 'other-prescribedcomponent', dispName: 'Prescribed Component'},
                            {val: 'other-roundedbox', dispName: 'Rounded Box'},
                            {val: 'other-instancegroup', dispName: 'Instance Group 2'},
                            {val: 'other-instancegroupv1', dispName: 'Instance Group 1'},
@@ -82,8 +83,10 @@ mxShapeIBM2Box.prototype.customProperties = [
 
 	{name: 'boxKind', dispName: 'Box Kind', defVal: 'node', type: 'enum', 
 		enumList: [
-			   {val: 'node', dispName: 'Node'}, 
-			   {val: 'component', dispName: 'Component'} 
+			   {val: 'logicalcomponent', dispName: 'Logical Component'}, 
+			   {val: 'prescribedcomponent', dispName: 'Prescribed Component'}, 
+			   {val: 'logicalnode', dispName: 'Logical Node'}, 
+			   {val: 'prescribednode', dispName: 'Prescribed Node'} 
 			  ]},
 
 	{name: 'boxIcon', dispName: 'Box Icon', defVal: 'left', type: 'enum', 
