@@ -727,7 +727,7 @@
 					 200, 200, 'Security Group', 'Security Group', true, null, this.getTagsForStencil(gn, 'middle', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-ibmcloud;strokeWidth=1;strokeColor=#4376BB;fillColor=none;boxLane=1' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=other-ibmcloud;strokeWidth=1;strokeColor=#4376BB;fillColor=none;boxLane=1;' + deployedOnProperties,
 					 200, 200, 'IBM Cloud', 'IBM Cloud', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
