@@ -580,7 +580,7 @@
 
 		// User request to have same set of properties for all boxes with possibly different settings of each property.
 		// The following property variables are common property settings and each objects has unique property settings.
-		// These will need to be more dynamic but for now are static from previous usage.
+		// Note that spacingLeft needs to be changed to dynamic in order to properly position the title text depending on whether there is an icon, etc.
 					 
 	 	var sectionProperties = 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;';
 
