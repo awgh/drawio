@@ -126,6 +126,8 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	{
 		c.roundrect(0, 0, w, h, 16)
 
+		// Currently just creates a rounded box but needs to support properties similar to square box with rounded=0 below.
+
 		// Leave space for rounded corner.
 		tagoffset = 3;
 	}
