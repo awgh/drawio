@@ -77,8 +77,9 @@ mxShapeIBM2Box.prototype.customProperties = [
                            {val: 'other-prescribednode', dispName: 'Prescribed Node'}
 			  ]},
 
-	{name: 'boxKind', dispName: 'Box Kind', defVal: 'node', type: 'enum', 
+	{name: 'boxKind', dispName: 'Box Kind', defVal: 'none', type: 'enum', 
 		enumList: [
+			   {val: 'actor', dispName: 'Actor'}, 
 			   {val: 'logicalcomponent', dispName: 'Logical Component'}, 
 			   {val: 'prescribedcomponent', dispName: 'Prescribed Component'}, 
 			   {val: 'logicalnode', dispName: 'Logical Node'}, 
@@ -112,17 +113,24 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 
 	var tagoffset = 0;
 
-	var boxKind = mxUtils.getValue(this.state.style, 'boxKind', 'node');
+	var boxKind = mxUtils.getValue(this.state.style, 'boxKind', 'none');
 
 	var boxBar = mxUtils.getNumber(this.state.style, 'boxBar', 0);
 
-	var boxIcon = mxUtils.getValue(this.state.style, 'boxIcon', 'left');
+	var boxIcon = mxUtils.getValue(this.state.style, 'boxIcon', 'topleft');
 
 	var boxLane = mxUtils.getValue(this.state.style, 'boxLane', 0);
 
 	var rounded = mxUtils.getNumber(this.state.style, 'rounded', 0);
 
-	if (rounded == 1)
+	if (boxKind == 'actor')
+	{
+		var dy = Math.max(0, Math.min(w, parseFloat(mxUtils.getValue(this.style, 'dy', this.dy))));
+		var inset = 5;
+		var d = Math.min(dy, w - 2 * inset, h - inset);
+		c.ellipse(w * 0.5 - d * 0.5, 0, d, d); 
+	}
+	else if (rounded == 1)
 	{
 		c.roundrect(0, 0, w, h, 16)
 
@@ -377,6 +385,8 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         break;
 
 		// Other Boxes
+		case 'other-actor':
+                        break;
 		case 'other-logicalcomponent':
                         break;
 		case 'other-prescribedcomponent':
