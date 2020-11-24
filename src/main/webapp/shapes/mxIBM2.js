@@ -86,7 +86,7 @@ mxShapeIBM2Box.prototype.customProperties = [
 			   {val: 'none', dispName: 'None'} 
 			  ]},
 
-	{name: 'boxIcon', dispName: 'Box Icon', defVal: 'left', type: 'enum', 
+	{name: 'boxIcon', dispName: 'Box Icon', defVal: 'topleft', type: 'enum', 
 		enumList: [
 			   {val: 'topleft', dispName: 'Top Left'}, 
 			   {val: 'topmiddle', dispName: 'Top Middle'}, 
