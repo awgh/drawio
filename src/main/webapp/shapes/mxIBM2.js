@@ -234,6 +234,9 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	c.setStrokeColor(strokeColor);
 
 	var boxType = mxUtils.getValue(this.state.style, 'boxType', '');
+
+	// Note that cloudtag is used temporarily for new boxes until the icons 
+	// for the new boxes are added..
 	
 	switch(boxType)
 	{
