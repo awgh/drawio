@@ -126,7 +126,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	{
 		c.roundrect(0, 0, w, h, 16)
 
-		// Currently just creates a rounded box but needs to support properties similar to square box with rounded=0 below.
+		// Note that this needs to support properties similar to square box below.
 
 		// Leave space for rounded corner.
 		tagoffset = 3;
@@ -236,7 +236,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	var boxType = mxUtils.getValue(this.state.style, 'boxType', '');
 
 	// Note that cloudtag is used temporarily for new boxes until the icons 
-	// for the new boxes are added..
+	// for the new boxes are added.
 	
 	switch(boxType)
 	{
