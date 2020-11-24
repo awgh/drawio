@@ -73,12 +73,8 @@ mxShapeIBM2Box.prototype.customProperties = [
 			   // Other Boxes
                            {val: 'other-logicalcomponent', dispName: 'Logical Component'},
                            {val: 'other-prescribedcomponent', dispName: 'Prescribed Component'},
-                           {val: 'other-roundedbox', dispName: 'Rounded Box'},
-                           {val: 'other-instancegroup', dispName: 'Instance Group 2'},
-                           {val: 'other-instancegroupv1', dispName: 'Instance Group 1'},
-                           {val: 'other-securitygroup', dispName: 'Security Group 2'},
-                           {val: 'other-ibmcloud', dispName: 'IBM Cloud 2'},
-                           {val: 'other-vpc', dispName: 'VPC 2'}
+                           {val: 'other-logicalnode', dispName: 'Logical Node'},
+                           {val: 'other-prescribednode', dispName: 'Prescribed Node'}
 			  ]},
 
 	{name: 'boxKind', dispName: 'Box Kind', defVal: 'node', type: 'enum', 
@@ -86,7 +82,8 @@ mxShapeIBM2Box.prototype.customProperties = [
 			   {val: 'logicalcomponent', dispName: 'Logical Component'}, 
 			   {val: 'prescribedcomponent', dispName: 'Prescribed Component'}, 
 			   {val: 'logicalnode', dispName: 'Logical Node'}, 
-			   {val: 'prescribednode', dispName: 'Prescribed Node'} 
+			   {val: 'prescribednode', dispName: 'Prescribed Node'},
+			   {val: 'none', dispName: 'None'} 
 			  ]},
 
 	{name: 'boxIcon', dispName: 'Box Icon', defVal: 'left', type: 'enum', 
@@ -379,29 +376,9 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         break;
 		case 'other-prescribedcomponent':
                         break;
-		case 'other-roundedbox':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+		case 'other-logicalnode':
                         break;
-		case 'other-instancegroup':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.instancegrouptag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
-                        break;
-		case 'other-instancegroupv1':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.instancegroupv1tag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
-                        break;
-		case 'other-securitygroup':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitygrouptag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
-                        break;
-		case 'other-ibmcloud':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
-                        break;
-		case 'other-vpc':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.vpctag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+		case 'other-prescribednode':
                         break;
 			
 		default:
