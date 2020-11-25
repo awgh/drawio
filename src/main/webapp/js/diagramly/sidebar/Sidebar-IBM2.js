@@ -723,13 +723,14 @@
 					 'shape=mxgraph.ibm2.box;boxType=other-prescribednode;boxKind=prescribednode;boxBar=1;boxLane=1;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Prescribed Node', 'Prescribed Node', true, null, this.getTagsForStencil(gn, 'prescribed node', dt).join(' ')),
 
-			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-targetsystem;boxKind=targetsystem;boxBar=0;boxLane=0;rounded=1;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
-					 200, 200, 'Target System', 'Target System', true, null, this.getTagsForStencil(gn, 'target system', dt).join(' ')),
+			// Need to complete Target System and Actor.
+			//this.createVertexTemplateEntry(
+			 //		 'shape=mxgraph.ibm2.box;boxType=other-targetsystem;boxKind=targetsystem;boxBar=0;boxLane=0;rounded=1;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+			 //		 200, 200, 'Target System', 'Target System', true, null, this.getTagsForStencil(gn, 'target system', dt).join(' ')),
 
-			 this.createVertexTemplateEntry(
-					 'shape=ellipse;whitespace=wrap;html=1;aspect=fixed',
-					 200, 200, 'Actor', 'Actor', true, null, this.getTagsForStencil(gn, 'actor', dt).join(' '))
+			 //this.createVertexTemplateEntry(
+			 //		 'shape=ellipse;whitespace=wrap;html=1;aspect=fixed',
+			 //		 200, 200, 'Actor', 'Actor', true, null, this.getTagsForStencil(gn, 'actor', dt).join(' '))
 
 		];
 			   	
