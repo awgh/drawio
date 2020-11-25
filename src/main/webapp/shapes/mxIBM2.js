@@ -133,7 +133,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		//var d = Math.min(dy, w - 2 * inset, h - inset);
 		//c.ellipse(w * 0.5 - d * 0.5, 0, d, d); 
 		//c.ellipse(w, y, w, h)
-		c.ellipse(dx - barH, 0, 2 * barH, 2 * barhH)
+		c.ellipse(dx - barH, 0, 2 * barH, 2 * barH)
 		c.fill();
 	}
 	else if (rounded == 1)
