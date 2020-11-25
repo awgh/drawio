@@ -708,24 +708,29 @@
 					 0, 0, 'other', 'other', true, null, null),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-actor;boxKind=actor;boxBar=0;boxLane=0;rounded=1;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
-					 200, 200, 'Actor', 'Actor', true, null, this.getTagsForStencil(gn, 'actor', dt).join(' ')),
-
-			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-logicalcomponent;boxKind=logicalcomponent;boxBar=0;boxLane=0;rounded=1;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=other-logicalcomponent;boxKind=logicalcomponent;boxBar=0;boxLane=0;rounded=1;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Logical Component', 'Logical Component', true, null, this.getTagsForStencil(gn, 'logical component', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-prescribedcomponent;boxKind=prescribedcomponent;boxBar=1;boxLane=1;rounded=0;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=other-prescribedcomponent;boxKind=prescribedcomponent;boxBar=1;boxLane=1;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Prescribed Component', 'Prescribed Component', true, null, this.getTagsForStencil(gn, 'prescribed component', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-logicalnode;boxKind=logicalnode;boxBar=0;boxLane=0;rounded=1;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=other-logicalnode;boxKind=logicalnode;boxBar=0;boxLane=0;rounded=1;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Logical Node', 'Logical Node', true, null, this.getTagsForStencil(gn, 'logical node', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-prescribednode;boxKind=prescribednode;boxBar=1;boxLane=1;rounded=0;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=other-prescribednode;boxKind=prescribednode;boxBar=1;boxLane=1;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Prescribed Node', 'Prescribed Node', true, null, this.getTagsForStencil(gn, 'prescribed node', dt).join(' ')),
+
+			 this.createVertexTemplateEntry(
+					 'shape=mxgraph.ibm2.box;boxType=other-targetsystem;boxKind=targetsystem;boxBar=0;boxLane=0;rounded=1;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 200, 200, 'Target System', 'Target System', true, null, this.getTagsForStencil(gn, 'target system', dt).join(' ')),
+
+			 this.createVertexTemplateEntry(
+					 'shape=ellipse;whitespace=wrap;html=1;aspect=fixed',
+					 200, 200, 'Actor', 'Actor', true, null, this.getTagsForStencil(gn, 'actor', dt).join(' '))
+
 		];
 			   	
    		this.addPalette('ibm2Boxes', 'IBM 2.0 / Cloud / Boxes', false, mxUtils.bind(this, function(content)

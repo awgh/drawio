@@ -79,11 +79,11 @@ mxShapeIBM2Box.prototype.customProperties = [
 
 	{name: 'boxKind', dispName: 'Box Kind', defVal: 'none', type: 'enum', 
 		enumList: [
-			   {val: 'actor', dispName: 'Actor'}, 
 			   {val: 'logicalcomponent', dispName: 'Logical Component'}, 
 			   {val: 'prescribedcomponent', dispName: 'Prescribed Component'}, 
 			   {val: 'logicalnode', dispName: 'Logical Node'}, 
 			   {val: 'prescribednode', dispName: 'Prescribed Node'},
+			   {val: 'targetsystem', dispName: 'Target System'}, 
 			   {val: 'none', dispName: 'None'} 
 			  ]},
 
@@ -123,18 +123,9 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 
 	var rounded = mxUtils.getNumber(this.state.style, 'rounded', 0);
 
-	if (boxKind == 'actor')
+	if (boxKind == 'targetsystem')
 	{
-		var dx = Math.max(0, Math.min(w, parseFloat(mxUtils.getValue(this.style, 'dx', this.dx))));
-		var dy = Math.max(0, Math.min(w, parseFloat(mxUtils.getValue(this.style, 'dy', this.dy))));
-		var barH = Math.min(h * 0.5, w*0.5)
-		var r = barH * 0.5;
-		//var inset = 5;
-		//var d = Math.min(dy, w - 2 * inset, h - inset);
-		//c.ellipse(w * 0.5 - d * 0.5, 0, d, d); 
-		//c.ellipse(w, y, w, h)
-		c.ellipse(dx - barH, 0, 2 * barH, 2 * barH)
-		c.fill();
+		// Need to implement.
 	}
 	else if (rounded == 1)
 	{
@@ -391,7 +382,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         break;
 
 		// Other Boxes
-		case 'other-actor':
+		case 'other-pill':
                         break;
 		case 'other-logicalcomponent':
                         break;
