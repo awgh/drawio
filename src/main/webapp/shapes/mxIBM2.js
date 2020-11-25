@@ -125,10 +125,11 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 
 	if (boxKind == 'actor')
 	{
-		var dy = Math.max(0, Math.min(w, parseFloat(mxUtils.getValue(this.style, 'dy', this.dy))));
-		var inset = 5;
-		var d = Math.min(dy, w - 2 * inset, h - inset);
-		c.ellipse(w * 0.5 - d * 0.5, 0, d, d); 
+		//var dy = Math.max(0, Math.min(w, parseFloat(mxUtils.getValue(this.style, 'dy', this.dy))));
+		//var inset = 5;
+		//var d = Math.min(dy, w - 2 * inset, h - inset);
+		//c.ellipse(w * 0.5 - d * 0.5, 0, d, d); 
+		c.ellipse(w, y, w, h)
 	}
 	else if (rounded == 1)
 	{
