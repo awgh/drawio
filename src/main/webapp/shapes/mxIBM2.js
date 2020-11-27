@@ -111,14 +111,15 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	
 	c.begin();
 
-	var tagoffset = 0;
+	var xtag = 12;
+	var ytag = 12;
+
+	var wtag = 24;
+	var htag = 24;
 
 	var boxKind = mxUtils.getValue(this.state.style, 'boxKind', 'none');
 
 	var boxBar = mxUtils.getNumber(this.state.style, 'boxBar', 0);
-
-	// Test changing style.
-	//this.state.style = mxUtils.setStyle(this.state.style, mxConstants.STYLE_FILLCOLOR, '#ffffff');
 
 	var boxIcon = mxUtils.getValue(this.state.style, 'boxIcon', 'topleft');
 
@@ -137,7 +138,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		// Note that this needs to support properties similar to square box below.
 
 		// Leave space for rounded corner.
-		tagoffset = 3;
+		xtag = 3;
 	}
 	else
 	{
@@ -169,18 +170,18 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 				if (boxBar == 1)
 				{
 					// Leave space for bar.
-					tagoffset = 3;
+					xtag = 3;
 				}
 				else
 				{
-					tagoffset = 0;
+					xtag = 0;
 				}
 				break;
 			case 'topmiddle':
-				tagoffset = (w/2)-12;
+				xtag = (w/2)-12;
 				break;
 			case 'topright':
-				tagoffset = w-25;
+				xtag = w-25;
 				break;
 			default:
 				break;
@@ -251,137 +252,137 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		// Cloud Boxes
 		case 'cloud-ibm':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+			bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
 			break;
 		case 'cloud-region':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.regiontag');
-			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+			bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
 			break;
 		case 'cloud-zone':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.zonetag');
-			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+			bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
 			break;
 		case 'cloud-public':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.publictag');
-			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+			bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
 			break;
 		case 'cloud-enterprise':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.enterprisetag');
-			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+			bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
 			break;
 		case 'cloud-classic':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.classictag');
-			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+			bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
 			break;
 		case 'cloud-services':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'cloud-foundry':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
                 case 'cloud-accessgroup':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
                 case 'cloud-accountgroup':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
                 case 'cloud-resourcegroup':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 
 		// VPC Boxes
 		case 'vpc-ibm':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.vpctag');
-			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+			bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
 			break;
 		case 'vpc-subnet':
 			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.subnettag');
-			bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+			bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
 			break;
 		case 'vpc-virtualserver':
                         //bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        //bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        //bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'vpc-baremetal':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'vpc-endpoints':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
                 case 'vpc-instancegroup':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.instancegrouptag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
                 case 'vpc-securitygroup':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.securitygrouptag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 
 		// Kube Boxes
 		case 'kube-ibm':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'kube-general':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'kube-openshift':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'kube-services':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'kube-replicaset':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'kube-pod':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
                 case 'kube-namespacegroup':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 
 		// Network Boxes
 		case 'network-pop':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'network-datacenter':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'network-overlay':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'network-vlan':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'network-server':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'network-general':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 		case 'network-other':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        bgSt1.drawShape(c, this, tagoffset, 0, 25, 25);
+                        bgSt1.drawShape(c, this, xtag, ytag, wtag, htag);
                         break;
 
 		// Other Boxes
