@@ -118,7 +118,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	var boxBar = mxUtils.getNumber(this.state.style, 'boxBar', 0);
 
 	// Test changing style.
-	mxUtils.setStyle(this.state.style, 'boxIcon', 'topmiddle');
+	this.state.style = mxUtils.setStyle(this.state.style, mxConstants.STYLE_FILLCOLOR, '#ffffff');
 
 	var boxIcon = mxUtils.getValue(this.state.style, 'boxIcon', 'topleft');
 
