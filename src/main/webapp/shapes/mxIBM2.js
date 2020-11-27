@@ -111,8 +111,8 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	
 	c.begin();
 
-	var xtag = 12;
-	var ytag = 12;
+	var xtag = 0;
+	var ytag = 0;
 
 	var wtag = 24;
 	var htag = 24;
@@ -136,9 +136,6 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.roundrect(0, 0, w, h, 16)
 
 		// Note that this needs to support properties similar to square box below.
-
-		// Leave space for rounded corner.
-		xtag = 3;
 	}
 	else
 	{
@@ -167,21 +164,16 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		switch (boxIcon)
 		{
 			case 'topleft':
-				if (boxBar == 1)
-				{
-					// Leave space for bar.
-					xtag = 3;
-				}
-				else
-				{
-					xtag = 0;
-				}
+				xtag = 12;
+				ytag = 12;
 				break;
 			case 'topmiddle':
 				xtag = (w/2)-12;
+				ytag = 12;
 				break;
 			case 'topright':
-				xtag = w-25;
+				xtag = w-25-12;
+				ytag = 12;
 				break;
 			default:
 				break;
