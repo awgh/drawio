@@ -596,9 +596,9 @@
 			//this.createVertexTemplateEntry(
 			//		 sectionProperties,
 			// 		 0, 0, 'cloud', 'cloud', true, null, null),
-			this.createVertexTemplateEntry(
-	 		 		 sectionImageProperties + 'cloudtag',
-			 		 0, 0, '', '', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
+			 this.createVertexTemplateEntry(
+					 'shape=mxgraph.ibm2.cloudtag;',
+					 200, 200, 'IBM Cloud', 'IBM Cloud', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=cloud-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
