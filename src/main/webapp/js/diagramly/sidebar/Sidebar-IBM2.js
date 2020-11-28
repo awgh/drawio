@@ -689,9 +689,12 @@
 					 'shape=mxgraph.ibm2.box;boxType=kube-namespacegroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Namespace Group', 'Namespace Group', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 
+			 //this.createVertexTemplateEntry(
+			 //		 sectionProperties,
+			 //		 0, 0, 'network', 'network', true, null, null),
 			 this.createVertexTemplateEntry(
-					 sectionProperties,
-					 0, 0, 'network', 'network', true, null, null),
+	 				 sectionImageProperties + 'vlantag',
+					 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'vlan network', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=network-pop;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,

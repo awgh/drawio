@@ -327,7 +327,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
                         break;
 		case 'kube-general':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.kubetag');
                         bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
                         break;
 		case 'kube-openshift':
@@ -365,7 +365,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
                         break;
 		case 'network-vlan':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.vlantag');
                         bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
                         break;
 		case 'network-server':
