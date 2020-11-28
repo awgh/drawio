@@ -111,6 +111,8 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	
 	c.begin();
 
+	var filler = 12;
+
 	var xoffset = 0;
 	var yoffset = 0;
 
@@ -148,12 +150,12 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.lineTo(0, h);
 		if (boxKind == 'prescribedcomponent')
 		{
-			c.moveTo(0, 0)
-			c.lineTo(0, 5)
-			c.moveTo(0, 10)
-			c.lineTo(0, 15)
-			c.moveTo(0, 20)
-			c.lineTo(0, h)
+			c.moveTo(filler, filler)
+			c.lineTo(filler, 5)
+			c.moveTo(filler, 10)
+			c.lineTo(filler, 15)
+			c.moveTo(filler, 20)
+			c.lineTo(filler, filler+h)
 		}
 		else
 		{
@@ -182,33 +184,33 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		if (boxKind == 'prescribedcomponent')
 		{
 			// Draw first component bar.
-			c.moveTo(-4, 5);
-			c.lineTo(4, 5);
-			c.lineTo(4, 10);
-			c.lineTo(-4, 10);
-			c.lineTo(-4, 5);
+			c.moveTo(-4, filler+5);
+			c.lineTo(filler+4, filler+5);
+			c.lineTo(filler+4, filler+10);
+			c.lineTo(-4, filler+10);
+			c.lineTo(-4, filler+5);
 
 			// Draw second component bar.
-			c.moveTo(-4, 15);
-			c.lineTo(4, 15);
-			c.lineTo(4, 20);
-			c.lineTo(-4, 20);
-			c.lineTo(-4, 15);
+			c.moveTo(-4, filler+15);
+			c.lineTo(filler+4, filler+15);
+			c.lineTo(filler+4, filler+20);
+			c.lineTo(-4, filler+20);
+			c.lineTo(-4, filler+15);
 		}
 		else if (boxBar == 1)
 		{
 			// Draw color bar.
 			c.moveTo(1, 0);
-			c.lineTo(1, 2);
+			c.lineTo(1, 48);
 			c.moveTo(2, 0);
-			c.lineTo(2, 25);
+			c.lineTo(2, 48);
 		}
 
 		if (boxLane == 1)
 		{
 			// Title line (similar to swimlane)
-			c.moveTo(0, 25);
-			c.lineTo(w, 25);
+			c.moveTo(0, 48);
+			c.lineTo(w, 48);
 		}
 	}
 
