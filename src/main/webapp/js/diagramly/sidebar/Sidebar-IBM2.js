@@ -584,9 +584,9 @@
 					 
 	 	var sectionProperties = 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;';
 
-		var deployedOnProperties = 'fontStyle=0;verticalAlign=top;align=left;spacingLeft=48;spacingTop=12;whiteSpace=wrap;html=1;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
+		var deployedOnProperties = 'strokeWidth=1;fontStyle=0;verticalAlign=top;align=left;spacingLeft=48;spacingTop=12;whiteSpace=wrap;html=1;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
 
-		var deployedToProperties = 'fontStyle=0;verticalAlign=top;align=left;spacingLeft=48;spacingTop=12;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
+		var deployedToProperties = 'strokeWidth=1;fontStyle=0;verticalAlign=top;align=left;spacingLeft=48;spacingTop=12;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
 		
 		var fns = [
 			 this.createVertexTemplateEntry(
@@ -594,34 +594,34 @@
 					 0, 0, 'cloud', 'cloud', true, null, null),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=cloud-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=3;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=cloud-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'IBM Cloud', 'IBM Cloud', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=cloud-region;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#919191;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=cloud-region;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#919191;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Region', 'Region', true, null, this.getTagsForStencil(gn, 'region', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=cloud-zone;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=1;strokeColor=#919191;fillColor=#E0E0E0;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=cloud-zone;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#919191;fillColor=#E0E0E0;' + deployedOnProperties,
 					 200, 200, 'Zone', 'Zone', true, null, this.getTagsForStencil(gn, 'zone', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=cloud-public;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=3;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=cloud-public;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Public Network', 'Public Network', true, null, this.getTagsForStencil(gn, 'public network', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=cloud-enterprise;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=3;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=cloud-enterprise;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Enterprise Network', 'Enterprise Network', true, null, this.getTagsForStencil(gn, 'enterprise network', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=cloud-classic;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=cloud-classic;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Classic Infrastructure', 'Classic Infrastructure', true, null, this.getTagsForStencil(gn, 'classic infrastructure', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=cloud-services;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=1;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=cloud-services;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Cloud Services', 'Cloud Services', true, null, this.getTagsForStencil(gn, 'cloud services', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=cloud-accessgroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#C4982E;fillColor=none;' + deployedToProperties,
+					 'shape=mxgraph.ibm2.box;boxType=cloud-accessgroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#C4982E;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Access Group', 'Access Group', true, null, this.getTagsForStencil(gn, 'access group', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=cloud-accountgroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#C4982E;fillColor=none;' + deployedToProperties,
+					 'shape=mxgraph.ibm2.box;boxType=cloud-accountgroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#C4982E;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Account Group', 'Account Group', true, null, this.getTagsForStencil(gn, 'account group', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=cloud-resourcegroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#919191;fillColor=none;' + deployedToProperties,
+					 'shape=mxgraph.ibm2.box;boxType=cloud-resourcegroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#919191;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Resource Group', 'Resource Group', true, null, this.getTagsForStencil(gn, 'resource group', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
@@ -629,25 +629,25 @@
 					 0, 0, 'vpc', 'vpc', true, null, null),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=vpc-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=vpc-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'VPC', 'VPC', true, null, this.getTagsForStencil(gn, 'vpc virtual private cloud', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=vpc-subnet;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=1;strokeColor=#00882B;fillColor=#E6F0E2;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=vpc-subnet;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#00882B;fillColor=#E6F0E2;' + deployedOnProperties,
 					 200, 200, 'Subnet:ACL', 'Subnet:ACL', true, null, this.getTagsForStencil(gn, 'subnet acl', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=vpc-virtualserver;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=vpc-virtualserver;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Virtual Server', 'Virtual Server', true, null, this.getTagsForStencil(gn, 'vsi virtual server instance', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=vpc-baremetal;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=vpc-baremetal;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Bare Metal Server', 'Bare Metal Server', true, null, this.getTagsForStencil(gn, 'bare metal server', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=vpc-endpoints;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=3;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=vpc-endpoints;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Endpoints', 'Endpoints', true, null, this.getTagsForStencil(gn, 'endpoints', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=vpc-instancegroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedToProperties,
+					 'shape=mxgraph.ibm2.box;boxType=vpc-instancegroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#00882B;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Instance Group', 'Instance Group', true, null, this.getTagsForStencil(gn, 'instance group', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=vpc-securitygroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#FF0000;fillColor=none;' + deployedToProperties,
+					 'shape=mxgraph.ibm2.box;boxType=vpc-securitygroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#FF0000;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Security Group', 'Security Group', true, null, this.getTagsForStencil(gn, 'security group', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
@@ -655,25 +655,25 @@
 					 0, 0, 'kube', 'kube', true, null, null),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=kube-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=kube-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'IBM Kubernetes Cluster', 'IBM Kubernetes Cluster', true, null, this.getTagsForStencil(gn, 'ibm kubernetes cluster', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=kube-general;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=kube-general;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'General Kubernetes Cluster', 'General Kubernetes Cluster', true, null, this.getTagsForStencil(gn, 'kubernetes cluster', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=kube-openshift;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=kube-openshift;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'OpenShift Cluster', 'OpenShift Cluster', true, null, this.getTagsForStencil(gn, 'openshift cluster', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=kube-service;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=kube-service;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Kubernetes Service', 'Kubernetes Service', true, null, this.getTagsForStencil(gn, 'kubernetes service', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=kube-replicaset;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=#CDEBF9;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=kube-replicaset;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=#CDEBF9;' + deployedOnProperties,
 					 200, 200, 'Kubernetes Replica Set', 'Kubernetes Replica Set', true, null, this.getTagsForStencil(gn, 'kubernetes replica set', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=kube-pod;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#B99ACD;fillColor=#F4E9F5;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=kube-pod;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#B99ACD;fillColor=#F4E9F5;' + deployedOnProperties,
 					 200, 200, 'Kubernetes Pod', 'Kubernetes Pod', true, null, this.getTagsForStencil(gn, 'kubernetes pod', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=kube-namespacegroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedToProperties,
+					 'shape=mxgraph.ibm2.box;boxType=kube-namespacegroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Namespace Group', 'Namespace Group', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
@@ -681,25 +681,25 @@
 					 0, 0, 'network', 'network', true, null, null),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=network-pop;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=network-pop;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Point of Presence', 'Point of Presence', true, null, this.getTagsForStencil(gn, 'pop point presence', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=network-datacenter;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=network-datacenter;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Data Center', 'Data Center', true, null, this.getTagsForStencil(gn, 'dc datacenter', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=network-overlay;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=network-overlay;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Overlay Network', 'Overlay Network', true, null, this.getTagsForStencil(gn, 'overlay network', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=network-vlan;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=network-vlan;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#00882B;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'VLAN', 'VLAN', true, null, this.getTagsForStencil(gn, 'vlan', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=network-server;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=network-server;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Server Content', 'Server Content', true, null, this.getTagsForStencil(gn, 'server', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=network-general;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#E0E0E0;fillColor=#E0E0E0;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=network-general;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#E0E0E0;fillColor=#E0E0E0;' + deployedOnProperties,
 					 200, 200, 'General Content', 'General Content', true, null, this.getTagsForStencil(gn, 'general', dt).join(' ')),
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=network-other;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeWidth=2;strokeColor=#DFF8FF;fillColor=#DFF8FF;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=network-other;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#DFF8FF;fillColor=#DFF8FF;' + deployedOnProperties,
 					 200, 200, 'Other Content', 'Other Content', true, null, this.getTagsForStencil(gn, 'other', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
@@ -707,24 +707,24 @@
 					 0, 0, 'other', 'other', true, null, null),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-logicalcomponent;boxKind=logicalcomponent;boxBar=0;boxLane=0;rounded=1;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=other-logicalcomponent;boxKind=logicalcomponent;boxBar=0;boxLane=0;rounded=1;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Logical Component', 'Logical Component', true, null, this.getTagsForStencil(gn, 'logical component', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-prescribedcomponent;boxKind=prescribedcomponent;boxBar=1;boxLane=1;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=other-prescribedcomponent;boxKind=prescribedcomponent;boxBar=1;boxLane=1;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Prescribed Component', 'Prescribed Component', true, null, this.getTagsForStencil(gn, 'prescribed component', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-logicalnode;boxKind=logicalnode;boxBar=0;boxLane=0;rounded=1;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=other-logicalnode;boxKind=logicalnode;boxBar=0;boxLane=0;rounded=1;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Logical Node', 'Logical Node', true, null, this.getTagsForStencil(gn, 'logical node', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
-					 'shape=mxgraph.ibm2.box;boxType=other-prescribednode;boxKind=prescribednode;boxBar=1;boxLane=1;rounded=0;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+					 'shape=mxgraph.ibm2.box;boxType=other-prescribednode;boxKind=prescribednode;boxBar=1;boxLane=1;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 					 200, 200, 'Prescribed Node', 'Prescribed Node', true, null, this.getTagsForStencil(gn, 'prescribed node', dt).join(' ')),
 
 			// Need to complete Target System and Actor.
 			//this.createVertexTemplateEntry(
-			 //		 'shape=mxgraph.ibm2.box;boxType=other-targetsystem;boxKind=targetsystem;boxBar=0;boxLane=0;rounded=1;strokeWidth=2;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
+			 //		 'shape=mxgraph.ibm2.box;boxType=other-targetsystem;boxKind=targetsystem;boxBar=0;boxLane=0;rounded=1;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
 			 //		 200, 200, 'Target System', 'Target System', true, null, this.getTagsForStencil(gn, 'target system', dt).join(' ')),
 
 			 //this.createVertexTemplateEntry(
@@ -747,23 +747,23 @@
 		var gn = 'connectors ';
 		
 		var fns = [
-		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;jettySize=auto;orthogonalLoop=1;strokeWidth=1;fontSize=14;endArrow=none;endFill=0;', 
+		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;jettySize=auto;orthogonalLoop=1;fontSize=14;endArrow=none;endFill=0;', 
 					 d, d, '', 'Connector', null, dt + 'connector'),
-		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;strokeWidth=1;fontSize=14;', 
+		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;fontSize=14;', 
 					 d, d, '', 'Connector (Single Arrow)', null, dt + 'connector single arrow'),
-		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;startArrow=classic;startFill=1;startSize=6;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;strokeWidth=1;fontSize=14;', 
+		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;startArrow=classic;startFill=1;startSize=6;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;fontSize=14;', 
 					 d, d, '', 'Connector (Double Arrow)', null, dt + 'connector double arrow'),
-		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;jettySize=auto;orthogonalLoop=1;strokeWidth=1;dashed=1;fontSize=14;', 
+		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;jettySize=auto;orthogonalLoop=1;dashed=1;fontSize=14;', 
 					 d, d, '', 'Dashed Connector', null, dt + 'dashed connector'),
-		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;startArrow=none;startFill=0;startSize=6;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;strokeWidth=1;dashed=1;fontSize=14;', 
+		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;startArrow=none;startFill=0;startSize=6;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;dashed=1;fontSize=14;', 
 					 d, d, '', 'Dashed Connector (Single Arrow)', null, dt + 'dashed connector single arrow'),
-		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;startArrow=classic;startFill=1;startSize=6;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;strokeWidth=1;dashed=1;fontSize=14;', 
+		 	 this.createEdgeTemplateEntry('html=1;labelBackgroundColor=#ffffff;startArrow=classic;startFill=1;startSize=6;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;dashed=1;fontSize=14;', 
 					 d, d, '', 'Dashed Connector (Double Arrow)', null, dt + 'dashed connector double arrow'),
-		 	 this.createEdgeTemplateEntry('edgeStyle=elbowEdgeStyle;rounded=0;elbow=vertical;html=1;labelBackgroundColor=#ffffff;jettySize=auto;orthogonalLoop=1;strokeWidth=1;fontSize=14;endArrow=none;endFill=0;', 
+		 	 this.createEdgeTemplateEntry('edgeStyle=elbowEdgeStyle;rounded=0;elbow=vertical;html=1;labelBackgroundColor=#ffffff;jettySize=auto;orthogonalLoop=1;fontSize=14;endArrow=none;endFill=0;', 
 					 d, d, '', 'Elbow Connector', null, dt + 'elbow connector'),
-		 	 this.createEdgeTemplateEntry('edgeStyle=elbowEdgeStyle;rounded=0;elbow=vertical;html=1;labelBackgroundColor=#ffffff;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;strokeWidth=1;fontSize=14;', 
+		 	 this.createEdgeTemplateEntry('edgeStyle=elbowEdgeStyle;rounded=0;elbow=vertical;html=1;labelBackgroundColor=#ffffff;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;fontSize=14;', 
 					 d, d, '', 'Elbow Connector (Single Arrow)', null, dt + 'elbow connector single arrow'),
-		 	 this.createEdgeTemplateEntry('edgeStyle=elbowEdgeStyle;rounded=0;elbow=vertical;html=1;labelBackgroundColor=#ffffff;startArrow=classic;startFill=1;startSize=6;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;strokeWidth=1;fontSize=14;', 
+		 	 this.createEdgeTemplateEntry('edgeStyle=elbowEdgeStyle;rounded=0;elbow=vertical;html=1;labelBackgroundColor=#ffffff;startArrow=classic;startFill=1;startSize=6;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;fontSize=14;', 
 		 			 d, d, '', 'Elbow Connector (Double Arrow)', null, dt + 'elbow connector double arrow')
 		];
 			   	

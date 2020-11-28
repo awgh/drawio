@@ -150,12 +150,12 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		c.lineTo(0, h);
 		if (boxKind == 'prescribedcomponent')
 		{
-			c.moveTo(filler, filler)
-			c.lineTo(filler, 5)
-			c.moveTo(filler, 10)
-			c.lineTo(filler, 15)
-			c.moveTo(filler, 20)
-			c.lineTo(filler, filler+h)
+			c.moveTo(0, 0)
+			c.lineTo(0, filler+5)
+			c.moveTo(0, filler+10)
+			c.lineTo(0, filler+15)
+			c.moveTo(0, filler+20)
+			c.lineTo(0, h)
 		}
 		else
 		{
@@ -185,15 +185,15 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 		{
 			// Draw first component bar.
 			c.moveTo(-4, filler+5);
-			c.lineTo(filler+4, filler+5);
-			c.lineTo(filler+4, filler+10);
+			c.lineTo(4, filler+5);
+			c.lineTo(4, filler+10);
 			c.lineTo(-4, filler+10);
 			c.lineTo(-4, filler+5);
 
 			// Draw second component bar.
 			c.moveTo(-4, filler+15);
-			c.lineTo(filler+4, filler+15);
-			c.lineTo(filler+4, filler+20);
+			c.lineTo(4, filler+15);
+			c.lineTo(4, filler+20);
 			c.lineTo(-4, filler+20);
 			c.lineTo(-4, filler+15);
 		}
