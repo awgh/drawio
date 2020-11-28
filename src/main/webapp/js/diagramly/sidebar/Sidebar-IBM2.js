@@ -598,7 +598,7 @@
 			// 		 0, 0, 'cloud', 'cloud', true, null, null),
 			 this.createVertexTemplateEntry(
 	 				 sectionImageProperties + 'cloudtag',
-					 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
+					 12, 12, '', '', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=cloud-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
@@ -636,7 +636,7 @@
 			 //		 0, 0, 'vpc', 'vpc', true, null, null),
 			 this.createVertexTemplateEntry(
 	 				 sectionImageProperties + 'vpctag',
-					 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'vpc virtual private cloud', dt).join(' ')),
+					 12, 12, '', '', true, null, this.getTagsForStencil(gn, 'vpc virtual private cloud', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=vpc-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
@@ -665,7 +665,7 @@
 			 //		 0, 0, 'kube', 'kube', true, null, null),
 			 this.createVertexTemplateEntry(
 	 				 sectionImageProperties + 'kubetag',
-					 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'kubernetes cluster', dt).join(' ')),
+					 12, 12, '', '', true, null, this.getTagsForStencil(gn, 'kubernetes cluster', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=kube-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
