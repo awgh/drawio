@@ -597,8 +597,7 @@
 			//		 sectionProperties,
 			// 		 0, 0, 'cloud', 'cloud', true, null, null),
 			 this.createVertexTemplateEntry(
-					 //'outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D05C17;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.ibm2.cloudtag;',
-	 				 'html=1;aspect=fixed;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;shape=mxgraph.ibm2.cloudtag',
+	 				 sectionImageProperties + 'cloudtag',
 					 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
@@ -632,9 +631,12 @@
 					 'shape=mxgraph.ibm2.box;boxType=cloud-resourcegroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#919191;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Resource Group', 'Resource Group', true, null, this.getTagsForStencil(gn, 'resource group', dt).join(' ')),
 
+			 //this.createVertexTemplateEntry(
+			 //		 sectionProperties,
+			 //		 0, 0, 'vpc', 'vpc', true, null, null),
 			 this.createVertexTemplateEntry(
-					 sectionProperties,
-					 0, 0, 'vpc', 'vpc', true, null, null),
+	 				 sectionImageProperties + 'vpctag',
+					 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'vpc virtual private cloud', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=vpc-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
