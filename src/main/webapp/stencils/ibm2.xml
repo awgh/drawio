@@ -454,9 +454,11 @@
         <fill/>
     </foreground>
 </shape>
-<shape aspect="variable" h="44" name="VPCTag" strokewidth="inherit" w="45.085">
+<shape aspect="variable" h="64" name="VPCTag" strokewidth="inherit" w="64">
     <connections/>
     <foreground>
+        <rect h="64" w="64" x="0" y="0"/>
+        <fill/>
         <fillcolor color="#000000"/>
         <strokewidth width="1"/>
         <path>
@@ -760,9 +762,11 @@
         <fill/>
     </foreground>
 </shape>
-<shape aspect="variable" h="44" name="KubeTag" strokewidth="inherit" w="45.085">
+<shape aspect="variable" h="64" name="KubeTag" strokewidth="inherit" w="64">
     <connections/>
     <foreground>
+        <rect h="64" w="64" x="0" y="0"/>
+        <fill/>
         <fillcolor color="#000000"/>
         <strokewidth width="1"/>
         <path>
