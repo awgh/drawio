@@ -580,14 +580,13 @@
 
 		// User request to have same set of properties for all boxes with possibly different settings of each property.
 		// The following property variables are common property settings and each objects has unique property settings.
-		// Note that spacingLeft needs to be changed to dynamic in order to properly position the title text depending on whether there is an icon, etc.
 		// Note that non-Other boxes are set to boxKind=none temporarily.
 					 
 	 	var sectionProperties = 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;';
 
-		var deployedOnProperties = 'fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;whiteSpace=wrap;html=1;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
+		var deployedOnProperties = 'fontStyle=0;verticalAlign=top;align=left;spacingLeft=48;spacingTop=12;whiteSpace=wrap;html=1;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
 
-		var deployedToProperties = 'fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
+		var deployedToProperties = 'fontStyle=0;verticalAlign=top;align=left;spacingLeft=48;spacingTop=12;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
 		
 		var fns = [
 			 this.createVertexTemplateEntry(
