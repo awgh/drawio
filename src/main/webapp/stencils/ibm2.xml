@@ -454,10 +454,10 @@
         <fill/>
     </foreground>
 </shape>
-<shape aspect="variable" h="64" name="VPCTag" strokewidth="inherit" w="64">
+<shape aspect="variable" h="24" name="VPCTag" strokewidth="inherit" w="24">
     <connections/>
     <foreground>
-        <rect h="64" w="64" x="0" y="0"/>
+        <rect h="24" w="24" x="0" y="0"/>
         <fill/>
         <fillcolor color="#000000"/>
         <strokewidth width="1"/>
