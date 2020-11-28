@@ -582,6 +582,8 @@
 		// The following property variables are common property settings and each objects has unique property settings.
 		// Note that non-Other boxes are set to boxKind=none temporarily.
 					 
+		var cloudShape = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+
 	 	var sectionProperties = 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;';
 
 		var deployedOnProperties = 'strokeWidth=1;fontStyle=0;verticalAlign=top;align=left;spacingLeft=48;spacingTop=12;whiteSpace=wrap;html=1;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
@@ -589,9 +591,12 @@
 		var deployedToProperties = 'strokeWidth=1;fontStyle=0;verticalAlign=top;align=left;spacingLeft=48;spacingTop=12;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
 		
 		var fns = [
-			 this.createVertexTemplateEntry(
-					 sectionProperties,
-					 0, 0, 'cloud', 'cloud', true, null, null),
+			//this.createVertexTemplateEntry(
+			//		 sectionProperties,
+			// 		 0, 0, 'cloud', 'cloud', true, null, null),
+			this.createVertexTemplateEntry(
+	 				'shape=mxgraph.ibm2.cloudtag;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
+			 		 0, 0, '', '', true, null, null),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=cloud-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
