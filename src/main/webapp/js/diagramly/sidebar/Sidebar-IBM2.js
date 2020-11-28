@@ -660,9 +660,12 @@
 					 'shape=mxgraph.ibm2.box;boxType=vpc-securitygroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#FF0000;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Security Group', 'Security Group', true, null, this.getTagsForStencil(gn, 'security group', dt).join(' ')),
 
+			 //this.createVertexTemplateEntry(
+			 //		 sectionProperties,
+			 //		 0, 0, 'kube', 'kube', true, null, null),
 			 this.createVertexTemplateEntry(
-					 sectionProperties,
-					 0, 0, 'kube', 'kube', true, null, null),
+	 				 sectionImageProperties + 'kubetag',
+					 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'kubernetes cluster', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=kube-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
