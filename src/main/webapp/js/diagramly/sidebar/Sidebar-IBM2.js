@@ -586,6 +586,8 @@
 
 	 	var sectionProperties = 'text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;';
 
+	 	var sectionImageProperties = 'html=1;aspect=fixed;strokeColor=none;shadow=0;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;shape=mxgraph.ibm2.';
+
 		var deployedOnProperties = 'strokeWidth=1;fontStyle=0;verticalAlign=top;align=left;spacingLeft=48;spacingTop=12;whiteSpace=wrap;html=1;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
 
 		var deployedToProperties = 'strokeWidth=1;fontStyle=0;verticalAlign=top;align=left;spacingLeft=48;spacingTop=12;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
@@ -595,8 +597,8 @@
 			//		 sectionProperties,
 			// 		 0, 0, 'cloud', 'cloud', true, null, null),
 			this.createVertexTemplateEntry(
-	 				'shape=mxgraph.ibm2.cloudtag;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;',
-			 		 0, 0, '', '', true, null, null),
+	 		 		 sectionImageProperties + 'cloudtag',
+			 		 0, 0, '', '', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=cloud-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
