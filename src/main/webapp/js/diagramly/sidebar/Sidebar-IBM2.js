@@ -593,12 +593,12 @@
 		var deployedToProperties = 'strokeWidth=1;fontStyle=0;verticalAlign=top;align=left;spacingLeft=48;spacingTop=12;whiteSpace=wrap;html=1;dashed=1;container=0;spacing=-4;collapsible=0;expand=0;recursiveResize=0;';
 		
 		var fns = [
-			//this.createVertexTemplateEntry(
-			//		 sectionProperties,
-			// 		 0, 0, 'cloud', 'cloud', true, null, null),
 			 this.createVertexTemplateEntry(
-	 				 sectionImageProperties + 'cloudtag',
-					 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
+					 sectionProperties,
+			 		 0, 0, 'cloud', 'cloud', true, null, null),
+			 //this.createVertexTemplateEntry(
+	 		 //		 sectionImageProperties + 'cloudtag',
+			 //		 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'ibm cloud', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=cloud-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
@@ -631,12 +631,12 @@
 					 'shape=mxgraph.ibm2.box;boxType=cloud-resourcegroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#919191;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Resource Group', 'Resource Group', true, null, this.getTagsForStencil(gn, 'resource group', dt).join(' ')),
 
-			 //this.createVertexTemplateEntry(
-			 //		 sectionProperties,
-			 //		 0, 0, 'vpc', 'vpc', true, null, null),
 			 this.createVertexTemplateEntry(
-	 				 sectionImageProperties + 'vpctag',
-					 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'vpc virtual private cloud', dt).join(' ')),
+			 		 sectionProperties,
+			 	 0, 0, 'vpc', 'vpc', true, null, null),
+			 //this.createVertexTemplateEntry(
+	 		 //		 sectionImageProperties + 'vpctag',
+			 //		 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'vpc virtual private cloud', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=vpc-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
@@ -660,12 +660,12 @@
 					 'shape=mxgraph.ibm2.box;boxType=vpc-securitygroup;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#FF0000;fillColor=none;' + deployedToProperties,
 					 200, 200, 'Security Group', 'Security Group', true, null, this.getTagsForStencil(gn, 'security group', dt).join(' ')),
 
-			 //this.createVertexTemplateEntry(
-			 //		 sectionProperties,
-			 //		 0, 0, 'kube', 'kube', true, null, null),
 			 this.createVertexTemplateEntry(
-	 				 sectionImageProperties + 'kubetag',
-					 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'kubernetes cluster', dt).join(' ')),
+			 		 sectionProperties,
+			 	 0, 0, 'kube', 'kube', true, null, null),
+			 //this.createVertexTemplateEntry(
+	 		 //		 sectionImageProperties + 'kubetag',
+			 //		 24, 24, '', '', true, null, this.getTagsForStencil(gn, 'kubernetes cluster', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=kube-ibm;boxKind=none;boxBar=0;boxLabel=0;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
