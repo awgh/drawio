@@ -720,7 +720,7 @@
 
 			 this.createVertexTemplateEntry(
 					 sectionProperties,
-					 0, 0, 'other', 'other', true, null, null),
+					 0, 0, 'shapes', 'shapes', true, null, null),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=other-logicalcomponent;boxKind=logicalcomponent;boxBar=0;boxLane=0;rounded=1;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
