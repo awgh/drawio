@@ -72,7 +72,7 @@ mxShapeIBM2Box.prototype.customProperties = [
 
 			   // Other Boxes
                            {val: 'other-logicalcomponent', dispName: 'Logical Component'},
-                           {val: 'other-prescribedcomponent', dispName: 'Prescribed Component'},
+                           {val: 'other-prescribedcomponent', dispName: 'VPC'},
                            {val: 'other-logicalnode', dispName: 'Logical Node'},
                            {val: 'other-prescribednode', dispName: 'Prescribed Node'}
 			  ]},
