@@ -728,7 +728,7 @@
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=other-prescribedcomponent;boxKind=prescribedcomponent;boxBar=1;boxLane=1;rounded=0;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
-					 200, 200, 'Prescribed Component', 'Prescribed Component', true, null, this.getTagsForStencil(gn, 'prescribed component', dt).join(' ')),
+					 200, 200, 'VPC', 'VPC', true, null, this.getTagsForStencil(gn, 'prescribed component', dt).join(' ')),
 
 			 this.createVertexTemplateEntry(
 					 'shape=mxgraph.ibm2.box;boxType=other-logicalnode;boxKind=logicalnode;boxBar=0;boxLane=0;rounded=1;strokeColor=#4376BB;fillColor=none;' + deployedOnProperties,
