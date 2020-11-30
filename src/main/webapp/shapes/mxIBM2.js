@@ -143,27 +143,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 	{
 		//c.rect(0, 0, w, h);
 		
-		if (boxKind == 'logicalnode' || boxKind == 'prescribednode')
-		{
-			// Draw all four sides.
-			c.moveTo(0, 0);
-			c.lineTo(w, 0);
-			c.lineTo(w, h);
-			c.lineTo(0, h);
-			c.lineTo(0, 0);
-
-			if (boxBar == 1)
-			{
-				// Draw color bar.
-				c.moveTo(1, 0);
-				c.lineTo(1, 48);
-				c.moveTo(2, 0);
-				c.lineTo(2, 48);
-				c.moveTo(3, 0);
-				c.lineTo(3, 48);
-			}
-		}
-		else // boxKind == 'logicalcomponent' || boxKind == 'prescribedcomponent'
+		if (boxKind == 'logicalcomponent' || boxKind == 'prescribedcomponent')
 		{
 			// Draw top, right, and bottom sides.
 			c.moveTo(0, 0);
@@ -192,6 +172,26 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			c.lineTo(6, filler+24);
 			c.lineTo(-6, filler+24);
 			c.lineTo(-6, filler+18);
+		}
+		else 
+		{
+			// Draw all four sides.
+			c.moveTo(0, 0);
+			c.lineTo(w, 0);
+			c.lineTo(w, h);
+			c.lineTo(0, h);
+			c.lineTo(0, 0);
+
+			if (boxBar == 1)
+			{
+				// Draw color bar.
+				c.moveTo(1, 0);
+				c.lineTo(1, 48);
+				c.moveTo(2, 0);
+				c.lineTo(2, 48);
+				c.moveTo(3, 0);
+				c.lineTo(3, 48);
+			}
 		}
 
 		// Determine tag position.
