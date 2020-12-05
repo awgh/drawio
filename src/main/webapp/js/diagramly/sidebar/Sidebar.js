@@ -1180,6 +1180,7 @@
 		this.addIBMPalette();
 		this.addIBM1Palette();
 		this.addIBM2Palette();
+		this.addMondrianPalette();
 		this.addNetworkPalette();
 		this.addOfficePalette();
 		this.addRackPalette(rack, dir);
