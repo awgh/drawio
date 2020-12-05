@@ -6602,7 +6602,7 @@
 	mxStencilRegistry.libraries['ibm'] = [SHAPES_PATH + '/mxIBM.js', STENCIL_PATH + '/ibm.xml'];
 	mxStencilRegistry.libraries['ibm1'] = [SHAPES_PATH + '/mxIBM1.js', STENCIL_PATH + '/ibm1.xml'];
 	mxStencilRegistry.libraries['ibm2'] = [SHAPES_PATH + '/mxIBM2.js', STENCIL_PATH + '/ibm2.xml'];
-	mxStencilRegistry.libraries['ibm2mondrian'] = [SHAPES_PATH + '/mxMondrian.js', STENCIL_PATH + '/ibm2mondrian.xml'];
+	mxStencilRegistry.libraries['mondrian'] = [SHAPES_PATH + '/mxMondrianBase.js', STENCIL_PATH + '/mondrian.xml'];
 	mxStencilRegistry.libraries['cabinets'] = [SHAPES_PATH + '/mxCabinets.js', STENCIL_PATH + '/cabinets.xml'];
 	mxStencilRegistry.libraries['archimate'] = [SHAPES_PATH + '/mxArchiMate.js'];
 	mxStencilRegistry.libraries['archimate3'] = [SHAPES_PATH + '/mxArchiMate3.js'];
