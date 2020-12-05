@@ -39,8 +39,6 @@
 
 	Sidebar.prototype.ibm2 = ['Analytics', 'Applications', 'Blockchain', 'Data', 'DevOps', 'Infrastructure', 'Management', 'Miscellaneous', 'Security', 'Social', 'Users', 'VPC', 'Boxes', 'Connectors'];
 
-	Sidebar.prototype.ibm2mondrian = ['Shapes'];
-
 	Sidebar.prototype.allied_telesis = ['Buildings', 'Computer and Terminals', 'Media Converters', 'Security', 'Storage', 'Switch', 'Wireless'];
 
 	Sidebar.prototype.gcp = ['Cards', 'Big Data', 'Compute', 'Developer Tools', 'Extras', 'Identity and Security', 'Machine Learning', 'Management Tools', 'Networking', 'Storage Databases'];
@@ -128,7 +126,7 @@
 	                                   {id: 'ibm', prefix: 'ibm', libs: Sidebar.prototype.ibm},
 	                                   {id: 'ibm1', prefix: 'ibm1', libs: Sidebar.prototype.ibm1},
 	                                   {id: 'ibm2', prefix: 'ibm2', libs: Sidebar.prototype.ibm2},
-	                                   {id: 'ibm2mondrian', prefix: 'ibm2mondrian', libs: Sidebar.prototype.ibm2mondrian},
+	                                   {id: 'mondrian', prefix: 'mondrian', libs: Sidebar.prototype.mondrian},
 	                                   {id: 'allied_telesis', prefix: 'allied_telesis', libs: Sidebar.prototype.allied_telesis},
 	                                   {id: 'cumulus', libs: ['cumulus']},
 	                                   {id: 'eip', prefix: 'eip', libs: Sidebar.prototype.eip},
@@ -495,10 +493,10 @@
             			          {title: 'Cumulus', id: 'cumulus', image: IMAGE_PATH + '/sidebar-cumulus.png'},
             			          {title: 'Citrix', id: 'citrix', image: IMAGE_PATH + '/sidebar-citrix.png'},
             			          {title: 'Google Cloud Platform', id: 'gcp2', image: IMAGE_PATH + '/sidebar-gcp2.png'},
-            			          {title: 'IBM 2.0 Mondrian', id: 'ibm2mondrian', image: IMAGE_PATH + '/sidebar-ibm.png'},
             			          {title: 'IBM 2.0', id: 'ibm2', image: IMAGE_PATH + '/sidebar-ibm2.png'},
             			          {title: 'IBM 1.1', id: 'ibm1', image: IMAGE_PATH + '/sidebar-ibm1.png'},
             			          {title: 'IBM 1.0', id: 'ibm', image: IMAGE_PATH + '/sidebar-ibm.png'},
+            			          {title: 'IBM Mondrian', id: 'mondrian', image: IMAGE_PATH + '/sidebar-ibm.png'},
             			          {title: 'Kubernetes', id: 'kubernetes', image: IMAGE_PATH + '/sidebar-kubernetes.png'},
             			          {title: 'Network', id: 'network', image: IMAGE_PATH + '/sidebar-network.png'},
             			          {title: 'Office', id: 'office', image: IMAGE_PATH + '/sidebar-office.png'},
