@@ -72,7 +72,7 @@ mxIBM2MondrianBase.prototype.getSelectedColorSpecification = function(colorFamil
 }
 
 mxIBM2MondrianBase.prototype.getLineColor = function(colorFamily) {
-		return mxMondrianBase.prototype.getSelectedColorSpecification(colorFamily).swatch_60;
+		return mxIBM2MondrianBase.prototype.getSelectedColorSpecification(colorFamily).swatch_60;
 }
 
 mxIBM2MondrianBase.prototype.getDividerLineColor = function(colorFamily, colorFillText) {

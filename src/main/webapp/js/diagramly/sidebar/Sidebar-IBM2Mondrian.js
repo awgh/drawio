@@ -11,7 +11,7 @@
 		var style_text = 'fontFamily=IBM Plex Sans;fontColor=#000000;verticalAlign=middle;align=left;spacingLeft=60'
 		this.setCurrentSearchEntryLibrary('ibm2mondrian', 'ibm2Mondrian');
 		
-		this.addPaletteFunctions('ibm2mondrian', 'IBM2 Mondrian', false,
+		this.addPaletteFunctions('ibm2mondrian', 'IBM 2.0 Mondrian', false,
 		[
 			this.addEntry(dt + 'tn', function()
 		   	{
