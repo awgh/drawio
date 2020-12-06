@@ -126,7 +126,7 @@
 	                                   {id: 'ibm', prefix: 'ibm', libs: Sidebar.prototype.ibm},
 	                                   {id: 'ibm1', prefix: 'ibm1', libs: Sidebar.prototype.ibm1},
 	                                   {id: 'ibm2', prefix: 'ibm2', libs: Sidebar.prototype.ibm2},
-	                                   {id: 'ibm2mondrian', prefix: 'ibm2mondrian', libs: Sidebar.prototype.ibm2mondrian},
+	                                   {id: 'ibm2mondrian'},
 	                                   {id: 'allied_telesis', prefix: 'allied_telesis', libs: Sidebar.prototype.allied_telesis},
 	                                   {id: 'cumulus', libs: ['cumulus']},
 	                                   {id: 'eip', prefix: 'eip', libs: Sidebar.prototype.eip},

@@ -1,9 +1,8 @@
 /**
- * Copyright (c) 2006-2015, JGraph Ltd
- * Copyright (c) 2006-2015, Gaudenz Alder
+ * Copyright (c) 2020, Merijn Weiss
  */
 /**
- * Class: mxMondrianBase
+ * Class: mxIBM2MondrianBase
  *
  * Extends <mxShape> to implement an shapes which are compliant with the IBM Mondrian Design Method
  * 
