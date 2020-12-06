@@ -1,9 +1,8 @@
 /**
- * Copyright (c) 2006-2015, JGraph Ltd
- * Copyright (c) 2006-2015, Gaudenz Alder
+ * Copyright (c) 2020, Merijn Weiss
  */
 /**
- * Class: mxMondrianBase
+ * Class: mxIBM2MondrianBase
  *
  * Extends <mxShape> to implement an shapes which are compliant with the IBM Mondrian Design Method
  * 
@@ -380,12 +379,37 @@ mxIBM2MondrianBase.prototype.getConstraints = function(style, w, h)
 {
 	var constr = [];
 
-	constr.push(new mxConnectionConstraint(new mxPoint(0.5, 0), false));
-	constr.push(new mxConnectionConstraint(new mxPoint(1, 0), false));
-	constr.push(new mxConnectionConstraint(new mxPoint(1, 0.5), false));
-	constr.push(new mxConnectionConstraint(new mxPoint(0.5, 1), false));
-	constr.push(new mxConnectionConstraint(new mxPoint(0, 1), false));
-	constr.push(new mxConnectionConstraint(new mxPoint(0, 0.5), false));
+	if(this.elementType === 'actor')
+	{
+		var step = 30;
+		var h = 0.5; // x coordinate of circle center
+		var k = 0.5; // y coordinate of circle center
+		var r = 0.5; // radius of circle
+		for(var angle=0;  angle < 360;  angle+=step)
+		{ 
+			var x = h + r*Math.cos(angle * (Math.PI/180));
+			var y = k - r*Math.sin(angle * (Math.PI/180));
+			constr.push(new mxConnectionConstraint(new mxPoint(x,y), false));
+		}
+	}
+	else
+	{
+		constr.push(new mxConnectionConstraint(new mxPoint(1, 0.25), false));
+		constr.push(new mxConnectionConstraint(new mxPoint(1, 0.5), false));
+		constr.push(new mxConnectionConstraint(new mxPoint(1, 0.75), false));
+	
+		constr.push(new mxConnectionConstraint(new mxPoint(0, 0.25), false));
+		constr.push(new mxConnectionConstraint(new mxPoint(0, 0.5), false));
+		constr.push(new mxConnectionConstraint(new mxPoint(0, 0.75), false));
+	
+		constr.push(new mxConnectionConstraint(new mxPoint(0.25, 0), false));
+		constr.push(new mxConnectionConstraint(new mxPoint(0.5, 0), false));
+		constr.push(new mxConnectionConstraint(new mxPoint(0.75, 0), false));
+	
+		constr.push(new mxConnectionConstraint(new mxPoint(0.25, 1), false));
+		constr.push(new mxConnectionConstraint(new mxPoint(0.5, 1), false));
+		constr.push(new mxConnectionConstraint(new mxPoint(0.75, 1), false));	
+	}
 
 	return (constr);
 }

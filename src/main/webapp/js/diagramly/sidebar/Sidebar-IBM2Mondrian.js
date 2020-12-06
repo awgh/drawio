@@ -6,9 +6,6 @@
 		var h = 48;
 		var gn = 'mxgraph.ibm2mondrian';
 		var dt = 'ibm ';
-		var pts = 'points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]]';
-		var style_shape = 'html=1;whiteSpace=wrap;metaEdit=1;metaData={"Type":{"editable":false}};strokeWidth=1'
-		var style_text = 'fontFamily=IBM Plex Sans;fontColor=#000000;verticalAlign=middle;align=left;spacingLeft=60'
 		this.setCurrentSearchEntryLibrary('ibm2mondrian', 'ibm2Mondrian');
 		
 		this.addPaletteFunctions('ibm2mondrian', 'IBM 2.0 Mondrian', false,
