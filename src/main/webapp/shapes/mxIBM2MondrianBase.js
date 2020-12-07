@@ -87,7 +87,7 @@ mxIBM2MondrianBase.prototype.getDividerLineColor = function(colorFamily, colorFi
 
 mxIBM2MondrianBase.prototype.customProperties = [
 	{name:'elementType', dispName:'Element Type', type:'enum', defVal:'pn',
-		enumList:[{val:'actor', dispName: 'Actor'}, {val:'ln', dispName: 'Logical Node'}, {val:'pn', dispName: 'Prescribed Node'}]},
+		enumList:[{val:'actor', dispName: 'Actor'}, {val:'ln', dispName: 'Logical Node'}, {val:'lc', dispName: 'Logical Component'}, {val:'pn', dispName: 'Prescribed Node'}, {val:'pc', dispName: 'Prescribed Component'}]},
 	{name:'shapeLayout', dispName:'Shape Layout', type:'enum', defVal:'icon_name',
 		enumList:[{val:'icon', dispName: 'Icon'}, {val:'icon_name', dispName: 'Icon + Name'}, {val:'name', dispName: 'Name'}]},
 	{name:'colorFamily', dispName:'Color', type:'enum', defVal:'blue',
@@ -239,13 +239,13 @@ mxIBM2MondrianBase.prototype.paintTitleBar = function(c, x, y, w, h)
 	var minHeight = Math.min(h, this.titleBarHeight);
 	if(this.shapeLayout != 'icon')
 	{
-		if(this.elementType === 'ln')
+		if(this.elementType === 'ln' || this.elementType === 'lc')
 		{
 			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillText]);
 			c.roundrect(0, 0, w, minHeight, this.cornerRadius, this.cornerRadius);
 			c.fill();
 		}
-		else if(this.elementType === 'pn')
+		else if(this.elementType === 'pn' || this.elementType === 'pc')
 		{
 			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillText]);
 			c.rect(0, 0, w, minHeight);
@@ -269,20 +269,38 @@ mxIBM2MondrianBase.prototype.paintIconBox = function(c, x, y, w, h)
 	var minWidth = Math.min(w, this.getIconBoxWidth());
 	var minHeight = Math.min(h, this.titleBarHeight);
 
-	if(this.elementType === 'actor')
+	if(minWidth > 0)
 	{
-		c.ellipse(0, 0, minWidth, minHeight);
+		if(this.elementType === 'actor')
+		{
+			c.ellipse(0, 0, minWidth, minHeight);
+		}
+		else if(this.elementType === 'ln' || this.elementType === 'lc') // Logical Node or Logical Component
+		{
+			if(w <= this.shapeWidthIconView)
+			{
+				c.roundrect(0, 0, minWidth, minHeight, this.cornerRadius, this.cornerRadius);
+			}
+			else
+			{
+				c.begin();
+				c.moveTo(this.cornerRadius, 0);
+				c.lineTo(minWidth, 0);
+				c.lineTo(minWidth, minHeight);
+				c.lineTo(this.cornerRadius, minHeight);
+				c.arcTo(this.cornerRadius, this.cornerRadius, 0, 0, 1, 0, minHeight - this.cornerRadius);
+				c.lineTo(0, this.cornerRadius);
+				c.arcTo(this.cornerRadius, this.cornerRadius, 0, 0, 1, this.cornerRadius, 0);
+				c.close();	
+			}		
+		}
+		else if(this.elementType === 'pn' || this.elementType === 'pc')
+		{
+			c.rect(0, 0, minWidth, minHeight);
+		}
+		
+		c.fill();
 	}
-	else if(this.elementType === 'ln') // Logical Node
-	{
-		c.roundrect(0, 0, minWidth, minHeight, this.cornerRadius, this.cornerRadius);
-	}
-	else // Prescribed Node
-	{
-		c.rect(0, 0, minWidth, minHeight);
-	}
-	
-	c.fill();
 };
 
 /**
@@ -294,6 +312,9 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 {
 	var shapeWidth = w;
 	var shapeHeigth = h;
+	var componentDecoratorOffset = -4;
+	var componentDecoratorHeight = 4;
+	var componentDecoratorWidth = 8;
 
 	if(this.shapeLayout == 'icon' || this.elementType === 'actor')
 	{
@@ -307,7 +328,7 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 		c.ellipse(0, 0, shapeWidth, shapeHeigth);
 		c.stroke();
 	}
-	else if(this.elementType === 'ln') // Logical Node
+	else if(this.elementType === 'ln' || this.elementType === 'lc') // Logical Node or Logical Component
 	{
 		if (h > this.titleBarHeight)
 		{
@@ -318,8 +339,17 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 		c.setStrokeColor(this.getLineColor(this.colorFamily));
 		c.roundrect(0, 0, shapeWidth, shapeHeigth, this.cornerRadius, this.cornerRadius);
 		c.stroke();
+		if(this.elementType === 'lc')
+		{
+			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)['white']);
+			//c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillIcon]);
+			c.rect(componentDecoratorOffset, 12, componentDecoratorWidth, componentDecoratorHeight);
+			c.fillAndStroke();
+			c.rect(componentDecoratorOffset, 32, componentDecoratorWidth, componentDecoratorHeight);
+			c.fillAndStroke();
+		}
 	}
-	else // Prescribed Node
+	else if(this.elementType === 'pn' || this.elementType === 'pc') // Prescribed Node or Prescribed Component
 	{
 		if (h > this.titleBarHeight)
 		{	
@@ -330,7 +360,17 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 		c.setStrokeColor(this.getLineColor(this.colorFamily));
 		c.rect(0, 0, shapeWidth, shapeHeigth);
 		c.stroke();
-	}		
+		if(this.elementType === 'pc')
+		{
+			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)['white']);
+			//c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillIcon]);
+			c.rect(componentDecoratorOffset, 12, componentDecoratorWidth, componentDecoratorHeight);
+			c.fillAndStroke();
+			c.rect(componentDecoratorOffset, 32, componentDecoratorWidth, componentDecoratorHeight);
+			c.fillAndStroke();
+		}
+		
+	}	
 };
 
 /**
