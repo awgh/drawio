@@ -186,7 +186,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 
 		// VPC Boxes
 		case 'vpc-ibm':
-			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.vpctag');
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
 			bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
 			break;
 		case 'vpc-subnet':
@@ -194,8 +194,8 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
 			bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
 			break;
 		case 'vpc-virtualserver':
-                        //bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
-                        //bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+                        bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
                         break;
 		case 'vpc-baremetal':
                         bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
@@ -206,7 +206,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
                         break;
                 case 'vpc-instancegroup':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.instancegrouptag');
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
                         break;
                 case 'vpc-securitygroup':
@@ -258,7 +258,7 @@ mxShapeIBM2Box.prototype.paintVertexShape = function(c, x, y, w, h)
                         bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
                         break;
 		case 'network-vlan':
-                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.vlantag');
+                        bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
                         bgSt1.drawShape(c, this, xoffset, yoffset, wsize, hsize);
                         break;
 		case 'network-server':
