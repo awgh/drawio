@@ -77,17 +77,17 @@ mxIBM2MondrianBase.prototype.getLineColor = function(colorFamily) {
 mxIBM2MondrianBase.prototype.getDividerLineColor = function(colorFamily, colorFillText) {
 	if(colorFillText === 'swatch_10')
 	{
-		return mxIBM2MondrianBase.prototype.getSelectedColorSpecification(colorFamily).swatch_20;
+		return mxIBM2MondrianBase.prototype.getSelectedColorSpecification(colorFamily).swatch_30;
 	}
 	else
 	{
-		return mxIBM2MondrianBase.prototype.getSelectedColorSpecification(colorFamily).swatch_10;
+		return mxIBM2MondrianBase.prototype.getSelectedColorSpecification(colorFamily).swatch_20;
 	}
 }
 
 mxIBM2MondrianBase.prototype.customProperties = [
 	{name:'elementType', dispName:'Element Type', type:'enum', defVal:'pn',
-		enumList:[{val:'actor', dispName: 'Actor'}, {val:'ln', dispName: 'Logical Node'}, {val:'lc', dispName: 'Logical Component'}, {val:'pn', dispName: 'Prescribed Node'}, {val:'pc', dispName: 'Prescribed Component'}]},
+		enumList:[{val:'actor', dispName: 'Actor'}, {val:'ts', dispName: 'Target System'}, {val:'ln', dispName: 'Logical Node'}, {val:'lc', dispName: 'Logical Component'}, {val:'pn', dispName: 'Prescribed Node'}, {val:'pc', dispName: 'Prescribed Component'}]},
 	{name:'shapeLayout', dispName:'Shape Layout', type:'enum', defVal:'icon_name',
 		enumList:[{val:'icon', dispName: 'Icon'}, {val:'icon_name', dispName: 'Icon + Name'}, {val:'name', dispName: 'Name'}]},
 	{name:'colorFamily', dispName:'Color', type:'enum', defVal:'blue',
@@ -103,9 +103,16 @@ mxCellRenderer.registerShape(mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE, mxI
 /**
  * Variable: cornerRadius
  *
- * Default width and height for the titleBarHeight. Default is 8.
+ * Default radius for rounded Logical elements. Default is 8.
  */
 mxIBM2MondrianBase.prototype.cornerRadius = 8;
+
+/**
+ * Variable: targetSystemRadius
+ *
+ * Default radius for rounded corner of Target System element. Default is 20.
+ */
+mxIBM2MondrianBase.prototype.targetSystemRadius = 20;
 
 /**
  * Variable: textSpacingLeft
@@ -195,12 +202,22 @@ mxIBM2MondrianBase.prototype.redraw = function()
 		{
 			newGeoState = new mxGeometry(currentGeoState.x, currentGeoState.y, this.shapeWidthIconView, this.shapeHeightIconView);
 		}
+		else if(this.elementType === 'ts') // Target System is always 48 height.
+		{
+			if(this.shapeLayout == 'icon')	
+				newGeoState = new mxGeometry(currentGeoState.x, currentGeoState.y, 64, 48);
+			else
+				newGeoState = new mxGeometry(currentGeoState.x, currentGeoState.y, Math.max(64, currentGeoState.width), 48);
+		}
 		else
 		{
-			newGeoState = new mxGeometry(currentGeoState.x, currentGeoState.y, Math.max(this.shapeWidthIconView, currentGeoState.width), Math.max(this.titleBarHeight, currentGeoState.height));
+			if(this.shapeLayout == 'icon')
+				newGeoState = new mxGeometry(currentGeoState.x, currentGeoState.y, this.shapeWidthIconView, this.shapeHeightIconView);
+			else
+				newGeoState = new mxGeometry(currentGeoState.x, currentGeoState.y, Math.max(this.shapeWidthIconView, currentGeoState.width), Math.max(this.titleBarHeight, currentGeoState.height));
 		}
 	
-		if(true)
+		if(newGeoState != null && this.mustCellResize(currentGeoState, newGeoState))
 		{
 			this.state.view.graph.resizeCell(this.state.cell, newGeoState);
 	
@@ -210,6 +227,16 @@ mxIBM2MondrianBase.prototype.redraw = function()
 		}	
 	}
 };
+
+mxIBM2MondrianBase.prototype.mustCellResize = function(currentGeoState, newGeoState)
+{
+	if(currentGeoState.width != newGeoState.width)
+		return true;
+	else if(currentGeoState.height != newGeoState.height)
+		return true;
+	else
+		return false;
+}
 
 mxIBM2MondrianBase.prototype.paintVertexShape = function(c, x, y, w, h)
 {
@@ -251,6 +278,18 @@ mxIBM2MondrianBase.prototype.paintTitleBar = function(c, x, y, w, h)
 			c.rect(0, 0, w, minHeight);
 			c.fill();
 		}
+		else if(this.elementType === 'ts')
+		{
+			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillText]);
+			c.begin();
+			c.moveTo(this.targetSystemRadius, 0);
+			c.lineTo(w - this.targetSystemRadius, 0);
+			c.arcTo(this.targetSystemRadius, this.targetSystemRadius, 0, 0, 1, w - this.targetSystemRadius, minHeight);
+			c.lineTo(this.targetSystemRadius, minHeight);
+			c.arcTo(this.targetSystemRadius, this.targetSystemRadius, 0, 0, 1, this.targetSystemRadius, 0);
+			c.close();
+			c.fill();
+		}
 		else {
 			//do nothing
 		}	
@@ -274,6 +313,29 @@ mxIBM2MondrianBase.prototype.paintIconBox = function(c, x, y, w, h)
 		if(this.elementType === 'actor')
 		{
 			c.ellipse(0, 0, minWidth, minHeight);
+		}
+		else if(this.elementType === 'ts')
+		{
+			if(w <= 64)
+			{
+				c.begin();
+				c.moveTo(this.targetSystemRadius, 0);
+				c.lineTo(minWidth - this.targetSystemRadius, 0);
+				c.arcTo(this.targetSystemRadius, this.targetSystemRadius, 0, 0, 1, minWidth - this.targetSystemRadius, minHeight);
+				c.lineTo(this.targetSystemRadius, minHeight);
+				c.arcTo(this.targetSystemRadius, this.targetSystemRadius, 0, 0, 1, this.targetSystemRadius, 0);
+				c.close();
+			}
+			else
+			{
+				c.begin();
+				c.moveTo(this.targetSystemRadius, 0);
+				c.lineTo(minWidth, 0);
+				c.lineTo(minWidth, minHeight);
+				c.lineTo(this.targetSystemRadius, minHeight);
+				c.arcTo(this.targetSystemRadius, this.targetSystemRadius, 0, 0, 1, this.targetSystemRadius, 0);
+				c.close();
+			}
 		}
 		else if(this.elementType === 'ln' || this.elementType === 'lc') // Logical Node or Logical Component
 		{
@@ -326,6 +388,18 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 	{
 		c.setStrokeColor(this.getLineColor(this.colorFamily));
 		c.ellipse(0, 0, shapeWidth, shapeHeigth);
+		c.stroke();
+	}
+	else if(this.elementType === 'ts')
+	{
+		c.setStrokeColor(this.getLineColor(this.colorFamily));
+		c.begin();
+		c.moveTo(this.targetSystemRadius, 0);
+		c.lineTo(shapeWidth - this.targetSystemRadius, 0);
+		c.arcTo(this.targetSystemRadius, this.targetSystemRadius, 0, 0, 1, shapeWidth - this.targetSystemRadius, this.titleBarHeight);
+		c.lineTo(this.targetSystemRadius, this.titleBarHeight);
+		c.arcTo(this.targetSystemRadius, this.targetSystemRadius, 0, 0, 1, this.targetSystemRadius, 0);
+		c.close();
 		c.stroke();
 	}
 	else if(this.elementType === 'ln' || this.elementType === 'lc') // Logical Node or Logical Component
@@ -382,7 +456,14 @@ mxIBM2MondrianBase.prototype.paintIcon = function(c, x, y, w, h)
 {
 	if (this.image != null && (this.shapeLayout == 'icon' || this.shapeLayout == 'icon_name'))
 	{	
-		c.image(this.iconSpacing, this.iconSpacing, this.iconSize, this.iconSize, this.image, true, false, false);
+		if(this.elementType === 'ts')
+		{
+			c.image(this.targetSystemRadius, this.iconSpacing, this.iconSize, this.iconSize, this.image, true, false, false);
+		}
+		else
+		{
+			c.image(this.iconSpacing, this.iconSpacing, this.iconSize, this.iconSize, this.image, true, false, false);
+		}
 	}
 };
 
@@ -390,7 +471,14 @@ mxIBM2MondrianBase.prototype.getIconBoxWidth = function()
 {
 	if (this.image != null && (this.shapeLayout == 'icon' || this.shapeLayout == 'icon_name'))
 	{	
-		return (2 * this.iconSpacing + this.iconSize);
+		if(this.elementType === 'ts')
+		{
+			return (2 * this.targetSystemRadius + this.iconSize);
+		}
+		else
+		{
+			return (2 * this.iconSpacing + this.iconSize);
+		}
 	}
 	else
 	{
@@ -402,16 +490,25 @@ mxIBM2MondrianBase.prototype.paintElementName = function(c, x, y, w, h)
 {
 	var elementName = this.state.cell.getAttribute('Element-Name','Missing Element-Name');
 	var iconBoxWidth = this.getIconBoxWidth();
-		 
+
 	if (this.shapeLayout == 'name' || this.shapeLayout == 'icon_name')
 	{
 		c.setFontFamily('IBM Plex Sans');
 		c.setFontColor('#000000');	
 		c.setFontStyle(0);
 		c.setFontSize(14);
-		c.text(iconBoxWidth + this.textSpacingLeft, Math.min(h/2, this.titleBarHeight/2) - 2, 
+		if(this.elementType === 'ts')
+		{
+			c.text(w/2, Math.min(h/2, this.titleBarHeight/2) - 2, 
+			w, h, 
+			elementName, mxConstants.ALIGN_CENTER, mxConstants.ALIGN_MIDDLE, 1, 'html', 0, 0, 0);
+		}
+		else
+		{
+			c.text(iconBoxWidth + this.textSpacingLeft, Math.min(h/2, this.titleBarHeight/2) - 2, 
 			w - (iconBoxWidth + this.textSpacingLeft + this.textSpacingRight), h, 
 			elementName, mxConstants.ALIGN_LEFT, mxConstants.ALIGN_MIDDLE, 1, 'html', 0, 0, 0);
+		}
 	}
 };
 
