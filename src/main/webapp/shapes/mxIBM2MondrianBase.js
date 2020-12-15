@@ -44,6 +44,8 @@ mxIBM2MondrianBase.prototype.cst = {
 	COLOR_FILL_ICON_DEFAULT : 'swatch_40', 
 	COLOR_FILL_TEXT : 'colorFillText', 
 	COLOR_FILL_TEXT_DEFAULT : 'white',
+	COLOR_FILL_CONTAINER : 'colorFillContainer', 
+	COLOR_FILL_CONTAINER_DEFAULT : 'white',
 };
 
 //**********************************************************************************************************************************************************
@@ -95,6 +97,8 @@ mxIBM2MondrianBase.prototype.customProperties = [
 	{name:'colorFillIcon', dispName:'Fill (Icon)', type:'enum', defVal:'swatch_40',
 		enumList:[{val:'noColor', dispName: 'None'}, {val:'swatch_30', dispName: 'Light'}, {val:'swatch_40', dispName: 'Medium'}, {val:'swatch_50', dispName: 'Dark'}]},
 	{name:'colorFillText', dispName:'Fill (Text)', type:'enum', defVal:'white',
+		enumList:[{val:'noColor', dispName: 'None'}, {val:'white', dispName: 'White'}, {val:'swatch_10', dispName: 'Very Light'}]},
+	{name:'colorFillContainer', dispName:'Fill (Container)', type:'enum', defVal:'white',
 		enumList:[{val:'noColor', dispName: 'None'}, {val:'white', dispName: 'White'}, {val:'swatch_10', dispName: 'Very Light'}]},
 	];
 
@@ -160,25 +164,6 @@ mxIBM2MondrianBase.prototype.init = function(container)
 	
 	this.shapeWidthIconView = mxIBM2MondrianBase.prototype.titleBarHeight;
 	this.shapeHeightIconView = mxIBM2MondrianBase.prototype.titleBarHeight;
-
-
-	/*** START Registration of Event Listener */
-	// The text values on the shape are controlled via Values. This is to trigger a redraw when this change happens.
-	// I think not the way it should be done, but have not found the correct way
-	this.cellID = this.state.cell.id;
-	var changeListener = mxUtils.bind(this, function(evt)
-	{
-		var changeType = evt.properties.change.constructor.name;
-		if((changeType === 'mxValueChange') && (evt.properties.change.cell.id === this.cellID) ){
-			this.redraw();
-		}	
-	});
-	
-	this.state.view.graph.model.addListener(mxEvent.EXECUTED, mxUtils.bind(this, function(sender, evt)
-	{
-		changeListener(evt);
-	}));
-	/*** END Registration of Event Listener */
 };	
 
 /**
@@ -188,11 +173,17 @@ mxIBM2MondrianBase.prototype.init = function(container)
  */
 mxIBM2MondrianBase.prototype.redraw = function()
 {
-	console.log("redraw");
+	this.elementType = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE_DEFAULT);
+	this.shapeLayout = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT_DEFAULT);
+	this.colorFamily = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FAMILY, mxIBM2MondrianBase.prototype.cst.COLOR_FAMILY_DEFAULT);
+	this.colorFillIcon = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_ICON, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_ICON_DEFAULT);
+	this.colorFillText = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_TEXT, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_TEXT_DEFAULT);
+	this.colorFillContainer = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_CONTAINER, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_CONTAINER_DEFAULT);
+
+	//console.log("REDRAW");
+	//console.log(this);
 	mxShape.prototype.redraw.apply(this, arguments);
 
-	// Resize the Shape which can happen upon an mxGeometry change (by dragging the handles) or by a style change
-	// Not sure this is the correct place to handle it: a) seems resouce intenstive, so the if statements are placeholders to figure out if the update is required
 	if(true)
 	{
 		var currentGeoState = this.state.cell.getGeometry();
@@ -219,11 +210,18 @@ mxIBM2MondrianBase.prototype.redraw = function()
 	
 		if(newGeoState != null && this.mustCellResize(currentGeoState, newGeoState))
 		{
-			this.state.view.graph.resizeCell(this.state.cell, newGeoState);
-	
-			// this is only when there is a style change that forced the update
-			this.state.view.invalidate(this.state.cell);
-			this.state.view.validate();	
+			this.state.view.graph.model.beginUpdate();
+			try
+			{
+				this.state.view.invalidate(this.state.cell);	
+				this.state.view.graph.model.setGeometry(this.state.cell, newGeoState);
+				this.state.view.validate();
+
+			}
+			finally
+			{
+				this.state.view.graph.model.endUpdate();
+			}
 		}	
 	}
 };
@@ -240,20 +238,48 @@ mxIBM2MondrianBase.prototype.mustCellResize = function(currentGeoState, newGeoSt
 
 mxIBM2MondrianBase.prototype.paintVertexShape = function(c, x, y, w, h)
 {
-	console.log("paintVertexShape");
-	this.elementType = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE_DEFAULT);
-	this.shapeLayout = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT_DEFAULT);
-	this.colorFamily = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FAMILY, mxIBM2MondrianBase.prototype.cst.COLOR_FAMILY_DEFAULT);
-	this.colorFillIcon = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_ICON, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_ICON_DEFAULT);
-	this.colorFillText = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_TEXT, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_TEXT_DEFAULT);
-
 	c.translate(x, y);
-
+	
+	this.paintContainer(c, x, y, w, h);
 	this.paintTitleBar(c, x, y, w, h);
 	this.paintIconBox(c, x, y, w, h);
 	this.paintIcon(c, x, y, w, h);
-	this.paintElementName(c, x, y, w, h);
+	//this.paintElementName(c, x, y, w, h);
 	this.paintShape(c, x, y, w, h);
+};
+
+/**
+ * Function: paintContainer
+ * 
+ * Generic background painting implementation.
+ */
+mxIBM2MondrianBase.prototype.paintContainer = function(c, x, y, w, h)
+{
+	const endContainer = h - this.titleBarHeight;
+	const startContainer = this.titleBarHeight;
+
+	if(this.shapeLayout != 'icon' && endContainer > 0)
+	{
+		if(this.elementType === 'ln' || this.elementType === 'lc')
+		{
+			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillContainer]);
+			c.begin();
+			c.moveTo(0, startContainer);
+			c.lineTo(w, startContainer);
+			c.lineTo(w, h - this.cornerRadius);
+			c.arcTo(this.cornerRadius, this.cornerRadius, 0, 0, 1, w - this.cornerRadius, h);
+			c.lineTo(this.cornerRadius, h);
+			c.arcTo(this.cornerRadius, this.cornerRadius, 0, 0, 1, 0, h - this.cornerRadius);
+			c.lineTo(0, startContainer);
+			c.close();
+			c.fill();
+		}
+		else {
+			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillContainer]);
+			c.rect(0, startContainer, w, endContainer);
+			c.fill();
+		}	
+	}
 };
 
 /**
@@ -263,14 +289,32 @@ mxIBM2MondrianBase.prototype.paintVertexShape = function(c, x, y, w, h)
  */
 mxIBM2MondrianBase.prototype.paintTitleBar = function(c, x, y, w, h)
 {
-	var minHeight = Math.min(h, this.titleBarHeight);
+	const minHeight = Math.min(h, this.titleBarHeight);
 	if(this.shapeLayout != 'icon')
 	{
 		if(this.elementType === 'ln' || this.elementType === 'lc')
 		{
-			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillText]);
-			c.roundrect(0, 0, w, minHeight, this.cornerRadius, this.cornerRadius);
-			c.fill();
+			
+			if (h > this.titleBarHeight)
+			{
+				c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillText]);
+				c.begin();
+				c.moveTo(this.cornerRadius, 0);
+				c.lineTo(w - this.cornerRadius, 0);
+				c.arcTo(this.cornerRadius, this.cornerRadius, 0, 0, 1, w, this.cornerRadius);
+				c.lineTo(w, minHeight);
+				c.lineTo(0, minHeight);
+				c.lineTo(0, this.cornerRadius);
+				c.arcTo(this.cornerRadius, this.cornerRadius, 0, 0, 1, this.cornerRadius, 0);
+				c.close();
+				c.fill();
+			}
+			else
+			{
+				c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillText]);
+				c.roundrect(0, 0, w, minHeight, this.cornerRadius, this.cornerRadius);
+				c.fill();
+			}
 		}
 		else if(this.elementType === 'pn' || this.elementType === 'pc')
 		{
@@ -305,8 +349,8 @@ mxIBM2MondrianBase.prototype.paintIconBox = function(c, x, y, w, h)
 {
 	c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillIcon]);
 
-	var minWidth = Math.min(w, this.getIconBoxWidth());
-	var minHeight = Math.min(h, this.titleBarHeight);
+	const minWidth = Math.min(w, this.getIconBoxWidth());
+	const minHeight = Math.min(h, this.titleBarHeight);
 
 	if(minWidth > 0)
 	{
@@ -349,9 +393,16 @@ mxIBM2MondrianBase.prototype.paintIconBox = function(c, x, y, w, h)
 				c.moveTo(this.cornerRadius, 0);
 				c.lineTo(minWidth, 0);
 				c.lineTo(minWidth, minHeight);
-				c.lineTo(this.cornerRadius, minHeight);
-				c.arcTo(this.cornerRadius, this.cornerRadius, 0, 0, 1, 0, minHeight - this.cornerRadius);
-				c.lineTo(0, this.cornerRadius);
+				if (h > this.titleBarHeight)
+				{
+					c.lineTo(0, minHeight);
+				}
+				else
+				{
+					c.lineTo(this.cornerRadius, minHeight);
+					c.arcTo(this.cornerRadius, this.cornerRadius, 0, 0, 1, 0, minHeight - this.cornerRadius);
+				}
+				c.lineTo(0, this.cornerRadius);	
 				c.arcTo(this.cornerRadius, this.cornerRadius, 0, 0, 1, this.cornerRadius, 0);
 				c.close();	
 			}		
@@ -407,7 +458,9 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 		if (h > this.titleBarHeight)
 		{
 			c.setStrokeColor(this.getDividerLineColor(this.colorFamily, this.colorFillText));
-			c.roundrect(0, 0, shapeWidth, this.titleBarHeight, this.cornerRadius, this.cornerRadius);
+			c.begin();
+			c.moveTo(0, this.titleBarHeight);
+			c.lineTo(shapeWidth, this.titleBarHeight);		
 			c.stroke();
 		}
 		c.setStrokeColor(this.getLineColor(this.colorFamily));
@@ -426,9 +479,11 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 	else if(this.elementType === 'pn' || this.elementType === 'pc') // Prescribed Node or Prescribed Component
 	{
 		if (h > this.titleBarHeight)
-		{	
+		{
 			c.setStrokeColor(this.getDividerLineColor(this.colorFamily, this.colorFillText));
-			c.rect(0, 0, shapeWidth, this.titleBarHeight);
+			c.begin();
+			c.moveTo(0, this.titleBarHeight);
+			c.lineTo(shapeWidth, this.titleBarHeight);		
 			c.stroke();
 		}
 		c.setStrokeColor(this.getLineColor(this.colorFamily));
@@ -512,6 +567,17 @@ mxIBM2MondrianBase.prototype.paintElementName = function(c, x, y, w, h)
 	}
 };
 
+/**
+ * Function: getLabelBounds
+ * 
+ * Returns the bounds for the label.
+ */
+mxIBM2MondrianBase.prototype.getLabelBounds = function(rect)
+{
+	return new mxRectangle(rect.x +  this.getIconBoxWidth() * this.scale, rect.y, rect.width -  (this.getIconBoxWidth() * this.scale), this.titleBarHeight * this.scale);
+};
+
+
 mxIBM2MondrianBase.prototype.getConstraints = function(style, w, h)
 {
 	var constr = [];
@@ -550,3 +616,52 @@ mxIBM2MondrianBase.prototype.getConstraints = function(style, w, h)
 
 	return (constr);
 }
+
+var vertexHandlerUnion = mxVertexHandler.prototype.union;
+mxVertexHandler.prototype.union = function(bounds, dx, dy, index, gridEnabled, scale, tr, constrained)
+{
+  var result = vertexHandlerUnion.apply(this, arguments);
+
+  if(this.state.style['shape'] === mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE)
+  {
+	var elementType = mxUtils.getValue(this.state.style, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE_DEFAULT);
+
+	if(elementType != null)
+	{
+	  var shapeLayout = mxUtils.getValue(this.state.style, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT_DEFAULT);
+	  if(elementType === 'actor') // Actor is always 48x48.
+	  {
+		  result.width = mxIBM2MondrianBase.prototype.titleBarHeight;
+		  result.height = mxIBM2MondrianBase.prototype.titleBarHeight;
+	  }
+	  else if(elementType === 'ts') // Target System is always 48 height.
+	  {
+		  if(shapeLayout == 'icon')
+		  {
+			  result.width = 64;
+			  result.height = mxIBM2MondrianBase.prototype.titleBarHeight;
+		  }
+		  else
+		  {
+			  result.width = Math.max(64, result.width);
+			  result.height = mxIBM2MondrianBase.prototype.titleBarHeight;
+		  }
+	  }
+	  else
+	  {
+		  if(shapeLayout == 'icon')
+		  {
+			  result.width = mxIBM2MondrianBase.prototype.titleBarHeight;
+			  result.height = mxIBM2MondrianBase.prototype.titleBarHeight;
+		  }
+		  else
+		  {
+			  result.width = Math.max(mxIBM2MondrianBase.prototype.titleBarHeight, result.width);
+			  result.height = Math.max(mxIBM2MondrianBase.prototype.titleBarHeight, result.height);
+		  }
+	  }
+	}
+  }
+
+  return result;
+};
