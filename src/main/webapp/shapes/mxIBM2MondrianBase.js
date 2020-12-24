@@ -50,6 +50,9 @@ mxIBM2MondrianBase.prototype.cst = {
 	COLOR_FILL_TEXT_DEFAULT : 'white',
 	COLOR_FILL_CONTAINER : 'colorFillContainer', 
 	COLOR_FILL_CONTAINER_DEFAULT : 'white',
+
+	POSITION_TEXT : 'positionText', 
+	POSITION_TEXT_DEFAULT : 'bottom',
 };
 
 //**********************************************************************************************************************************************************
@@ -106,6 +109,8 @@ mxIBM2MondrianBase.prototype.customProperties = [
 		enumList:[{val:'noColor', dispName: 'None'}, {val:'white', dispName: 'White'}, {val:'swatch_10', dispName: 'Very Light'}]},
 	{name:'colorFillContainer', dispName:'Fill (Container)', type:'enum', defVal:'white',
 		enumList:[{val:'noColor', dispName: 'None'}, {val:'white', dispName: 'White'}, {val:'swatch_10', dispName: 'Very Light'}]},
+	{name:'positionText', dispName:'Position (Text)', type:'enum', defVal:'bottom',
+		enumList:[{val:'bottom', dispName: 'Bottom'}, {val:'top', dispName: 'Top'}, {val:'left', dispName: 'Left'}, {val:'right', dispName: 'Right'}]},
 	];
 
 mxCellRenderer.registerShape(mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE, mxIBM2MondrianBase);
@@ -146,6 +151,13 @@ mxIBM2MondrianBase.prototype.textSpacingRight = 16;
 mxIBM2MondrianBase.prototype.textSpacingTop = 8;
 
 /**
+ * Variable: textSpacingBottom
+ *
+ * Default value for text spacing. Default is 8.
+ */
+mxIBM2MondrianBase.prototype.textSpacingBottom = 8;
+
+/**
  * Variable: iconSize
  *
  * Default width and height for the icon. Default is 24.
@@ -167,18 +179,32 @@ mxIBM2MondrianBase.prototype.iconSpacing = 12;
 mxIBM2MondrianBase.prototype.titleBarHeight = 48;
 
 /**
+ * Variable: shapeWidthIconView
+ *
+ * Default width and height for the titleBarHeight. Default is 48.
+ */
+mxIBM2MondrianBase.prototype.shapeWidthIconView = 48;
+
+/**
+ * Variable: shapeHeightIconView
+ *
+ * Default width and height for the titleBarHeight. Default is 48.
+ */
+mxIBM2MondrianBase.prototype.shapeHeightIconView = 48;
+
+/**
  * Variable: titleBarWidthMinimum
  *
- * Default width and height for the titleBarWidthMinimum. Default is 192.
+ * Default width and height for the titleBarWidthMinimum. Default is 144.
  */
-mxIBM2MondrianBase.prototype.titleBarWidthMinimum = 192;
+mxIBM2MondrianBase.prototype.titleBarWidthMinimum = 144;
 
 /**
  * Variable: groupBarWidth
  *
- * Default width and height for the groupBarWidth. Default is 8.
+ * Default width and height for the groupBarWidth. Default is 6.
  */
-mxIBM2MondrianBase.prototype.groupBarWidth = 8;
+mxIBM2MondrianBase.prototype.groupBarWidth = 6;
 
 /**
  * Function: init
@@ -188,11 +214,111 @@ mxIBM2MondrianBase.prototype.groupBarWidth = 8;
 mxIBM2MondrianBase.prototype.init = function(container)
 {
 	mxShape.prototype.init.apply(this, arguments);
-	this.state.view.updateStyle = true;
+
+	/*** START Registration of Event Listener */
+	this.cellID = this.state.cell.id;
+	var changeListener = mxUtils.bind(this, function(evt)
+	{
+		try
+		{
+			if(evt.properties.change.constructor.name === 'mxStyleChange' && (evt.properties.change.cell.id === this.cellID))
+			{
+				const styleCurrent = evt.properties.change.style;
+				
+				const isMondrianShape = (styleCurrent.indexOf(mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE) > 0);
+				if(isMondrianShape)
+				{
+					const stylePrevious = evt.properties.change.previous;
+
+					const elementTypeCurrent = mxIBM2MondrianBase.prototype.getStyleValue(styleCurrent, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE)
+					const elementTypePrevious = mxIBM2MondrianBase.prototype.getStyleValue(stylePrevious, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE)
+
+					const shapeLayoutCurrent = mxIBM2MondrianBase.prototype.getStyleValue(styleCurrent, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT)
+					const shapeLayoutPrevious = mxIBM2MondrianBase.prototype.getStyleValue(stylePrevious, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT)
+
+					const positionTextCurrent = mxIBM2MondrianBase.prototype.getStyleValue(styleCurrent, mxIBM2MondrianBase.prototype.cst.POSITION_TEXT)
+					const positionTextPrevious = mxIBM2MondrianBase.prototype.getStyleValue(stylePrevious, mxIBM2MondrianBase.prototype.cst.POSITION_TEXT)
+
+					var styleMustUpdate = (elementTypeCurrent != elementTypePrevious) || (shapeLayoutCurrent != shapeLayoutPrevious || (positionTextCurrent != positionTextPrevious));
+					if(styleMustUpdate)
+					{
+						// Define the new style
+						var styleNew = styleCurrent;
+						styleNew = mxIBM2MondrianBase.prototype.getStyle(styleNew, elementTypeCurrent, shapeLayoutCurrent, positionTextCurrent);
+						styleMustUpdate = mxIBM2MondrianBase.prototype.cellMustRestyle(styleCurrent, styleNew);
+					}
+					
+					var geoMustUpdate = (elementTypeCurrent != elementTypePrevious) || (shapeLayoutCurrent != shapeLayoutPrevious);
+					if(geoMustUpdate)
+					{
+						//Define the new Geometery
+						const geoCurrent = evt.properties.change.cell.geometry;
+						var newRect = mxIBM2MondrianBase.prototype.getRectangle(
+							new mxRectangle(geoCurrent.x, geoCurrent.y, geoCurrent.width, geoCurrent.height), 
+								elementTypeCurrent, shapeLayoutCurrent, 'change listener');
+				
+						geoMustUpdate = mxIBM2MondrianBase.prototype.cellMustResize(geoCurrent, newRect);
+					}
+
+					if(styleMustUpdate || geoMustUpdate)
+					{
+						this.state.view.graph.model.beginUpdate();
+						try
+						{				
+							if(styleMustUpdate)
+							{
+								this.state.view.graph.model.setStyle(this.state.cell, styleNew);
+							}
+								
+							if(geoMustUpdate)
+							{
+								this.state.view.graph.model.setGeometry(this.state.cell, 
+									new mxGeometry(newRect.x, newRect.y, newRect.width, newRect.height));
+							}
+						}
+						finally
+						{
+							this.state.view.graph.model.endUpdate();
+						}
+					}
+				}
+			}
+			else
+			{
+				// do nothing
+			}
+		}
+		catch(err)
+		{
+			// do nothing
+		}
+	});
 	
-	this.shapeWidthIconView = mxIBM2MondrianBase.prototype.titleBarHeight;
-	this.shapeHeightIconView = mxIBM2MondrianBase.prototype.titleBarHeight;
+	this.state.view.graph.model.addListener(mxEvent.EXECUTED, mxUtils.bind(this, function(sender, evt)
+	{
+		changeListener(evt);
+	}));
+	/*** END Registration of Event Listener */
 };	
+
+mxIBM2MondrianBase.prototype.getStyleValue = function(style, key)
+{
+	var value = 'undefined';
+	var keyIndex = style.indexOf(key);
+
+	if(keyIndex > 0)
+	{	
+		var valueSeparator = style.indexOf('=', keyIndex + 1);
+		var keySeparator = style.indexOf(';', valueSeparator + 1);
+
+		if(keySeparator < 0)
+			keySeparator = style.length;
+		
+		value = style.substring(valueSeparator + 1, keySeparator);
+	}
+
+	return value;
+}
 
 /**
  * Function: redraw
@@ -201,123 +327,35 @@ mxIBM2MondrianBase.prototype.init = function(container)
  */
 mxIBM2MondrianBase.prototype.redraw = function()
 {
-	this.elementType = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE_DEFAULT);
+	this.elementType = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE_DEFAULT);	
 	this.shapeLayout = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT_DEFAULT);
+	
 	this.iconImage = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.ICON_IMAGE, mxIBM2MondrianBase.prototype.cst.ICON_IMAGE_DEFAULT);
 	this.colorFamily = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FAMILY, mxIBM2MondrianBase.prototype.cst.COLOR_FAMILY_DEFAULT);
 	this.colorFillIcon = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_ICON, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_ICON_DEFAULT);
 	this.colorFillText = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_TEXT, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_TEXT_DEFAULT);
 	this.colorFillContainer = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_CONTAINER, mxIBM2MondrianBase.prototype.cst.COLOR_FILL_CONTAINER_DEFAULT);
 
-	//console.log("REDRAW");
-	//console.log(this);
-	
+	this.positionText = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.POSITION_TEXT, mxIBM2MondrianBase.prototype.cst.POSITION_TEXT_DEFAULT);
+
 	mxShape.prototype.redraw.apply(this, arguments);
-
-	if(true)
-	{
-		var currentStyle = this.state.view.graph.model.getStyle(this.state.cell);
-		var newStyle = currentStyle;
-		
-		if(this.shapeLayout === 'collapsed')
-		{
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_VERTICAL_LABEL_POSITION, mxConstants.ALIGN_BOTTOM);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_LABEL_POSITION, mxConstants.ALIGN_CENTER);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_VERTICAL_ALIGN, mxConstants.ALIGN_TOP);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_ALIGN, mxConstants.ALIGN_CENTER);
-
-			// spacing
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_SPACING, 0);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_SPACING_LEFT, 0);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_SPACING_RIGHT, 0);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_SPACING_TOP, this.textSpacingTop);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_SPACING_BOTTOM, 0);
-		}
-		else if(this.shapeLayout === 'expanded')
-		{
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_VERTICAL_LABEL_POSITION, mxConstants.ALIGN_MIDDLE);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_LABEL_POSITION, mxConstants.ALIGN_CENTER);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_VERTICAL_ALIGN, mxConstants.ALIGN_MIDDLE);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_ALIGN, mxConstants.ALIGN_LEFT);
-
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_SPACING, 0);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_SPACING_LEFT, this.textSpacingLeft);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_SPACING_RIGHT, this.textSpacingRight);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_SPACING_TOP, 0);
-			newStyle = mxUtils.setStyle(newStyle, mxConstants.STYLE_SPACING_BOTTOM, 0);
-		}
-		else // custom does not control these styles so you can use the UI to change it yourselves
-		{
-		}
-			
-		if(newStyle != currentStyle)
-		{
-			//console.log('Set newStyle: ' + newStyle);
-			this.state.view.graph.model.beginUpdate();
-			try
-			{
-				this.state.view.invalidate(this.state.cell);	
-				this.state.view.graph.model.setStyle(this.state.cell, newStyle);
-				this.state.view.validate();
-			}
-			finally
-			{
-				this.state.view.graph.model.endUpdate();
-			}	
-		}
-	}
-	
-	if(true)
-	{
-		var currentGeoState = this.state.cell.getGeometry();
-		var newGeoState = null;
-	
-		if(this.elementType === 'actor') // Actor is always 48x48.
-		{
-			newGeoState = new mxGeometry(currentGeoState.x, currentGeoState.y, this.shapeWidthIconView, this.shapeHeightIconView);
-		}
-		else if(this.elementType === 'ts') // Target System is always 48 height.
-		{
-			if(this.shapeLayout === 'collapsed')	
-				newGeoState = new mxGeometry(currentGeoState.x, currentGeoState.y, 64, this.titleBarHeight);
-			else
-				newGeoState = new mxGeometry(currentGeoState.x, currentGeoState.y, Math.max(this.titleBarWidthMinimum, currentGeoState.width), this.titleBarHeight);
-		}
-		else
-		{
-			if(this.shapeLayout === 'collapsed')
-				newGeoState = new mxGeometry(currentGeoState.x, currentGeoState.y, this.shapeWidthIconView, this.shapeHeightIconView);
-			else
-				newGeoState = new mxGeometry(currentGeoState.x, currentGeoState.y, Math.max(this.titleBarWidthMinimum, currentGeoState.width), Math.max(this.titleBarHeight, currentGeoState.height));
-		}
-	
-		if(newGeoState != null && this.mustCellResize(currentGeoState, newGeoState))
-		{
-			//console.log('update');
-			this.state.view.graph.model.beginUpdate();
-			try
-			{
-				this.state.view.invalidate(this.state.cell);	
-				this.state.view.graph.model.setGeometry(this.state.cell, newGeoState);
-				this.state.view.validate();
-			}
-			finally
-			{
-				this.state.view.graph.model.endUpdate();
-			}
-		}	
-	}
 };
 
-mxIBM2MondrianBase.prototype.mustCellResize = function(currentGeoState, newGeoState)
+mxIBM2MondrianBase.prototype.cellMustResize = function(currentGeo, newGeo)
 {
-	if(currentGeoState.width != newGeoState.width)
+	if(currentGeo.width != newGeo.width)
 		return true;
-	else if(currentGeoState.height != newGeoState.height)
+	else if(currentGeo.height != newGeo.height)
 		return true;
 	else
 		return false;
 }
+
+mxIBM2MondrianBase.prototype.cellMustRestyle = function(currentStyle, newStyle)
+{
+	return newStyle != currentStyle;
+}
+
 
 mxIBM2MondrianBase.prototype.paintVertexShape = function(c, x, y, w, h)
 {
@@ -327,7 +365,6 @@ mxIBM2MondrianBase.prototype.paintVertexShape = function(c, x, y, w, h)
 	this.paintTitleBar(c, x, y, w, h);
 	this.paintIconBox(c, x, y, w, h);
 	this.paintIcon(c, x, y, w, h);
-	//this.paintElementName(c, x, y, w, h);
 	this.paintShape(c, x, y, w, h);
 };
 
@@ -653,13 +690,180 @@ mxIBM2MondrianBase.prototype.getIconBoxWidth = function()
 
 
 /**
+ * Function: getStyle
+ * 
+ * Returns the style based on elementType & shapeLayout.
+ */
+var shapeStyle = {};
+mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout, positionText)
+{
+	if(elementType === 'group')
+	{
+		style = mxUtils.setStyle(style, 'container', 1);
+		style = mxUtils.setStyle(style, 'collapsible', 0);
+		style = mxUtils.setStyle(style, 'recursiveResize', 0);
+	}
+
+	if(shapeLayout === 'collapsed' || shapeLayout === 'expanded')
+	{
+		// default setting is for 'expanded'
+		shapeStyle.verticalLabelPosition = mxConstants.ALIGN_MIDDLE;
+		shapeStyle.labelPosition = mxConstants.ALIGN_CENTER;
+		shapeStyle.verticalAlign = mxConstants.ALIGN_MIDDLE;
+		shapeStyle.align = mxConstants.ALIGN_LEFT;
+		shapeStyle.spacing = 0;
+		shapeStyle.spacingLeft = this.textSpacingLeft;
+		shapeStyle.spacingRight = this.textSpacingRight;
+		shapeStyle.spacingTop = 0;
+		shapeStyle.spacingBottom = 0;
+
+		if(shapeLayout === 'collapsed')
+		{
+			if(positionText === 'top')
+			{
+				shapeStyle.verticalLabelPosition = mxConstants.ALIGN_TOP;
+				shapeStyle.labelPosition = mxConstants.ALIGN_CENTER;
+				shapeStyle.verticalAlign = mxConstants.ALIGN_BOTTOM;
+				shapeStyle.align = mxConstants.ALIGN_CENTER;
+				shapeStyle.spacing = 0;
+				shapeStyle.spacingLeft = 0;
+				shapeStyle.spacingRight = 0;
+				shapeStyle.spacingTop = 0;
+				shapeStyle.spacingBottom = this.textSpacingBottom;
+			}
+			else if(positionText === 'left')
+			{
+				shapeStyle.verticalLabelPosition = mxConstants.ALIGN_MIDDLE;
+				shapeStyle.labelPosition = mxConstants.ALIGN_LEFT;
+				shapeStyle.verticalAlign = mxConstants.ALIGN_MIDDLE;
+				shapeStyle.align = mxConstants.ALIGN_RIGHT;
+				shapeStyle.spacing = 0;
+				shapeStyle.spacingLeft = 0;
+				shapeStyle.spacingRight = this.textSpacingLeft;
+				shapeStyle.spacingTop = 0;
+				shapeStyle.spacingBottom = 0;
+			}		
+			else if(positionText === 'right')
+			{
+				shapeStyle.verticalLabelPosition = mxConstants.ALIGN_MIDDLE;
+				shapeStyle.labelPosition = mxConstants.ALIGN_RIGHT;
+				shapeStyle.verticalAlign = mxConstants.ALIGN_MIDDLE;
+				shapeStyle.align = mxConstants.ALIGN_LEFT;
+				shapeStyle.spacing = 0;
+				shapeStyle.spacingLeft = this.textSpacingLeft;
+				shapeStyle.spacingRight = 0;
+				shapeStyle.spacingTop = 0;
+				shapeStyle.spacingBottom = 0;
+			}		
+			else // default is bottom
+			{
+				shapeStyle.verticalLabelPosition = mxConstants.ALIGN_BOTTOM;
+				shapeStyle.labelPosition = mxConstants.ALIGN_CENTER;
+				shapeStyle.verticalAlign = mxConstants.ALIGN_TOP;
+				shapeStyle.align = mxConstants.ALIGN_CENTER;
+				shapeStyle.spacing = 0;
+				shapeStyle.spacingLeft = 0;
+				shapeStyle.spacingRight = 0;
+				shapeStyle.spacingTop = this.textSpacingTop;
+				shapeStyle.spacingBottom = 0;
+			}
+		}
+
+		style = mxUtils.setStyle(style, mxConstants.STYLE_VERTICAL_LABEL_POSITION, shapeStyle.verticalLabelPosition);
+		style = mxUtils.setStyle(style, mxConstants.STYLE_LABEL_POSITION, shapeStyle.labelPosition);
+		style = mxUtils.setStyle(style, mxConstants.STYLE_VERTICAL_ALIGN, shapeStyle.verticalAlign);
+		style = mxUtils.setStyle(style, mxConstants.STYLE_ALIGN, shapeStyle.align);
+
+		style = mxUtils.setStyle(style, mxConstants.STYLE_SPACING, shapeStyle.spacing);
+		style = mxUtils.setStyle(style, mxConstants.STYLE_SPACING_LEFT, shapeStyle.spacingLeft);
+		style = mxUtils.setStyle(style, mxConstants.STYLE_SPACING_RIGHT, shapeStyle.spacingRight);
+		style = mxUtils.setStyle(style, mxConstants.STYLE_SPACING_TOP, shapeStyle.spacingTop);
+		style = mxUtils.setStyle(style, mxConstants.STYLE_SPACING_BOTTOM, shapeStyle.spacingBottom);
+	}
+	else // custom does not control these styles so you can use the UI to change it yourselves
+	{
+	}
+
+	return style;
+}
+/**
+ * Function: getRectangle
+ * 
+ * Returns the rectangle based on elementType & shapeLayout.
+ */
+mxIBM2MondrianBase.prototype.getRectangle = function(rect, elementType, shapeLayout, whoCalled)
+{
+	//console.log('getRectangle: ' + whoCalled);
+
+	if(elementType != null)
+	{
+		if(elementType === 'actor') // Actor is always 48x48.
+	 	{
+			rect.width = mxIBM2MondrianBase.prototype.titleBarHeight;
+			rect.height = mxIBM2MondrianBase.prototype.titleBarHeight;
+		}
+		else if(elementType === 'ts') // Target System is always 48 height.
+		{
+			if(shapeLayout === 'collapsed')
+			{
+				rect.width = 64;
+				rect.height = mxIBM2MondrianBase.prototype.titleBarHeight;
+			}
+			else if(shapeLayout === 'expanded')
+			{
+				rect.width = Math.max(64, mxIBM2MondrianBase.prototype.titleBarWidthMinimum, rect.width);
+				rect.height = mxIBM2MondrianBase.prototype.titleBarHeight;
+			}
+			else // custom, do nothing
+			{
+
+			}
+		}
+		else if(elementType === 'group')
+		{
+			if(shapeLayout === 'collapsed' || shapeLayout === 'expanded')
+			{
+				rect.width = Math.max(mxIBM2MondrianBase.prototype.titleBarWidthMinimum, rect.width);
+				rect.height = Math.max(mxIBM2MondrianBase.prototype.titleBarHeight, rect.height);	
+			}
+			else
+			{
+
+			}
+		}
+		else
+		{
+			if(shapeLayout === 'collapsed')
+			{
+				rect.width = mxIBM2MondrianBase.prototype.titleBarHeight;
+				rect.height = mxIBM2MondrianBase.prototype.titleBarHeight;
+			}
+			else if(shapeLayout === 'expanded')
+			{
+				rect.width = Math.max(mxIBM2MondrianBase.prototype.titleBarWidthMinimum, rect.width);
+				rect.height = Math.max(mxIBM2MondrianBase.prototype.titleBarHeight, rect.height);
+			}
+			else // custom, do nothing
+			{
+
+			}
+		}
+	}
+
+	return rect;
+};
+
+/**
  * Function: getLabelBounds
  * 
  * Returns the bounds for the label.
  */
 mxIBM2MondrianBase.prototype.getLabelBounds = function(rect)
 {
-	return new mxRectangle(rect.x +  this.getIconBoxWidth() * this.scale, rect.y, rect.width -  (this.getIconBoxWidth() * this.scale), this.titleBarHeight * this.scale);
+	return new mxRectangle(rect.x + this.getIconBoxWidth() * this.scale, 
+					rect.y,
+					rect.width -  (this.getIconBoxWidth() * this.scale),
+					this.titleBarHeight * this.scale);
 };
 
 /**
@@ -709,48 +913,14 @@ mxIBM2MondrianBase.prototype.getConstraints = function(style, w, h)
 var vertexHandlerUnion = mxVertexHandler.prototype.union;
 mxVertexHandler.prototype.union = function(bounds, dx, dy, index, gridEnabled, scale, tr, constrained)
 {
-  var result = vertexHandlerUnion.apply(this, arguments);
+  var rect = vertexHandlerUnion.apply(this, arguments);
 
   if(this.state.style['shape'] === mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE)
   {
-	var elementType = mxUtils.getValue(this.state.style, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE_DEFAULT);
-
-	if(elementType != null)
-	{
-	  var shapeLayout = mxUtils.getValue(this.state.style, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT_DEFAULT);
-	  if(elementType === 'actor') // Actor is always 48x48.
-	  {
-		  result.width = mxIBM2MondrianBase.prototype.titleBarHeight;
-		  result.height = mxIBM2MondrianBase.prototype.titleBarHeight;
-	  }
-	  else if(elementType === 'ts') // Target System is always 48 height.
-	  {
-		  if(shapeLayout == 'collapsed')
-		  {
-			  result.width = 64;
-			  result.height = mxIBM2MondrianBase.prototype.titleBarHeight;
-		  }
-		  else
-		  {
-			  result.width = Math.max(64, result.width);
-			  result.height = mxIBM2MondrianBase.prototype.titleBarHeight;
-		  }
-	  }
-	  else
-	  {
-		  if(shapeLayout == 'collapsed')
-		  {
-			  result.width = mxIBM2MondrianBase.prototype.titleBarHeight;
-			  result.height = mxIBM2MondrianBase.prototype.titleBarHeight;
-		  }
-		  else
-		  {
-			  result.width = Math.max(mxIBM2MondrianBase.prototype.titleBarHeight, result.width);
-			  result.height = Math.max(mxIBM2MondrianBase.prototype.titleBarHeight, result.height);
-		  }
-	  }
-	}
+	const elementType = mxUtils.getValue(this.state.style, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE_DEFAULT);
+	const shapeLayout = mxUtils.getValue(this.state.style, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT_DEFAULT);
+	rect = mxIBM2MondrianBase.prototype.getRectangle(rect, elementType, shapeLayout, 'mxVertexHandler');
   }
 
-  return result;
+  return rect;
 };
