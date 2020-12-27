@@ -123,6 +123,13 @@ mxCellRenderer.registerShape(mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE, mxI
 mxIBM2MondrianBase.prototype.cornerRadius = 8;
 
 /**
+ * Variable: textSpacing
+ *
+ * Default value for text spacing. Default is 8.
+ */
+mxIBM2MondrianBase.prototype.textSpacing = 8;
+
+/**
  * Variable: targetSystemRadius
  *
  * Default radius for rounded corner of Target System element. Default is 20.
@@ -142,20 +149,6 @@ mxIBM2MondrianBase.prototype.textSpacingLeft = 12;
  * Default value for text spacing. Default is 16.
  */
 mxIBM2MondrianBase.prototype.textSpacingRight = 16;
-
-/**
- * Variable: textSpacingTop
- *
- * Default value for text spacing. Default is 8.
- */
-mxIBM2MondrianBase.prototype.textSpacingTop = 8;
-
-/**
- * Variable: textSpacingBottom
- *
- * Default value for text spacing. Default is 8.
- */
-mxIBM2MondrianBase.prototype.textSpacingBottom = 8;
 
 /**
  * Variable: iconSize
@@ -653,7 +646,18 @@ mxIBM2MondrianBase.prototype.paintIcon = function(c, x, y, w, h)
 		}
 		else
 		{
-			c.image(this.iconSpacing, this.iconSpacing, this.iconSize, this.iconSize, this.image, true, false, false);
+			if(false)
+			{
+				console.log(mxStencilRegistry);
+				var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2mondrian.ibm-cloud');
+				//var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2.cloudtag');
+				bgSt1.drawShape(c, this, this.iconSpacing, this.iconSpacing, this.iconSize, this.iconSize);
+			}
+			else
+			{
+				c.image(this.iconSpacing, this.iconSpacing, this.iconSize, this.iconSize, this.image, true, false, false);
+			}
+			
 		}
 	}
 };
@@ -697,6 +701,7 @@ mxIBM2MondrianBase.prototype.getIconBoxWidth = function()
 var shapeStyle = {};
 mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout, positionText)
 {
+	//const labelWidth = mxUtils.getValue(style, 'labelWidth', 100);
 	if(elementType === 'group')
 	{
 		style = mxUtils.setStyle(style, 'container', 1);
@@ -716,6 +721,7 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 		shapeStyle.spacingRight = this.textSpacingRight;
 		shapeStyle.spacingTop = 0;
 		shapeStyle.spacingBottom = 0;
+		//shapeStyle.labelWidth = null;
 
 		if(shapeLayout === 'collapsed')
 		{
@@ -729,7 +735,8 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 				shapeStyle.spacingLeft = 0;
 				shapeStyle.spacingRight = 0;
 				shapeStyle.spacingTop = 0;
-				shapeStyle.spacingBottom = this.textSpacingBottom;
+				shapeStyle.spacingBottom = this.textSpacing;
+				//shapeStyle.labelWidth = labelWidth;
 			}
 			else if(positionText === 'left')
 			{
@@ -739,9 +746,10 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 				shapeStyle.align = mxConstants.ALIGN_RIGHT;
 				shapeStyle.spacing = 0;
 				shapeStyle.spacingLeft = 0;
-				shapeStyle.spacingRight = this.textSpacingLeft;
+				shapeStyle.spacingRight = this.textSpacing;
 				shapeStyle.spacingTop = 0;
 				shapeStyle.spacingBottom = 0;
+				//shapeStyle.labelWidth = labelWidth;
 			}		
 			else if(positionText === 'right')
 			{
@@ -750,10 +758,11 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 				shapeStyle.verticalAlign = mxConstants.ALIGN_MIDDLE;
 				shapeStyle.align = mxConstants.ALIGN_LEFT;
 				shapeStyle.spacing = 0;
-				shapeStyle.spacingLeft = this.textSpacingLeft;
+				shapeStyle.spacingLeft = this.textSpacing;
 				shapeStyle.spacingRight = 0;
 				shapeStyle.spacingTop = 0;
 				shapeStyle.spacingBottom = 0;
+				//shapeStyle.labelWidth = labelWidth;
 			}		
 			else // default is bottom
 			{
@@ -764,8 +773,9 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 				shapeStyle.spacing = 0;
 				shapeStyle.spacingLeft = 0;
 				shapeStyle.spacingRight = 0;
-				shapeStyle.spacingTop = this.textSpacingTop;
+				shapeStyle.spacingTop = this.textSpacing;
 				shapeStyle.spacingBottom = 0;
+				//shapeStyle.labelWidth = labelWidth;
 			}
 		}
 
@@ -779,6 +789,8 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 		style = mxUtils.setStyle(style, mxConstants.STYLE_SPACING_RIGHT, shapeStyle.spacingRight);
 		style = mxUtils.setStyle(style, mxConstants.STYLE_SPACING_TOP, shapeStyle.spacingTop);
 		style = mxUtils.setStyle(style, mxConstants.STYLE_SPACING_BOTTOM, shapeStyle.spacingBottom);
+
+		//style = mxUtils.setStyle(style, mxConstants.STYLE_LABEL_WIDTH, shapeStyle.labelWidth);
 	}
 	else // custom does not control these styles so you can use the UI to change it yourselves
 	{
@@ -793,8 +805,6 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
  */
 mxIBM2MondrianBase.prototype.getRectangle = function(rect, elementType, shapeLayout, whoCalled)
 {
-	//console.log('getRectangle: ' + whoCalled);
-
 	if(elementType != null)
 	{
 		if(elementType === 'actor') // Actor is always 48x48.
@@ -923,4 +933,64 @@ mxVertexHandler.prototype.union = function(bounds, dx, dy, index, gridEnabled, s
   }
 
   return rect;
+};
+
+//mxVertexHandler.prototype.livePreview = true;
+mxVertexHandler.prototype.createCustomHandles = function()
+{
+	if(this.state.style['shape'] === mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE)
+	{
+		// Implements the handle for the first divider
+		var cursor = 'ew-resize'
+		var textHandle = new mxHandle(this.state, cursor);
+		
+		textHandle.getPosition = function(bounds)
+		{
+			var labelWidth = Math.max(48, parseFloat(mxUtils.getValue(this.state.style, 'labelWidth', 100)));
+						
+			switch(mxUtils.getValue(this.state.style, 'positionText', null)) {
+				case 'left':
+					return new mxPoint(bounds.x - labelWidth - mxIBM2MondrianBase.prototype.textSpacing, bounds.getCenterY());
+				case 'right':
+					return new mxPoint(bounds.x + bounds.width + labelWidth + mxIBM2MondrianBase.prototype.textSpacing, bounds.getCenterY());
+				case 'top':
+					return new mxPoint(bounds.getCenterX() - labelWidth/2, bounds.y - mxIBM2MondrianBase.prototype.textSpacing);
+				case 'bottom':
+					return new mxPoint(bounds.getCenterX() - labelWidth/2, bounds.y + bounds.height + mxIBM2MondrianBase.prototype.textSpacing);
+				default:
+					return null;
+				}
+		};
+		
+		textHandle.setPosition = function(bounds, pt)
+		{		
+			switch(mxUtils.getValue(this.state.style, 'positionText', null)) {
+				case 'left':
+					this.state.style['labelWidth'] = Math.round(bounds.x - pt.x - mxIBM2MondrianBase.prototype.textSpacing);
+					break;
+				case 'right':
+					this.state.style['labelWidth'] = Math.round(pt.x - bounds.x - bounds.width - mxIBM2MondrianBase.prototype.textSpacing);
+					break;
+				case 'top':
+					this.state.style['labelWidth'] = Math.round((bounds.getCenterX() - pt.x) * 2);
+					break;
+				case 'bottom':
+					this.state.style['labelWidth'] = Math.round((bounds.getCenterX() - pt.x) * 2);
+					break;
+				default:
+					return null;
+				}
+		};
+		
+		textHandle.execute = function()
+		{
+			this.copyStyle('labelWidth');
+		}
+
+		textHandle.ignoreGrid = true;
+
+		return [textHandle];
+	}
+
+	return null;
 };

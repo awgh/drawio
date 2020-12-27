@@ -197,6 +197,7 @@
 <shape aspect="variable" h="63.737" name="ibm-cloud" strokewidth="inherit" w="64">
     <connections/>
     <foreground>
+        <fillcolor color="#000000"/>
         <path>
             <move x="48.969" y="27.188"/>
             <arc large-arc-flag="0" rx="19.385" ry="19.385" sweep-flag="0" x="12.531" x-axis-rotation="0" y="34.933"/>
@@ -262,8 +263,6 @@
             <arc large-arc-flag="1" rx="1.511" ry="1.511" sweep-flag="0" x="8.294" x-axis-rotation="0" y="23.346"/>
             <close/>
         </path>
-        <fillstroke/>
-        <rect h="63.737" w="63.737" x="0.01" y="0"/>
         <fillstroke/>
     </foreground>
 </shape>
