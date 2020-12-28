@@ -1,4 +1,36 @@
 <shapes name="mxgraph.ibm2mondrian">
+<shape aspect="variable" h="32" name="undefined" strokewidth="inherit" w="32">
+    <connections/>
+    <foreground>
+        <rect h="4" w="10" x="11" y="14"/>
+        <fillstroke/>
+        <path>
+            <move x="16" y="30"/>
+            <arc large-arc-flag="0" rx="2.076" ry="2.076" sweep-flag="1" x="14.527" x-axis-rotation="0" y="29.391"/>
+            <line x="2.609" y="17.473"/>
+            <arc large-arc-flag="0" rx="2.086" ry="2.086" sweep-flag="1" x="2.609" x-axis-rotation="0" y="14.527"/>
+            <line x="14.527" y="2.609"/>
+            <arc large-arc-flag="0" rx="2.086" ry="2.086" sweep-flag="1" x="17.473" x-axis-rotation="0" y="2.609"/>
+            <line x="29.391" y="14.527"/>
+            <arc large-arc-flag="0" rx="2.086" ry="2.086" sweep-flag="1" x="29.391" x-axis-rotation="0" y="17.473"/>
+            <line x="17.473" y="29.391"/>
+            <arc large-arc-flag="0" rx="2.076" ry="2.076" sweep-flag="1" x="16" x-axis-rotation="0" y="30"/>
+            <close/>
+            <move x="16" y="3.999"/>
+            <arc large-arc-flag="0" rx="0.084" ry="0.084" sweep-flag="0" x="15.941" x-axis-rotation="0" y="4.024"/>
+            <line x="4.024" y="15.941"/>
+            <arc large-arc-flag="0" rx="0.084" ry="0.084" sweep-flag="0" x="4.024" x-axis-rotation="0" y="16.059"/>
+            <line x="15.941" y="27.976"/>
+            <arc large-arc-flag="0" rx="0.084" ry="0.084" sweep-flag="0" x="16.059" x-axis-rotation="0" y="27.976"/>
+            <line x="27.976" y="16.059"/>
+            <arc large-arc-flag="0" rx="0.084" ry="0.084" sweep-flag="0" x="27.976" x-axis-rotation="0" y="15.941"/>
+            <line x="16.059" y="4.024"/>
+            <arc large-arc-flag="0" rx="0.084" ry="0.084" sweep-flag="0" x="16" x-axis-rotation="0" y="3.999"/>
+            <close/>
+        </path>
+        <fillstroke/>
+    </foreground>
+</shape>
 <shape aspect="variable" h="64" name="devices" strokewidth="inherit" w="64">
     <connections/>
     <foreground>
@@ -46,8 +78,6 @@
             <close/>
         </path>
         <fillstroke/>
-        <rect h="64" w="64" x="0" y="0"/>
-        <fillstroke/>
     </foreground>
 </shape>
 <shape aspect="variable" h="64" name="enterprise" strokewidth="inherit" w="64">
@@ -87,8 +117,6 @@
             <line x="56" y="56"/>
             <close/>
         </path>
-        <fillstroke/>
-        <rect h="64" w="64" x="0" y="0"/>
         <fillstroke/>
     </foreground>
 </shape>
@@ -166,8 +194,6 @@
             <close/>
         </path>
         <fillstroke/>
-        <rect h="64" w="64" x="0" y="0"/>
-        <fillstroke/>
     </foreground>
 </shape>
 <shape aspect="variable" h="64" name="flag" strokewidth="inherit" w="64">
@@ -189,8 +215,6 @@
             <line x="12" y="8"/>
             <close/>
         </path>
-        <fillstroke/>
-        <rect h="64" w="64" x="0" y="0"/>
         <fillstroke/>
     </foreground>
 </shape>
@@ -263,8 +287,6 @@
             <close/>
         </path>
         <fillstroke/>
-        <rect h="63.737" w="63.737" x="0.01" y="0"/>
-        <fillstroke/>
     </foreground>
 </shape>
 <shape aspect="variable" h="64" name="stop" strokewidth="inherit" w="64">
@@ -287,8 +309,6 @@
             <arc large-arc-flag="0" rx="4" ry="4" sweep-flag="0" x="48" x-axis-rotation="0" y="12"/>
             <close/>
         </path>
-        <fillstroke/>
-        <rect h="64" w="64" x="0" y="0"/>
         <fillstroke/>
     </foreground>
 </shape>
@@ -353,8 +373,6 @@
             <close/>
         </path>
         <fillstroke/>
-        <rect h="62.705" w="62.705" x="0.646" y="0"/>
-        <fillstroke/>
     </foreground>
 </shape>
 <shape aspect="variable" h="64" name="virtual-private-cloud" strokewidth="inherit" w="64">
@@ -417,8 +435,6 @@
             <arc large-arc-flag="0" rx="4.005" ry="4.005" sweep-flag="1" x="12" x-axis-rotation="0" y="56"/>
             <close/>
         </path>
-        <fillstroke/>
-        <rect h="64" w="64" x="0" y="0"/>
         <fillstroke/>
     </foreground>
 </shape>
