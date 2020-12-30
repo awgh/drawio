@@ -438,4 +438,41 @@
         <fillstroke/>
     </foreground>
 </shape>
+<shape aspect="variable" h="32" name="location" strokewidth="inherit" w="32">
+    <connections/>
+    <foreground>
+        <path>
+            <move x="16" y="18"/>
+            <arc large-arc-flag="1" rx="5" ry="5" sweep-flag="1" x="21" x-axis-rotation="0" y="13"/>
+            <arc large-arc-flag="0" rx="5.006" ry="5.006" sweep-flag="1" x="16" x-axis-rotation="0" y="18"/>
+            <close/>
+            <move x="16" y="10"/>
+            <arc large-arc-flag="1" rx="3" ry="3" sweep-flag="0" x="19" x-axis-rotation="0" y="13"/>
+            <arc large-arc-flag="0" rx="3.003" ry="3.003" sweep-flag="0" x="16" x-axis-rotation="0" y="10"/>
+            <close/>
+        </path>
+        <fillstroke/>
+        <path>
+            <move x="16" y="30"/>
+            <line x="7.564" y="20.051"/>
+            <curve x1="7.517" x2="7.216" x3="7.216" y1="19.994" y2="19.6" y3="19.6"/>
+            <arc large-arc-flag="0" rx="10.889" ry="10.889" sweep-flag="1" x="5" x-axis-rotation="0" y="13"/>
+            <arc large-arc-flag="0" rx="11" ry="11" sweep-flag="1" x="27" x-axis-rotation="0" y="13"/>
+            <arc large-arc-flag="0" rx="10.884" ry="10.884" sweep-flag="1" x="24.785" x-axis-rotation="0" y="19.597"/>
+            <line x="24.784" y="19.6"/>
+            <curve x1="24.782" x2="24.484" x3="24.439" y1="19.603" y2="19.994" y3="20.047"/>
+            <close/>
+            <move x="8.812" y="18.395"/>
+            <curve x1="8.814" x2="9.046" x3="9.099" y1="18.396" y2="18.703" y3="18.769"/>
+            <line x="16" y="26.908"/>
+            <line x="22.91" y="18.758"/>
+            <curve x1="22.954" x2="23.188" x3="23.189" y1="18.703" y2="18.393" y3="18.392"/>
+            <arc large-arc-flag="0" rx="8.901" ry="8.901" sweep-flag="0" x="25" x-axis-rotation="0" y="13"/>
+            <arc large-arc-flag="1" rx="9" ry="9" sweep-flag="0" x="7" x-axis-rotation="0" y="13"/>
+            <arc large-arc-flag="0" rx="8.905" ry="8.905" sweep-flag="0" x="8.812" x-axis-rotation="0" y="18.395"/>
+            <close/>
+        </path>
+        <fillstroke/>
+    </foreground>
+</shape>
 </shapes>
