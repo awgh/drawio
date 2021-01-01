@@ -113,6 +113,19 @@ mxIBM2MondrianBase.prototype.getDividerLineColor = function(colorFamily, colorFi
 	}
 }
 
+/**
+ * Function: getGroupBarWidth
+ *
+ * Default width for the groupBar.
+ */
+mxIBM2MondrianBase.prototype.getGroupBarWidth = function(colorFillIcon)
+{
+	if(colorFillIcon === 'noColor')
+		return 0;
+	else
+		return 6;
+}
+
 mxIBM2MondrianBase.prototype.customProperties = [
 	{name:'shapeType', dispName:'Shape Type', type:'enum', defVal:'pn',
 		enumList:[{val:'actor', dispName: 'Actor'}, {val:'ts', dispName: 'Target System'}, {val:'ln', dispName: 'Logical Node'}, {val:'lc', dispName: 'Logical Component'}, {val:'pn', dispName: 'Prescribed Node'}, {val:'pc', dispName: 'Prescribed Component'}, {val:'group', dispName: 'Group'}]},
@@ -212,19 +225,20 @@ mxIBM2MondrianBase.prototype.shapeHeightIconView = 48;
 mxIBM2MondrianBase.prototype.titleBarWidthMinimum = 144;
 
 /**
- * Variable: groupBarWidth
- *
- * Default width and height for the groupBarWidth. Default is 6.
- */
-mxIBM2MondrianBase.prototype.groupBarWidth = 6;
-
-/**
  * Function: init
  *
  * Initializes the shape and the <indicator>.
  */
 mxIBM2MondrianBase.prototype.init = function(container)
 {
+	if(Editor.config[mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE] != null)
+	{
+		for (var key in Editor.config[mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE]['icon_stencil_libraries']) {
+			mxStencilRegistry.loadStencilSet(
+				Editor.config[mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE]['icon_stencil_libraries'][key]);
+		}
+	}
+
 	mxShape.prototype.init.apply(this, arguments);
 
 	/* temporary function to support coversion of old diagrams  */
@@ -238,7 +252,6 @@ mxIBM2MondrianBase.prototype.init = function(container)
 		{
 			this.state.style['shapeType'] = mxUtils.getValue(this.state.style, 'elementType', null);
 			this.state.view.graph.model.setStyle(this.state.cell, tmpStyle.replace('elementType','shapeType'));
-			console.log('replaced');
 		}
 		finally
 		{
@@ -371,6 +384,9 @@ mxIBM2MondrianBase.prototype.redraw = function()
 {
 	this.shapeType = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.SHAPE_TYPE, mxIBM2MondrianBase.prototype.cst.SHAPE_TYPE_DEFAULT);	
 	this.shapeLayout = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT_DEFAULT);
+
+	if(this.shapeType === 'group') // a group can only be expanded so should ignore the shapeLayout setting
+		this.shapeLayout = 'expanded';
 	
 	this.iconImage = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.ICON_IMAGE, mxIBM2MondrianBase.prototype.cst.ICON_IMAGE_DEFAULT);
 	this.colorFamily = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FAMILY, mxIBM2MondrianBase.prototype.cst.COLOR_FAMILY_DEFAULT);
@@ -671,7 +687,7 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 		c.stroke();
 
 		c.setFillColor(this.getLineColor(this.colorFamily, this.shapeLayout, this.colorFillIcon));
-		c.rect(0, 0, this.groupBarWidth, this.titleBarHeight);
+		c.rect(0, 0, this.getGroupBarWidth(this.colorFillIcon), this.titleBarHeight);
 		c.fill();
 	}
 };
@@ -692,7 +708,7 @@ mxIBM2MondrianBase.prototype.paintIcon = function(c, x, y, w, h)
 	}
 	else if(this.shapeType === 'group')
 	{
-		positionX = this.groupBarWidth + this.iconSpacing;
+		positionX = this.getGroupBarWidth(this.colorFillIcon) + this.iconSpacing;
 	}
 
 	if(this.iconImage === 'stencilIcon')
@@ -730,7 +746,7 @@ mxIBM2MondrianBase.prototype.getIconBoxWidth = function()
 		switch(this.shapeType)
 		{
 			case 'group':
-				return this.groupBarWidth;
+				return this.getGroupBarWidth(this.colorFillIcon);
 			default:
 				return 0;
 		}
@@ -742,7 +758,7 @@ mxIBM2MondrianBase.prototype.getIconBoxWidth = function()
 			case 'ts':
 				return (2 * this.targetSystemRadius + this.iconSize);
 			case 'group':
-				return (this.iconSpacing + this.iconSize + this.groupBarWidth);
+				return (this.iconSpacing + this.iconSize + this.getGroupBarWidth(this.colorFillIcon));
 			default:
 				return (2 * this.iconSpacing + this.iconSize);
 		}

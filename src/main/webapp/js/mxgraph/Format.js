@@ -4262,13 +4262,17 @@ StyleFormatPanel.prototype.init = function()
 			this.container.appendChild(this.addSvgStyles(this.createPanel()));
 		}
 		
-		if (!ss.containsImage || ss.style.shape == 'image')
+		if(ss.style.shape != 'mxgraph.ibm2mondrian.base')
 		{
-			this.container.appendChild(this.addFill(this.createPanel()));
+			if (!ss.containsImage || ss.style.shape == 'image')
+			{
+				this.container.appendChild(this.addFill(this.createPanel()));
+			}		
 		}
-	
-		this.container.appendChild(this.addStroke(this.createPanel()));
+
+		this.container.appendChild(this.addStroke(this.createPanel()));	
 		this.container.appendChild(this.addLineJumps(this.createPanel()));
+		
 		var opacityPanel = this.createRelativeOption(mxResources.get('opacity'), mxConstants.STYLE_OPACITY, 41);
 		opacityPanel.style.paddingTop = '8px';
 		opacityPanel.style.paddingBottom = '8px';
