@@ -231,7 +231,7 @@ mxIBM2MondrianBase.prototype.titleBarWidthMinimum = 144;
  */
 mxIBM2MondrianBase.prototype.init = function(container)
 {
-	if(Editor.config[mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE] != null)
+	if(Editor.config != null && Editor.config[mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE])
 	{
 		for (var key in Editor.config[mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE]['icon_stencil_libraries']) {
 			mxStencilRegistry.loadStencilSet(
