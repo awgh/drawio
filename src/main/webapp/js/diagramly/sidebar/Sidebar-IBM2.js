@@ -19,19 +19,19 @@
 
 		var fns = [
 			 // General groups
-			 this.createVertexTemplateEntry(style_text + cloudColor + 'image=ibm-cloud;', x, y, 'IBM Cloud', 'IBM Cloud', true, null, null),
-			 this.createVertexTemplateEntry(style_text + locationColor + 'image=flag;', x, y, 'Region', 'Region', true, null, null),
-			 this.createVertexTemplateEntry(style_text + locationColor + 'image=location;', x, y, 'Region', 'Region', true, null, null),
-			 this.createVertexTemplateEntry(style_text + locationColor + 'image=devices;', x, y, 'Zone', 'Zone', true, null, null),
-			 this.createVertexTemplateEntry(style_text + cloudColor + 'image=events;', x, y, 'Public Network', 'Public Network', true, null, null),
-			 this.createVertexTemplateEntry(style_text + cloudColor + 'image=enterprise;', x, y, 'Enterprise Network', 'Enterprise Network', true, null, null),
-			 this.createVertexTemplateEntry(style_text + accountColor + 'image=credentials;', x, y, 'Access Group', 'Access Group', true, null, null),
-			 this.createVertexTemplateEntry(style_text + accountColor + 'image=user;', x, y, 'Account Group', 'Account Group', true, null, null),
-			 this.createVertexTemplateEntry(style_text + accountColor + 'image=collaborate;', x, y, 'Resource Group', 'Account Group', true, null, null),
+			 this.createVertexTemplateEntry(style_text + cloudColor + 'image=ibm-cloud;', w, h, 'IBM Cloud', 'IBM Cloud', true, null, null),
+			 this.createVertexTemplateEntry(style_text + locationColor + 'image=flag;', w, h, 'Region', 'Region', true, null, null),
+			 this.createVertexTemplateEntry(style_text + locationColor + 'image=location;', w, h, 'Region', 'Region', true, null, null),
+			 this.createVertexTemplateEntry(style_text + locationColor + 'image=devices;', w, h, 'Zone', 'Zone', true, null, null),
+			 this.createVertexTemplateEntry(style_text + cloudColor + 'image=events;', w, h, 'Public Network', 'Public Network', true, null, null),
+			 this.createVertexTemplateEntry(style_text + cloudColor + 'image=enterprise;', w, h, 'Enterprise Network', 'Enterprise Network', true, null, null),
+			 this.createVertexTemplateEntry(style_text + accountColor + 'image=credentials;', w, h, 'Access Group', 'Access Group', true, null, null),
+			 this.createVertexTemplateEntry(style_text + accountColor + 'image=user;', w, h, 'Account Group', 'Account Group', true, null, null),
+			 this.createVertexTemplateEntry(style_text + accountColor + 'image=collaborate;', w, h, 'Resource Group', 'Account Group', true, null, null),
 
 			 // VPC groups
-			 this.createVertexTemplateEntry(style_text + cloudColor + 'image=virtual-private-cloud;', x, y, 'VPC', 'VPC', true, null, null),
-			 this.createVertexTemplateEntry(style_text + networkColor + 'image=virtual-private-cloud;', x, y, 'Subnet', 'Subnet', true, null, null),
+			 this.createVertexTemplateEntry(style_text + cloudColor + 'image=virtual-private-cloud;', w, h, 'VPC', 'VPC', true, null, null),
+			 this.createVertexTemplateEntry(style_text + networkColor + 'image=virtual-private-cloud;', w, h, 'Subnet', 'Subnet', true, null, null),
 		];
 
 		this.addPalette('ibm2Groups', 'IBM 2.0 / Cloud / Groups', false, mxUtils.bind(this, function(content)
