@@ -18,7 +18,7 @@
 		var x = 240;
 		var y = 160;
 
-		var generalColor = "colorFamily=blue"
+		var cloudColor = "colorFamily=blue"
 		var accountColor = "colorFamily=purple;"
 		var locationColor = "colorFamily=gray;"
 		var networkColor = "colorFamily=teal;"
@@ -30,8 +30,8 @@
 			 this.createVertexTemplateEntry(s + locationColor + 'image=flag;', x, y, 'Region', 'Region', true, null, null),
 			 this.createVertexTemplateEntry(s + locationColor + 'image=location;', x, y, 'Region', 'Region', true, null, null),
 			 this.createVertexTemplateEntry(s + locationColor + 'image=devices;', x, y, 'Zone', 'Zone', true, null, null),
-			 this.createVertexTemplateEntry(s + generalColor + 'image=events;', x, y, 'Public Network', 'Public Network', true, null, null),
-			 this.createVertexTemplateEntry(s + generalColor + 'image=enterprise;', x, y, 'Enterprise Network', 'Enterprise Network', true, null, null),
+			 this.createVertexTemplateEntry(s + cloudColor + 'image=events;', x, y, 'Public Network', 'Public Network', true, null, null),
+			 this.createVertexTemplateEntry(s + cloudColor + 'image=enterprise;', x, y, 'Enterprise Network', 'Enterprise Network', true, null, null),
 
 			 // VPC groups
 			 this.createVertexTemplateEntry(s + cloudColor + 'image=virtual-private-cloud;', x, y, 'VPC', 'VPC', true, null, null),
