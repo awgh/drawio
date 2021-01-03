@@ -26,17 +26,16 @@
 
 		var fns = [
 			 // General groups
-			 this.createVertexTemplateEntry(groupProperties + cloudColor + 'image=ibm-cloud;', x, y, 'IBM Cloud', 'IBM Cloud', true, null, null),
-			 this.createVertexTemplateEntry(groupProperties + locationColor + 'image=flag;', x, y, 'Region', 'Region', true, null, null),
-			 this.createVertexTemplateEntry(groupProperties + locationColor + 'image=location;', x, y, 'Region', 'Region', true, null, null),
-			 this.createVertexTemplateEntry(groupProperties + locationColor + 'image=devices;', x, y, 'Zone', 'Zone', true, null, null),
-			 this.createVertexTemplateEntry(groupProperties + generalColor + 'image=events;', x, y, 'Public Network', 'Public Network', true, null, null),
-			 this.createVertexTemplateEntry(groupProperties + generalColor + 'image=enterprise;', x, y, 'Enterprise Network', 'Enterprise Network', true, null, null),
+			 this.createVertexTemplateEntry(s + cloudColor + 'image=ibm-cloud;', x, y, 'IBM Cloud', 'IBM Cloud', true, null, null),
+			 this.createVertexTemplateEntry(s + locationColor + 'image=flag;', x, y, 'Region', 'Region', true, null, null),
+			 this.createVertexTemplateEntry(s + locationColor + 'image=location;', x, y, 'Region', 'Region', true, null, null),
+			 this.createVertexTemplateEntry(s + locationColor + 'image=devices;', x, y, 'Zone', 'Zone', true, null, null),
+			 this.createVertexTemplateEntry(s + generalColor + 'image=events;', x, y, 'Public Network', 'Public Network', true, null, null),
+			 this.createVertexTemplateEntry(s + generalColor + 'image=enterprise;', x, y, 'Enterprise Network', 'Enterprise Network', true, null, null),
 
 			 // VPC groups
-			 this.createVertexTemplateEntry(sectionProperties, 0, 0, 'vpc', 'vpc', true, null, null),
-			 this.createVertexTemplateEntry(groupProperties + cloudColor + 'image=virtual-private-cloud;', x, y, 'VPC', 'VPC', true, null, null),
-			 this.createVertexTemplateEntry(groupProperties + networkColor + 'image=virtual-private-cloud;', x, y, 'Subnet', 'Subnet', true, null, null),
+			 this.createVertexTemplateEntry(s + cloudColor + 'image=virtual-private-cloud;', x, y, 'VPC', 'VPC', true, null, null),
+			 this.createVertexTemplateEntry(s + networkColor + 'image=virtual-private-cloud;', x, y, 'Subnet', 'Subnet', true, null, null),
 		];
 			   	
    		this.addPalette('ibm2Groups', 'IBM 2.0 / Cloud / Groups', false, mxUtils.bind(this, function(content)
