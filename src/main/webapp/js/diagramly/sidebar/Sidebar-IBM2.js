@@ -1,6 +1,6 @@
 (function()
 {
-	Sidebar.prototype.addIBM2MondrianPalette = function()
+	Sidebar.prototype.addIBM2Palette = function()
 	{
 		var w = 240;
 		var h = 48;
