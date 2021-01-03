@@ -4246,7 +4246,7 @@
 			// TODO: Update sstate in Format
 			var sstate = this.format.createSelectionState();
 
-			if (sstate.style.shape != 'image' && !sstate.containsLabel)
+			if (sstate.style.shape != 'image' && !sstate.containsLabel && sstate.style.shape != 'mxgraph.ibm2mondrian.base')
 			{
 				this.container.appendChild(this.addStyles(this.createPanel()));
 			}
