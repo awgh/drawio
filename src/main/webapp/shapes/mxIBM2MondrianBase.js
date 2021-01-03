@@ -34,13 +34,13 @@ mxUtils.extend(mxIBM2MondrianBase, mxShape);
 mxIBM2MondrianBase.prototype.cst = {
 	MONDRIAN_BASE : 'mxgraph.ibm2mondrian.base',
 
-	ELEMENT_TYPE : 'elementType',
-	ELEMENT_TYPE_DEFAULT : 'pn',
+	SHAPE_TYPE : 'shapeType',
+	SHAPE_TYPE_DEFAULT : 'pn',
 	SHAPE_LAYOUT : 'shapeLayout',
 	SHAPE_LAYOUT_DEFAULT : 'expanded',
 
 	ICON_IMAGE : 'iconImage',
-	ICON_IMAGE_DEFAULT : 'defaultIconImage',
+	ICON_IMAGE_DEFAULT : 'stencilIcon',
 
 	COLOR_FAMILY : 'colorFamily',
 	COLOR_FAMILY_DEFAULT : 'blue',
@@ -74,13 +74,32 @@ mxIBM2MondrianBase.prototype.getSelectedColorSpecification = function(colorFamil
 			return {noColor: 'none', white: '#ffffff', swatch_10: '#d9fbfb', swatch_20: '#9ef0f0', swatch_30: '#3ddbd9', swatch_40: '#08bdba', swatch_50: '#009d9a', swatch_60: '#007d79'};
 		case 'green':
 			return {noColor: 'none', white: '#ffffff', swatch_10: '#defbe6', swatch_20: '#a7f0ba', swatch_30: '#6fdc8c', swatch_40: '#42be65', swatch_50: '#24a148', swatch_60: '#198038'};
+		case 'black':
+			return {noColor: 'none', white: '#ffffff', swatch_10: '#f2f4f8', swatch_20: '#dde1e6', swatch_30: '#000000', swatch_40: '#000000', swatch_50: '#000000', swatch_60: '#000000'};	
 		default:
 			return {noColor: 'none', white: '#ffffff', swatch_10: '#f2f4f8', swatch_20: '#dde1e6', swatch_30: '#c1c7cd', swatch_40: '#a2a9b0', swatch_50: '#878d96', swatch_60: '#697077'};
 	}
 }
 
-mxIBM2MondrianBase.prototype.getLineColor = function(colorFamily) {
-		return mxIBM2MondrianBase.prototype.getSelectedColorSpecification(colorFamily).swatch_60;
+mxIBM2MondrianBase.prototype.getIconColor = function(colorFamily) {
+	if(colorFamily === 'black')
+		return '#ffffff';
+	else
+		return '#000000';
+}
+
+mxIBM2MondrianBase.prototype.getLineColor = function(colorFamily, shapeLayout, colorFillIcon) {
+		if(shapeLayout === 'collapsed')
+		{
+			if(colorFillIcon === 'noColor' || colorFillIcon === 'white')
+				return mxIBM2MondrianBase.prototype.getSelectedColorSpecification(colorFamily).swatch_60;
+			else
+				return mxIBM2MondrianBase.prototype.getSelectedColorSpecification(colorFamily)[colorFillIcon];
+		}
+		else
+		{
+			return mxIBM2MondrianBase.prototype.getSelectedColorSpecification(colorFamily).swatch_60;
+		}
 }
 
 mxIBM2MondrianBase.prototype.getDividerLineColor = function(colorFamily, colorFillText) {
@@ -94,15 +113,28 @@ mxIBM2MondrianBase.prototype.getDividerLineColor = function(colorFamily, colorFi
 	}
 }
 
+/**
+ * Function: getGroupBarWidth
+ *
+ * Default width for the groupBar.
+ */
+mxIBM2MondrianBase.prototype.getGroupBarWidth = function(colorFillIcon)
+{
+	if(colorFillIcon === 'noColor')
+		return 0;
+	else
+		return 6;
+}
+
 mxIBM2MondrianBase.prototype.customProperties = [
-	{name:'elementType', dispName:'Element Type', type:'enum', defVal:'pn',
+	{name:'shapeType', dispName:'Shape Type', type:'enum', defVal:'pn',
 		enumList:[{val:'actor', dispName: 'Actor'}, {val:'ts', dispName: 'Target System'}, {val:'ln', dispName: 'Logical Node'}, {val:'lc', dispName: 'Logical Component'}, {val:'pn', dispName: 'Prescribed Node'}, {val:'pc', dispName: 'Prescribed Component'}, {val:'group', dispName: 'Group'}]},
 	{name:'shapeLayout', dispName:'Shape Layout', type:'enum', defVal:'expanded',
 		enumList:[{val:'collapsed', dispName: 'Collapsed'},{val:'expanded', dispName: 'Expanded'},{val:'custom', dispName: 'Custom'}]},
-	{name:'iconImage', dispName:'Icon (Image)', type:'enum', defVal:'defaultIcon',
-		enumList:[{val:'noIcon', dispName: '[no icon]'}, {val:'defaultIcon', dispName: '[default icon]'}, {val:'customIcon', dispName: '[custom icon]'}]},
+	{name:'iconImage', dispName:'Icon (Image)', type:'enum', defVal:'stencilIcon',
+		enumList:[{val:'noIcon', dispName: '[no icon]'}, {val:'stencilIcon', dispName: '[stencil icon]'}, {val:'imageIcon', dispName: '[image icon]'}]},
 	{name:'colorFamily', dispName:'Color', type:'enum', defVal:'blue',
-		enumList:[{val:'blue', dispName: 'Blue'}, {val:'cyan', dispName: 'Cyan'}, {val:'green', dispName: 'Green'}, {val:'gray', dispName: 'Gray'}, {val:'magenta', dispName: 'Magenta'}, {val:'purple', dispName: 'Purple'}, {val:'red', dispName: 'Red'}, {val:'teal', dispName: 'Teal'}]},
+		enumList:[{val:'blue', dispName: 'Blue'}, {val:'black', dispName: 'Black'}, {val:'cyan', dispName: 'Cyan'}, {val:'green', dispName: 'Green'}, {val:'gray', dispName: 'Gray'}, {val:'magenta', dispName: 'Magenta'}, {val:'purple', dispName: 'Purple'}, {val:'red', dispName: 'Red'}, {val:'teal', dispName: 'Teal'}]},
 	{name:'colorFillIcon', dispName:'Fill (Icon)', type:'enum', defVal:'swatch_40',
 		enumList:[{val:'noColor', dispName: 'None'}, {val:'swatch_30', dispName: 'Light'}, {val:'swatch_40', dispName: 'Medium'}, {val:'swatch_50', dispName: 'Dark'}]},
 	{name:'colorFillText', dispName:'Fill (Text)', type:'enum', defVal:'white',
@@ -121,6 +153,13 @@ mxCellRenderer.registerShape(mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE, mxI
  * Default radius for rounded Logical elements. Default is 8.
  */
 mxIBM2MondrianBase.prototype.cornerRadius = 8;
+
+/**
+ * Variable: textSpacing
+ *
+ * Default value for text spacing. Default is 8.
+ */
+mxIBM2MondrianBase.prototype.textSpacing = 8;
 
 /**
  * Variable: targetSystemRadius
@@ -142,20 +181,6 @@ mxIBM2MondrianBase.prototype.textSpacingLeft = 12;
  * Default value for text spacing. Default is 16.
  */
 mxIBM2MondrianBase.prototype.textSpacingRight = 16;
-
-/**
- * Variable: textSpacingTop
- *
- * Default value for text spacing. Default is 8.
- */
-mxIBM2MondrianBase.prototype.textSpacingTop = 8;
-
-/**
- * Variable: textSpacingBottom
- *
- * Default value for text spacing. Default is 8.
- */
-mxIBM2MondrianBase.prototype.textSpacingBottom = 8;
 
 /**
  * Variable: iconSize
@@ -200,20 +225,39 @@ mxIBM2MondrianBase.prototype.shapeHeightIconView = 48;
 mxIBM2MondrianBase.prototype.titleBarWidthMinimum = 144;
 
 /**
- * Variable: groupBarWidth
- *
- * Default width and height for the groupBarWidth. Default is 6.
- */
-mxIBM2MondrianBase.prototype.groupBarWidth = 6;
-
-/**
  * Function: init
  *
  * Initializes the shape and the <indicator>.
  */
 mxIBM2MondrianBase.prototype.init = function(container)
 {
+	if(Editor.config != null && Editor.config[mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE])
+	{
+		for (var key in Editor.config[mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE]['icon_stencil_libraries']) {
+			mxStencilRegistry.loadStencilSet(
+				Editor.config[mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE]['icon_stencil_libraries'][key]);
+		}
+	}
+
 	mxShape.prototype.init.apply(this, arguments);
+
+	/* temporary function to support coversion of old diagrams  */
+	const tmpStyle = this.state.view.graph.model.getStyle(this.state.cell);
+	
+	if(tmpStyle != null && (tmpStyle.indexOf('elementType') > 0))
+	{	
+		//console.log(this.state.view.graph.model.getStyle(this.state.cell));
+		this.state.view.graph.model.beginUpdate();
+		try
+		{
+			this.state.style['shapeType'] = mxUtils.getValue(this.state.style, 'elementType', null);
+			this.state.view.graph.model.setStyle(this.state.cell, tmpStyle.replace('elementType','shapeType'));
+		}
+		finally
+		{
+			this.state.view.graph.model.endUpdate();
+		}
+	}
 
 	/*** START Registration of Event Listener */
 	this.cellID = this.state.cell.id;
@@ -221,7 +265,18 @@ mxIBM2MondrianBase.prototype.init = function(container)
 	{
 		try
 		{
-			if(evt.properties.change.constructor.name === 'mxStyleChange' && (evt.properties.change.cell.id === this.cellID))
+			if(evt.properties.change.constructor.name === 'mxValueChange' && (evt.properties.change.cell.id === this.cellID))
+			{
+				const currentIconAttribute = evt.properties.change.value.attributes.getNamedItem('Icon-Name');
+				const previousIconAttribute = evt.properties.change.previous.attributes.getNamedItem('Icon-Name');
+
+				const currentIconName = (currentIconAttribute != null) ? currentIconAttribute.value : null;
+				const previousIconName = (previousIconAttribute != null) ?  previousIconAttribute.value : null;
+				
+				if(currentIconName != previousIconName)
+					this.redraw();
+			}
+			else if(evt.properties.change.constructor.name === 'mxStyleChange' && (evt.properties.change.cell.id === this.cellID))
 			{
 				const styleCurrent = evt.properties.change.style;
 				
@@ -230,32 +285,32 @@ mxIBM2MondrianBase.prototype.init = function(container)
 				{
 					const stylePrevious = evt.properties.change.previous;
 
-					const elementTypeCurrent = mxIBM2MondrianBase.prototype.getStyleValue(styleCurrent, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE)
-					const elementTypePrevious = mxIBM2MondrianBase.prototype.getStyleValue(stylePrevious, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE)
+					const shapeTypeCurrent = mxIBM2MondrianBase.prototype.getStyleValue(styleCurrent, mxIBM2MondrianBase.prototype.cst.SHAPE_TYPE);
+					const shapeTypePrevious = mxIBM2MondrianBase.prototype.getStyleValue(stylePrevious, mxIBM2MondrianBase.prototype.cst.SHAPE_TYPE);
 
-					const shapeLayoutCurrent = mxIBM2MondrianBase.prototype.getStyleValue(styleCurrent, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT)
-					const shapeLayoutPrevious = mxIBM2MondrianBase.prototype.getStyleValue(stylePrevious, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT)
+					const shapeLayoutCurrent = mxIBM2MondrianBase.prototype.getStyleValue(styleCurrent, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT);
+					const shapeLayoutPrevious = mxIBM2MondrianBase.prototype.getStyleValue(stylePrevious, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT);
 
-					const positionTextCurrent = mxIBM2MondrianBase.prototype.getStyleValue(styleCurrent, mxIBM2MondrianBase.prototype.cst.POSITION_TEXT)
-					const positionTextPrevious = mxIBM2MondrianBase.prototype.getStyleValue(stylePrevious, mxIBM2MondrianBase.prototype.cst.POSITION_TEXT)
+					const positionTextCurrent = mxIBM2MondrianBase.prototype.getStyleValue(styleCurrent, mxIBM2MondrianBase.prototype.cst.POSITION_TEXT);
+					const positionTextPrevious = mxIBM2MondrianBase.prototype.getStyleValue(stylePrevious, mxIBM2MondrianBase.prototype.cst.POSITION_TEXT);
 
-					var styleMustUpdate = (elementTypeCurrent != elementTypePrevious) || (shapeLayoutCurrent != shapeLayoutPrevious || (positionTextCurrent != positionTextPrevious));
+					var styleMustUpdate = (shapeTypeCurrent != shapeTypePrevious) || (shapeLayoutCurrent != shapeLayoutPrevious || (positionTextCurrent != positionTextPrevious));
 					if(styleMustUpdate)
 					{
 						// Define the new style
 						var styleNew = styleCurrent;
-						styleNew = mxIBM2MondrianBase.prototype.getStyle(styleNew, elementTypeCurrent, shapeLayoutCurrent, positionTextCurrent);
+						styleNew = mxIBM2MondrianBase.prototype.getStyle(styleNew, shapeTypeCurrent, shapeLayoutCurrent, positionTextCurrent);
 						styleMustUpdate = mxIBM2MondrianBase.prototype.cellMustRestyle(styleCurrent, styleNew);
 					}
 					
-					var geoMustUpdate = (elementTypeCurrent != elementTypePrevious) || (shapeLayoutCurrent != shapeLayoutPrevious);
+					var geoMustUpdate = (shapeTypeCurrent != shapeTypePrevious) || (shapeLayoutCurrent != shapeLayoutPrevious);
 					if(geoMustUpdate)
 					{
 						//Define the new Geometery
 						const geoCurrent = evt.properties.change.cell.geometry;
 						var newRect = mxIBM2MondrianBase.prototype.getRectangle(
 							new mxRectangle(geoCurrent.x, geoCurrent.y, geoCurrent.width, geoCurrent.height), 
-								elementTypeCurrent, shapeLayoutCurrent, 'change listener');
+								shapeTypeCurrent, shapeLayoutCurrent, 'change listener');
 				
 						geoMustUpdate = mxIBM2MondrianBase.prototype.cellMustResize(geoCurrent, newRect);
 					}
@@ -327,8 +382,11 @@ mxIBM2MondrianBase.prototype.getStyleValue = function(style, key)
  */
 mxIBM2MondrianBase.prototype.redraw = function()
 {
-	this.elementType = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE_DEFAULT);	
+	this.shapeType = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.SHAPE_TYPE, mxIBM2MondrianBase.prototype.cst.SHAPE_TYPE_DEFAULT);	
 	this.shapeLayout = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT_DEFAULT);
+
+	if(this.shapeType === 'group') // a group can only be expanded so should ignore the shapeLayout setting
+		this.shapeLayout = 'expanded';
 	
 	this.iconImage = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.ICON_IMAGE, mxIBM2MondrianBase.prototype.cst.ICON_IMAGE_DEFAULT);
 	this.colorFamily = mxUtils.getValue(this.style, mxIBM2MondrianBase.prototype.cst.COLOR_FAMILY, mxIBM2MondrianBase.prototype.cst.COLOR_FAMILY_DEFAULT);
@@ -380,7 +438,7 @@ mxIBM2MondrianBase.prototype.paintContainer = function(c, x, y, w, h)
 
 	if(this.shapeLayout != 'collapsed' && endContainer > 0)
 	{
-		if(this.elementType === 'ln' || this.elementType === 'lc')
+		if(this.shapeType === 'ln' || this.shapeType === 'lc')
 		{
 			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillContainer]);
 			c.begin();
@@ -412,7 +470,7 @@ mxIBM2MondrianBase.prototype.paintTitleBar = function(c, x, y, w, h)
 	const minHeight = Math.min(h, this.titleBarHeight);
 	if(this.shapeLayout != 'icon')
 	{
-		if(this.elementType === 'ln' || this.elementType === 'lc')
+		if(this.shapeType === 'ln' || this.shapeType === 'lc')
 		{
 			
 			if (h > this.titleBarHeight)
@@ -436,13 +494,13 @@ mxIBM2MondrianBase.prototype.paintTitleBar = function(c, x, y, w, h)
 				c.fill();
 			}
 		}
-		else if(this.elementType === 'pn' || this.elementType === 'pc' || this.elementType === 'group')
+		else if(this.shapeType === 'pn' || this.shapeType === 'pc' || this.shapeType === 'group')
 		{
 			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillText]);
 			c.rect(0, 0, w, minHeight);
 			c.fill();
 		}
-		else if(this.elementType === 'ts')
+		else if(this.shapeType === 'ts')
 		{
 			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillText]);
 			c.begin();
@@ -467,7 +525,7 @@ mxIBM2MondrianBase.prototype.paintTitleBar = function(c, x, y, w, h)
  */
 mxIBM2MondrianBase.prototype.paintIconBox = function(c, x, y, w, h)
 {
-	if(this.elementType === 'group')
+	if(this.shapeType === 'group')
 		c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)['noColor']);
 	else
 		c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillIcon]);
@@ -477,11 +535,11 @@ mxIBM2MondrianBase.prototype.paintIconBox = function(c, x, y, w, h)
 
 	if(minWidth > 0)
 	{
-		if(this.elementType === 'actor')
+		if(this.shapeType === 'actor')
 		{
 			c.ellipse(0, 0, minWidth, minHeight);
 		}
-		else if(this.elementType === 'ts')
+		else if(this.shapeType === 'ts')
 		{
 			if(w <= 64)
 			{
@@ -504,7 +562,7 @@ mxIBM2MondrianBase.prototype.paintIconBox = function(c, x, y, w, h)
 				c.close();
 			}
 		}
-		else if(this.elementType === 'ln' || this.elementType === 'lc') // Logical Node or Logical Component
+		else if(this.shapeType === 'ln' || this.shapeType === 'lc') // Logical Node or Logical Component
 		{
 			if(w <= this.shapeWidthIconView)
 			{
@@ -530,7 +588,7 @@ mxIBM2MondrianBase.prototype.paintIconBox = function(c, x, y, w, h)
 				c.close();	
 			}		
 		}
-		else if(this.elementType === 'pn' || this.elementType === 'pc' || this.elementType === 'group')
+		else if(this.shapeType === 'pn' || this.shapeType === 'pc' || this.shapeType === 'group')
 		{
 			c.rect(0, 0, minWidth, minHeight);
 		}
@@ -552,21 +610,21 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 	var componentDecoratorHeight = 4;
 	var componentDecoratorWidth = 8;
 
-	if(this.shapeLayout == 'collapsed' || this.elementType === 'actor')
+	if(this.shapeLayout == 'collapsed' || this.shapeType === 'actor')
 	{
 		shapeWidth = this.getIconBoxWidth();
 		shapeHeigth = this.getIconBoxWidth();
 	}
 	
-	if(this.elementType === 'actor')
+	if(this.shapeType === 'actor')
 	{
-		c.setStrokeColor(this.getLineColor(this.colorFamily));
+		c.setStrokeColor(this.getLineColor(this.colorFamily, this.shapeLayout, this.colorFillIcon));
 		c.ellipse(0, 0, shapeWidth, shapeHeigth);
 		c.stroke();
 	}
-	else if(this.elementType === 'ts')
+	else if(this.shapeType === 'ts')
 	{
-		c.setStrokeColor(this.getLineColor(this.colorFamily));
+		c.setStrokeColor(this.getLineColor(this.colorFamily, this.shapeLayout, this.colorFillIcon));
 		c.begin();
 		c.moveTo(this.targetSystemRadius, 0);
 		c.lineTo(shapeWidth - this.targetSystemRadius, 0);
@@ -576,7 +634,7 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 		c.close();
 		c.stroke();
 	}
-	else if(this.elementType === 'ln' || this.elementType === 'lc') // Logical Node or Logical Component
+	else if(this.shapeType === 'ln' || this.shapeType === 'lc') // Logical Node or Logical Component
 	{
 		if (h > this.titleBarHeight)
 		{
@@ -586,10 +644,10 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 			c.lineTo(shapeWidth, this.titleBarHeight);		
 			c.stroke();
 		}
-		c.setStrokeColor(this.getLineColor(this.colorFamily));
+		c.setStrokeColor(this.getLineColor(this.colorFamily, this.shapeLayout, this.colorFillIcon));
 		c.roundrect(0, 0, shapeWidth, shapeHeigth, this.cornerRadius, this.cornerRadius);
 		c.stroke();
-		if(this.elementType === 'lc')
+		if(this.shapeType === 'lc')
 		{
 			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)['white']);
 			//c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillIcon]);
@@ -599,7 +657,7 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 			c.fillAndStroke();
 		}
 	}
-	else if(this.elementType === 'pn' || this.elementType === 'pc') // Prescribed Node or Prescribed Component
+	else if(this.shapeType === 'pn' || this.shapeType === 'pc') // Prescribed Node or Prescribed Component
 	{
 		if (h > this.titleBarHeight)
 		{
@@ -612,7 +670,7 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 		c.setStrokeColor(this.getLineColor(this.colorFamily));
 		c.rect(0, 0, shapeWidth, shapeHeigth);
 		c.stroke();
-		if(this.elementType === 'pc')
+		if(this.shapeType === 'pc')
 		{
 			c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)['white']);
 			//c.setFillColor(this.getSelectedColorSpecification(this.colorFamily)[this.colorFillIcon]);
@@ -622,14 +680,14 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
 			c.fillAndStroke();
 		}
 	}
-	else if(this.elementType === 'group')
+	else if(this.shapeType === 'group')
 	{
-		c.setStrokeColor(this.getLineColor(this.colorFamily));
+		c.setStrokeColor(this.getLineColor(this.colorFamily, this.shapeLayout, this.colorFillIcon));
 		c.rect(0, 0, shapeWidth, shapeHeigth);
 		c.stroke();
 
-		c.setFillColor(this.getLineColor(this.colorFamily));
-		c.rect(0, 0, this.groupBarWidth, this.titleBarHeight);
+		c.setFillColor(this.getLineColor(this.colorFamily, this.shapeLayout, this.colorFillIcon));
+		c.rect(0, 0, this.getGroupBarWidth(this.colorFillIcon), this.titleBarHeight);
 		c.fill();
 	}
 };
@@ -641,50 +699,69 @@ mxIBM2MondrianBase.prototype.paintShape = function(c, x, y, w, h)
  */
 mxIBM2MondrianBase.prototype.paintIcon = function(c, x, y, w, h)
 {
-	if (this.image != null && (this.iconImage != 'noIcon'))
-	{	
-		if(this.elementType === 'ts')
+	var positionX = this.iconSpacing;
+	var positionY = this.iconSpacing;
+
+	if(this.shapeType === 'ts')
+	{
+		positionX = this.targetSystemRadius;
+	}
+	else if(this.shapeType === 'group')
+	{
+		positionX = this.getGroupBarWidth(this.colorFillIcon) + this.iconSpacing;
+	}
+
+	if(this.iconImage === 'stencilIcon')
+	{
+		var iconStencilName = this.state.cell.getAttribute('Icon-Name',null);
+		if(iconStencilName != null)
 		{
-			c.image(this.targetSystemRadius, this.iconSpacing, this.iconSize, this.iconSize, this.image, true, false, false);
+			var bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2mondrian.' + iconStencilName);
+			if(bgSt1 == null)
+				bgSt1 = mxStencilRegistry.getStencil('mxgraph.ibm2mondrian.undefined');
+
+			c.save();
+			c.setStrokeColor('none');
+			c.setFillColor(this.getIconColor(this.colorFamily));
+			c.setDashed(false);
+			bgSt1.strokewidth = 1;
+			bgSt1.drawShape(c, this, positionX, positionY, this.iconSize, this.iconSize);
+			c.restore();
 		}
-		else if(this.elementType === 'group')
-		{
-			c.image(this.groupBarWidth + this.iconSpacing, this.iconSpacing, this.iconSize, this.iconSize, this.image, true, false, false);
-		}
-		else
-		{
-			c.image(this.iconSpacing, this.iconSpacing, this.iconSize, this.iconSize, this.image, true, false, false);
-		}
+	}
+	else if(this.iconImage === 'imageIcon' && this.image != null && this.image != '')
+	{
+		c.image(positionX, positionY, this.iconSize, this.iconSize, this.image, true, false, false);
+	}
+	else
+	{
+		// do nothing
 	}
 };
 
 mxIBM2MondrianBase.prototype.getIconBoxWidth = function()
 {
-	if (this.image != null && (this.iconImage != 'noIcon'))
-	{	
-		if(this.elementType === 'ts')
+	if(this.iconImage === 'noIcon')
+	{
+		switch(this.shapeType)
 		{
-			return (2 * this.targetSystemRadius + this.iconSize);
-		}
-		else if(this.elementType === 'group')
-		{
-			return (this.iconSpacing + this.iconSize + this.groupBarWidth);
-		}		
-		else
-		{
-			return (2 * this.iconSpacing + this.iconSize);
+			case 'group':
+				return this.getGroupBarWidth(this.colorFillIcon);
+			default:
+				return 0;
 		}
 	}
 	else
 	{
-		if(this.elementType === 'group')
+		switch(this.shapeType)
 		{
-			return this.groupBarWidth;
+			case 'ts':
+				return (2 * this.targetSystemRadius + this.iconSize);
+			case 'group':
+				return (this.iconSpacing + this.iconSize + this.getGroupBarWidth(this.colorFillIcon));
+			default:
+				return (2 * this.iconSpacing + this.iconSize);
 		}
-		else
-		{
-			return 0;
-		}	
 	}
 };
 
@@ -692,12 +769,13 @@ mxIBM2MondrianBase.prototype.getIconBoxWidth = function()
 /**
  * Function: getStyle
  * 
- * Returns the style based on elementType & shapeLayout.
+ * Returns the style based on shapeType & shapeLayout.
  */
 var shapeStyle = {};
-mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout, positionText)
+mxIBM2MondrianBase.prototype.getStyle = function(style, shapeType, shapeLayout, positionText)
 {
-	if(elementType === 'group')
+	//const labelWidth = mxUtils.getValue(style, 'labelWidth', 100);
+	if(shapeType === 'group')
 	{
 		style = mxUtils.setStyle(style, 'container', 1);
 		style = mxUtils.setStyle(style, 'collapsible', 0);
@@ -716,6 +794,7 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 		shapeStyle.spacingRight = this.textSpacingRight;
 		shapeStyle.spacingTop = 0;
 		shapeStyle.spacingBottom = 0;
+		//shapeStyle.labelWidth = null;
 
 		if(shapeLayout === 'collapsed')
 		{
@@ -729,7 +808,8 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 				shapeStyle.spacingLeft = 0;
 				shapeStyle.spacingRight = 0;
 				shapeStyle.spacingTop = 0;
-				shapeStyle.spacingBottom = this.textSpacingBottom;
+				shapeStyle.spacingBottom = this.textSpacing;
+				//shapeStyle.labelWidth = labelWidth;
 			}
 			else if(positionText === 'left')
 			{
@@ -739,9 +819,10 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 				shapeStyle.align = mxConstants.ALIGN_RIGHT;
 				shapeStyle.spacing = 0;
 				shapeStyle.spacingLeft = 0;
-				shapeStyle.spacingRight = this.textSpacingLeft;
+				shapeStyle.spacingRight = this.textSpacing;
 				shapeStyle.spacingTop = 0;
 				shapeStyle.spacingBottom = 0;
+				//shapeStyle.labelWidth = labelWidth;
 			}		
 			else if(positionText === 'right')
 			{
@@ -750,10 +831,11 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 				shapeStyle.verticalAlign = mxConstants.ALIGN_MIDDLE;
 				shapeStyle.align = mxConstants.ALIGN_LEFT;
 				shapeStyle.spacing = 0;
-				shapeStyle.spacingLeft = this.textSpacingLeft;
+				shapeStyle.spacingLeft = this.textSpacing;
 				shapeStyle.spacingRight = 0;
 				shapeStyle.spacingTop = 0;
 				shapeStyle.spacingBottom = 0;
+				//shapeStyle.labelWidth = labelWidth;
 			}		
 			else // default is bottom
 			{
@@ -764,8 +846,9 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 				shapeStyle.spacing = 0;
 				shapeStyle.spacingLeft = 0;
 				shapeStyle.spacingRight = 0;
-				shapeStyle.spacingTop = this.textSpacingTop;
+				shapeStyle.spacingTop = this.textSpacing;
 				shapeStyle.spacingBottom = 0;
+				//shapeStyle.labelWidth = labelWidth;
 			}
 		}
 
@@ -779,6 +862,8 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 		style = mxUtils.setStyle(style, mxConstants.STYLE_SPACING_RIGHT, shapeStyle.spacingRight);
 		style = mxUtils.setStyle(style, mxConstants.STYLE_SPACING_TOP, shapeStyle.spacingTop);
 		style = mxUtils.setStyle(style, mxConstants.STYLE_SPACING_BOTTOM, shapeStyle.spacingBottom);
+
+		//style = mxUtils.setStyle(style, mxConstants.STYLE_LABEL_WIDTH, shapeStyle.labelWidth);
 	}
 	else // custom does not control these styles so you can use the UI to change it yourselves
 	{
@@ -789,20 +874,18 @@ mxIBM2MondrianBase.prototype.getStyle = function(style, elementType, shapeLayout
 /**
  * Function: getRectangle
  * 
- * Returns the rectangle based on elementType & shapeLayout.
+ * Returns the rectangle based on shapeType & shapeLayout.
  */
-mxIBM2MondrianBase.prototype.getRectangle = function(rect, elementType, shapeLayout, whoCalled)
+mxIBM2MondrianBase.prototype.getRectangle = function(rect, shapeType, shapeLayout, whoCalled)
 {
-	//console.log('getRectangle: ' + whoCalled);
-
-	if(elementType != null)
+	if(shapeType != null)
 	{
-		if(elementType === 'actor') // Actor is always 48x48.
+		if(shapeType === 'actor') // Actor is always 48x48.
 	 	{
 			rect.width = mxIBM2MondrianBase.prototype.titleBarHeight;
 			rect.height = mxIBM2MondrianBase.prototype.titleBarHeight;
 		}
-		else if(elementType === 'ts') // Target System is always 48 height.
+		else if(shapeType === 'ts') // Target System is always 48 height.
 		{
 			if(shapeLayout === 'collapsed')
 			{
@@ -819,7 +902,7 @@ mxIBM2MondrianBase.prototype.getRectangle = function(rect, elementType, shapeLay
 
 			}
 		}
-		else if(elementType === 'group')
+		else if(shapeType === 'group')
 		{
 			if(shapeLayout === 'collapsed' || shapeLayout === 'expanded')
 			{
@@ -875,7 +958,7 @@ mxIBM2MondrianBase.prototype.getConstraints = function(style, w, h)
 {
 	var constr = [];
 
-	if(this.elementType === 'actor')
+	if(this.shapeType === 'actor')
 	{
 		var step = 30;
 		var h = 0.5; // x coordinate of circle center
@@ -917,10 +1000,70 @@ mxVertexHandler.prototype.union = function(bounds, dx, dy, index, gridEnabled, s
 
   if(this.state.style['shape'] === mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE)
   {
-	const elementType = mxUtils.getValue(this.state.style, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE, mxIBM2MondrianBase.prototype.cst.ELEMENT_TYPE_DEFAULT);
+	const shapeType = mxUtils.getValue(this.state.style, mxIBM2MondrianBase.prototype.cst.SHAPE_TYPE, mxIBM2MondrianBase.prototype.cst.SHAPE_TYPE_DEFAULT);
 	const shapeLayout = mxUtils.getValue(this.state.style, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT, mxIBM2MondrianBase.prototype.cst.SHAPE_LAYOUT_DEFAULT);
-	rect = mxIBM2MondrianBase.prototype.getRectangle(rect, elementType, shapeLayout, 'mxVertexHandler');
+	rect = mxIBM2MondrianBase.prototype.getRectangle(rect, shapeType, shapeLayout, 'mxVertexHandler');
   }
 
   return rect;
+};
+
+//mxVertexHandler.prototype.livePreview = true;
+mxVertexHandler.prototype.createCustomHandles = function()
+{
+	if(this.state.style['shape'] === mxIBM2MondrianBase.prototype.cst.MONDRIAN_BASE)
+	{
+		// Implements the handle for the first divider
+		var cursor = 'ew-resize'
+		var textHandle = new mxHandle(this.state, cursor);
+		
+		textHandle.getPosition = function(bounds)
+		{
+			var labelWidth = Math.max(48, parseFloat(mxUtils.getValue(this.state.style, 'labelWidth', 100)));
+						
+			switch(mxUtils.getValue(this.state.style, 'positionText', null)) {
+				case 'left':
+					return new mxPoint(bounds.x - labelWidth - mxIBM2MondrianBase.prototype.textSpacing, bounds.getCenterY());
+				case 'right':
+					return new mxPoint(bounds.x + bounds.width + labelWidth + mxIBM2MondrianBase.prototype.textSpacing, bounds.getCenterY());
+				case 'top':
+					return new mxPoint(bounds.getCenterX() - labelWidth/2, bounds.y - mxIBM2MondrianBase.prototype.textSpacing);
+				case 'bottom':
+					return new mxPoint(bounds.getCenterX() - labelWidth/2, bounds.y + bounds.height + mxIBM2MondrianBase.prototype.textSpacing);
+				default:
+					return null;
+				}
+		};
+		
+		textHandle.setPosition = function(bounds, pt)
+		{		
+			switch(mxUtils.getValue(this.state.style, 'positionText', null)) {
+				case 'left':
+					this.state.style['labelWidth'] = Math.round(bounds.x - pt.x - mxIBM2MondrianBase.prototype.textSpacing);
+					break;
+				case 'right':
+					this.state.style['labelWidth'] = Math.round(pt.x - bounds.x - bounds.width - mxIBM2MondrianBase.prototype.textSpacing);
+					break;
+				case 'top':
+					this.state.style['labelWidth'] = Math.round((bounds.getCenterX() - pt.x) * 2);
+					break;
+				case 'bottom':
+					this.state.style['labelWidth'] = Math.round((bounds.getCenterX() - pt.x) * 2);
+					break;
+				default:
+					return null;
+				}
+		};
+		
+		textHandle.execute = function()
+		{
+			this.copyStyle('labelWidth');
+		}
+
+		textHandle.ignoreGrid = true;
+
+		return [textHandle];
+	}
+
+	return null;
 };
