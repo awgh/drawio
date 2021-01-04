@@ -45,7 +45,7 @@
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Cloud / Groups', false,
 		[
-			this.addEntry(dt + 'tn', getPalette('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud')) 
+			this.addEntry(dt + 'tn', this.getPalette('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud')) 
 		]);
 
 		this.setCurrentSearchEntryLibrary();
