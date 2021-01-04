@@ -52,7 +52,7 @@
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Cloud / Groups', false,
 		[
 			// Cloud groups
-			this.addEntry(dt + 'cloud header', function() { return createActorVertex('', sectionColor, 'ibm-cloud') }),
+			this.addEntry(dt + 'cloud header', function() { return createActorVertex('Cloud Groups', sectionColor, 'ibm-cloud') }),
 			this.addEntry(dt + 'ibm cloud', function() { return createGroupVertex('IBM Cloud', cloudColor, 'ibm-cloud') }),
 			this.addEntry(dt + 'region', function() { return createGroupVertex('Region', accountColor, 'flag') }),
 			this.addEntry(dt + 'region alt', function() { return createGroupVertex('Region', accountColor, 'location') }),
@@ -64,7 +64,7 @@
 			this.addEntry(dt + 'resource', function() { return createGroupVertex('Resource Group', accountColor, 'collaborate') }),
 
 			// VPC groups 
-			this.addEntry(dt + 'vpc header', function() { return createActorVertex('', sectionColor, 'virtual-private-cloud') }),
+			this.addEntry(dt + 'vpc header', function() { return createActorVertex('VPC Groups', sectionColor, 'virtual-private-cloud') }),
 			this.addEntry(dt + 'vpc', function() { return createGroupVertex('VPC', cloudColor, 'virtual-private-cloud') }),
 			this.addEntry(dt + 'subnet', function() { return createGroupVertex('Subnet', networkColor, 'virtual-private-cloud') }),
 			this.addEntry(dt + 'vs', function() { return createGroupVertex('Virtual Server', networkColor, 'virtual-machine') }),
