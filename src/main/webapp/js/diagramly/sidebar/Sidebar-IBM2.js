@@ -3,7 +3,7 @@
 	Sidebar.prototype.addIBM2Palette = function()
 	{
 		var w = 240;
-		var h = 160;
+		var h = 240;
 		var gn = 'mxgraph.ibm2';
 		var dt = 'ibm ';
 
@@ -45,21 +45,23 @@
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Cloud / Groups', false,
 		[
-			this.addEntry(dt + 'tn', function()
-		   	{
-			    var bg = new mxCell('', new mxGeometry(0, 0, w, h), style_text + cloudColor);
-		    		bg.vertex = true;
-		    		bg.setValue(mxUtils.createXmlDocument().createElement('object'));
-				bg.setAttribute('placeholders', '1');
-				bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
-                		bg.setAttribute('Element-ID', '');
-				bg.setAttribute('Element-Name', 'IBM Cloud');
-				bg.setAttribute('Icon-Name', 'ibm-cloud');
-			    
-			   	return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
-			})				
+			this.addEntry(dt + 'tn', getPalette('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud')) 
 		]);
 
 		this.setCurrentSearchEntryLibrary();
+	};
+
+	Sidebar.prototype.getPalette = function(name, s, w, h, color, icon)
+	{
+		var bg = new mxCell('', new mxGeometry(0, 0, w, h), s + color);
+	    	bg.vertex = true;
+	    	bg.setValue(mxUtils.createXmlDocument().createElement('object'));
+		bg.setAttribute('placeholders', '1');
+		bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
+               	bg.setAttribute('Element-ID', '');
+		bg.setAttribute('Element-Name', name);
+		bg.setAttribute('Icon-Name', icon);
+			    
+	   	return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
 	};
 })();
