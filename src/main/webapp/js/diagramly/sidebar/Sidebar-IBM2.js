@@ -8,41 +8,14 @@
 		var dt = 'ibm ';
 
 		var cloudColor = "colorFamily=blue;"
-		var accountColor = "colorFamily=purple;"
-		var locationColor = "colorFamily=gray;"
-		var networkColor = "colorFamily=teal;"
+		var accountColor = "colorFamily=gray;"
+		var networkColor = "colorFamily=green;"
 		var securityColor = "colorFamily=red;"
 
 		var style_text = 'shape=mxgraph.ibm2mondrian.base;shapeType=group;html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0;metaEdit=0;strokeWidth=1;container=1;collapsible=0;recursiveResize=0;';
 
 		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Groups');
 
-		//var fns = [
-			 // General groups
-			 //this.createVertexTemplateEntry(style_text + cloudColor + 'image=ibm-cloud;', w, h, 'IBM Cloud', 'IBM Cloud', true, null, null),
-			 //this.createVertexTemplateEntry(style_text + locationColor + 'image=flag;', w, h, 'Region', 'Region', true, null, null),
-			 //this.createVertexTemplateEntry(style_text + locationColor + 'image=location;', w, h, 'Region', 'Region', true, null, null),
-			 //this.createVertexTemplateEntry(style_text + locationColor + 'image=devices;', w, h, 'Zone', 'Zone', true, null, null),
-			 //this.createVertexTemplateEntry(style_text + cloudColor + 'image=events;', w, h, 'Public Network', 'Public Network', true, null, null),
-			 //this.createVertexTemplateEntry(style_text + cloudColor + 'image=enterprise;', w, h, 'Enterprise Network', 'Enterprise Network', true, null, null),
-			 //this.createVertexTemplateEntry(style_text + accountColor + 'image=credentials;', w, h, 'Access Group', 'Access Group', true, null, null),
-			 //this.createVertexTemplateEntry(style_text + accountColor + 'image=user;', w, h, 'Account Group', 'Account Group', true, null, null),
-			 //this.createVertexTemplateEntry(style_text + accountColor + 'image=collaborate;', w, h, 'Resource Group', 'Account Group', true, null, null),
-
-			 // VPC groups
-			 //this.createVertexTemplateEntry(style_text + cloudColor + 'image=virtual-private-cloud;', w, h, 'VPC', 'VPC', true, null, null),
-			 //this.createVertexTemplateEntry(style_text + networkColor + 'image=subnet;', w, h, 'Subnet', 'Subnet', true, null, null),
-			 //this.createVertexTemplateEntry(style_text + securityColor + 'image=security;', w, h, 'Subnet', 'Subnet', true, null, null),
-		//];
-
-		//this.addPalette('ibm2Groups', 'IBM 2.0 / Cloud / Groups', false, mxUtils.bind(this, function(content)
-		//{
-		//	for (var i = 0; i < fns.length; i++)
-		//	{
-		//		content.appendChild(fns[i](content));
-		//	}
-		//}));
-		
 		function createVertexTemplate(name, s, w, h, color, icon)
 		{
 			var bg = new mxCell('', new mxGeometry(0, 0, w, h), s + color);
@@ -58,10 +31,22 @@
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Cloud / Groups', false,
 		[
+			// Cloud groups
 			this.addEntry(dt + 'ibm cloud', function() { return createVertexTemplate('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud') }),
-			this.addEntry(dt + 'region', function() { return createVertexTemplate('Region', style_text, w, h, locationColor, 'flag') }),
-			this.addEntry(dt + 'region alt', function() { return createVertexTemplate('Region', style_text, w, h, locationColor, 'location') }),
-			this.addEntry(dt + 'vpc', function() { return createVertexTemplate('VPC', style_text, w, h, cloudColor, 'virtual-private-cloud') })
+			this.addEntry(dt + 'region', function() { return createVertexTemplate('Region', style_text, w, h, accountColor, 'flag') }),
+			this.addEntry(dt + 'region alt', function() { return createVertexTemplate('Region', style_text, w, h, accountColor, 'location') }),
+			this.addEntry(dt + 'zone', function() { return createVertexTemplate('Zone', style_text, w, h, accountColor, 'enterprise') }),
+			this.addEntry(dt + 'public', function() { return createVertexTemplate('Public Network', style_text, w, h, cloudColor, 'events') }),
+			this.addEntry(dt + 'enterprise', function() { return createVertexTemplate('Enterprise Network', style_text, w, h, cloudColor, 'enterprise') }),
+			this.addEntry(dt + 'account', function() { return createVertexTemplate('Account', style_text, w, h, accountColor, 'user') }),
+			this.addEntry(dt + 'access', function() { return createVertexTemplate('Access Group', style_text, w, h, accountColor, 'credentials') }),
+			this.addEntry(dt + 'resource', function() { return createVertexTemplate('Resource Group', style_text, w, h, accountColor, 'collaborate') }),
+
+			// VPC groups
+			this.addEntry(dt + 'vpc', function() { return createVertexTemplate('VPC', style_text, w, h, cloudColor, 'virtual-private-cloud') }),
+			this.addEntry(dt + 'subnet', function() { return createVertexTemplate('Subnet', style_text, w, h, networkColor, 'virtual-private-cloud') }),
+			this.addEntry(dt + 'vs', function() { return createVertexTemplate('Virtual Server', style_text, w, h, networkColor, 'virtual-machine') }),
+			this.addEntry(dt + 'sg', function() { return createVertexTemplate('Security Group', style_text, w, h, securityColor, 'security') }),
 		]);
 
 		this.setCurrentSearchEntryLibrary();
