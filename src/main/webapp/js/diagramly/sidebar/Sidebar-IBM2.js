@@ -43,7 +43,8 @@
 		//	}
 		//}));
 		
-		function getCell(name, s, w, h, color, icon)
+		//function getCell(name, s, w, h, color, icon)
+		function createVertexTemplate(name, s, w, h, color, icon)
 		{
 			var bg = new mxCell('', new mxGeometry(0, 0, w, h), s + color);
 	    		bg.vertex = true;
@@ -53,15 +54,17 @@
                		bg.setAttribute('Element-ID', '');
 			bg.setAttribute('Element-Name', name);
 			bg.setAttribute('Icon-Name', icon);
-			return bg;
+	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
+			//return bg;
 		};
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Cloud / Groups', false,
 		[
 			this.addEntry(dt + 'tn', function()
 			{ 
-				bg = getCell('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud'); 
-	   			return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
+				return createVertexTemplate('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud'); 
+				//bg = getCell('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud'); 
+	   			//return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
 			})
 		]);
 
