@@ -33,7 +33,7 @@
                		bg.setAttribute('Element-ID', '');
 			bg.setAttribute('Element-Name', name);
 			bg.setAttribute('Icon-Name', icon);
-	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
+	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
 		};
 
 		function createGroupVertex(name, color, icon)
