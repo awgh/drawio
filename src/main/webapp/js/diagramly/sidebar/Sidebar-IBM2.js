@@ -43,7 +43,6 @@
 		//	}
 		//}));
 		
-		//function getCell(name, s, w, h, color, icon)
 		function createVertexTemplate(name, s, w, h, color, icon)
 		{
 			var bg = new mxCell('', new mxGeometry(0, 0, w, h), s + color);
@@ -55,17 +54,14 @@
 			bg.setAttribute('Element-Name', name);
 			bg.setAttribute('Icon-Name', icon);
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
-			//return bg;
 		};
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Cloud / Groups', false,
 		[
-			this.addEntry(dt + 'tn', function()
-			{ 
-				return createVertexTemplate('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud'); 
-				//bg = getCell('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud'); 
-	   			//return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
-			})
+			this.addEntry(dt + 'ibm cloud', function() { return createVertexTemplate('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud') }),
+			this.addEntry(dt + 'region', function() { return createVertexTemplate('Region', style_text, w, h, locationColor, 'flag') }),
+			this.addEntry(dt + 'region alt', function() { return createVertexTemplate('Region', style_text, w, h, locationColor, 'location') }),
+			this.addEntry(dt + 'vpc', function() { return createVertexTemplate('VPC', style_text, w, h, cloudColor, 'virtual-private-cloud') })
 		]);
 
 		this.setCurrentSearchEntryLibrary();
