@@ -14,8 +14,8 @@
 		var accountColor = "colorFamily=gray;"
 		var cloudColor = "colorFamily=blue;"
 		var networkColor = "colorFamily=green;"
-		var sectionColor = "colorFamily=purple;"
 		var securityColor = "colorFamily=red;"
+		var sectionColor = "colorFamily=blue;colorFillIcon=noColor;"
 
 		var actor_style = 'shape=mxgraph.ibm2mondrian.base;shapeType=actor;html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0;metaEdit=0;strokeWidth=1;'
 
@@ -46,7 +46,7 @@
                		bg.setAttribute('Element-ID', '');
 			bg.setAttribute('Element-Name', name);
 			bg.setAttribute('Icon-Name', icon);
-	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
+	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
 		};
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Cloud / Groups', false,
