@@ -45,7 +45,11 @@
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Cloud / Groups', false,
 		[
-			this.addEntry(dt + 'tn', this.getPalette('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud')) 
+			this.addEntry(dt + 'tn', function()
+			{ 
+				bg = this.getPalette('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud'); 
+	   			return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
+			})
 		]);
 
 		this.setCurrentSearchEntryLibrary();
@@ -61,7 +65,6 @@
                	bg.setAttribute('Element-ID', '');
 		bg.setAttribute('Element-Name', name);
 		bg.setAttribute('Icon-Name', icon);
-			    
-	   	return this.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
+		return bg;
 	};
 })();
