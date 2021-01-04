@@ -52,7 +52,7 @@
 		    		bg.setValue(mxUtils.createXmlDocument().createElement('object'));
 				bg.setAttribute('placeholders', '1');
 				bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
-                		bg.setAttribute('Element-ID', 'Element-ID');
+                		bg.setAttribute('Element-ID', '');
 				bg.setAttribute('Element-Name', 'IBM Cloud');
 				bg.setAttribute('Icon-Name', 'ibm-cloud');
 			    
