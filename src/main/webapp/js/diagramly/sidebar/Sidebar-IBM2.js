@@ -42,29 +42,29 @@
 		//		content.appendChild(fns[i](content));
 		//	}
 		//}));
+		
+		function getCell(name, s, w, h, color, icon)
+		{
+			var bg = new mxCell('', new mxGeometry(0, 0, w, h), s + color);
+	    		bg.vertex = true;
+	    		bg.setValue(mxUtils.createXmlDocument().createElement('object'));
+			bg.setAttribute('placeholders', '1');
+			bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
+               		bg.setAttribute('Element-ID', '');
+			bg.setAttribute('Element-Name', name);
+			bg.setAttribute('Icon-Name', icon);
+			return bg;
+		};
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Cloud / Groups', false,
 		[
 			this.addEntry(dt + 'tn', function()
 			{ 
-				bg = this.getPalette('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud'); 
+				bg = getCell('IBM Cloud', style_text, w, h, cloudColor, 'ibm-cloud'); 
 	   			return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, 'BASE');
 			})
 		]);
 
 		this.setCurrentSearchEntryLibrary();
-	};
-
-	Sidebar.prototype.getPalette = function(name, s, w, h, color, icon)
-	{
-		var bg = new mxCell('', new mxGeometry(0, 0, w, h), s + color);
-	    	bg.vertex = true;
-	    	bg.setValue(mxUtils.createXmlDocument().createElement('object'));
-		bg.setAttribute('placeholders', '1');
-		bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
-               	bg.setAttribute('Element-ID', '');
-		bg.setAttribute('Element-Name', name);
-		bg.setAttribute('Icon-Name', icon);
-		return bg;
 	};
 })();
