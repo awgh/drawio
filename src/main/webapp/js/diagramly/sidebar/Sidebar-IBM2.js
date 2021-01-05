@@ -2,101 +2,102 @@
 {
 	Sidebar.prototype.addIBM2Palette = function()
 	{
-		var aw = 48;
-		var ah = 48;
+		var actor_type = 'actor';
+		var actor_width = 48;
+		var actor_height = 48;
 
-		var gw = 240;
-		var gh = 240;
+		var group_type = 'group';
+		var group_width = 240;
+		var group_height = 240;
 
-		var gn = 'mxgraph.ibm2';
+		var account_color = "gray"
+		var cloud_color = "blue"
+		var kube_color = "purple"
+		var location_color = "gray"
+		var network_color = "green"
+		var section_color = "gray"
+		var security_color = "red"
+		var user_color = "black"
+		var vpc_color = "green"
+
+		var gn = 'mxgraph.ibm2mondrian';
 		var dt = 'ibm ';
-
-		var actorUserColor = "colorFamily=black;"
-
-		var groupAccountColor = "colorFamily=gray;"
-		var groupCloudColor = "colorFamily=blue;"
-		var groupKubeColor = "colorFamily=purple;"
-		var groupLocationColor = "colorFamily=gray;"
-		var groupVPCColor = "colorFamily=green;"
-		var groupNetworkColor = "colorFamily=green;"
-		var groupSecurityColor = "colorFamily=red;"
-		var groupSectionColor = "colorFamily=gray;"
-
-		var actor_style = 'shape=mxgraph.ibm2mondrian.base;shapeType=actor;html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0;metaEdit=0;strokeWidth=1;'
-
-		var group_style = 'shape=mxgraph.ibm2mondrian.base;shapeType=group;html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0;metaEdit=0;strokeWidth=1;container=1;collapsible=0;recursiveResize=0;';
 
 		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Groups');
 
-		function createActorVertex(name, color, icon, setname)
+		function createVertex(external_name, icon_type, icon_color, icon_name, set_name)
 		{
-			var bg = new mxCell('', new mxGeometry(0, 0, aw, ah), actor_style + color);
-	    		bg.vertex = true;
-	    		bg.setValue(mxUtils.createXmlDocument().createElement('object'));
-			bg.setAttribute('placeholders', '1');
-			bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
-               		bg.setAttribute('Element-ID', '');
-			bg.setAttribute('Element-Name', (setname ? name : ''));
-			bg.setAttribute('Icon-Name', icon);
-	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
-		};
+			var w = (icon_type == actor_type) ? actor_width : group_width;
+			var h = (icon_type == actor_type) ? actor_height : group_height;
+			var default_icon = '';
+			var shape_type = (icon_type == actor_type) ? 'shapeType=actor' : 'shapeType=group';
+			var shape_container = (external_name == 'Security Group') ? '1' : '0';
+			var other_label = 'metaEdit=0;strokeWidth=1'; 
+			var container_text = (external_name == 'Security Group') ? 'container=0;collapsible=0;recursiveResize=0' : 'container=1;collapsible=0;recursiveResize=0';
+			var style_text = 'html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0;';
 
-		function createGroupVertex(name, color, icon, setname)
-		{
-			var bg = new mxCell('', new mxGeometry(0, 0, gw, gh), group_style + color);
+			var bg = new mxCell('', new mxGeometry(0, 0, w, h), "shape=" + gn + ".base" + ";" + shape_type + ";" + style_text + ";" + other_label + ";" + "colorFamily=" + icon_color + ";" + container_text + ";" +"image=" + default_icon);
 	    		bg.vertex = true;
 	    		bg.setValue(mxUtils.createXmlDocument().createElement('object'));
 			bg.setAttribute('placeholders', '1');
 			bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
                		bg.setAttribute('Element-ID', '');
-			bg.setAttribute('Element-Name', (setname ? name : ''));
-			bg.setAttribute('Icon-Name', icon);
-	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
+			bg.setAttribute('Element-Name', (set_name ? external_name : ''));
+			bg.setAttribute('Icon-Name', icon_name);
+	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, external_name);
 		};
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Groups', false,
 		[
 			// Cloud groups
-			this.addEntry(dt + 'cloud header', function() { return createActorVertex('Cloud Groups', groupSectionColor, 'ibm-cloud', true) }),
-			this.addEntry(dt + 'ibm cloud', function() { return createGroupVertex('IBM Cloud', groupCloudColor, 'ibm-cloud', true) }),
-			this.addEntry(dt + 'region', function() { return createGroupVertex('Region', groupLocationColor, 'flag', true) }),
-			this.addEntry(dt + 'region alt', function() { return createGroupVertex('Region', groupLocationColor, 'location', true) }),
-			this.addEntry(dt + 'zone', function() { return createGroupVertex('Zone', groupLocationColor, 'enterprise', true) }),
-			this.addEntry(dt + 'datacenter', function() { return createGroupVertex('Data Center', groupAccountColor, 'enterprise', true) }),
-			this.addEntry(dt + 'public', function() { return createGroupVertex('Public Network', groupCloudColor, 'events', true) }),
-			this.addEntry(dt + 'enterprise', function() { return createGroupVertex('Enterprise Network', groupCloudColor, 'enterprise', true) }),
-			this.addEntry(dt + 'classic', function() { return createGroupVertex('Classic Infrastructure', groupCloudColor, '', true) }),
-			this.addEntry(dt + 'cloud services', function() { return createGroupVertex('Cloud Services', groupCloudColor, '', true) }),
-			this.addEntry(dt + 'account', function() { return createGroupVertex('Account', groupAccountColor, 'user', true) }),
-			this.addEntry(dt + 'access', function() { return createGroupVertex('Access Group', groupAccountColor, 'credentials', true) }),
-			this.addEntry(dt + 'resource', function() { return createGroupVertex('Resource Group', groupAccountColor, 'collaborate', true) }),
+			this.addEntry(dt + 'cloud header', function() { return createVertex('Cloud Groups', actor_type, section_color, 'ibm-cloud', true) }),
+			this.addEntry(dt + 'ibm cloud', function() { return createVertex('IBM Cloud', group_type, cloud_color, 'ibm-cloud', true) }),
+			this.addEntry(dt + 'region', function() { return createVertex('Region', group_type, location_color, 'flag', true) }),
+			this.addEntry(dt + 'region alt', function() { return createVertex('Region', group_type, location_color, 'location', true) }),
+			this.addEntry(dt + 'zone', function() { return createVertex('Zone', group_type, location_color, '', true) }),
+			this.addEntry(dt + 'cloud services', function() { return createVertex('Cloud Services', group_type, cloud_color, '', true) }),
+			this.addEntry(dt + 'classic', function() { return createVertex('Classic Infrastructure', group_type, cloud_color, '', true) }),
+			this.addEntry(dt + 'account', function() { return createVertex('Account', group_type, account_color, 'user', true) }),
+			this.addEntry(dt + 'access', function() { return createVertex('Access Group', group_type, account_color, 'credentials', true) }),
+			this.addEntry(dt + 'resource', function() { return createVertex('Resource Group', group_type, account_color, 'collaborate', true) }),
 
 			// VPC groups 
-			this.addEntry(dt + 'vpc header', function() { return createActorVertex('VPC Groups', groupSectionColor, 'virtual-private-cloud', true) }),
-			this.addEntry(dt + 'vpc', function() { return createGroupVertex('VPC', groupCloudColor, 'virtual-private-cloud', true) }),
-			this.addEntry(dt + 'subnet', function() { return createGroupVertex('Subnet:ACL', groupVPCColor, 'virtual-private-cloud', true) }),
-			this.addEntry(dt + 'vs', function() { return createGroupVertex('Virtual Server', groupVPCColor, 'virtual-machine', true) }),
-			this.addEntry(dt + 'endpoints', function() { return createGroupVertex('Endpoints', groupVPCColor, '', true) }),
-			this.addEntry(dt + 'ig', function() { return createGroupVertex('Instance Group', groupVPCColor, '', true) }),
-			this.addEntry(dt + 'sg', function() { return createGroupVertex('Security Group', groupSecurityColor, 'security', true) }),
+			this.addEntry(dt + 'vpc header', function() { return createVertex('VPC Groups', actor_type, section_color, 'virtual-private-cloud', true) }),
+			this.addEntry(dt + 'vpc', function() { return createVertex('VPC', group_type, cloud_color, 'virtual-private-cloud', true) }),
+			this.addEntry(dt + 'subnet', function() { return createVertex('Subnet:ACL', group_type, vpc_color, '', true) }),
+			this.addEntry(dt + 'instance', function() { return createVertex('Virtual Server', group_type, vpc_color, 'virtual-machine', true) }),
+			this.addEntry(dt + 'instance group', function() { return createVertex('Instance Group', group_type, vpc_color, '', true) }),
+			this.addEntry(dt + 'bare metal', function() { return createVertex('Bare Metal', group_type, vpc_color, '', true) }),
+			this.addEntry(dt + 'endpoints', function() { return createVertex('Endpoints', group_type, vpc_color, '', true) }),
+			this.addEntry(dt + 'security group', function() { return createVertex('Security Group', group_type, security_color, 'security', true) }),
 
 			// Kubernetes groups 
-			this.addEntry(dt + 'kube header', function() { return createActorVertex('Kubernetes Groups', groupSectionColor, 'ibm-cloud', true) }),
-			this.addEntry(dt + 'ibm kube', function() { return createGroupVertex('IBM Kubernetes Cluster', groupCloudColor, '', true) }),
-			this.addEntry(dt + 'general kube', function() { return createGroupVertex('General Kubernetes Cluster', groupCloudColor, '', true) }),
-			this.addEntry(dt + 'openshift', function() { return createGroupVertex('OpenShift Cluster', groupCloudColor, '', true) }),
-			this.addEntry(dt + 'kube services', function() { return createGroupVertex('Kubernetes Services', groupKubeColor, '', true) }),
-			this.addEntry(dt + 'kube rs', function() { return createGroupVertex('Kubernetes Replica Set', groupKubeColor, '', true) }),
-			this.addEntry(dt + 'kube pod', function() { return createGroupVertex('Kubernetes Pod', groupKubeColor, '', true) }),
-			this.addEntry(dt + 'kube ns', function() { return createGroupVertex('Kubernetes Namespace', groupAccountColor, '', true) }),
+			this.addEntry(dt + 'kube header', function() { return createVertex('Kubernetes Groups', actor_type, section_color, '', true) }),
+			this.addEntry(dt + 'ibm kube', function() { return createVertex('IBM Kubernetes Cluster', group_type, cloud_color, '', true) }),
+			this.addEntry(dt + 'general kube', function() { return createVertex('General Kubernetes Cluster', group_type, cloud_color, '', true) }),
+			this.addEntry(dt + 'openshift', function() { return createVertex('OpenShift Cluster', group_type, cloud_color, '', true) }),
+			this.addEntry(dt + 'kube services', function() { return createVertex('Kubernetes Services', group_type, kube_color, '', true) }),
+			this.addEntry(dt + 'replica set', function() { return createVertex('Kubernetes Replica Set', group_type, kube_color, '', true) }),
+			this.addEntry(dt + 'pod', function() { return createVertex('Kubernetes Pod', group_type, kube_color, '', true) }),
+			this.addEntry(dt + 'namespace', function() { return createVertex('Kubernetes Namespace', group_type, account_color, '', true) }),
+			this.addEntry(dt + 'foundry', function() { return createVertex('Cloud Foundry', group_type, kube_color, '', true) }),
+
+			// Network groups 
+			this.addEntry(dt + 'network header', function() { return createVertex('Network Groups', actor_type, section_color, '', true) }),
+			this.addEntry(dt + 'public', function() { return createVertex('Public Network', group_type, network_color, 'events', true) }),
+			this.addEntry(dt + 'enterprise', function() { return createVertex('Enterprise Network', group_type, network_color, 'enterprise', true) }),
+			this.addEntry(dt + 'datacenter', function() { return createVertex('Data Center', group_type, network_color, '', true) }),
+			this.addEntry(dt + 'pop', function() { return createVertex('Point of Presence', group_type, network_color, '', true) }),
+			this.addEntry(dt + 'overlay', function() { return createVertex('Overlay Network', group_type, network_color, '', true) }),
+			this.addEntry(dt + 'vlan', function() { return createVertex('VLAN', group_type, network_color, '', true) }),
 		]);
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Users', false,
 		[
-			this.addEntry(dt + 'user', function() { return createActorVertex('User', actorUserColor, 'user', false) }),
-			this.addEntry(dt + 'events', function() { return createActorVertex('Events', actorUserColor, 'events', false) }),
-			this.addEntry(dt + 'credentials', function() { return createActorVertex('Credentials', actorUserColor, 'credentials', false) }),
-			this.addEntry(dt + 'collaborate', function() { return createActorVertex('Collaborate', actorUserColor, 'collaborate', false) }),
+			this.addEntry(dt + 'user', function() { return createVertex('User', actor_type, user_color, 'user', false) }),
+			this.addEntry(dt + 'events', function() { return createVertex('Events', actor_type, user_color, 'events', false, false) }),
+			this.addEntry(dt + 'credentials', function() { return createVertex('Credentials', actor_type, user_color, 'credentials', false) }),
+			this.addEntry(dt + 'collaborate', function() { return createVertex('Collaborate', actor_type, user_color, 'collaborate', false) }),
 		]);
 
 		this.setCurrentSearchEntryLibrary();
