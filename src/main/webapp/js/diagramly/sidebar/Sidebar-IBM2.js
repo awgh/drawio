@@ -30,7 +30,7 @@
 			var w = (icon_type == actor) ? actor_width : group_width;
 			var h = (icon_type == actor) ? actor_height : group_height;
 			var default_icon = '';
-			var shape_type = (type == actor) ? 'shapeType=actor' : 'shapeType=group';
+			var shape_type = (icon_type == actor) ? 'shapeType=actor' : 'shapeType=group';
 			var shape_container = (external_name == 'Security Group') ? '1' : '0';
 			var other_label = 'metaEdit=0;strokeWidth=1'; 
 			var container_text = (external_name == 'Security Group') ? 'container=0;collapsible=0;recursiveResize=0' : 'container=1;collapsible=0;recursiveResize=0';
