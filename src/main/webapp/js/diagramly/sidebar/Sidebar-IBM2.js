@@ -63,6 +63,7 @@
 			this.addEntry(dt + 'public', function() { return createGroupVertex('Public Network', groupCloudColor, 'events', true) }),
 			this.addEntry(dt + 'enterprise', function() { return createGroupVertex('Enterprise Network', groupCloudColor, 'enterprise', true) }),
 			this.addEntry(dt + 'classic', function() { return createGroupVertex('Classic Infrastructure', groupCloudColor, '', true) }),
+			this.addEntry(dt + 'cloud services', function() { return createGroupVertex('Cloud Services', groupCloudColor, '', true) }),
 			this.addEntry(dt + 'account', function() { return createGroupVertex('Account', groupAccountColor, 'user', true) }),
 			this.addEntry(dt + 'access', function() { return createGroupVertex('Access Group', groupAccountColor, 'credentials', true) }),
 			this.addEntry(dt + 'resource', function() { return createGroupVertex('Resource Group', groupAccountColor, 'collaborate', true) }),
@@ -78,11 +79,10 @@
 
 			// Kubernetes groups 
 			this.addEntry(dt + 'kube header', function() { return createActorVertex('Kubernetes Groups', groupSectionColor, 'ibm-cloud', true) }),
-			this.addEntry(dt + 'ikc', function() { return createGroupVertex('IBM Kubernetes Cluster', groupCloudColor, '', true) }),
 			this.addEntry(dt + 'ibm kube', function() { return createGroupVertex('IBM Kubernetes Cluster', groupCloudColor, '', true) }),
-			this.addEntry(dt + 'ibm kube', function() { return createGroupVertex('IBM Kubernetes Cluster', groupCloudColor, '', true) }),
+			this.addEntry(dt + 'general kube', function() { return createGroupVertex('General Kubernetes Cluster', groupCloudColor, '', true) }),
 			this.addEntry(dt + 'openshift', function() { return createGroupVertex('OpenShift Cluster', groupCloudColor, '', true) }),
-			this.addEntry(dt + 'kube service', function() { return createGroupVertex('Kubernetes Service', groupCloudColor, '', true) }),
+			this.addEntry(dt + 'kube services', function() { return createGroupVertex('Kubernetes Services', groupCloudColor, '', true) }),
 			this.addEntry(dt + 'kube rs', function() { return createGroupVertex('Kubernetes Replica Set', groupCloudColor, '', true) }),
 			this.addEntry(dt + 'kube pod', function() { return createGroupVertex('Kubernetes Pod', groupCloudColor, '', true) }),
 			this.addEntry(dt + 'kube ns', function() { return createGroupVertex('Kubernetes Namespace', groupAccountColor, '', true) }),
