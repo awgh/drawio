@@ -30,13 +30,24 @@
 			var w = (icon_type == actor_type) ? actor_width : group_width;
 			var h = (icon_type == actor_type) ? actor_height : group_height;
 			var default_icon = '';
+			var container_text = '';
+			if (icon_type == group_type)
+			{
+				if (external_name == 'Security Group')
+				{
+					container_text = 'container=0;collapsible=0;recursiveResize=0;';
+				}
+				else 
+				{
+					container_text = 'container=1;collapsible=0;recursiveResize=0;';
+				}
+			}
 			var shape_type = (icon_type == actor_type) ? 'shapeType=actor' : 'shapeType=group';
 			var shape_container = (external_name == 'Security Group') ? '1' : '0';
 			var other_label = 'metaEdit=0;strokeWidth=1'; 
-			var container_text = (external_name == 'Security Group') ? 'container=0;collapsible=0;recursiveResize=0' : 'container=1;collapsible=0;recursiveResize=0';
 			var style_text = 'html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0;';
 
-			var bg = new mxCell('', new mxGeometry(0, 0, w, h), "shape=" + gn + ".base" + ";" + shape_type + ";" + style_text + ";" + other_label + ";" + "colorFamily=" + icon_color + ";" + container_text + ";" +"image=" + default_icon);
+			var bg = new mxCell('', new mxGeometry(0, 0, w, h), "shape=" + gn + ".base" + ";" + shape_type + ";" + style_text + ";" + other_label + ";" + "colorFamily=" + icon_color + ";" + container_text + "image=" + default_icon + ";");
 	    		bg.vertex = true;
 	    		bg.setValue(mxUtils.createXmlDocument().createElement('object'));
 			bg.setAttribute('placeholders', '1');
