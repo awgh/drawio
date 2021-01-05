@@ -45,7 +45,7 @@
 			var shape_type = (icon_type == actor_type) ? 'shapeType=actor' : 'shapeType=group';
 			var shape_container = (external_name == 'Security Group') ? '1' : '0';
 			var other_label = 'metaEdit=0;strokeWidth=1'; 
-			var style_text = 'html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0;';
+			var style_text = 'html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0';
 
 			var bg = new mxCell('', new mxGeometry(0, 0, w, h), "shape=" + gn + ".base" + ";" + shape_type + ";" + style_text + ";" + other_label + ";" + "colorFamily=" + icon_color + ";" + container_text + "image=" + default_icon + ";");
 	    		bg.vertex = true;
