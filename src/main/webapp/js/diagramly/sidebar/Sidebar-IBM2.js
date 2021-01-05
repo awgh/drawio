@@ -4,17 +4,17 @@
 	{
 		var actor = 'actor';
 
-		var aw = 48;
-		var ah = 48;
+		var actorWidth = 48;
+		var actorHeight = 48;
 
-		var actor_style = 'shape=mxgraph.ibm2mondrian.base;shapeType=actor;html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0;metaEdit=0;strokeWidth=1;'
+		var actorStyle = 'shape=mxgraph.ibm2mondrian.base;shapeType=actor;html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0;metaEdit=0;strokeWidth=1;'
 
 		var group = 'group';
 
-		var gw = 240;
-		var gh = 240;
+		var groupWidth = 240;
+		var groupHeight = 240;
 
-		var group_style = 'shape=mxgraph.ibm2mondrian.base;shapeType=group;html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0;metaEdit=0;strokeWidth=1;container=1;collapsible=0;recursiveResize=0;';
+		var groupStyle = 'shape=mxgraph.ibm2mondrian.base;shapeType=group;html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0;metaEdit=0;strokeWidth=1;container=1;collapsible=0;recursiveResize=0;';
 
 		var accountColor = "colorFamily=gray;"
 		var cloudColor = "colorFamily=blue;"
@@ -33,8 +33,8 @@
 
 		function createVertex(name, type, color, icon, setname)
 		{
-			var w = (type == actor) ? aw : gw;
-			var h = (type == actor) ? ag : gh;
+			var w = (type == actor) ? actorWidth : groupWidth;
+			var h = (type == actor) ? actorHeight : groupHeight;
 			var style = (type == actor) ? actorStyle : groupStyle;
 
 			var bg = new mxCell('', new mxGeometry(0, 0, w, h), style + color);
