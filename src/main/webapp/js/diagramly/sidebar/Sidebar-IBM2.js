@@ -105,7 +105,7 @@
 			this.addEntry(dt + 'overlay', function() { return createVertex('Overlay Network', group_type, network_color, '', true) }),
 			this.addEntry(dt + 'vlan', function() { return createVertex('VLAN', group_type, network_color, '', true) }),
 		]);
-y
+
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Network', false,
 		[
 			this.addEntry(dt + 'fip', function() { return createVertex('Floating IP', actor_type, cloud_color, 'connect', false) }),
