@@ -10,15 +10,15 @@
 		var group_width = 240;
 		var group_height = 240;
 
-		var account_color = 'gray'
-		var cloud_color = 'blue'
-		var kube_color = 'purple'
-		var location_color = 'gray'
-		var network_color = 'green'
-		var section_color = 'gray'
-		var security_color = 'red'
-		var user_color = 'black'
-		var vpc_color = 'green'
+		var account_color = 'gray';
+		var cloud_color = 'blue';
+		var kube_color = 'purple';
+		var location_color = 'gray';
+		var network_color = 'green';
+		var section_color = 'gray';
+		var security_color = 'red';
+		var user_color = 'black';
+		var vpc_color = 'green';
 
 		var spanning_groups = 'Security Group';
 
