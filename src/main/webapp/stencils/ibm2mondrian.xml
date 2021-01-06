@@ -846,15 +846,6 @@
             <close/>
         </path>
         <fillstroke/>
-        <path>
-            <move x="0" y="0"/>
-            <line x="0" y="32"/>
-            <line x="32" y="32"/>
-            <line x="32" y="0"/>
-            <line x="0" y="0"/>
-            <close/>
-        </path>
-        <fillstroke/>
     </foreground>
 </shape>
 <shape aspect="variable" h="32" name="VPN" strokewidth="inherit" w="32">
@@ -1222,15 +1213,6 @@
             <close/>
         </path>
         <fillstroke/>
-        <path>
-            <move x="0" y="0"/>
-            <line x="0" y="32"/>
-            <line x="32" y="32"/>
-            <line x="32" y="0"/>
-            <line x="0" y="0"/>
-            <close/>
-        </path>
-        <fillstroke/>
     </foreground>
 </shape>
 <shape aspect="variable" h="64" name="terminal" strokewidth="inherit" w="64">
@@ -1330,6 +1312,61 @@
             <line x="32" y="16"/>
             <line x="32" y="8"/>
             <line x="24" y="8"/>
+            <close/>
+        </path>
+        <fillstroke/>
+    </foreground>
+</shape>
+<shape aspect="variable" h="64" name="laptop" strokewidth="inherit" w="64">
+    <connections/>
+    <foreground>
+        <path>
+            <move x="52" y="48"/>
+            <line x="12" y="48"/>
+            <arc large-arc-flag="0" rx="4.005" ry="4.005" sweep-flag="1" x="8" x-axis-rotation="0" y="44"/>
+            <line x="8" y="16"/>
+            <arc large-arc-flag="0" rx="4.004" ry="4.004" sweep-flag="1" x="12" x-axis-rotation="0" y="12"/>
+            <line x="52" y="12"/>
+            <arc large-arc-flag="0" rx="4.005" ry="4.005" sweep-flag="1" x="56" x-axis-rotation="0" y="16"/>
+            <line x="56" y="44"/>
+            <arc large-arc-flag="0" rx="4.005" ry="4.005" sweep-flag="1" x="52" x-axis-rotation="0" y="48"/>
+            <close/>
+            <move x="12" y="16"/>
+            <line x="12" y="44"/>
+            <line x="52" y="44"/>
+            <line x="52" y="16"/>
+            <close/>
+        </path>
+        <fillstroke/>
+    </foreground>
+</shape>
+<shape aspect="variable" h="64" name="tablet" strokewidth="inherit" w="64">
+    <connections/>
+    <foreground>
+        <path>
+            <move x="15" y="22"/>
+            <line x="15" y="28"/>
+            <line x="17" y="28"/>
+            <line x="17" y="22"/>
+            <line x="15" y="22"/>
+            <close/>
+        </path>
+        <fillstroke/>
+        <path>
+            <move x="50" y="60"/>
+            <line x="14" y="60"/>
+            <arc large-arc-flag="0" rx="4.005" ry="4.005" sweep-flag="1" x="10" x-axis-rotation="0" y="56"/>
+            <line x="10" y="8"/>
+            <arc large-arc-flag="0" rx="4.004" ry="4.004" sweep-flag="1" x="14" x-axis-rotation="0" y="4"/>
+            <line x="50" y="4"/>
+            <arc large-arc-flag="0" rx="4.005" ry="4.005" sweep-flag="1" x="54" x-axis-rotation="0" y="8"/>
+            <line x="54" y="56"/>
+            <arc large-arc-flag="0" rx="4.005" ry="4.005" sweep-flag="1" x="50" x-axis-rotation="0" y="60"/>
+            <close/>
+            <move x="14" y="8"/>
+            <line x="14" y="56"/>
+            <line x="50" y="56"/>
+            <line x="50" y="8"/>
             <close/>
         </path>
         <fillstroke/>
