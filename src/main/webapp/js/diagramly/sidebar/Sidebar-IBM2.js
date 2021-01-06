@@ -125,7 +125,7 @@
 		[
 			this.addEntry(dt + 'fip', function() { return createVertex('Floating IP', actor_type, cloud_color, 'connect', false) }),
 			this.addEntry(dt + 'transitgateway', function() { return createVertex('Transit Gateway', actor_type, cloud_color, '', false) }),
-			this.addEntry(dt + 'endpoints', function() { return createVertex('VPC Endpoints', actor_type, cloud_color, '', false) }),
+			this.addEntry(dt + 'endpoints', function() { return createVertex('Endpoints', actor_type, cloud_color, '', false) }),
 		]);
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Network Devices', false,
