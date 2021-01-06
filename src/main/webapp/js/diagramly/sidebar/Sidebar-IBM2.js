@@ -27,15 +27,16 @@
 
 		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Groups');
 
-		function createVertex(external_name, icon_type, icon_color, icon_name, set_name)
+		function createVertex(name, icon_type, icon_color, icon_name, set_name)
 		{
 			var w = (icon_type == actor_type) ? actor_width : group_width;
 			var h = (icon_type == actor_type) ? actor_height : group_height;
 			var default_icon = '';
 			var container_text = '';
+
 			if (icon_type == group_type)
 			{
-				if (spanning_groups.includes(external_name))
+				if (spanning_groups.includes(name))
 				{
 					container_text = 'container=0;collapsible=0;recursiveResize=0;';
 				}
@@ -44,8 +45,8 @@
 					container_text = 'container=1;collapsible=0;recursiveResize=0;';
 				}
 			}
-			var shape_type = (icon_type == actor_type) ? 'shapeType=actor' : 'shapeType=group';
-			var shape_container = (external_name == 'Security Group') ? '1' : '0';
+
+			var shape_type = 'shapeType=' + icon_type;
 			var other_label = 'metaEdit=0;strokeWidth=1'; 
 			var style_text = 'html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0';
 
@@ -108,8 +109,6 @@ y
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Network', false,
 		[
 			this.addEntry(dt + 'fip', function() { return createVertex('Floating IP', actor_type, cloud_color, 'connect', false) }),
-			//this.addEntry(dt + 'cdn', function() { return createVertex('Content Delivery Network', actor_type, cloud_color, '', false) }),
-			//this.addEntry(dt + 'dns', function() { return createVertex('Domain Name System', actor_type, cloud_color, '', false) }),
 		]);
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Network Devices', false,
@@ -117,28 +116,25 @@ y
 			this.addEntry(dt + 'alb', function() { return createVertex('Application Load Balancer', actor_type, cloud_color, 'fork', false) }),
 			this.addEntry(dt + 'nlb', function() { return createVertex('Network Load Balancer', actor_type, cloud_color, 'fork', false) }),
 			this.addEntry(dt + 'gateway', function() { return createVertex('Network Gateway', actor_type, cloud_color, 'network--2', false) }),
-			//this.addEntry(dt + 'edgenode', function() { return createVertex('Edge Node', actor_type, cloud_color, '', false) }),
 		]);
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Security', false,
 		[
-			//this.addEntry(dt + 'iam', function() { return createVertex('Identity and Access Manager', actor_type, security_color, 'fingerprint-recognition', false) }),
+			this.addEntry(dt + 'iam', function() { return createVertex('Identity and Access Manager', actor_type, security_color, 'fingerprint-recognition', false) }),
 			this.addEntry(dt + 'vpn', function() { return createVertex('Virtual Private Network', actor_type, security_color, 'VPN', false) }),
 		]);
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Security Devices', false,
 		[
 			this.addEntry(dt + 'vpngateway', function() { return createVertex('VPN Gateway', actor_type, security_color, '', false) }),
-			//this.addEntry(dt + 'securitygateway', function() { return createVertex('Security Gateway', actor_type, security_color, '', false) }),
-			//this.addEntry(dt + 'firewall', function() { return createVertex('Firewall', actor_type, security_color, '', false) }),
 		]);
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Users', false,
 		[
 			this.addEntry(dt + 'user', function() { return createVertex('User', actor_type, user_color, 'user', false) }),
-			//this.addEntry(dt + 'events', function() { return createVertex('Events', actor_type, user_color, 'events', false, false) }),
-			//this.addEntry(dt + 'credentials', function() { return createVertex('Credentials', actor_type, user_color, 'credentials', false) }),
-			//this.addEntry(dt + 'collaborate', function() { return createVertex('Collaborate', actor_type, user_color, 'collaborate', false) }),
+			this.addEntry(dt + 'events', function() { return createVertex('Events', actor_type, user_color, 'events', false, false) }),
+			this.addEntry(dt + 'credentials', function() { return createVertex('Credentials', actor_type, user_color, 'credentials', false) }),
+			this.addEntry(dt + 'collaborate', function() { return createVertex('Collaborate', actor_type, user_color, 'collaborate', false) }),
 		]);
 
 		this.setCurrentSearchEntryLibrary();
