@@ -56,9 +56,9 @@
 			bg.setAttribute('placeholders', '1');
 			bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
                		bg.setAttribute('Element-ID', '');
-			bg.setAttribute('Element-Name', (set_name ? external_name : ''));
+			bg.setAttribute('Element-Name', (set_name ? name : ''));
 			bg.setAttribute('Icon-Name', icon_name);
-	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, external_name);
+	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
 		};
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Groups', false,
