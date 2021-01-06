@@ -106,22 +106,39 @@
 			this.addEntry(dt + 'vlan', function() { return createVertex('VLAN', group_type, network_color, '', true) }),
 		]);
 
+		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Compute', false,
+		[
+			this.addEntry(dt + 'vsi', function() { return createVertex('Virtual Server', actor_type, cloud_color, 'virtual-machine', false) }),
+		]);
+
+		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Compute Devices', false,
+		[
+			this.addEntry(dt + 'baremetal', function() { return createVertex('Bare Metal Server', actor_type, cloud_color, '', false) }),
+			this.addEntry(dt + 'browser', function() { return createVertex('Web Browser', actor_type, cloud_color, 'terminal', false) }),
+			this.addEntry(dt + 'mobiledevice', function() { return createVertex('Mobile Device', actor_type, cloud_color, 'mobile', false) }),
+		]);
+
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Network', false,
 		[
 			this.addEntry(dt + 'fip', function() { return createVertex('Floating IP', actor_type, cloud_color, 'connect', false) }),
+			this.addEntry(dt + 'transitgateway', function() { return createVertex('Transit Gateway', actor_type, cloud_color, '', false) }),
+			this.addEntry(dt + 'endpoints', function() { return createVertex('VPC Endpoints', actor_type, cloud_color, '', false) }),
 		]);
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Network Devices', false,
 		[
 			this.addEntry(dt + 'alb', function() { return createVertex('Application Load Balancer', actor_type, cloud_color, 'fork', false) }),
-			this.addEntry(dt + 'nlb', function() { return createVertex('Network Load Balancer', actor_type, cloud_color, 'fork', false) }),
-			this.addEntry(dt + 'gateway', function() { return createVertex('Network Gateway', actor_type, cloud_color, 'network--2', false) }),
+			this.addEntry(dt + 'nlb', function() { return createVertex('Network Load Balancer', actor_type, cloud_color, 'share', false) }),
+			this.addEntry(dt + 'networkgateway', function() { return createVertex('Network Gateway', actor_type, cloud_color, 'network--2', false) }),
+			this.addEntry(dt + 'edgenode', function() { return createVertex('Edge Node', actor_type, cloud_color, 'edge-node', false) }),
 		]);
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Security', false,
 		[
 			this.addEntry(dt + 'iam', function() { return createVertex('Identity and Access Manager', actor_type, security_color, 'fingerprint-recognition', false) }),
-			this.addEntry(dt + 'vpn', function() { return createVertex('Virtual Private Network', actor_type, security_color, 'VPN', false) }),
+			this.addEntry(dt + 'rules', function() { return createVertex('Rules', actor_type, security_color, 'rule', false) }),
+			this.addEntry(dt + 'vpn', function() { return createVertex('VPN', actor_type, security_color, 'VPN', false) }),
+			this.addEntry(dt + 'vpnpolicy', function() { return createVertex('VPN Policy', actor_type, security_color, 'policy', false) }),
 		]);
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Security Devices', false,
@@ -129,9 +146,23 @@
 			this.addEntry(dt + 'vpngateway', function() { return createVertex('VPN Gateway', actor_type, security_color, '', false) }),
 		]);
 
+		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Storage', false,
+		[
+			this.addEntry(dt + 'objectaccessor', function() { return createVertex('Object Storage Accessor', actor_type, cloud_color, '', false) }),
+			this.addEntry(dt + 'objectslicestor', function() { return createVertex('Object Storage Slicestor', actor_type, cloud_color, '', false) }),
+		]);
+
+		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Storage Devices', false,
+		[
+			this.addEntry(dt + 'blockstorage', function() { return createVertex('Block Storage', actor_type, cloud_color, '', false) }),
+			this.addEntry(dt + 'filestorage', function() { return createVertex('File Storage', actor_type, cloud_color, '', false) }),
+			this.addEntry(dt + 'objectstorage', function() { return createVertex('Object Storage', actor_type, cloud_color, 'object-storage', false) }),
+		]);
+
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Users', false,
 		[
 			this.addEntry(dt + 'user', function() { return createVertex('User', actor_type, user_color, 'user', false) }),
+			this.addEntry(dt + 'group', function() { return createVertex('Group', actor_type, user_color, 'group', false) }),
 			this.addEntry(dt + 'events', function() { return createVertex('Events', actor_type, user_color, 'events', false, false) }),
 			this.addEntry(dt + 'credentials', function() { return createVertex('Credentials', actor_type, user_color, 'credentials', false) }),
 			this.addEntry(dt + 'collaborate', function() { return createVertex('Collaborate', actor_type, user_color, 'collaborate', false) }),
