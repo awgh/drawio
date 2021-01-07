@@ -477,8 +477,6 @@
             <close/>
         </path>
         <fillstroke/>
-        <rect h="64" w="64" x="0" y="0"/>
-        <fillstroke/>
     </foreground>
 </shape>
 <shape aspect="variable" h="31.352" name="virtual-machine" strokewidth="inherit" w="32">
@@ -1350,8 +1348,6 @@
         </path>
         <fillstroke/>
         <rect h="4" w="56" x="4" y="52.01"/>
-        <fillstroke/>
-        <rect h="64" w="64" x="0" y="0"/>
         <fillstroke/>
     </foreground>
 </shape>

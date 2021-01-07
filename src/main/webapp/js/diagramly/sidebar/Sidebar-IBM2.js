@@ -174,7 +174,7 @@
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Users', false,
 		[
 			this.addEntry(dt + 'user', function() { return createVertex('User', actor_type, user_color, 'user') }),
-			this.addEntry(dt + 'group', function() { return createVertex('Group', actor_type, user_color, 'group') }),
+			this.addEntry(dt + 'users', function() { return createVertex('Users', actor_type, user_color, 'group') }),
 			this.addEntry(dt + 'events', function() { return createVertex('Events', actor_type, user_color, 'events') }),
 			this.addEntry(dt + 'credentials', function() { return createVertex('Credentials', actor_type, user_color, 'credentials') }),
 			this.addEntry(dt + 'collaborate', function() { return createVertex('Collaborate', actor_type, user_color, 'collaborate') }),
