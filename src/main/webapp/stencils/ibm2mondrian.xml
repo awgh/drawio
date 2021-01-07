@@ -846,15 +846,6 @@
             <close/>
         </path>
         <fillstroke/>
-        <path>
-            <move x="0" y="0"/>
-            <line x="0" y="32"/>
-            <line x="32" y="32"/>
-            <line x="32" y="0"/>
-            <line x="0" y="0"/>
-            <close/>
-        </path>
-        <fillstroke/>
     </foreground>
 </shape>
 <shape aspect="variable" h="32" name="VPN" strokewidth="inherit" w="32">
@@ -1380,6 +1371,8 @@
             <line x="50" y="8"/>
             <close/>
         </path>
+        <fillstroke/>
+        <rect h="64" w="64" x="0" y="0"/>
         <fillstroke/>
     </foreground>
 </shape>

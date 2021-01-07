@@ -147,10 +147,11 @@
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Security', false,
 		[
-			this.addEntry(dt + 'iam', function() { return createVertex('Identity and Access Manager', actor_type, security_color, 'fingerprint-recognition') }),
-			this.addEntry(dt + 'rules', function() { return createVertex('Rules', actor_type, security_color, 'rule') }),
 			this.addEntry(dt + 'vpn', function() { return createVertex('VPN', actor_type, security_color, 'VPN') }),
 			this.addEntry(dt + 'vpnpolicy', function() { return createVertex('VPN Policy', actor_type, security_color, 'policy') }),
+			this.addEntry(dt + 'iam', function() { return createVertex('Identity and Access Manager', actor_type, security_color, 'fingerprint-recognition') }),
+			this.addEntry(dt + 'credentials', function() { return createVertex('Credentials', actor_type, security_color, 'credentials') }),
+			this.addEntry(dt + 'rules', function() { return createVertex('Rules', actor_type, security_color, 'rule') }),
 		]);
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Security Devices', false,
@@ -176,7 +177,6 @@
 			this.addEntry(dt + 'user', function() { return createVertex('User', actor_type, user_color, 'user') }),
 			this.addEntry(dt + 'users', function() { return createVertex('Users', actor_type, user_color, 'group') }),
 			this.addEntry(dt + 'events', function() { return createVertex('Events', actor_type, user_color, 'events') }),
-			this.addEntry(dt + 'credentials', function() { return createVertex('Credentials', actor_type, user_color, 'credentials') }),
 			this.addEntry(dt + 'collaborate', function() { return createVertex('Collaborate', actor_type, user_color, 'collaborate') }),
 		]);
 
