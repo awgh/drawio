@@ -26,6 +26,8 @@
 		var stencils = 
 		[
 		    [
+			['Groups'],
+
 			['Cloud Groups',		'ibm-cloud',			actor_type, section_color],
 			['IBM Cloud',			'ibm-cloud',			group_type, cloud_color],
 			['Region',			'flag',				group_type, cloud_color],
@@ -62,10 +64,17 @@
 			['Overlay Network',		'',				group_type, cloud_color],
 			['VLAN',			'',				group_type, cloud_color],
 	   	    ],
+
+		    [
+			['Compute'],
+
+			['Virtual Server',		'virtual-machine',		actor_type, section_color],
+			['Instance Group',		'',				actor_type, cloud_color],
+		    ],
 		];
 
-		var internal_version = 'ibm2';
-		var external_version = 'IBMIBM 2.0';
+		var internal = 'ibm2';
+		var external = 'IBM 2.0';
 
 		var gn = 'mxgraph.ibm2mondrian';
 		var dt = 'ibm ';
@@ -115,11 +124,18 @@
 
 		var header = 'Groups';
 		stencils.forEach((section) => {
+			var header = '';
 			var entries = [];
-			section.forEach((stencil) => {
-				entries.push(this.addEntry(dt + stencil[0], function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
+			section.forEach((stencil, index) => {
+				if (index == 0)
+				{
+					header = stencil[0];
+				}
+				else
+				{
+					entries.push(this.addEntry(dt + stencil[0], function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
+				}
 			});
-			//console.log(entries);
 			this.addPaletteFunctions(internal_version, external_version + ' / ' + header, false, entries);
 		});
 
@@ -168,11 +184,11 @@
 		//	this.addEntry(dt + 'vlangroup', function() { return createVertex('VLAN', group_type, network_color, '') }),
 		//]);
 
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Compute', false,
-		[
-			this.addEntry(dt + 'virtualserver', function() { return createVertex('Virtual Server', actor_type, cloud_color, 'virtual-machine') }),
-			this.addEntry(dt + 'autoscaling', function() { return createVertex('Autoscaling', actor_type, cloud_color, '') }),
-		]);
+		//this.addPaletteFunctions('ibm2', 'IBM 2.0 / Compute', false,
+		//[
+		//	this.addEntry(dt + 'virtualserver', function() { return createVertex('Virtual Server', actor_type, cloud_color, 'virtual-machine') }),
+		//	this.addEntry(dt + 'autoscaling', function() { return createVertex('Autoscaling', actor_type, cloud_color, '') }),
+		//]);
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Compute Devices', false,
 		[
