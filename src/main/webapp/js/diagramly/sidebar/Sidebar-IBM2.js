@@ -115,15 +115,17 @@
 
 		stencils.forEach((section) => {
 			section.forEach((stencil) => {
+				console.log(stencil);
 				var header = stencil[0];
 				var items = stencil[1];
 				var entries = [];
 
 				items.forEach((item) => {
-					entries.push(this.addEntry(dt + item[0], function() { return createVertex(item[0], item[2], item[3], item[1]) }))
+					console.log(item);;
+					//entries.push(this.addEntry(dt + item[0], function() { return createVertex(item[0], item[2], item[3], item[1]) }))
 				});
 
-				this.addPaletteFunctions(internal_version, external_version + ' / ' + header, false, entries);
+				//this.addPaletteFunctions(internal_version, external_version + ' / ' + header, false, entries);
 			});
 		});
 
