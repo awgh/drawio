@@ -23,6 +23,50 @@
 		var spanning_groups = 'Security Group';
 		var named_actors = 'Cloud Groups, VPC Groups, Kubernetes Groups, Network Groups';
 
+		var stencils = 
+		[
+		   ['Groups',
+			['Cloud Groups',		'ibm-cloud',			actor_type, section_color],
+			['IBM Cloud',			'ibm-cloud',			group_type, cloud_color],
+			['Region',			'flag',				group_type, cloud_color],
+			['Region Alt',			'location',			group_type, cloud_color],
+			['Zone',			'',				group_type, cloud_color],
+			['Cloud Services',		'',				group_type, cloud_color],
+			['Classic Infrastructure',	'',				group_type, cloud_color],
+			['Account',			'user',				group_type, cloud_color],
+			['Access Group',		'credentials',			group_type, cloud_color],
+			['Resource Group',		'collaborate',			group_type, cloud_color],
+
+			['VPC Groups',			'virtual-private-cloud',	actor_type, section_color],
+			['VPC',				'virtual-private-cloud',	group_type, cloud_color],
+			['Subnet:ACL',			'',				group_type, cloud_color],
+			['Virtual Server',		'virtual-machine',		group_type, cloud_color],
+			['Instance Group',		'',				group_type, cloud_color],
+			['Physical Server',		'',				group_type, cloud_color],
+			['Endpoints',			'',				group_type, cloud_color],
+			['Security Group',		'security',			group_type, cloud_color],
+
+			['Kubernetes Groups',		'',				actor_type, section_color],
+			['Kubernetes Cluster',		'',				group_type, cloud_color],
+			['OpenShift Cluster',		'',				group_type, cloud_color],
+			['Kubernetes Services',		'',				group_type, cloud_color],
+			['Kubernetes Replica Set',	'',				group_type, cloud_color],
+			['Kubernetes Pod',		'',				group_type, cloud_color],
+			['Kubernetes Namespace',	'',				group_type, cloud_color],
+
+			['Network Groups',		'',				actor_type, section_color],
+			['Public Network',		'events',			group_type, cloud_color],
+			['Enterprise Network',		'enterprise',			group_type, cloud_color],
+			['Data Center',			'',				group_type, cloud_color],
+			['Point of Presence',		'',				group_type, cloud_color],
+			['Overlay Network',		'',				group_type, cloud_color],
+			['VLAN',			'',				group_type, cloud_color],
+		   ],
+		];
+
+		var internal_version = 'ibm2';
+		var external_version = 'IBM 2.0';
+
 		var gn = 'mxgraph.ibm2mondrian';
 		var dt = 'ibm ';
 
@@ -68,6 +112,15 @@
 			bg.setAttribute('Icon-Name', icon_name);
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
 		};
+
+		stencils.forEach((section) => {
+			section.forEach((stencil) => {
+				var head = stencil[0];
+				var body = stencil[1];
+				console.log(head);
+				console.log(body[0]);
+			});
+		});
 
 		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Groups', false,
 		[
