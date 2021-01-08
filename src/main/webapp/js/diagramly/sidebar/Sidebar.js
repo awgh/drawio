@@ -35,8 +35,6 @@
 
 	Sidebar.prototype.ibm = ['Analytics', 'Applications', 'Blockchain', 'Data', 'DevOps', 'Infrastructure', 'Management', 'Miscellaneous', 'Security', 'Social', 'Users', 'VPC', 'Boxes', 'Connectors'];
 
-	Sidebar.prototype.ibm1 = ['Analytics', 'Applications', 'Blockchain', 'Data', 'DevOps', 'Infrastructure', 'Management', 'Miscellaneous', 'Security', 'Social', 'Users', 'VPC', 'Boxes', 'Connectors'];
-
 	Sidebar.prototype.ibm2 = ['Groups', 'Compute', 'Compute Devices', 'Network', 'Network Devices', 'Storage', 'Storage Devices', 'Security', 'Security Devices', 'Users'];
 
 	Sidebar.prototype.allied_telesis = ['Buildings', 'Computer and Terminals', 'Media Converters', 'Security', 'Storage', 'Switch', 'Wireless'];
@@ -1177,7 +1175,6 @@
 		this.addCitrixPalette();
 		this.addGCP2Palette();
 		this.addIBMPalette();
-		this.addIBM1Palette();
 		this.addIBM2Palette();
 		this.addIBM2MondrianPalette();
 		this.addNetworkPalette();
