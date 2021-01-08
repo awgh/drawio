@@ -113,26 +113,16 @@
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
 		};
 
+		var header = 'Groups';
 		stencils.forEach((section) => {
+			var entries = [];
 			section.forEach((stencil) => {
 				console.log(stencil);
-				//stencil.forEach((items => {
-				//	console.log(item);
-				//});
-				//console.log(stencil[0][0]);
-				//var header = stencil[0];
-				//var items = stencil[1];
 				var entries = [];
-				//console.log(header);
-				//console.log(items);
 
-				//items.forEach((item) => {
-				//	console.log(item);;
-				//	//entries.push(this.addEntry(dt + item[0], function() { return createVertex(item[0], item[2], item[3], item[1]) }))
-				//});
-
-				//this.addPaletteFunctions(internal_version, external_version + ' / ' + header, false, entries);
+				entries.push(this.addEntry(dt + stencil[0], function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
 			});
+			this.addPaletteFunctions(internal_version, external_version + ' / ' + header, false, entries);
 		});
 
 		//this.addPaletteFunctions('ibm2', 'IBM 2.0 / Groups', false,
