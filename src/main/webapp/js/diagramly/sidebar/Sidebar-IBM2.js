@@ -122,7 +122,6 @@
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
 		};
 
-		var header = 'Groups';
 		stencils.forEach((section) => {
 			var header = '';
 			var entries = [];
@@ -136,7 +135,7 @@
 					entries.push(this.addEntry(dt + stencil[0], function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
 				}
 			});
-			this.addPaletteFunctions(internal_version, external_version + ' / ' + header, false, entries);
+			this.addPaletteFunctions(internal, external + ' / ' + header, false, entries);
 		});
 
 		//this.addPaletteFunctions('ibm2', 'IBM 2.0 / Groups', false,
