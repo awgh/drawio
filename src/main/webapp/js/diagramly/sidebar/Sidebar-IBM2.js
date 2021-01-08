@@ -117,12 +117,12 @@
 		stencils.forEach((section) => {
 			var entries = [];
 			section.forEach((stencil) => {
-				console.log(stencil);
 				var entries = [];
 
 				entries.push(this.addEntry(dt + stencil[0], function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
 			});
-			this.addPaletteFunctions(internal_version, external_version + ' / ' + header, false, entries);
+			console.log(entries);
+			//this.addPaletteFunctions(internal_version, external_version + ' / ' + header, false, entries);
 		});
 
 		//this.addPaletteFunctions('ibm2', 'IBM 2.0 / Groups', false,
