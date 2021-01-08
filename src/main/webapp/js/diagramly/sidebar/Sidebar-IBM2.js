@@ -115,12 +115,10 @@
 
 		stencils.forEach((section) => {
 			section.forEach((stencil) => {
-				var items = stencil.pop();
-				console.log(items);
 				//stencil.forEach((item) => {
 				//	console.log(item);
 				//});
-				//console.log(stencil)
+				console.log(stencil[0][0]);
 				//var header = stencil[0];
 				//var items = stencil[1];
 				var entries = [];
