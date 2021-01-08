@@ -120,7 +120,7 @@
 				var entries = [];
 
 				items.forEach((item) => {
-					entries.push(this.addEntry(dt + items[0], function() { return createVertex(item[0], item[2], item[3], item[1]) }))
+					entries.push(this.addEntry(dt + item[0], function() { return createVertex(item[0], item[2], item[3], item[1]) }))
 				});
 
 				this.addPaletteFunctions(internal_version, external_version + ' / ' + header, false, entries);
