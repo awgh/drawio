@@ -25,7 +25,7 @@
 
 		var stencils = 
 		[
-		   ['Groups',
+		   ['Groups', [
 			['Cloud Groups',		'ibm-cloud',			actor_type, section_color],
 			['IBM Cloud',			'ibm-cloud',			group_type, cloud_color],
 			['Region',			'flag',				group_type, cloud_color],
@@ -61,7 +61,7 @@
 			['Point of Presence',		'',				group_type, cloud_color],
 			['Overlay Network',		'',				group_type, cloud_color],
 			['VLAN',			'',				group_type, cloud_color],
-		   ],
+		   ]],
 		];
 
 		var internal_version = 'ibm2';
