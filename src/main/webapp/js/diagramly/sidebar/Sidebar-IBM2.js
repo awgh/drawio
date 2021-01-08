@@ -3,7 +3,7 @@
 	Sidebar.prototype.addIBM2Palette = function()
 	{
 		var gn = 'mxgraph.ibm2mondrian';
-		var dt = 'ibm ';
+		var dt = 'ibm2 ';
 
 		var internal = 'ibm2';
 		var external = 'IBM 2.0';
