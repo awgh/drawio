@@ -35,7 +35,9 @@
 
 	Sidebar.prototype.ibm = ['Analytics', 'Applications', 'Blockchain', 'Data', 'DevOps', 'Infrastructure', 'Management', 'Miscellaneous', 'Security', 'Social', 'Users', 'VPC', 'Boxes', 'Connectors'];
 
+	/*
 	Sidebar.prototype.ibm2 = ['Groups', 'Compute', 'Compute Devices', 'Network', 'Network Devices', 'Storage', 'Storage Devices', 'Security', 'Security Devices', 'Users'];
+	*/
 
 	Sidebar.prototype.allied_telesis = ['Buildings', 'Computer and Terminals', 'Media Converters', 'Security', 'Storage', 'Switch', 'Wireless'];
 
@@ -122,7 +124,7 @@
 	                                   {id: 'bpmn', prefix: 'bpmn', libs: [''/*prefix is library*/, 'Gateways', 'Events']},
 	                                   {id: 'clipart', prefix: null, libs: ['computer', 'finance', 'clipart', 'networking', 'people', 'telco']},
 	                                   {id: 'ibm', prefix: 'ibm', libs: Sidebar.prototype.ibm},
-	                                   {id: 'ibm2', prefix: 'ibm2', libs: Sidebar.prototype.ibm2},
+	                                   {id: 'ibm2'},
 	                                   {id: 'ibm2mondrian'},
 	                                   {id: 'allied_telesis', prefix: 'allied_telesis', libs: Sidebar.prototype.allied_telesis},
 	                                   {id: 'cumulus', libs: ['cumulus']},
