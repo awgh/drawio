@@ -35,10 +35,6 @@
 
 	Sidebar.prototype.ibm = ['Analytics', 'Applications', 'Blockchain', 'Data', 'DevOps', 'Infrastructure', 'Management', 'Miscellaneous', 'Security', 'Social', 'Users', 'VPC', 'Boxes', 'Connectors'];
 
-	Sidebar.prototype.ibm1 = ['Analytics', 'Applications', 'Blockchain', 'Data', 'DevOps', 'Infrastructure', 'Management', 'Miscellaneous', 'Security', 'Social', 'Users', 'VPC', 'Boxes', 'Connectors'];
-
-	Sidebar.prototype.ibm2 = ['Analytics', 'Applications', 'Blockchain', 'Data', 'DevOps', 'Infrastructure', 'Management', 'Miscellaneous', 'Security', 'Social', 'Users', 'VPC', 'Boxes', 'Connectors'];
-
 	Sidebar.prototype.allied_telesis = ['Buildings', 'Computer and Terminals', 'Media Converters', 'Security', 'Storage', 'Switch', 'Wireless'];
 
 	Sidebar.prototype.gcp = ['Cards', 'Big Data', 'Compute', 'Developer Tools', 'Extras', 'Identity and Security', 'Machine Learning', 'Management Tools', 'Networking', 'Storage Databases'];
@@ -124,8 +120,7 @@
 	                                   {id: 'bpmn', prefix: 'bpmn', libs: [''/*prefix is library*/, 'Gateways', 'Events']},
 	                                   {id: 'clipart', prefix: null, libs: ['computer', 'finance', 'clipart', 'networking', 'people', 'telco']},
 	                                   {id: 'ibm', prefix: 'ibm', libs: Sidebar.prototype.ibm},
-	                                   {id: 'ibm1', prefix: 'ibm1', libs: Sidebar.prototype.ibm1},
-	                                   {id: 'ibm2', prefix: 'ibm2', libs: Sidebar.prototype.ibm2},
+	                                   {id: 'ibm2'},
 	                                   {id: 'ibm2mondrian'},
 	                                   {id: 'allied_telesis', prefix: 'allied_telesis', libs: Sidebar.prototype.allied_telesis},
 	                                   {id: 'cumulus', libs: ['cumulus']},
@@ -495,7 +490,6 @@
             			          {title: 'Google Cloud Platform', id: 'gcp2', image: IMAGE_PATH + '/sidebar-gcp2.png'},
 					  {title: 'IBM 2.0 Mondrian', id: 'ibm2mondrian', image: IMAGE_PATH + '/sidebar-ibm.png'},
             			          {title: 'IBM 2.0', id: 'ibm2', image: IMAGE_PATH + '/sidebar-ibm2.png'},
-            			          //{title: 'IBM 1.1', id: 'ibm1', image: IMAGE_PATH + '/sidebar-ibm1.png'},
 					  {title: 'IBM 1.0', id: 'ibm', image: IMAGE_PATH + '/sidebar-ibm.png'},
             			          {title: 'Kubernetes', id: 'kubernetes', image: IMAGE_PATH + '/sidebar-kubernetes.png'},
             			          {title: 'Network', id: 'network', image: IMAGE_PATH + '/sidebar-network.png'},
@@ -1179,8 +1173,7 @@
 		this.addCitrixPalette();
 		this.addGCP2Palette();
 		this.addIBMPalette();
-		this.addIBM1Palette();
-		this.addIBM2Palette();
+		/*this.addIBM2Palette();*/
 		this.addIBM2MondrianPalette();
 		this.addNetworkPalette();
 		this.addOfficePalette();

@@ -2,6 +2,12 @@
 {
 	Sidebar.prototype.addIBM2Palette = function()
 	{
+		var gn = 'mxgraph.ibm2mondrian';
+		var dt = 'ibm ';
+
+		var internal = 'ibm2';
+		var external = 'IBM 2.0';
+
 		var actor_type = 'actor';
 		var actor_width = 48;
 		var actor_height = 48;
@@ -23,10 +29,124 @@
 		var spanning_groups = 'Security Group';
 		var named_actors = 'Cloud Groups, VPC Groups, Kubernetes Groups, Network Groups';
 
-		var gn = 'mxgraph.ibm2mondrian';
-		var dt = 'ibm ';
+		var stencils = 
+		[
+		    [
+			['Groups'],
 
-		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Groups');
+			['Cloud Groups',		'ibm-cloud',			actor_type, section_color],
+			['IBM Cloud',			'ibm-cloud',			group_type, cloud_color],
+			['Region',			'flag',				group_type, location_color],
+			['Region Alt',			'location',			group_type, location_color],
+			['Zone',			'data--base--alt',		group_type, location_color],
+			['Cloud Services',		'',				group_type, cloud_color],
+			['Classic Infrastructure',	'',				group_type, cloud_color],
+			['Account',			'user',				group_type, account_color],
+			['Access Group',		'credentials',			group_type, account_color],
+			['Resource Group',		'collaborate',			group_type, account_color],
+
+			['VPC Groups',			'virtual-private-cloud',	actor_type, section_color],
+			['VPC',				'virtual-private-cloud',	group_type, vpc_color],
+			['Subnet:ACL',			'',				group_type, vpc_color],
+			['Virtual Server',		'virtual-machine',		group_type, vpc_color],
+			['Instance Group',		'',				group_type, vpc_color],
+			['Physical Server',		'',				group_type, vpc_color],
+			['Endpoints',			'',				group_type, vpc_color],
+			['Security Group',		'security',			group_type, security_color],
+
+			['Kubernetes Groups',		'',				actor_type, section_color],
+			['Kubernetes Cluster',		'',				group_type, cloud_color],
+			['OpenShift Cluster',		'',				group_type, cloud_color],
+			['Kubernetes Services',		'',				group_type, kube_color],
+			['Kubernetes Replica Set',	'',				group_type, kube_color],
+			['Kubernetes Pod',		'',				group_type, kube_color],
+			['Kubernetes Namespace',	'',				group_type, kube_color],
+
+			['Network Groups',		'',				actor_type, section_color],
+			['Public Network',		'events',			group_type, network_color],
+			['Enterprise Network',		'enterprise',			group_type, network_color],
+			['Cloud Foundry',		'',				group_type, network_color],
+			['Data Center',			'',				group_type, network_color],
+			['Point of Presence',		'',				group_type, network_color],
+			['Overlay Network',		'',				group_type, network_color],
+			['VLAN',			'',				group_type, network_color],
+	   	    ],
+
+		    [
+			['Compute'],
+
+			['Virtual Server',		'virtual-machine',		actor_type, cloud_color],
+			['Instance Group',		'',				actor_type, cloud_color],
+		    ],
+
+		    [
+			['Compute Devices'],
+
+			['Physical Server',		'archive',			actor_type, cloud_color],
+			['Web Browser',			'terminal',			actor_type, cloud_color],
+			['Mobile Device',		'mobile',			actor_type, cloud_color],
+			['Tablet Device',		'tablet',			actor_type, cloud_color],
+			['Laptop Device',		'laptop',			actor_type, cloud_color],
+			['Desktop Computer',		'devices',			actor_type, cloud_color],
+		    ],
+
+		    [
+			['Network'],
+
+			['Floating IP',			'connect',			actor_type, cloud_color],
+			['Transit Gateway',		'',				actor_type, cloud_color],
+			['Endpoints',			'',				actor_type, cloud_color],
+		    ],
+
+		    [
+			['Network Devices'],
+
+			['Application Load Balancer',	'parent-child',			actor_type, cloud_color],
+			['Network Load Balancer',	'parent-child',			actor_type, cloud_color],
+			['Public Gateway',		'network--2',			actor_type, cloud_color],
+			['Edge Node',			'edge-node',			actor_type, cloud_color],
+		    ],
+
+		    [
+			['Security'],
+
+			['VPN',				'VPN'	,			actor_type, security_color],
+			['VPN Policy',			'policy',			actor_type, security_color],
+			['Identity and Access Manager',	'fingerprint-recognition',	actor_type, security_color],
+			['Credentials',			'credentials',			actor_type, security_color],
+			['Rule',			'rule',				actor_type, security_color],
+		    ],
+
+		    [
+			['Security Devices'],
+
+			['VPN Gateway',			'',				actor_type, security_color],
+		    ],
+
+		    [
+			['Storage'],
+
+			['Object Storage Accessor',	'',				actor_type, cloud_color],
+			['Object Storage Slicestor',	'',				actor_type, cloud_color],
+		    ],
+
+		    [
+			['Storage Devices'],
+
+			['Block Storage',		'',				actor_type, cloud_color],
+			['File Storage',		'',				actor_type, cloud_color],
+			['Object Storage',		'object-storage',		actor_type, cloud_color],
+		    ],
+
+		    [
+			['Users'],
+
+			['User',			'user',				actor_type, security_color],
+			['Users',			'group',			actor_type, security_color],
+			['Events',			'events',			actor_type, security_color],
+			['Collaborate',			'collaborate',			actor_type, security_color],
+		    ],
+		];
 
 		function createVertex(name, icon_type, icon_color, icon_name)
 		{
@@ -69,116 +189,22 @@
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
 		};
 
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Groups', false,
-		[
-			// Cloud groups
-			this.addEntry(dt + 'cloudheader', function() { return createVertex('Cloud Groups', actor_type, section_color, 'ibm-cloud') }),
-			this.addEntry(dt + 'ibmcloudgroup', function() { return createVertex('IBM Cloud', group_type, cloud_color, 'ibm-cloud') }),
-			this.addEntry(dt + 'regiongroup', function() { return createVertex('Region', group_type, location_color, 'flag') }),
-			this.addEntry(dt + 'regiongroup alt', function() { return createVertex('Region', group_type, location_color, 'location') }),
-			this.addEntry(dt + 'zonegroup', function() { return createVertex('Zone', group_type, location_color, '') }),
-			this.addEntry(dt + 'cloudservicesgroup', function() { return createVertex('Cloud Services', group_type, cloud_color, '') }),
-			this.addEntry(dt + 'classicgroup', function() { return createVertex('Classic Infrastructure', group_type, cloud_color, '') }),
-			this.addEntry(dt + 'accountgroup', function() { return createVertex('Account', group_type, account_color, 'user') }),
-			this.addEntry(dt + 'accessgroup', function() { return createVertex('Access Group', group_type, account_color, 'credentials') }),
-			this.addEntry(dt + 'resourcegroup', function() { return createVertex('Resource Group', group_type, account_color, 'collaborate') }),
-
-			// VPC groups 
-			this.addEntry(dt + 'vpcheader', function() { return createVertex('VPC Groups', actor_type, section_color, 'virtual-private-cloud') }),
-			this.addEntry(dt + 'vpcgroup', function() { return createVertex('VPC', group_type, cloud_color, 'virtual-private-cloud') }),
-			this.addEntry(dt + 'subnetgroup', function() { return createVertex('Subnet:ACL', group_type, vpc_color, '') }),
-			this.addEntry(dt + 'virtualservergroup', function() { return createVertex('Virtual Server', group_type, vpc_color, 'virtual-machine') }),
-			this.addEntry(dt + 'autoscalinggroup', function() { return createVertex('Autoscaling', group_type, vpc_color, '') }),
-			this.addEntry(dt + 'physicalservergroup', function() { return createVertex('Physical Server', group_type, vpc_color, '') }),
-			this.addEntry(dt + 'endpointsgroup', function() { return createVertex('Endpoints', group_type, vpc_color, '') }),
-			this.addEntry(dt + 'securitygroup', function() { return createVertex('Security Group', group_type, security_color, 'security') }),
-
-			// Kubernetes groups 
-			this.addEntry(dt + 'kubeheader', function() { return createVertex('Kubernetes Groups', actor_type, section_color, '') }),
-			this.addEntry(dt + 'ibmkubegroup', function() { return createVertex('IBM Kubernetes Cluster', group_type, cloud_color, '') }),
-			this.addEntry(dt + 'generalkubegroup', function() { return createVertex('General Kubernetes Cluster', group_type, cloud_color, '') }),
-			this.addEntry(dt + 'openshiftgroup', function() { return createVertex('OpenShift Cluster', group_type, cloud_color, '') }),
-			this.addEntry(dt + 'kubeservicesgroup', function() { return createVertex('Kubernetes Services', group_type, kube_color, '') }),
-			this.addEntry(dt + 'replicasetgroup', function() { return createVertex('Kubernetes Replica Set', group_type, kube_color, '') }),
-			this.addEntry(dt + 'podgroup', function() { return createVertex('Kubernetes Pod', group_type, kube_color, '') }),
-			this.addEntry(dt + 'namespacegroup', function() { return createVertex('Kubernetes Namespace', group_type, account_color, '') }),
-			this.addEntry(dt + 'foundrygroup', function() { return createVertex('Cloud Foundry', group_type, kube_color, '') }),
-
-			// Network groups 
-			this.addEntry(dt + 'networkheader', function() { return createVertex('Network Groups', actor_type, section_color, '') }),
-			this.addEntry(dt + 'publicgroup', function() { return createVertex('Public Network', group_type, network_color, 'events') }),
-			this.addEntry(dt + 'enterprisegroup', function() { return createVertex('Enterprise Network', group_type, network_color, 'enterprise') }),
-			this.addEntry(dt + 'datacentergroup', function() { return createVertex('Data Center', group_type, network_color, '') }),
-			this.addEntry(dt + 'popgroup', function() { return createVertex('Point of Presence', group_type, network_color, '') }),
-			this.addEntry(dt + 'overlaygroup', function() { return createVertex('Overlay Network', group_type, network_color, '') }),
-			this.addEntry(dt + 'vlangroup', function() { return createVertex('VLAN', group_type, network_color, '') }),
-		]);
-
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Compute', false,
-		[
-			this.addEntry(dt + 'virtualserver', function() { return createVertex('Virtual Server', actor_type, cloud_color, 'virtual-machine') }),
-			this.addEntry(dt + 'autoscaling', function() { return createVertex('Autoscaling', actor_type, cloud_color, '') }),
-		]);
-
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Compute Devices', false,
-		[
-			this.addEntry(dt + 'physicalserver', function() { return createVertex('Physical Server', actor_type, cloud_color, '') }),
-			this.addEntry(dt + 'browser', function() { return createVertex('Web Browser', actor_type, cloud_color, 'terminal') }),
-			this.addEntry(dt + 'mobiledevice', function() { return createVertex('Mobile Device', actor_type, cloud_color, 'mobile') }),
-			this.addEntry(dt + 'tabletdevice', function() { return createVertex('Tablet Device', actor_type, cloud_color, 'tablet') }),
-			this.addEntry(dt + 'laptopdevice', function() { return createVertex('Laptop Device', actor_type, cloud_color, 'laptop') }),
-			this.addEntry(dt + 'devices', function() { return createVertex('Desktop Computer', actor_type, cloud_color, 'devices') }),
-		]);
-
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Network', false,
-		[
-			this.addEntry(dt + 'fip', function() { return createVertex('Floating IP', actor_type, cloud_color, 'connect') }),
-			this.addEntry(dt + 'transitgateway', function() { return createVertex('Transit Gateway', actor_type, cloud_color, '') }),
-			this.addEntry(dt + 'endpoints', function() { return createVertex('Endpoints', actor_type, cloud_color, '') }),
-		]);
-
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Network Devices', false,
-		[
-			this.addEntry(dt + 'alb', function() { return createVertex('Application Load Balancer', actor_type, cloud_color, 'parent-child') }),
-			this.addEntry(dt + 'nlb', function() { return createVertex('Network Load Balancer', actor_type, cloud_color, 'parent-child') }),
-			this.addEntry(dt + 'networkgateway', function() { return createVertex('Network Gateway', actor_type, cloud_color, 'network--2') }),
-			this.addEntry(dt + 'edgenode', function() { return createVertex('Edge Node', actor_type, cloud_color, 'edge-node') }),
-		]);
-
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Security', false,
-		[
-			this.addEntry(dt + 'vpn', function() { return createVertex('VPN', actor_type, security_color, 'VPN') }),
-			this.addEntry(dt + 'vpnpolicy', function() { return createVertex('VPN Policy', actor_type, security_color, 'policy') }),
-			this.addEntry(dt + 'iam', function() { return createVertex('Identity and Access Manager', actor_type, security_color, 'fingerprint-recognition') }),
-			this.addEntry(dt + 'credentials', function() { return createVertex('Credentials', actor_type, security_color, 'credentials') }),
-			this.addEntry(dt + 'rules', function() { return createVertex('Rules', actor_type, security_color, 'rule') }),
-		]);
-
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Security Devices', false,
-		[
-			this.addEntry(dt + 'vpngateway', function() { return createVertex('VPN Gateway', actor_type, security_color, '') }),
-		]);
-
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Storage', false,
-		[
-			this.addEntry(dt + 'objectaccessor', function() { return createVertex('Object Storage Accessor', actor_type, cloud_color, '') }),
-			this.addEntry(dt + 'objectslicestor', function() { return createVertex('Object Storage Slicestor', actor_type, cloud_color, '') }),
-		]);
-
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Storage Devices', false,
-		[
-			this.addEntry(dt + 'blockstorage', function() { return createVertex('Block Storage', actor_type, cloud_color, '') }),
-			this.addEntry(dt + 'filestorage', function() { return createVertex('File Storage', actor_type, cloud_color, '') }),
-			this.addEntry(dt + 'objectstorage', function() { return createVertex('Object Storage', actor_type, cloud_color, 'object-storage') }),
-		]);
-
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Users', false,
-		[
-			this.addEntry(dt + 'user', function() { return createVertex('User', actor_type, user_color, 'user') }),
-			this.addEntry(dt + 'users', function() { return createVertex('Users', actor_type, user_color, 'group') }),
-			this.addEntry(dt + 'events', function() { return createVertex('Events', actor_type, user_color, 'events') }),
-			this.addEntry(dt + 'collaborate', function() { return createVertex('Collaborate', actor_type, user_color, 'collaborate') }),
-		]);
+		stencils.forEach((section) => {
+			var header = '';
+			var entries = [];
+			section.forEach((stencil, index) => {
+				if (index == 0)
+				{
+					header = stencil[0];
+				}
+				else
+				{
+					entries.push(this.addEntry(dt + stencil[0], function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
+				}
+			});
+			this.setCurrentSearchEntryLibrary(internal, internal + header);
+			this.addPaletteFunctions(internal + header, external + ' / ' + header, false, entries);
+		});
 
 		this.setCurrentSearchEntryLibrary();
 	};
