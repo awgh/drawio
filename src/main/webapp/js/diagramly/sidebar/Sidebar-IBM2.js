@@ -3,7 +3,7 @@
 	Sidebar.prototype.addIBM2Palette = function()
 	{
 		var gn = 'mxgraph.ibm2mondrian';
-		var dt = 'ibm2 ';
+		var dt = 'ibm ';
 
 		var internal = 'ibm2';
 		var external = 'IBM 2.0';
@@ -148,8 +148,6 @@
 		    ],
 		];
 
-		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Groups');
-
 		function createVertex(name, icon_type, icon_color, icon_name)
 		{
 			var w = (icon_type == actor_type) ? actor_width : group_width;
@@ -204,6 +202,7 @@
 					entries.push(this.addEntry(dt + stencil[0], function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
 				}
 			});
+			this.setCurrentSearchEntryLibrary(internal, internal + header);
 			this.addPaletteFunctions(internal, external + ' / ' + header, false, entries);
 		});
 
