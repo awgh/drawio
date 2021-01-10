@@ -196,15 +196,16 @@
 				if (index == 0)
 				{
 					header = stencil[0];
+					palette_header = internal + header.replace(/\s/g,'').toLowerString();
 				}
 				else
 				{
 					entries.push(this.addEntry(dt + stencil[0], function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
 				}
 			});
-			console.log(internal + ' : ' + internal+header);
-			this.setCurrentSearchEntryLibrary(internal, internal + header);
-			this.addPaletteFunctions(internal + header, external + ' / ' + header, false, entries);
+			console.log(internal + ' : ' + header + ' : ' + palette_header);
+			this.setCurrentSearchEntryLibrary(internal, palette_header);
+			this.addPaletteFunctions(palette_header, external + ' / ' + header, false, entries);
 		});
 
 		this.setCurrentSearchEntryLibrary();
