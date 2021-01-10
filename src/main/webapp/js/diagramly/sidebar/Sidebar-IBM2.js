@@ -198,7 +198,6 @@
 			var header = '';
 			var entries = [];
 			// (stencil_index == 0)
-			//
 				section.forEach((stencil, section_index) => {
 					if (section_index == 0)
 					{
@@ -209,10 +208,11 @@
 						entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil[0], stencil[1], stencil[2], stencil[2]) }));
 					}
 				});
-				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header);
-				this.addPaletteFunctions('ibm2', 'IBM 2.0 /8/ ' + header, false, entries);
-			//
+				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Mondrian');
+				this.addPaletteFunctions('ibm2', 'IBM 2.0 /9/ ' + header, false, entries);
 		});
+
+		this.setCurrentSearchEntryLibrary();
 
 		//entries.push(this.addEntry(dt + 'tn', function() { return createVertex('Mondrian', actor_type, '', '') }));
 
@@ -242,6 +242,6 @@
 		]);
 		*/
 		
-		this.setCurrentSearchEntryLibrary();
+		//this.setCurrentSearchEntryLibrary();
 	};
 })();
