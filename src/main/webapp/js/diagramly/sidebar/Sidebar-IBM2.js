@@ -154,8 +154,10 @@
 			var icon_name = stencil[1];
 			var icon_type = stencil[2];
 			var icon_color = stencil[3];
+
 			var w = (icon_type == actor_type) ? actor_width : group_width;
 			var h = (icon_type == actor_type) ? actor_height : group_height;
+
 			var default_icon = '';
 			var container_text = '';
 			var set_name = false;
@@ -185,8 +187,7 @@
 			var bg = new mxCell('', new mxGeometry(0, 0, w, h), "shape=" + gn + ".base" + ";" + shape_type + ";" + style_text + ";" + other_label + ";" + "colorFamily=" + icon_color + ";" + container_text + "image=" + default_icon + ";");
 	    		bg.vertex = true;
 	    		bg.setValue(mxUtils.createXmlDocument().createElement('object'));
-			//bg.setAttribute('placeholders', '1');
-			bg.setAttribute('placeholders', stencil_index.toString());
+			bg.setAttribute('placeholders', '1');
 			bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
                		bg.setAttribute('Element-ID', '');
 			bg.setAttribute('Element-Name', (set_name ? name : ''));
@@ -212,7 +213,7 @@
 					}
 				});
 				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
-				this.addPaletteFunctions('ibm2', 'IBM 2.0 /G/ ' + header, false, entries);
+				this.addPaletteFunctions('ibm2' + header.replace(/\s/g,''), 'IBM 2.0 /H/ ' + header, false, entries);
 			}
 		});
 
