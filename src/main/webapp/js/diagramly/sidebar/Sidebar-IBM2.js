@@ -211,11 +211,10 @@
 				});
 				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
 				this.addPaletteFunctions('ibm2', 'IBM 2.0 /E/ ' + header, false, entries);
-				this.setCurrentSearchEntryLibrary();
 			}
 		});
 
-		//this.setCurrentSearchEntryLibrary();
+		this.setCurrentSearchEntryLibrary();
 
 		//entries.push(this.addEntry(dt + 'tn', function() { return createVertex('Mondrian', actor_type, '', '') }));
 
