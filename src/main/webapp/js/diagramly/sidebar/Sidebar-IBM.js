@@ -8,35 +8,35 @@
 		var s = 'aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;fontColor=#4277BB;labelBackgroundColor=#ffffff;fontSize=12;spacingTop=3;image;image=img/lib/ibm/';
 		
 		// Adds IBM shapes
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmAnalytics');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmAnalytics');
 		this.addIBMAnalyticsPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmApplications');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmApplications');
 		this.addIBMApplicationsPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmBlockchain');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmBlockchain');
 		this.addIBMBlockchainPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmData');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmData');
 		this.addIBMDataPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmDevOps');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmDevOps');
 		this.addIBMDevOpsPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmInfrastructure');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmInfrastructure');
 		this.addIBMInfrastructurePalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmManagement');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmManagement');
 		this.addIBMManagementPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmMiscellaneous');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmMiscellaneous');
 		this.addIBMMiscPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmSecurity');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmSecurity');
 		this.addIBMSecurityPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmSocial');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmSocial');
 		this.addIBMSocialPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmUsers');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmUsers');
 		this.addIBMUsersPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmVPC');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmVPC');
 		this.addIBMVPCPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmBoxes');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmBoxes');
 		this.addIBMBoxesPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmConnectors');
+		//this.setCurrentSearchEntryLibrary('ibm', 'ibmConnectors');
 		this.addIBMConnectorsPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary();
+		//this.setCurrentSearchEntryLibrary();
 	};
 
 	Sidebar.prototype.addIBMAnalyticsPalette = function(d, dt, sb, s)
