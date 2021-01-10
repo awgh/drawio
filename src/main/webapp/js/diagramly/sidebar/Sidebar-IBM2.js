@@ -206,11 +206,11 @@
 					}
 					else
 					{
-						entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil[0], stencil[1], stencil[2], stencil[2]) }));
+						entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil[0], stencil[1], stencil[2], stencil[3]) }));
 					}
 				});
-				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Groups');
-				this.addPaletteFunctions('ibm2', 'IBM 2.0 /B/ ' + header, false, entries);
+				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
+				this.addPaletteFunctions('ibm2', 'IBM 2.0 /C/ ' + header, false, entries);
 			}
 		});
 
