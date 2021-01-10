@@ -201,10 +201,10 @@
 				}
 				else
 				{
-					entries.push(this.addEntry(dt + stencil[0], function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
+					entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
 				}
 			});
-			console.log('test4 : ' + internal_version + lower_header + ' : ' + internal_version + mixed_header);
+			console.log('test5 : ' + internal_version + lower_header + ' : ' + internal_version + mixed_header);
 			this.setCurrentSearchEntryLibrary(internal_version, internal_version + mixed_header);
 			this.addPaletteFunctions(internal_version + mixed_header, external_version + ' / ' + header, false, entries);
 		});
