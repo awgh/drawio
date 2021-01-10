@@ -148,7 +148,7 @@
 		    ],
 		];
 
-		function createVertex(stencil, stencil_index)
+		function createVertex(stencil)
 		{
 			var name = stencil[0];
 			var icon_name = stencil[1];
@@ -200,7 +200,7 @@
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
 			var entries = [];
-			if (stencil_index < 2)
+			if (stencil_index < 3)
 			{
 				section.forEach((stencil, section_index) => {
 					if (section_index == 0)
@@ -209,11 +209,12 @@
 					}
 					else
 					{
-						entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil, stencil_index); }))
+						entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil); }))
+						//entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil); }))
 					}
 				});
 				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
-				this.addPaletteFunctions('ibm2' + header.replace(/\s/g,''), 'IBM 2.0 /H/ ' + header, false, entries);
+				this.addPaletteFunctions('ibm2', 'IBM 2.0 /I/ ' + header, false, entries);
 			}
 		});
 
