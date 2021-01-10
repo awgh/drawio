@@ -218,7 +218,7 @@
 					 d, d, '', 'TMS Data Interface', false, null, this.getTagsForStencil(gn, 'tms data interface', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmi1Data', 'IBM 1.1 / Data', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibm1Data', 'IBM 1.1 / Data', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -255,7 +255,7 @@
 					 d, d, '', 'Release Management', false, null, this.getTagsForStencil(gn, 'release management', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmi1DevOps', 'IBM 1.1 / DevOps', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibm1DevOps', 'IBM 1.1 / DevOps', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
