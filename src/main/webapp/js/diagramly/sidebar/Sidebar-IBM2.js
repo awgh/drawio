@@ -151,7 +151,7 @@
 		    ],
 		];
 
-		function createVertex(name, icon_type, icon_color, icon_name)
+		function createVertex(name, icon_name, icon_type, icon_color)
 		{
 			var w = (icon_type == actor_type) ? actor_width : group_width;
 			var h = (icon_type == actor_type) ? actor_height : group_height;
@@ -197,8 +197,8 @@
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
 			var entries = [];
-			if (stencil_index == 1)
-			{
+			// (stencil_index == 0)
+			//
 				section.forEach((stencil, section_index) => {
 					if (section_index == 0)
 					{
@@ -206,11 +206,11 @@
 					}
 					else
 					{
-						entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
+						entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil[0], stencil[1], stencil[2], stencil[2]) }));
 					}
 				});
-				this.addPaletteFunctions('ibm2', 'IBM 2.0 /6/ Mondrian', false, entries);
-			}
+				this.addPaletteFunctions('ibm2', 'IBM 2.0 /7/ Mondrian', false, entries);
+			//
 		});
 
 		//entries.push(this.addEntry(dt + 'tn', function() { return createVertex('Mondrian', actor_type, '', '') }));
