@@ -5,7 +5,7 @@
 		var gn = 'mxgraph.ibm2mondrian';
 		var dt = 'ibm ';
 
-		var internal = 'ibm2';
+		var internal = 'ibm2mondrian';
 		var external = 'IBM 2.0';
 
 		var actor_type = 'actor';
@@ -203,7 +203,7 @@
 				}
 			});
 			this.setCurrentSearchEntryLibrary(internal, internal + header);
-			this.addPaletteFunctions(internal + header, external + ' / ' + header, false, entries);
+			this.addPaletteFunctions(intern, external + ' / ' + header, false, entries);
 		});
 
 		this.setCurrentSearchEntryLibrary();
