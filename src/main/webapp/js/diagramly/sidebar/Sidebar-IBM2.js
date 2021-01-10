@@ -8,38 +8,38 @@
 		var s = 'aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;fontColor=#4277BB;labelBackgroundColor=#ffffff;fontSize=12;spacingTop=3;image;image=img/lib/ibm/';
 		
 		// Adds IBM shapes
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmAnalytics');
-		this.addIBMAnalyticsPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmApplications');
-		this.addIBMApplicationsPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmBlockchain');
-		this.addIBMBlockchainPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmData');
-		this.addIBMDataPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmDevOps');
-		this.addIBMDevOpsPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmInfrastructure');
-		this.addIBMInfrastructurePalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmManagement');
-		this.addIBMManagementPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmMiscellaneous');
-		this.addIBMMiscPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmSecurity');
-		this.addIBMSecurityPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmSocial');
-		this.addIBMSocialPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmUsers');
-		this.addIBMUsersPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmVPC');
-		this.addIBMVPCPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmBoxes');
-		this.addIBMBoxesPalette(d, dt, sb, s);
-		this.setCurrentSearchEntryLibrary('ibm', 'ibmConnectors');
-		this.addIBMConnectorsPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Analytics');
+		this.addIBM2AnalyticsPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Applications');
+		this.addIBM2ApplicationsPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Blockchain');
+		this.addIBM2BlockchainPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Data');
+		this.addIBM2DataPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2DevOps');
+		this.addIBM2DevOpsPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Infrastructure');
+		this.addIBM2InfrastructurePalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Management');
+		this.addIBM2ManagementPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Miscellaneous');
+		this.addIBM2MiscPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Security');
+		this.addIBM2SecurityPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Social');
+		this.addIBM2SocialPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Users');
+		this.addIBM2UsersPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2VPC');
+		this.addIBM2VPCPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Boxes');
+		this.addIBM2BoxesPalette(d, dt, sb, s);
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Connectors');
+		this.addIBM2ConnectorsPalette(d, dt, sb, s);
 		this.setCurrentSearchEntryLibrary();
 	};
 
-	Sidebar.prototype.addIBMAnalyticsPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2AnalyticsPalette = function(d, dt, sb, s)
 	{
 		s += 'analytics/';
 		var gn = 'analytics ';
@@ -66,7 +66,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMApplicationsPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2ApplicationsPalette = function(d, dt, sb, s)
 	{
 		s += 'applications/';
 		var gn = 'applications ';
@@ -123,7 +123,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMBlockchainPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2BlockchainPalette = function(d, dt, sb, s)
 	{
 		s += 'blockchain/';
 		var gn = 'blockchain';
@@ -184,7 +184,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMDataPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2DataPalette = function(d, dt, sb, s)
 	{
 		s += 'data/';
 		var gn = 'data ';
@@ -227,7 +227,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMDevOpsPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2DevOpsPalette = function(d, dt, sb, s)
 	{
 		s += 'devops/';
 		var gn = 'devops ';
@@ -264,7 +264,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMInfrastructurePalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2InfrastructurePalette = function(d, dt, sb, s)
 	{
 		s += 'infrastructure/';
 		var gn = 'infrastructure ';
@@ -317,7 +317,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMManagementPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2ManagementPalette = function(d, dt, sb, s)
 	{
 		s += 'management/';
 		var gn = 'management ';
@@ -364,7 +364,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMMiscPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2MiscPalette = function(d, dt, sb, s)
 	{
 		s += 'miscellaneous/';
 		var gn = 'miscellaneous ';
@@ -409,7 +409,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMSecurityPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2SecurityPalette = function(d, dt, sb, s)
 	{
 		s += 'security/';
 		var gn = 'security ';
@@ -454,7 +454,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMSocialPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2SocialPalette = function(d, dt, sb, s)
 	{
 		s += 'social/';
 		var gn = 'social ';
@@ -481,7 +481,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMUsersPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2UsersPalette = function(d, dt, sb, s)
 	{
 		s += 'users/';
 		var gn = 'users ';
@@ -510,7 +510,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMVPCPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2VPCPalette = function(d, dt, sb, s)
 	{
 		s += 'vpc/';
 		var gn = 'vpc virtual private cloud ';
@@ -573,7 +573,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMBoxesPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2BoxesPalette = function(d, dt, sb, s)
 	{
 		s += 'boxes/';
 		var gn = 'boxes box ';
@@ -626,7 +626,7 @@
 		}));
 	};
 	
-	Sidebar.prototype.addIBMConnectorsPalette = function(d, dt, sb, s)
+	Sidebar.prototype.addIBM2ConnectorsPalette = function(d, dt, sb, s)
 	{
 		var gn = 'connectors ';
 		
