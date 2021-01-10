@@ -1,6 +1,6 @@
 (function()
 {
-	Sidebar.prototype.addIBMPalette = function()
+	Sidebar.prototype.addIBM2Palette = function()
 	{
 		var d = 60;
 		var dt = 'ibm ';
