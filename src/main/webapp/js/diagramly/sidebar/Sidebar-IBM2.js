@@ -203,7 +203,13 @@
 				}
 			});
 			this.setCurrentSearchEntryLibrary(internal, internal + header);
-			this.addPaletteFunctions(internal + header, external + ' / ' + header, false, entries);
+			this.addPaletteFunctions(internal + header, external + ' / ' + header, false, mxUtils.bind(this, function(content)
+				{
+					for (var i = 0; i < entries.length; i++)
+					{
+						content.appendChild(entries[i](content));
+					}
+				}) );
 		});
 
 		this.setCurrentSearchEntryLibrary();
