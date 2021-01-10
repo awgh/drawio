@@ -57,7 +57,7 @@
 					 d, d, '', 'Streaming Computing', false, null, this.getTagsForStencil(gn, 'streaming computing', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmAnalytics', 'IBM 1.0 / Analytics', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmAnalytics', 'IBM 2.0 / Analytics', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -114,7 +114,7 @@
 					 d, d, '', 'Visualization', false, null, this.getTagsForStencil(gn, 'visualization', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmApplications', 'IBM 1.0 / Applications', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmApplications', 'IBM 2.0 / Applications', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -175,7 +175,7 @@
 					 d, d, '', 'Wallet', false, null, this.getTagsForStencil(gn, 'wallet', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmBlockchain', 'IBM 1.0 / Blockchain', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmBlockchain', 'IBM 2.0 / Blockchain', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -218,7 +218,7 @@
 					 d, d, '', 'TMS Data Interface', false, null, this.getTagsForStencil(gn, 'tms data interface', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmData', 'IBM 1.0 / Data', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmData', 'IBM 2.0 / Data', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -255,7 +255,7 @@
 					 d, d, '', 'Release Management', false, null, this.getTagsForStencil(gn, 'release management', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmDevOps', 'IBM 1.0 / DevOps', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmDevOps', 'IBM 2.0 / DevOps', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -308,7 +308,7 @@
 					 d, d, '', 'Transformation \& Connectivity', false, null, this.getTagsForStencil(gn, 'transformation connectivity', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmInfrastructure', 'IBM 1.0 / Infrastructure', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmInfrastructure', 'IBM 2.0 / Infrastructure', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -355,7 +355,7 @@
 					 d, d, '', 'Service Management Tools', false, null, this.getTagsForStencil(gn, 'service management tools', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmManagement', 'IBM 1.0 / Management', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmManagement', 'IBM 2.0 / Management', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -400,7 +400,7 @@
 					 d, d, '', 'Text to Speech', false, null, this.getTagsForStencil(gn, 'text to speech', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmMiscellaneous', 'IBM 1.0 / Miscellaneous', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmMiscellaneous', 'IBM 2.0 / Miscellaneous', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -445,7 +445,7 @@
 					 d, d, '', 'VPN', false, null, this.getTagsForStencil(gn, 'vpn virtual private network', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmSecurity', 'IBM 1.0 / Security', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmSecurity', 'IBM 2.0 / Security', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -472,7 +472,7 @@
 					 d, d, '', 'Networking', false, null, this.getTagsForStencil(gn, 'networking', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmSocial', 'IBM 1.0 / Social', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmSocial', 'IBM 2.0 / Social', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -501,7 +501,7 @@
 					 d, d, '', 'User', false, null, this.getTagsForStencil(gn, 'user', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmUsers', 'IBM 1.0 / Users', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmUsers', 'IBM 2.0 / Users', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -564,7 +564,7 @@
 					 d, d * 0.8, '', 'Enterprise', false, null, this.getTagsForStencil(gn, 'enterprise', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmVPC', 'IBM 1.0 / VPC', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmVPC', 'IBM 2.0 / VPC', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -617,7 +617,7 @@
 					 200, 200, 'Cloud Services', 'Cloud Services', true, null, this.getTagsForStencil(gn, 'cloud services', dt).join(' '))
 		];
 			   	
-   		this.addPalette('ibmBoxes', 'IBM 1.0 / Boxes', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmBoxes', 'IBM 2.0 / Boxes', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
@@ -651,7 +651,7 @@
 		 			 d, d, '', 'Elbow Connector (Double Arrow)', null, dt + 'elbow connector double arrow')
 		];
 			   	
-   		this.addPalette('ibmConnectors', 'IBM 1.0 / Connectors', false, mxUtils.bind(this, function(content)
+   		this.addPalette('ibmConnectors', 'IBM 2.0 / Connectors', false, mxUtils.bind(this, function(content)
 	    {
 			for (var i = 0; i < fns.length; i++)
 			{
