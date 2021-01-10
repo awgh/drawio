@@ -2,9 +2,6 @@
 {
 	Sidebar.prototype.addIBM2Palette = function()
 	{
-		var w = 240;
-		var h = 48;
-
 		var gn = 'mxgraph.ibm2mondrian';
 		var dt = 'ibm ';
 
@@ -151,8 +148,12 @@
 		    ],
 		];
 
-		function createVertex(name, icon_name, icon_type, icon_color)
+		function createVertex(stencil, stencil_index)
 		{
+			var name = stencil[0];
+			var icon_name = stencil[1];
+			var icon_type = stencil[2];
+			var icon_color = stencil[3];
 			var w = (icon_type == actor_type) ? actor_width : group_width;
 			var h = (icon_type == actor_type) ? actor_height : group_height;
 			var default_icon = '';
@@ -184,7 +185,8 @@
 			var bg = new mxCell('', new mxGeometry(0, 0, w, h), "shape=" + gn + ".base" + ";" + shape_type + ";" + style_text + ";" + other_label + ";" + "colorFamily=" + icon_color + ";" + container_text + "image=" + default_icon + ";");
 	    		bg.vertex = true;
 	    		bg.setValue(mxUtils.createXmlDocument().createElement('object'));
-			bg.setAttribute('placeholders', '1');
+			//bg.setAttribute('placeholders', '1');
+			bg.setAttribute('placeholders', stencil_index.toString());
 			bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
                		bg.setAttribute('Element-ID', '');
 			bg.setAttribute('Element-Name', (set_name ? name : ''));
@@ -206,11 +208,11 @@
 					}
 					else
 					{
-						entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil[0], stencil[1], stencil[2], stencil[3]) }));
+						entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil, stencil_index); }))
 					}
 				});
 				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
-				this.addPaletteFunctions('ibm2', 'IBM 2.0 /F/ ' + header, false, entries);
+				this.addPaletteFunctions('ibm2', 'IBM 2.0 /G/ ' + header, false, entries);
 			}
 		});
 
