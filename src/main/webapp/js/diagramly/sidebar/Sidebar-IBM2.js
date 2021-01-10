@@ -203,7 +203,7 @@
 				}
 			});
 			this.setCurrentSearchEntryLibrary(internal, internal + header);
-			this.addPaletteFunctions(intern, external + ' / ' + header, false, entries);
+			this.addPaletteFunctions(internal, external + ' / ' + header, false, entries);
 		});
 
 		this.setCurrentSearchEntryLibrary();
