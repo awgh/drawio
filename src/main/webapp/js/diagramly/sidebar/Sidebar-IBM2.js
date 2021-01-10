@@ -4,11 +4,37 @@
 	{
 		var w = 240;
 		var h = 48;
+
 		var gn = 'mxgraph.ibm2mondrian';
 		var dt = 'ibm ';
+
+		var internal_version = 'ibm2';
+		var external_version = 'IBM 2.0';
+
+		var actor_type = 'actor';
+		var actor_width = 48;
+		var actor_height = 48;
+
+		var group_type = 'group';
+		var group_width = 240;
+		var group_height = 240;
+
+		var account_color = 'gray';
+		var cloud_color = 'blue';
+		var kube_color = 'purple';
+		var location_color = 'gray';
+		var network_color = 'green';
+		var section_color = 'gray';
+		var security_color = 'red';
+		var user_color = 'black';
+		var vpc_color = 'green';
+
+		var spanning_groups = 'Security Group';
+		var named_actors = 'Cloud Groups, VPC Groups, Kubernetes Groups, Network Groups';
+
 		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Mondrian');
 		
-		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Mondrian', false,
+		this.addPaletteFunctions('ibm2', 'IBM 2.0 /2/ Mondrian', false,
 		[
 			this.addEntry(dt + 'tn', function()
 		   	{
