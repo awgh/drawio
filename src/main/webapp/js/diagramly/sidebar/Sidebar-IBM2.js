@@ -197,7 +197,8 @@
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
 			var entries = [];
-			// (stencil_index == 0)
+			if (stencil_index == 0)
+			{
 				section.forEach((stencil, section_index) => {
 					if (section_index == 0)
 					{
@@ -209,7 +210,8 @@
 					}
 				});
 				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Mondrian');
-				this.addPaletteFunctions('ibm2', 'IBM 2.0 /9/ ' + header, false, entries);
+				this.addPaletteFunctions('ibm2', 'IBM 2.0 /A/ ' + header, false, entries);
+			}
 		});
 
 		this.setCurrentSearchEntryLibrary();
