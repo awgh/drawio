@@ -200,7 +200,7 @@
 			if (stencil_index == 1)
 			{
 				section.forEach((stencil, section_index) => {
-					if (index == 0)
+					if (section_index == 0)
 					{
 						header = stencil[0];
 					}
@@ -209,7 +209,7 @@
 						entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
 					}
 				});
-				this.addPaletteFunctions('ibm2', 'IBM 2.0 /5/ Mondrian', false, entries);
+				this.addPaletteFunctions('ibm2', 'IBM 2.0 /6/ Mondrian', false, entries);
 			}
 		});
 
