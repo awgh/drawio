@@ -1174,7 +1174,7 @@
 		this.addCumulusPalette();
 		this.addCitrixPalette();
 		this.addGCP2Palette();
-		this.addIBMPalette();
+		/*this.addIBMPalette();*/
 		this.addIBM2Palette();
 		this.addIBM2MondrianPalette();
 		this.addNetworkPalette();
