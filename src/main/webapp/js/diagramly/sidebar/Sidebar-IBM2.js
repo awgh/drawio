@@ -210,7 +210,7 @@
 					}
 				});
 				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Groups');
-				this.addPaletteFunctions('ibm2Groups', 'IBM 2.0 /A/ ' + header, false, entries);
+				this.addPaletteFunctions('ibm2', 'IBM 2.0 /B/ ' + header, false, entries);
 			}
 		});
 
