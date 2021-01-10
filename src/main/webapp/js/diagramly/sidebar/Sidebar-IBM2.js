@@ -209,8 +209,8 @@
 						entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil[0], stencil[1], stencil[2], stencil[2]) }));
 					}
 				});
-				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Mondrian');
-				this.addPaletteFunctions('ibm2', 'IBM 2.0 /A/ ' + header, false, entries);
+				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Groups');
+				this.addPaletteFunctions('ibm2Groups', 'IBM 2.0 /A/ ' + header, false, entries);
 			}
 		});
 
