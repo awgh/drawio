@@ -205,7 +205,7 @@
 				}
 			});
 			console.log(internal_version + lower_header + ' : ' + internal_version + mixed_header);
-			this.setCurrentSearchEntryLibrary(internal_version + lower_header, internal_version + mixed_header);
+			this.setCurrentSearchEntryLibrary(internal_version, internal_version + mixed_header);
 			this.addPaletteFunctions(internal_version + mixed_header, external_version + ' / ' + header, false, entries);
 		});
 
