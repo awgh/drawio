@@ -6,9 +6,9 @@
 		var h = 48;
 		var gn = 'mxgraph.ibm2mondrian';
 		var dt = 'ibm ';
-		this.setCurrentSearchEntryLibrary('ibm2mondrian', 'ibm2Mondrian');
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Mondrian');
 		
-		this.addPaletteFunctions('ibm2mondrian', 'IBM 2.0 Mondrian', false,
+		this.addPaletteFunctions('ibm2', 'IBM 2.0 / Mondrian', false,
 		[
 			this.addEntry(dt + 'tn', function()
 		   	{
