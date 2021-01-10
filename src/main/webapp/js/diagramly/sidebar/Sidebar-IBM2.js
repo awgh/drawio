@@ -3,7 +3,7 @@
 	Sidebar.prototype.addIBM2Palette = function()
 	{
 		var d = 60;
-		var dt = 'ibm ';
+		var dt = 'ibm2 ';
 		var sb = this;
 		var s = 'aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;fontColor=#4277BB;labelBackgroundColor=#ffffff;fontSize=12;spacingTop=3;image;image=img/lib/ibm/';
 		
