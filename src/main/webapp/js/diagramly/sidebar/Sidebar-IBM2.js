@@ -5,7 +5,7 @@
 		var gn = 'mxgraph.ibm2mondrian';
 		var dt = 'ibm ';
 
-		var internal = 'ibm2mondrian';
+		var internal = 'ibm2';
 		var external = 'IBM 2.0';
 
 		var actor_type = 'actor';
@@ -202,8 +202,9 @@
 					entries.push(this.addEntry(dt + stencil[0], function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
 				}
 			});
+			console.log(internal + ' : ' + internal+header);
 			this.setCurrentSearchEntryLibrary(internal, internal + header);
-			this.addPaletteFunctions(internal, external + ' / ' + header, false, entries);
+			this.addPaletteFunctions(internal + header, external + ' / ' + header, false, entries);
 		});
 
 		this.setCurrentSearchEntryLibrary();
