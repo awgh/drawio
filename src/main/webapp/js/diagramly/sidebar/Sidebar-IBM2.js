@@ -189,7 +189,7 @@
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, shapeName);
 		};
 
-		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2');
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Mondrian');
 
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
@@ -239,7 +239,7 @@
 		bg.setValue(mxUtils.createXmlDocument().createElement('UserObject'));
 		bg.setAttribute('placeholders', '1');
 		bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
-		bg.setAttribute('Element-ID', shapeID);
+		bg.setAttribute('Element-ID', shapeId);
 		bg.setAttribute('Element-Name', shapeName);
 		bg.setAttribute('Icon-Name', iconName);
 		
