@@ -160,6 +160,7 @@
 			var extraStyle = '';
 			var useName = '';
 			var shapeLayout = '';
+			var shapeId = '';
 
 			if (shapeType == actor_type)
 			{
@@ -184,11 +185,11 @@
 				}
 			}
 
-			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, useName, iconName);
+			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, shapeId, useName, iconName);
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, shapeName);
 		};
 
-		this.setCurrentSearchEntryLibrary('ibm2mondrian', 'ibm2Mondrian');
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2');
 
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
@@ -210,7 +211,7 @@
 		this.setCurrentSearchEntryLibrary();
 	};
 
-	Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus = function(shapeType, shapeLayout, shapeExtraStyle, shapeName, iconName)
+	Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus = function(shapeType, shapeLayout, shapeExtraStyle, shapeId, shapeName, iconName)
 	{
 		const gn = 'mxgraph.ibm2mondrian';
 		const default_icon = '';
@@ -238,7 +239,7 @@
 		bg.setValue(mxUtils.createXmlDocument().createElement('UserObject'));
 		bg.setAttribute('placeholders', '1');
 		bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
-		bg.setAttribute('Element-ID', 'Element-ID');
+		bg.setAttribute('Element-ID', shapeID);
 		bg.setAttribute('Element-Name', shapeName);
 		bg.setAttribute('Icon-Name', iconName);
 		
