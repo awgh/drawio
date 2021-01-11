@@ -157,8 +157,7 @@
 			var w = (icon_type == actor_type) ? actor_width : group_width;
 			var h = (icon_type == actor_type) ? actor_height : group_height;
 
-			var default_icon = '';
-			var container_text = '';
+			var extraStyle = '';
 			var shapeName = '';
 			var shapeLayout = '';
 
@@ -169,6 +168,7 @@
 					shapeName = name;
 				}
 				shapeLayout = 'collapsed';				
+				extraStyle = ';colorFamily=' + icon_color;
 			}
 			else
 			{
