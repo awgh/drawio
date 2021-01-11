@@ -2,8 +2,7 @@
 {
 	Sidebar.prototype.addIBM2Palette = function()
 	{
-		var gn = 'mxgraph.ibm2mondrian';
-		var dt = 'ibm ';
+		var dt = 'ibm mondrian ';
 
 		var internal_version = 'ibm2';
 		var external_version = 'IBM 2.0';
@@ -150,50 +149,47 @@
 
 		function createVertex(stencil)
 		{
-			var name = stencil[0];
-			var icon_name = stencil[1];
-			var icon_type = stencil[2];
-			var icon_color = stencil[3];
+			var shapeName = stencil[0];
+			var iconName = stencil[1];
+			var shapeType = stencil[2];
+			var shapeColor = stencil[3];
 
-			var w = (icon_type == actor_type) ? actor_width : group_width;
-			var h = (icon_type == actor_type) ? actor_height : group_height;
+			var w = (iconType == actor_type) ? actor_width : group_width;
+			var h = (iconType == actor_type) ? actor_height : group_height;
 
-			var default_icon = '';
-			var container_text = '';
-			var set_name = false;
+			var extraStyle = '';
+			var useName = '';
+			var shapeLayout = '';
+			var shapeId = '';
 
-			if (icon_type == actor_type)
+			if (shapeType == actor_type)
 			{
-				set_name = named_actors.includes(name);
+				if (named_actors.includes(shapeName))
+				{
+					useName = shapeName;
+				}
+				shapeLayout = 'collapsed';				
+				extraStyle = ';colorFamily=' + shapeColor;
 			}
 			else
 			{
-				set_name = true;
-
-				if (spanning_groups.includes(name))
+				useName = shapeName;
+				shapeLayout = 'expanded';				
+				if (spanning_groups.includes(shapeName))
 				{
-					container_text = 'container=0;collapsible=0;recursiveResize=0;';
+					extraStyle = ';container=0;collapsible=0;recursiveResize=0;colorFamily=' + shapeColor;
 				}
 				else 
 				{
-					container_text = 'container=1;collapsible=0;recursiveResize=0;';
+					extraStyle = ';container=1;collapsible=0;recursiveResize=0;colorFamily=' + shapeColor;
 				}
 			}
 
-			var shape_type = 'shapeType=' + icon_type;
-			var other_label = 'metaEdit=0;strokeWidth=1'; 
-			var style_text = 'html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0';
-
-			var bg = new mxCell('', new mxGeometry(0, 0, w, h), "shape=" + gn + ".base" + ";" + shape_type + ";" + style_text + ";" + other_label + ";" + "colorFamily=" + icon_color + ";" + container_text + "image=" + default_icon + ";");
-	    		bg.vertex = true;
-	    		bg.setValue(mxUtils.createXmlDocument().createElement('object'));
-			bg.setAttribute('placeholders', '1');
-			bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
-               		bg.setAttribute('Element-ID', '');
-			bg.setAttribute('Element-Name', (set_name ? name : ''));
-			bg.setAttribute('Icon-Name', icon_name);
-	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
+			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, shapeId, useName, iconName);
+	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, shapeName);
 		};
+
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Mondrian');
 
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
@@ -205,13 +201,48 @@
 				}
 				else
 				{
-					entries.push(this.addEntry(dt + header + ' ' + name, function() { return createVertex(stencil); }))
+					var entryName = (dt + header.replace(/\s/g,'') + name.replace(/\s/g,'')).toLowerCase();
+					entries.push(this.addEntry(entryName, function() { return createVertex(stencil); }))
 				}
 			});
-			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
 			this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
 		});
 
 		this.setCurrentSearchEntryLibrary();
 	};
+
+	Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus = function(shapeType, shapeLayout, shapeExtraStyle, shapeId, shapeName, iconName)
+	{
+		const gn = 'mxgraph.ibm2mondrian';
+		const default_icon = '';
+		const other_label = 'metaEdit=0;strokeWidth=1' + shapeExtraStyle;
+		var styleText = 'html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14';
+		var shapeWidth = null;
+		var shapeHeight = null;
+	
+		if(shapeLayout === 'expanded')
+		{
+			shapeHeight = (shapeType === 'group') ? 152 : 48;
+			shapeWidth = 240;
+			styleText = styleText + ';verticalAlign=middle;align=left;spacing=0;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0';
+		}
+		else if(shapeLayout === 'collapsed')
+		{
+			shapeHeight = 48;
+			shapeWidth = (shapeType === 'ts') ? 64 : 48;
+			styleText = styleText + ';verticalAlign=top;align=center;spacing=0;spacingLeft=0;spacingRight=0;spacingTop=8;spacingBottom=0;verticalLabelPosition=bottom;labelPosition=center;positionText=bottom;';
+		}
+
+		var bg = new mxCell('', 
+			new mxGeometry(0, 0, shapeWidth, shapeHeight), "shape=" + gn + ".base" + ";shapeType=" + shapeType + ";shapeLayout=" + shapeLayout + ";" + styleText + ";" + other_label + ";" + "image=" + default_icon);
+		bg.vertex = true;
+		bg.setValue(mxUtils.createXmlDocument().createElement('UserObject'));
+		bg.setAttribute('placeholders', '1');
+		bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
+		bg.setAttribute('Element-ID', shapeId);
+		bg.setAttribute('Element-Name', shapeName);
+		bg.setAttribute('Icon-Name', iconName);
+		
+		return bg;
+	}
 })();
