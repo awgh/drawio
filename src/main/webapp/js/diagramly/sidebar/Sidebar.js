@@ -1178,7 +1178,7 @@
 		this.addGCP2Palette();
 		this.addIBMPalette();
 		/*this.addIBM1Palette();*/
-		/*this.addIBM2Palette();*/
+		this.addIBM2Palette();
 		this.addIBM2MondrianPalette();
 		this.addNetworkPalette();
 		this.addOfficePalette();
