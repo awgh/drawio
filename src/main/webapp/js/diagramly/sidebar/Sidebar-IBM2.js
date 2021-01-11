@@ -5,8 +5,8 @@
 		var gn = 'mxgraph.ibm2mondrian';
 		var dt = 'ibm ';
 
-		var internal = 'ibm2';
-		var external = 'IBM 2.0';
+		var internal_version = 'ibm2';
+		var external_version = 'IBM 2.0';
 
 		var actor_type = 'actor';
 		var actor_width = 48;
@@ -148,10 +148,16 @@
 		    ],
 		];
 
-		function createVertex(name, icon_type, icon_color, icon_name)
+		function createVertex(stencil)
 		{
+			var name = stencil[0];
+			var icon_name = stencil[1];
+			var icon_type = stencil[2];
+			var icon_color = stencil[3];
+
 			var w = (icon_type == actor_type) ? actor_width : group_width;
 			var h = (icon_type == actor_type) ? actor_height : group_height;
+
 			var default_icon = '';
 			var container_text = '';
 			var set_name = false;
@@ -189,21 +195,21 @@
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
 		};
 
-		stencils.forEach((section) => {
+		stencils.forEach((section, stencil_index) => {
 			var header = '';
 			var entries = [];
-			section.forEach((stencil, index) => {
-				if (index == 0)
+			section.forEach((stencil, section_index) => {
+				if (section_index == 0)
 				{
 					header = stencil[0];
 				}
 				else
 				{
-					entries.push(this.addEntry(dt + stencil[0], function() { return createVertex(stencil[0], stencil[2], stencil[3], stencil[1]) }));
+					entries.push(this.addEntry(dt + header + ' ' + name, function() { return createVertex(stencil); }))
 				}
 			});
-			this.setCurrentSearchEntryLibrary(internal, internal + header);
-			this.addPaletteFunctions(internal + header, external + ' / ' + header, false, entries);
+			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
+			this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
 		});
 
 		this.setCurrentSearchEntryLibrary();
