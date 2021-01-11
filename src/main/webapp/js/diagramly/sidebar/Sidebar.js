@@ -493,7 +493,6 @@
             			          {title: 'Google Cloud Platform', id: 'gcp2', image: IMAGE_PATH + '/sidebar-gcp2.png'},
 					  {title: 'IBM 2.0 Mondrian', id: 'ibm2mondrian', image: IMAGE_PATH + '/sidebar-ibm.png'},
 					  {title: 'IBM 2.0', id: 'ibm2', image: IMAGE_PATH + '/sidebar-ibm.png'},
-            			          {title: 'IBM 1.1', id: 'ibm1', image: IMAGE_PATH + '/sidebar-ibm.png'},
 					  {title: 'IBM 1.0', id: 'ibm', image: IMAGE_PATH + '/sidebar-ibm.png'},
             			          {title: 'Kubernetes', id: 'kubernetes', image: IMAGE_PATH + '/sidebar-kubernetes.png'},
             			          {title: 'Network', id: 'network', image: IMAGE_PATH + '/sidebar-network.png'},
@@ -1178,7 +1177,7 @@
 		this.addGCP2Palette();
 		this.addIBMPalette();
 		/*this.addIBM1Palette();*/
-		this.addIBM2Palette();
+		/*this.addIBM2Palette();*/
 		this.addIBM2MondrianPalette();
 		this.addNetworkPalette();
 		this.addOfficePalette();
