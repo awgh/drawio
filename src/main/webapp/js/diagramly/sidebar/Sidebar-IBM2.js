@@ -176,11 +176,11 @@
 				shapeLayout = 'expanded';				
 				if (spanning_groups.includes(shapeName))
 				{
-					extraStyle = ';container=0;collapsible=0;recursiveResize=0;colorFamily=' + iconColor;
+					extraStyle = ';container=0;collapsible=0;recursiveResize=0;colorFamily=' + shapeColor;
 				}
 				else 
 				{
-					extraStyle = ';container=1;collapsible=0;recursiveResize=0;colorFamily=' + iconColor;
+					extraStyle = ';container=1;collapsible=0;recursiveResize=0;colorFamily=' + shapeColor;
 				}
 			}
 
