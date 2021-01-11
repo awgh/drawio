@@ -122,8 +122,8 @@
 	                                   {id: 'bpmn', prefix: 'bpmn', libs: [''/*prefix is library*/, 'Gateways', 'Events']},
 	                                   {id: 'clipart', prefix: null, libs: ['computer', 'finance', 'clipart', 'networking', 'people', 'telco']},
 	                                   {id: 'ibm', prefix: 'ibm', libs: Sidebar.prototype.ibm},
-	                                   {id: 'ibm1', prefix: 'ibm1', libs: Sidebar.prototype.ibm1},
-	                                   {id: 'ibm2'},
+	                                   /*{id: 'ibm1', prefix: 'ibm1', libs: Sidebar.prototype.ibm1},*/
+	                                   /*{id: 'ibm2'},*/
 	                                   {id: 'ibm2mondrian'},
 	                                   {id: 'allied_telesis', prefix: 'allied_telesis', libs: Sidebar.prototype.allied_telesis},
 	                                   {id: 'cumulus', libs: ['cumulus']},
