@@ -2,8 +2,7 @@
 {
 	Sidebar.prototype.addIBM2Palette = function()
 	{
-		var gn = 'mxgraph.ibm2mondrian';
-		var dt = 'ibm ';
+		var dt = 'ibm mondrian ';
 
 		var internal_version = 'ibm2';
 		var external_version = 'IBM 2.0';
@@ -160,40 +159,37 @@
 
 			var default_icon = '';
 			var container_text = '';
-			var set_name = false;
+			var shapeName = '';
+			var shapeLayout = '';
 
 			if (icon_type == actor_type)
 			{
-				set_name = named_actors.includes(name);
+				if (named_actors.includes(name))
+				{
+					shapeName = name;
+				}
+				shapeLayout = 'collapsed';				
 			}
 			else
 			{
-				set_name = true;
+				shapeName = name;
+				shapeLayout = 'expanded';				
 
 				if (spanning_groups.includes(name))
 				{
-					container_text = 'container=0;collapsible=0;recursiveResize=0;';
+					extraStyle = ';container=0;collapsible=0;recursiveResize=0;colorFamily=' + icon_color;
 				}
 				else 
 				{
-					container_text = 'container=1;collapsible=0;recursiveResize=0;';
+					extraStyle = ';container=1;collapsible=0;recursiveResize=0;colorFamily=' + icon_color;
 				}
 			}
 
-			var shape_type = 'shapeType=' + icon_type;
-			var other_label = 'metaEdit=0;strokeWidth=1'; 
-			var style_text = 'html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14;verticalAlign=middle;align=left;spacing=8;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0';
-
-			var bg = new mxCell('', new mxGeometry(0, 0, w, h), "shape=" + gn + ".base" + ";" + shape_type + ";" + style_text + ";" + other_label + ";" + "colorFamily=" + icon_color + ";" + container_text + "image=" + default_icon + ";");
-	    		bg.vertex = true;
-	    		bg.setValue(mxUtils.createXmlDocument().createElement('object'));
-			bg.setAttribute('placeholders', '1');
-			bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
-               		bg.setAttribute('Element-ID', '');
-			bg.setAttribute('Element-Name', (set_name ? name : ''));
-			bg.setAttribute('Icon-Name', icon_name);
+			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(icon_type, shapeLayout, extraStyle, shapeName, iconName);
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
 		};
+
+		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Mondrian');
 
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
@@ -205,13 +201,48 @@
 				}
 				else
 				{
-					entries.push(this.addEntry(dt + header + ' ' + name, function() { return createVertex(stencil); }))
+					var entryName = (dt + header.replace(/\s/g,'') + name.replace(/\s/g,'')).toLowerCase();
+					entries.push(this.addEntry(entryName, function() { return createVertex(stencil); }))
 				}
 			});
-			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
 			this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
 		});
 
 		this.setCurrentSearchEntryLibrary();
 	};
+
+	Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus = function(shapeType, shapeLayout, shapeExtraStyle, shapeName, iconName)
+	{
+		const gn = 'mxgraph.ibm2mondrian';
+		const default_icon = '';
+		const other_label = 'metaEdit=0;strokeWidth=1' + shapeExtraStyle;
+		var styleText = 'html=1;whiteSpace=wrap;fontFamily=IBM Plex Sans;fontColor=#000000;fontSize=14';
+		var shapeWidth = null;
+		var shapeHeight = null;
+	
+		if(shapeLayout === 'expanded')
+		{
+			shapeHeight = (shapeType === 'group') ? 152 : 48;
+			shapeWidth = 240;
+			styleText = styleText + ';verticalAlign=middle;align=left;spacing=0;spacingLeft=12;spacingRight=16;spacingTop=0;spacingBottom=0';
+		}
+		else if(shapeLayout === 'collapsed')
+		{
+			shapeHeight = 48;
+			shapeWidth = (shapeType === 'ts') ? 64 : 48;
+			styleText = styleText + ';verticalAlign=top;align=center;spacing=0;spacingLeft=0;spacingRight=0;spacingTop=8;spacingBottom=0;verticalLabelPosition=bottom;labelPosition=center;positionText=bottom;';
+		}
+
+		var bg = new mxCell('', 
+			new mxGeometry(0, 0, shapeWidth, shapeHeight), "shape=" + gn + ".base" + ";shapeType=" + shapeType + ";shapeLayout=" + shapeLayout + ";" + styleText + ";" + other_label + ";" + "image=" + default_icon);
+		bg.vertex = true;
+		bg.setValue(mxUtils.createXmlDocument().createElement('UserObject'));
+		bg.setAttribute('placeholders', '1');
+		bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
+		bg.setAttribute('Element-ID', 'Element-ID');
+		bg.setAttribute('Element-Name', shapeName);
+		bg.setAttribute('Icon-Name', icon_name);
+		
+		return bg;
+	}
 })();
