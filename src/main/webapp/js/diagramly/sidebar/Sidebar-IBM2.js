@@ -198,22 +198,18 @@
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
 			var entries = [];
-			if (stencil_index < 3)
-			{
-				section.forEach((stencil, section_index) => {
-					if (section_index == 0)
-					{
-						header = stencil[0];
-					}
-					else
-					{
-						entries.push(this.addEntry(header + ' ' + name, function() { return createVertex(stencil); }))
-						//entries.push(this.addEntry(dt + 'tn', function() { return createVertex(stencil); }))
-					}
-				});
-				this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
-				this.addPaletteFunctions('ibm2', 'IBM 2.0 /L/ ' + header, false, entries);
-			}
+			section.forEach((stencil, section_index) => {
+				if (section_index == 0)
+				{
+					header = stencil[0];
+				}
+				else
+				{
+					entries.push(this.addEntry(dt + header + ' ' + name, function() { return createVertex(stencil); }))
+				}
+			});
+			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
+			this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
 		});
 
 		this.setCurrentSearchEntryLibrary();
