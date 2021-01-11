@@ -240,7 +240,7 @@
 		bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
 		bg.setAttribute('Element-ID', 'Element-ID');
 		bg.setAttribute('Element-Name', shapeName);
-		bg.setAttribute('Icon-Name', icon_name);
+		bg.setAttribute('Icon-Name', iconName);
 		
 		return bg;
 	}
