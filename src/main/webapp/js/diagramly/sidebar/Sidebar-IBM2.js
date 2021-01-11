@@ -149,47 +149,46 @@
 
 		function createVertex(stencil)
 		{
-			var name = stencil[0];
-			var icon_name = stencil[1];
-			var icon_type = stencil[2];
-			var icon_color = stencil[3];
+			var shapeName = stencil[0];
+			var iconName = stencil[1];
+			var shapeType = stencil[2];
+			var shapeColor = stencil[3];
 
-			var w = (icon_type == actor_type) ? actor_width : group_width;
-			var h = (icon_type == actor_type) ? actor_height : group_height;
+			var w = (iconType == actor_type) ? actor_width : group_width;
+			var h = (iconType == actor_type) ? actor_height : group_height;
 
 			var extraStyle = '';
-			var shapeName = '';
+			var useName = '';
 			var shapeLayout = '';
 
-			if (icon_type == actor_type)
+			if (shapeType == actor_type)
 			{
-				if (named_actors.includes(name))
+				if (named_actors.includes(shapeName))
 				{
-					shapeName = name;
+					useName = shapeName;
 				}
 				shapeLayout = 'collapsed';				
-				extraStyle = ';colorFamily=' + icon_color;
+				extraStyle = ';colorFamily=' + shapeColor;
 			}
 			else
 			{
-				shapeName = name;
+				useName = shapeName;
 				shapeLayout = 'expanded';				
-
-				if (spanning_groups.includes(name))
+				if (spanning_groups.includes(shapeName))
 				{
-					extraStyle = ';container=0;collapsible=0;recursiveResize=0;colorFamily=' + icon_color;
+					extraStyle = ';container=0;collapsible=0;recursiveResize=0;colorFamily=' + iconColor;
 				}
 				else 
 				{
-					extraStyle = ';container=1;collapsible=0;recursiveResize=0;colorFamily=' + icon_color;
+					extraStyle = ';container=1;collapsible=0;recursiveResize=0;colorFamily=' + iconColor;
 				}
 			}
 
-			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(icon_type, shapeLayout, extraStyle, shapeName, iconName);
-	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, name);
+			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, useName, iconName);
+	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, shapeName);
 		};
 
-		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Mondrian');
+		this.setCurrentSearchEntryLibrary('ibm2mondrian', 'ibm2Mondrian');
 
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
