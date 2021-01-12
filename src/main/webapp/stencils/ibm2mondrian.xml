@@ -1401,8 +1401,6 @@
 <shape aspect="variable" h="32" name="data--base--alt" strokewidth="inherit" w="32">
     <connections/>
     <foreground>
-        <rect h="32" w="32" x="0" y="0"/>
-        <fillstroke/>
         <path>
             <move x="7" y="22.14"/>
             <line x="7" y="13"/>
