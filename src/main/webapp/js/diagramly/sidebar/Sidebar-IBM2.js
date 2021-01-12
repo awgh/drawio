@@ -189,8 +189,6 @@
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, shapeName);
 		};
 
-		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Mondrian');
-
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
 			var entries = [];
@@ -201,10 +199,11 @@
 				}
 				else
 				{
-					var entryName = (dt + header.replace(/\s/g,'') + name.replace(/\s/g,'')).toLowerCase();
+					var entryName = (dt + header.replace(/\s/g,'').toLowerCase() + name.replace(/\s/g,'')).toLowerCase();
 					entries.push(this.addEntry(entryName, function() { return createVertex(stencil); }))
 				}
 			});
+			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
 			this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
 		});
 
