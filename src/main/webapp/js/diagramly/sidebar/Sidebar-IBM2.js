@@ -198,9 +198,10 @@
 			});
 			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
 			this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
+			this.setCurrentSearchEntryLibrary();
 		});
 
-		this.setCurrentSearchEntryLibrary();
+		//this.setCurrentSearchEntryLibrary();
 	};
 
 	Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus = function(shapeType, shapeLayout, shapeExtraStyle, shapeId, shapeName, iconName)
