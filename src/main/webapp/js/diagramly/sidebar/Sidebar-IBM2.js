@@ -196,8 +196,8 @@
 					entries.push(this.addEntry(entryName, function() { return createVertex(stencil); }))
 				}
 			});
-			this.setCurrentSearchEntryLibrary('ibm2mondrian', 'ibm2' + header.replace(/\s/g,''));
-			this.addPaletteFunctions('ibm2mondrian', 'IBM 2.0 / ' + header, false, entries);
+			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
+			this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
 		});
 
 		this.setCurrentSearchEntryLibrary();
