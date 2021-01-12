@@ -4,9 +4,6 @@
 	{
 		var dt = 'ibm mondrian ';
 
-		var internal_version = 'ibm2';
-		var external_version = 'IBM 2.0';
-
 		var actor_type = 'actor';
 		var actor_width = 48;
 		var actor_height = 48;
@@ -26,7 +23,6 @@
 		var vpc_color = 'green';
 
 		var spanning_groups = 'Security Group';
-		var named_actors = 'Cloud Groups, VPC Groups, Kubernetes Groups, Network Groups';
 
 		var stencils = 
 		[
@@ -164,10 +160,7 @@
 
 			if (shapeType == actor_type)
 			{
-				if (named_actors.includes(shapeName))
-				{
-					useName = shapeName;
-				}
+				useName = '';
 				shapeLayout = 'collapsed';				
 				extraStyle = ';colorFamily=' + shapeColor;
 			}
