@@ -136,10 +136,10 @@
 		    [
 			['Users'],
 
-			['User',			'user',				actor_type, security_color],
-			['Users',			'group',			actor_type, security_color],
-			['Events',			'events',			actor_type, security_color],
-			['Collaborate',			'collaborate',			actor_type, security_color],
+			['User',			'user',				actor_type, user_color],
+			['Users',			'group',			actor_type, user_color],
+			['Events',			'events',			actor_type, user_color],
+			['Collaborate',			'collaborate',			actor_type, user_color],
 		    ],
 		];
 
