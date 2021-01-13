@@ -71,7 +71,7 @@
 		    ],
 
 		    [
-			['Compute Devices'],
+			['Compute / Devices'],
 
 			['Physical Server',		'archive',			lnode, cloud],
 			['Web Browser',			'terminal',			lnode, cloud],
@@ -90,7 +90,7 @@
 		    ],
 
 		    [
-			['Network Devices'],
+			['Network / Devices'],
 
 			['Application Load Balancer',	'parent-child',			lnode, cloud],
 			['Network Load Balancer',	'parent-child',			lnode, cloud],
@@ -109,7 +109,7 @@
 		    ],
 
 		    [
-			['Security Devices'],
+			['Security / Devices'],
 
 			['VPN Gateway',			'',				lnode, security],
 		    ],
@@ -122,7 +122,7 @@
 		    ],
 
 		    [
-			['Storage Devices'],
+			['Storage / Devices'],
 
 			['Block Storage',		'',				lnode, cloud],
 			['File Storage',		'',				lnode, cloud],
@@ -150,7 +150,7 @@
 			var shapeLayout = '';
 			var shapeId = '';
 
-			if (shapeType == actor_type)
+			if (shapeType == actor)
 			{
 				shapeLayout = 'collapsed';				
 				extraStyle = ';colorFamily=' + shapeColor;
