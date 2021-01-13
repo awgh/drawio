@@ -4,23 +4,19 @@
 	{
 		var dt = 'ibm mondrian ';
 
-		var actor_type = 'actor';
-		var actor_width = 48;
-		var actor_height = 48;
-
-		var group_type = 'group';
-		var group_width = 240;
-		var group_height = 240;
-
-		var account_color = 'gray';
-		var cloud_color = 'blue';
-		var kube_color = 'purple';
-		var location_color = 'gray';
-		var network_color = 'green';
-		var section_color = 'gray';
-		var security_color = 'red';
-		var user_color = 'black';
-		var vpc_color = 'green';
+		var actor = 'actor';
+		var group = 'group';
+		var lnode = 'ln';
+	
+		var account = 'gray';
+		var cloud = 'blue';
+		var kube = 'purple';
+		var loc = 'gray';
+		var network = 'green';
+		var section = 'gray';
+		var security = 'red';
+		var user = 'black';
+		var vpc = 'green';
 
 		var spanning_groups = 'Security Group';
 
@@ -29,117 +25,117 @@
 		    [
 			['Groups'],
 
-			['Cloud Groups',		'ibm-cloud',			actor_type, section_color],
-			['IBM Cloud',			'ibm-cloud',			group_type, cloud_color],
-			['Region',			'flag',				group_type, location_color],
-			['Region Alt',			'location',			group_type, location_color],
-			['Zone',			'data--base--alt',		group_type, location_color],
-			['Cloud Services',		'',				group_type, cloud_color],
-			['Classic Infrastructure',	'',				group_type, cloud_color],
-			['Account',			'user',				group_type, account_color],
-			['Access Group',		'credentials',			group_type, account_color],
-			['Resource Group',		'collaborate',			group_type, account_color],
+			['Cloud Groups',		'ibm-cloud',			lnode, section],
+			['IBM Cloud',			'ibm-cloud',			group, cloud],
+			['Region',			'flag',				group, loc],
+			['Region Alt',			'location',			group, loc],
+			['Zone',			'data--base--alt',		group, loc],
+			['Cloud Services',		'',				group, cloud],
+			['Classic Infrastructure',	'',				group, cloud],
+			['Account',			'user',				group, account],
+			['Access Group',		'credentials',			group, account],
+			['Resource Group',		'collaborate',			group, account],
 
-			['VPC Groups',			'virtual-private-cloud',	actor_type, section_color],
-			['VPC',				'virtual-private-cloud',	group_type, vpc_color],
-			['Subnet:ACL',			'',				group_type, vpc_color],
-			['Virtual Server',		'virtual-machine',		group_type, vpc_color],
-			['Instance Group',		'',				group_type, vpc_color],
-			['Physical Server',		'',				group_type, vpc_color],
-			['Endpoints',			'',				group_type, vpc_color],
-			['Security Group',		'security',			group_type, security_color],
+			['VPC Groups',			'virtual-private-cloud',	lnode, section],
+			['VPC',				'virtual-private-cloud',	group, vpc],
+			['Subnet:ACL',			'',				group, vpc],
+			['Virtual Server',		'virtual-machine',		group, vpc],
+			['Instance Group',		'',				group, vpc],
+			['Physical Server',		'',				group, vpc],
+			['Endpoints',			'',				group, vpc],
+			['Security Group',		'security',			group, security],
 
-			['Kubernetes Groups',		'',				actor_type, section_color],
-			['Kubernetes Cluster',		'',				group_type, cloud_color],
-			['OpenShift Cluster',		'',				group_type, cloud_color],
-			['Kubernetes Services',		'',				group_type, kube_color],
-			['Kubernetes Replica Set',	'',				group_type, kube_color],
-			['Kubernetes Pod',		'',				group_type, kube_color],
-			['Kubernetes Namespace',	'',				group_type, kube_color],
+			['Kubernetes Groups',		'',				lnode, section],
+			['Kubernetes Cluster',		'',				group, cloud],
+			['OpenShift Cluster',		'',				group, cloud],
+			['Kubernetes Services',		'',				group, kube],
+			['Kubernetes Replica Set',	'',				group, kube],
+			['Kubernetes Pod',		'',				group, kube],
+			['Kubernetes Namespace',	'',				group, kube],
 
-			['Network Groups',		'',				actor_type, section_color],
-			['Public Network',		'events',			group_type, network_color],
-			['Enterprise Network',		'enterprise',			group_type, network_color],
-			['Cloud Foundry',		'',				group_type, network_color],
-			['Data Center',			'',				group_type, network_color],
-			['Point of Presence',		'',				group_type, network_color],
-			['Overlay Network',		'',				group_type, network_color],
-			['VLAN',			'',				group_type, network_color],
+			['Network Groups',		'',				lnode, section],
+			['Public Network',		'events',			group, network],
+			['Enterprise Network',		'enterprise',			group, network],
+			['Cloud Foundry',		'',				group, network],
+			['Data Center',			'',				group, network],
+			['Point of Presence',		'',				group, network],
+			['Overlay Network',		'',				group, network],
+			['VLAN',			'',				group, network],
 	   	    ],
 
 		    [
 			['Compute'],
 
-			['Virtual Server',		'virtual-machine',		actor_type, cloud_color],
-			['Instance Group',		'',				actor_type, cloud_color],
+			['Virtual Server',		'virtual-machine',		lnode, cloud],
+			['Instance Group',		'',				lnode, cloud],
 		    ],
 
 		    [
 			['Compute Devices'],
 
-			['Physical Server',		'archive',			actor_type, cloud_color],
-			['Web Browser',			'terminal',			actor_type, cloud_color],
-			['Mobile Device',		'mobile',			actor_type, cloud_color],
-			['Tablet Device',		'tablet',			actor_type, cloud_color],
-			['Laptop Device',		'laptop',			actor_type, cloud_color],
-			['Desktop Computer',		'devices',			actor_type, cloud_color],
+			['Physical Server',		'archive',			lnode, cloud],
+			['Web Browser',			'terminal',			lnode, cloud],
+			['Mobile Device',		'mobile',			lnode, cloud],
+			['Tablet Device',		'tablet',			lnode, cloud],
+			['Laptop Device',		'laptop',			lnode, cloud],
+			['Desktop Computer',		'devices',			lnode, cloud],
 		    ],
 
 		    [
 			['Network'],
 
-			['Floating IP',			'connect',			actor_type, cloud_color],
-			['Transit Gateway',		'',				actor_type, cloud_color],
-			['Endpoints',			'',				actor_type, cloud_color],
+			['Floating IP',			'connect',			lnode, cloud],
+			['Transit Gateway',		'',				lnode, cloud],
+			['Endpoints',			'',				lnode, cloud],
 		    ],
 
 		    [
 			['Network Devices'],
 
-			['Application Load Balancer',	'parent-child',			actor_type, cloud_color],
-			['Network Load Balancer',	'parent-child',			actor_type, cloud_color],
-			['Public Gateway',		'network--2',			actor_type, cloud_color],
-			['Edge Node',			'edge-node',			actor_type, cloud_color],
+			['Application Load Balancer',	'parent-child',			lnode, cloud],
+			['Network Load Balancer',	'parent-child',			lnode, cloud],
+			['Public Gateway',		'network--2',			lnode, cloud],
+			['Edge Node',			'edge-node',			lnode, cloud],
 		    ],
 
 		    [
 			['Security'],
 
-			['VPN',				'VPN'	,			actor_type, security_color],
-			['VPN Policy',			'policy',			actor_type, security_color],
-			['Identity and Access Manager',	'fingerprint-recognition',	actor_type, security_color],
-			['Credentials',			'credentials',			actor_type, security_color],
-			['Rule',			'rule',				actor_type, security_color],
+			['VPN',				'VPN'	,			lnode, security],
+			['VPN Policy',			'policy',			lnode, security],
+			['Identity and Access Manager',	'fingerprint-recognition',	lnode, security],
+			['Credentials',			'credentials',			lnode, security],
+			['Rule',			'rule',				lnode, security],
 		    ],
 
 		    [
 			['Security Devices'],
 
-			['VPN Gateway',			'',				actor_type, security_color],
+			['VPN Gateway',			'',				lnode, security],
 		    ],
 
 		    [
 			['Storage'],
 
-			['Object Storage Accessor',	'',				actor_type, cloud_color],
-			['Object Storage Slicestor',	'',				actor_type, cloud_color],
+			['Object Storage Accessor',	'',				lnode, cloud],
+			['Object Storage Slicestor',	'',				lnode, cloud],
 		    ],
 
 		    [
 			['Storage Devices'],
 
-			['Block Storage',		'',				actor_type, cloud_color],
-			['File Storage',		'',				actor_type, cloud_color],
-			['Object Storage',		'object-storage',		actor_type, cloud_color],
+			['Block Storage',		'',				lnode, cloud],
+			['File Storage',		'',				lnode, cloud],
+			['Object Storage',		'object-storage',		lnode, cloud],
 		    ],
 
 		    [
 			['Users'],
 
-			['User',			'user',				actor_type, user_color],
-			['Users',			'group',			actor_type, user_color],
-			['Events',			'events',			actor_type, user_color],
-			['Collaborate',			'collaborate',			actor_type, user_color],
+			['User',			'user',				actor, user],
+			['Users',			'group',			actor, user],
+			['Events',			'events',			actor, user],
+			['Collaborate',			'collaborate',			actor, user],
 		    ],
 		];
 
@@ -150,23 +146,17 @@
 			var shapeType = stencil[2];
 			var shapeColor = stencil[3];
 
-			var w = (iconType == actor_type) ? actor_width : group_width;
-			var h = (iconType == actor_type) ? actor_height : group_height;
-
 			var extraStyle = '';
-			var useName = '';
 			var shapeLayout = '';
 			var shapeId = '';
 
 			if (shapeType == actor_type)
 			{
-				useName = '';
 				shapeLayout = 'collapsed';				
 				extraStyle = ';colorFamily=' + shapeColor;
 			}
 			else
 			{
-				useName = shapeName;
 				shapeLayout = 'expanded';				
 				if (spanning_groups.includes(shapeName))
 				{
@@ -178,7 +168,7 @@
 				}
 			}
 
-			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, shapeId, useName, iconName);
+			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, shapeId, shapeName, iconName);
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, shapeName);
 		};
 
