@@ -177,7 +177,7 @@
 			}
 
 			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, shapeId, shapeName, iconName);
-	   		return this.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, shapeName);
+	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, shapeName);
 		};	
 
 		stencils.forEach((section, stencil_index) => {
