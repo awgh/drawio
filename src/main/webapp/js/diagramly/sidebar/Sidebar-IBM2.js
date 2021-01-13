@@ -147,7 +147,7 @@
 		    ],
 		];
 
-		function createVertex(stencil)
+		function createVertex(header, stencil)
 		{
 			var shapeName = stencil[0];
 			var iconName = stencil[1];
@@ -177,8 +177,8 @@
 			}
 
 			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, shapeId, shapeName, iconName);
-	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, shapeName);
-		};
+	   		return this.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, shapeName);
+		};	
 
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
@@ -190,8 +190,7 @@
 				}
 				else
 				{
-					var entryName = (dt + header.replace(/\s/g,'').toLowerCase() + name.replace(/\s/g,'')).toLowerCase();
-					entries.push(this.addEntry(entryName, function() { return createVertex(stencil); }))
+					entries.push(this.addEntry(dt + name.toLowerCase(), function() { return createVertex(header, stencil); }))
 				}
 			});
 			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header);
