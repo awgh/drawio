@@ -4,16 +4,26 @@
 	{
 		var dt = 'ibm mondrian ';
 
+		// Types
 		var actor = 'actor';
 		var group = 'group';
+		var tsysm = 'ts';
+		var lcomp = 'lc';
 		var lnode = 'ln';
+		var lcomp = 'lc';
+		var pnode = 'pn';
+		var pcomp = 'pc';
 	
-		var black = 'black';
-		var blue = 'blue';
-		var gray = 'gray';
-		var green = 'green';
-		var purple = 'purple';
-		var red = 'red';
+		// Colors
+		var black   = 'black';
+		var blue    = 'blue';
+		var cyan    = 'cyan';
+		var gray    = 'gray';
+		var green   = 'green';
+		var magenta = 'magenta';
+		var purple  = 'purple';
+		var red     = 'red';
+		var teal    = 'teal';
 
 		var spanning_groups = 'Security Group';
 
@@ -70,12 +80,12 @@
 		    [
 			['Compute / Devices'],
 
-			['Physical Server',		'archive',			lnode, blue],
+			['Physical Server',		'archive',			pnode, blue],
 			['Web Browser',			'terminal',			lnode, blue],
-			['Mobile Device',		'mobile',			lnode, blue],
-			['Tablet Device',		'tablet',			lnode, blue],
-			['Laptop Device',		'laptop',			lnode, blue],
-			['Desktop Computer',		'devices',			lnode, blue],
+			['Mobile Device',		'mobile',			pnode, blue],
+			['Tablet Device',		'tablet',			pnode, blue],
+			['Laptop Device',		'laptop',			pnode, blue],
+			['Desktop Computer',		'devices',			pnode, blue],
 		    ],
 
 		    [
@@ -89,10 +99,10 @@
 		    [
 			['Network / Devices'],
 
-			['Application Load Balancer',	'parent-child',			lnode, blue],
-			['Network Load Balancer',	'parent-child',			lnode, blue],
-			['Public Gateway',		'network--2',			lnode, blue],
-			['Edge Node',			'edge-node',			lnode, blue],
+			['Application Load Balancer',	'parent-child',			pnode, blue],
+			['Network Load Balancer',	'parent-child',			pnode, blue],
+			['Public Gateway',		'network--2',			pnode, blue],
+			['Edge Node',			'edge-node',			pnode, blue],
 		    ],
 
 		    [
@@ -108,7 +118,7 @@
 		    [
 			['Security / Devices'],
 
-			['VPN Gateway',			'',				lnode, red],
+			['VPN Gateway',			'',				pnode, red],
 		    ],
 
 		    [
@@ -121,9 +131,9 @@
 		    [
 			['Storage / Devices'],
 
-			['Block Storage',		'',				lnode, blue],
-			['File Storage',		'',				lnode, blue],
-			['Object Storage',		'object-storage',		lnode, blue],
+			['Block Storage',		'',				pnode, blue],
+			['File Storage',		'',				pnode, blue],
+			['Object Storage',		'object-storage',		pnode, blue],
 		    ],
 
 		    [
@@ -133,6 +143,7 @@
 			['Users',			'group',			actor, black],
 			['Events',			'events',			actor, black],
 			['Collaborate',			'collaborate',			actor, black],
+			['Web Browser',			'terminal',			actor, black],
 		    ],
 		];
 
@@ -183,7 +194,7 @@
 					entries.push(this.addEntry(entryName, function() { return createVertex(stencil); }))
 				}
 			});
-			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header.replace(/\s/g,''));
+			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header);
 			this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
 		});
 
