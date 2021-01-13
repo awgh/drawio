@@ -102,7 +102,8 @@
 		bg.vertex = true;
 		bg.setValue(mxUtils.createXmlDocument().createElement('UserObject'));
 		bg.setAttribute('placeholders', '1');
-		bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
+		//bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
+		bg.setAttribute('label', '%Element-Name%<BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
 		bg.setAttribute('Element-ID', 'Element-ID');
 		bg.setAttribute('Element-Name', 'Element-Name');
 		bg.setAttribute('Icon-Name', '');

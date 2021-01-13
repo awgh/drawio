@@ -194,7 +194,7 @@
 				}
 			});
 			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header);
-			this.addPaletteFunctions('ibm2' + header, 'IBM 2.0 / ' + header, false, entries);
+			this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
 		});
 
 		this.setCurrentSearchEntryLibrary();
