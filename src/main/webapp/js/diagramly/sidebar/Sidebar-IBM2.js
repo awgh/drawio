@@ -8,15 +8,12 @@
 		var group = 'group';
 		var lnode = 'ln';
 	
-		var account = 'gray';
-		var cloud = 'blue';
-		var kube = 'purple';
-		var loc = 'gray';
-		var network = 'green';
-		var section = 'gray';
-		var security = 'red';
-		var user = 'black';
-		var vpc = 'green';
+		var black = 'black';
+		var blue = 'blue';
+		var gray = 'gray';
+		var green = 'green';
+		var purple = 'purple';
+		var red = 'red';
 
 		var spanning_groups = 'Security Group';
 
@@ -25,117 +22,117 @@
 		    [
 			['Groups'],
 
-			['Cloud Groups',		'ibm-cloud',			lnode, section],
-			['IBM Cloud',			'ibm-cloud',			group, cloud],
-			['Region',			'flag',				group, loc],
-			['Region Alt',			'location',			group, loc],
-			['Zone',			'data--base--alt',		group, loc],
-			['Cloud Services',		'',				group, cloud],
-			['Classic Infrastructure',	'',				group, cloud],
-			['Account',			'user',				group, account],
-			['Access Group',		'credentials',			group, account],
-			['Resource Group',		'collaborate',			group, account],
+			['Cloud Groups',		'ibm-cloud',			lnode, gray],
+			['IBM Cloud',			'ibm-cloud',			group, blue],
+			['Region',			'flag',				group, gray],
+			['Region Alt',			'location',			group, gray],
+			['Zone',			'data--base--alt',		group, gray],
+			['Cloud Services',		'',				group, blue],
+			['Classic Infrastructure',	'',				group, blue],
+			['Account',			'user',				group, gray],
+			['Access Group',		'credentials',			group, gray],
+			['Resource Group',		'collaborate',			group, gray],
 
-			['VPC Groups',			'virtual-private-cloud',	lnode, section],
-			['VPC',				'virtual-private-cloud',	group, vpc],
-			['Subnet:ACL',			'',				group, vpc],
-			['Virtual Server',		'virtual-machine',		group, vpc],
-			['Instance Group',		'',				group, vpc],
-			['Physical Server',		'',				group, vpc],
-			['Endpoints',			'',				group, vpc],
-			['Security Group',		'security',			group, security],
+			['VPC Groups',			'virtual-private-cloud',	lnode, gray],
+			['VPC',				'virtual-private-cloud',	group, green],
+			['Subnet:ACL',			'',				group, green],
+			['Virtual Server',		'virtual-machine',		group, green],
+			['Instance Group',		'',				group, green],
+			['Physical Server',		'',				group, green],
+			['Endpoints',			'',				group, green],
+			['Security Group',		'security',			group, red],
 
-			['Kubernetes Groups',		'',				lnode, section],
-			['Kubernetes Cluster',		'',				group, cloud],
-			['OpenShift Cluster',		'',				group, cloud],
-			['Kubernetes Services',		'',				group, kube],
-			['Kubernetes Replica Set',	'',				group, kube],
-			['Kubernetes Pod',		'',				group, kube],
-			['Kubernetes Namespace',	'',				group, kube],
+			['Kubernetes Groups',		'',				lnode, gray],
+			['Kubernetes Cluster',		'',				group, blue],
+			['OpenShift Cluster',		'',				group, blue],
+			['Kubernetes Services',		'',				group, purple],
+			['Kubernetes Replica Set',	'',				group, purple],
+			['Kubernetes Pod',		'',				group, purple],
+			['Kubernetes Namespace',	'',				group, purple],
 
-			['Network Groups',		'',				lnode, section],
-			['Public Network',		'events',			group, network],
-			['Enterprise Network',		'enterprise',			group, network],
-			['Cloud Foundry',		'',				group, network],
-			['Data Center',			'',				group, network],
-			['Point of Presence',		'',				group, network],
-			['Overlay Network',		'',				group, network],
-			['VLAN',			'',				group, network],
+			['Network Groups',		'',				lnode, gray],
+			['Public Network',		'events',			group, green],
+			['Enterprise Network',		'enterprise',			group, green],
+			['Cloud Foundry',		'',				group, green],
+			['Data Center',			'',				group, green],
+			['Point of Presence',		'',				group, green],
+			['Overlay Network',		'',				group, green],
+			['VLAN',			'',				group, green],
 	   	    ],
 
 		    [
 			['Compute'],
 
-			['Virtual Server',		'virtual-machine',		lnode, cloud],
-			['Instance Group',		'',				lnode, cloud],
+			['Virtual Server',		'virtual-machine',		lnode, blue],
+			['Instance Group',		'',				lnode, blue],
 		    ],
 
 		    [
 			['Compute / Devices'],
 
-			['Physical Server',		'archive',			lnode, cloud],
-			['Web Browser',			'terminal',			lnode, cloud],
-			['Mobile Device',		'mobile',			lnode, cloud],
-			['Tablet Device',		'tablet',			lnode, cloud],
-			['Laptop Device',		'laptop',			lnode, cloud],
-			['Desktop Computer',		'devices',			lnode, cloud],
+			['Physical Server',		'archive',			lnode, blue],
+			['Web Browser',			'terminal',			lnode, blue],
+			['Mobile Device',		'mobile',			lnode, blue],
+			['Tablet Device',		'tablet',			lnode, blue],
+			['Laptop Device',		'laptop',			lnode, blue],
+			['Desktop Computer',		'devices',			lnode, blue],
 		    ],
 
 		    [
 			['Network'],
 
-			['Floating IP',			'connect',			lnode, cloud],
-			['Transit Gateway',		'',				lnode, cloud],
-			['Endpoints',			'',				lnode, cloud],
+			['Floating IP',			'connect',			lnode, blue],
+			['Transit Gateway',		'',				lnode, blue],
+			['Endpoints',			'',				lnode, blue],
 		    ],
 
 		    [
 			['Network / Devices'],
 
-			['Application Load Balancer',	'parent-child',			lnode, cloud],
-			['Network Load Balancer',	'parent-child',			lnode, cloud],
-			['Public Gateway',		'network--2',			lnode, cloud],
-			['Edge Node',			'edge-node',			lnode, cloud],
+			['Application Load Balancer',	'parent-child',			lnode, blue],
+			['Network Load Balancer',	'parent-child',			lnode, blue],
+			['Public Gateway',		'network--2',			lnode, blue],
+			['Edge Node',			'edge-node',			lnode, blue],
 		    ],
 
 		    [
 			['Security'],
 
-			['VPN',				'VPN'	,			lnode, security],
-			['VPN Policy',			'policy',			lnode, security],
-			['Identity and Access Manager',	'fingerprint-recognition',	lnode, security],
-			['Credentials',			'credentials',			lnode, security],
-			['Rule',			'rule',				lnode, security],
+			['VPN',				'VPN'	,			lnode, red],
+			['VPN Policy',			'policy',			lnode, red],
+			['Identity and Access Manager',	'fingerprint-recognition',	lnode, red],
+			['Credentials',			'credentials',			lnode, red],
+			['Rule',			'rule',				lnode, red],
 		    ],
 
 		    [
 			['Security / Devices'],
 
-			['VPN Gateway',			'',				lnode, security],
+			['VPN Gateway',			'',				lnode, red],
 		    ],
 
 		    [
 			['Storage'],
 
-			['Object Storage Accessor',	'',				lnode, cloud],
-			['Object Storage Slicestor',	'',				lnode, cloud],
+			['Object Storage Accessor',	'',				lnode, blue],
+			['Object Storage Slicestor',	'',				lnode, blue],
 		    ],
 
 		    [
 			['Storage / Devices'],
 
-			['Block Storage',		'',				lnode, cloud],
-			['File Storage',		'',				lnode, cloud],
-			['Object Storage',		'object-storage',		lnode, cloud],
+			['Block Storage',		'',				lnode, blue],
+			['File Storage',		'',				lnode, blue],
+			['Object Storage',		'object-storage',		lnode, blue],
 		    ],
 
 		    [
 			['Users'],
 
-			['User',			'user',				actor, user],
-			['Users',			'group',			actor, user],
-			['Events',			'events',			actor, user],
-			['Collaborate',			'collaborate',			actor, user],
+			['User',			'user',				actor, black],
+			['Users',			'group',			actor, black],
+			['Events',			'events',			actor, black],
+			['Collaborate',			'collaborate',			actor, black],
 		    ],
 		];
 
@@ -150,12 +147,7 @@
 			var shapeLayout = '';
 			var shapeId = '';
 
-			if (shapeType == actor)
-			{
-				shapeLayout = 'collapsed';				
-				extraStyle = ';colorFamily=' + shapeColor;
-			}
-			else
+			if (shapeType == group)
 			{
 				shapeLayout = 'expanded';				
 				if (spanning_groups.includes(shapeName))
@@ -166,6 +158,11 @@
 				{
 					extraStyle = ';container=1;collapsible=0;recursiveResize=0;colorFamily=' + shapeColor;
 				}
+			}
+			else
+			{
+				shapeLayout = 'collapsed';				
+				extraStyle = ';colorFamily=' + shapeColor;
 			}
 
 			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, shapeId, shapeName, iconName);
