@@ -163,17 +163,17 @@
 				shapeLayout = 'expanded';				
 				if (spanning_groups.includes(shapeName))
 				{
-					extraStyle = ';container=0;collapsible=0;recursiveResize=0;fontStyle=0;colorFamily=' + shapeColor;
+					extraStyle = ';container=0;collapsible=0;recursiveResize=0;colorFamily=' + shapeColor;
 				}
 				else 
 				{
-					extraStyle = ';container=1;collapsible=0;recursiveResize=0;fontStyle=0;colorFamily=' + shapeColor;
+					extraStyle = ';container=1;collapsible=0;recursiveResize=0;colorFamily=' + shapeColor;
 				}
 			}
 			else
 			{
 				shapeLayout = 'collapsed';				
-				extraStyle = ';fontStyle=0;colorFamily=' + shapeColor;
+				extraStyle = ';colorFamily=' + shapeColor;
 			}
 
 			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, shapeId, shapeName, iconName);
