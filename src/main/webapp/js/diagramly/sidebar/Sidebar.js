@@ -37,6 +37,8 @@
 
 	Sidebar.prototype.ibm1 = ['Analytics', 'Applications', 'Blockchain', 'Data', 'DevOps', 'Infrastructure', 'Management', 'Miscellaneous', 'Security', 'Social', 'Users', 'VPC', 'Boxes', 'Connectors'];
 
+	Sidebar.prototype.ibm2 = ['Groups', 'Compute', 'Compute Devices', 'Network', 'Network Devices', 'Security', 'Security Devices', 'Storage', 'Storage Devices', 'Users'];
+
 	Sidebar.prototype.allied_telesis = ['Buildings', 'Computer and Terminals', 'Media Converters', 'Security', 'Storage', 'Switch', 'Wireless'];
 
 	Sidebar.prototype.gcp = ['Cards', 'Big Data', 'Compute', 'Developer Tools', 'Extras', 'Identity and Security', 'Machine Learning', 'Management Tools', 'Networking', 'Storage Databases'];
@@ -123,7 +125,7 @@
 	                                   {id: 'clipart', prefix: null, libs: ['computer', 'finance', 'clipart', 'networking', 'people', 'telco']},
 	                                   {id: 'ibm', prefix: 'ibm', libs: Sidebar.prototype.ibm},
 	                                   {id: 'ibm1', prefix: 'ibm1', libs: Sidebar.prototype.ibm1},
-	                                   {id: 'ibm2'},
+	                                   {id: 'ibm2', prefix: 'ibm2', libs: Sidebar.prototype.ibm2},
 	                                   {id: 'ibm2mondrian'},
 	                                   {id: 'allied_telesis', prefix: 'allied_telesis', libs: Sidebar.prototype.allied_telesis},
 	                                   {id: 'cumulus', libs: ['cumulus']},
@@ -1177,7 +1179,7 @@
 		this.addGCP2Palette();
 		this.addIBMPalette();
 		/*this.addIBM1Palette();*/
-		/*this.addIBM2Palette();*/
+		this.addIBM2Palette();
 		this.addIBM2MondrianPalette();
 		this.addNetworkPalette();
 		this.addOfficePalette();

@@ -4,176 +4,161 @@
 	{
 		var dt = 'ibm mondrian ';
 
-		var internal_version = 'ibm2';
-		var external_version = 'IBM 2.0';
-
-		var actor_type = 'actor';
-		var actor_width = 48;
-		var actor_height = 48;
-
-		var group_type = 'group';
-		var group_width = 240;
-		var group_height = 240;
-
-		var account_color = 'gray';
-		var cloud_color = 'blue';
-		var kube_color = 'purple';
-		var location_color = 'gray';
-		var network_color = 'green';
-		var section_color = 'gray';
-		var security_color = 'red';
-		var user_color = 'black';
-		var vpc_color = 'green';
+		// Types
+		var actor = 'actor';
+		var group = 'group';
+		var tsysm = 'ts';
+		var lcomp = 'lc';
+		var lnode = 'ln';
+		var lcomp = 'lc';
+		var pnode = 'pn';
+		var pcomp = 'pc';
+	
+		// Colors
+		var black   = 'black';
+		var blue    = 'blue';
+		var cyan    = 'cyan';
+		var gray    = 'gray';
+		var green   = 'green';
+		var magenta = 'magenta';
+		var purple  = 'purple';
+		var red     = 'red';
+		var teal    = 'teal';
 
 		var spanning_groups = 'Security Group';
-		var named_actors = 'Cloud Groups, VPC Groups, Kubernetes Groups, Network Groups';
 
 		var stencils = 
 		[
 		    [
 			['Groups'],
 
-			['Cloud Groups',		'ibm-cloud',			actor_type, section_color],
-			['IBM Cloud',			'ibm-cloud',			group_type, cloud_color],
-			['Region',			'flag',				group_type, location_color],
-			['Region Alt',			'location',			group_type, location_color],
-			['Zone',			'data--base--alt',		group_type, location_color],
-			['Cloud Services',		'',				group_type, cloud_color],
-			['Classic Infrastructure',	'',				group_type, cloud_color],
-			['Account',			'user',				group_type, account_color],
-			['Access Group',		'credentials',			group_type, account_color],
-			['Resource Group',		'collaborate',			group_type, account_color],
+			['Cloud Groups',		'ibm-cloud',			lnode, gray],
+			['IBM Cloud',			'ibm-cloud',			group, blue],
+			['Region',			'flag',				group, gray],
+			['Region Alt',			'location',			group, gray],
+			['Zone',			'data--base--alt',		group, gray],
+			['Cloud Services',		'',				group, blue],
+			['Classic Infrastructure',	'',				group, blue],
+			['Account',			'user',				group, gray],
+			['Access Group',		'credentials',			group, gray],
+			['Resource Group',		'collaborate',			group, gray],
 
-			['VPC Groups',			'virtual-private-cloud',	actor_type, section_color],
-			['VPC',				'virtual-private-cloud',	group_type, vpc_color],
-			['Subnet:ACL',			'',				group_type, vpc_color],
-			['Virtual Server',		'virtual-machine',		group_type, vpc_color],
-			['Instance Group',		'',				group_type, vpc_color],
-			['Physical Server',		'',				group_type, vpc_color],
-			['Endpoints',			'',				group_type, vpc_color],
-			['Security Group',		'security',			group_type, security_color],
+			['VPC Groups',			'virtual-private-cloud',	lnode, gray],
+			['VPC',				'virtual-private-cloud',	group, green],
+			['Subnet:ACL',			'',				group, green],
+			['Virtual Server',		'virtual-machine',		group, green],
+			['Instance Group',		'',				group, green],
+			['Physical Server',		'',				group, green],
+			['Endpoints',			'',				group, green],
+			['Security Group',		'security',			group, red],
 
-			['Kubernetes Groups',		'',				actor_type, section_color],
-			['Kubernetes Cluster',		'',				group_type, cloud_color],
-			['OpenShift Cluster',		'',				group_type, cloud_color],
-			['Kubernetes Services',		'',				group_type, kube_color],
-			['Kubernetes Replica Set',	'',				group_type, kube_color],
-			['Kubernetes Pod',		'',				group_type, kube_color],
-			['Kubernetes Namespace',	'',				group_type, kube_color],
+			['Kubernetes Groups',		'',				lnode, gray],
+			['Kubernetes Cluster',		'',				group, blue],
+			['OpenShift Cluster',		'',				group, blue],
+			['Kubernetes Services',		'',				group, purple],
+			['Kubernetes Replica Set',	'',				group, purple],
+			['Kubernetes Pod',		'',				group, purple],
+			['Kubernetes Namespace',	'',				group, purple],
 
-			['Network Groups',		'',				actor_type, section_color],
-			['Public Network',		'events',			group_type, network_color],
-			['Enterprise Network',		'enterprise',			group_type, network_color],
-			['Cloud Foundry',		'',				group_type, network_color],
-			['Data Center',			'',				group_type, network_color],
-			['Point of Presence',		'',				group_type, network_color],
-			['Overlay Network',		'',				group_type, network_color],
-			['VLAN',			'',				group_type, network_color],
+			['Network Groups',		'',				lnode, gray],
+			['Public Network',		'events',			group, green],
+			['Enterprise Network',		'enterprise',			group, green],
+			['Cloud Foundry',		'',				group, green],
+			['Data Center',			'',				group, green],
+			['Point of Presence',		'',				group, green],
+			['Overlay Network',		'',				group, green],
+			['VLAN',			'',				group, green],
 	   	    ],
 
 		    [
 			['Compute'],
 
-			['Virtual Server',		'virtual-machine',		actor_type, cloud_color],
-			['Instance Group',		'',				actor_type, cloud_color],
+			['Virtual Server',		'virtual-machine',		lnode, blue],
+			['Instance Group',		'',				lnode, blue],
 		    ],
 
 		    [
 			['Compute Devices'],
 
-			['Physical Server',		'archive',			actor_type, cloud_color],
-			['Web Browser',			'terminal',			actor_type, cloud_color],
-			['Mobile Device',		'mobile',			actor_type, cloud_color],
-			['Tablet Device',		'tablet',			actor_type, cloud_color],
-			['Laptop Device',		'laptop',			actor_type, cloud_color],
-			['Desktop Computer',		'devices',			actor_type, cloud_color],
+			['Physical Server',		'archive',			pnode, blue],
+			['Mobile Device',		'mobile',			pnode, blue],
+			['Tablet Device',		'tablet',			pnode, blue],
+			['Laptop Device',		'laptop',			pnode, blue],
+			['Desktop Computer',		'devices',			pnode, blue],
 		    ],
 
 		    [
 			['Network'],
 
-			['Floating IP',			'connect',			actor_type, cloud_color],
-			['Transit Gateway',		'',				actor_type, cloud_color],
-			['Endpoints',			'',				actor_type, cloud_color],
+			['Floating IP',			'connect',			lnode, blue],
+			['Transit Gateway',		'',				lnode, blue],
+			['Endpoints',			'',				lnode, blue],
 		    ],
 
 		    [
 			['Network Devices'],
 
-			['Application Load Balancer',	'parent-child',			actor_type, cloud_color],
-			['Network Load Balancer',	'parent-child',			actor_type, cloud_color],
-			['Public Gateway',		'network--2',			actor_type, cloud_color],
-			['Edge Node',			'edge-node',			actor_type, cloud_color],
+			['Application Load Balancer',	'parent-child',			pnode, blue],
+			['Network Load Balancer',	'parent-child',			pnode, blue],
+			['Public Gateway',		'network--2',			pnode, blue],
+			['Edge Node',			'edge-node',			pnode, blue],
 		    ],
 
 		    [
 			['Security'],
 
-			['VPN',				'VPN'	,			actor_type, security_color],
-			['VPN Policy',			'policy',			actor_type, security_color],
-			['Identity and Access Manager',	'fingerprint-recognition',	actor_type, security_color],
-			['Credentials',			'credentials',			actor_type, security_color],
-			['Rule',			'rule',				actor_type, security_color],
+			['VPN',				'VPN'	,			lnode, red],
+			['VPN Policy',			'policy',			lnode, red],
+			['Identity and Access Manager',	'fingerprint-recognition',	lnode, red],
+			['Credentials',			'credentials',			lnode, red],
+			['Rule',			'rule',				lnode, red],
 		    ],
 
 		    [
 			['Security Devices'],
 
-			['VPN Gateway',			'',				actor_type, security_color],
+			['VPN Gateway',			'',				pnode, red],
 		    ],
 
 		    [
 			['Storage'],
 
-			['Object Storage Accessor',	'',				actor_type, cloud_color],
-			['Object Storage Slicestor',	'',				actor_type, cloud_color],
+			['Object Storage Accessor',	'',				lnode, blue],
+			['Object Storage Slicestor',	'',				lnode, blue],
 		    ],
 
 		    [
 			['Storage Devices'],
 
-			['Block Storage',		'',				actor_type, cloud_color],
-			['File Storage',		'',				actor_type, cloud_color],
-			['Object Storage',		'object-storage',		actor_type, cloud_color],
+			['Block Storage',		'',				pnode, blue],
+			['File Storage',		'',				pnode, blue],
+			['Object Storage',		'object-storage',		pnode, blue],
 		    ],
 
 		    [
 			['Users'],
 
-			['User',			'user',				actor_type, security_color],
-			['Users',			'group',			actor_type, security_color],
-			['Events',			'events',			actor_type, security_color],
-			['Collaborate',			'collaborate',			actor_type, security_color],
+			['User',			'user',				actor, black],
+			['Users',			'group',			actor, black],
+			['Events',			'events',			actor, black],
+			['Collaborate',			'collaborate',			actor, black],
+			['Web Browser',			'terminal',			actor, black],
 		    ],
 		];
 
-		function createVertex(stencil)
+		function createVertex(header, stencil)
 		{
 			var shapeName = stencil[0];
 			var iconName = stencil[1];
 			var shapeType = stencil[2];
 			var shapeColor = stencil[3];
 
-			var w = (iconType == actor_type) ? actor_width : group_width;
-			var h = (iconType == actor_type) ? actor_height : group_height;
-
 			var extraStyle = '';
-			var useName = '';
 			var shapeLayout = '';
 			var shapeId = '';
 
-			if (shapeType == actor_type)
+			if (shapeType == group)
 			{
-				if (named_actors.includes(shapeName))
-				{
-					useName = shapeName;
-				}
-				shapeLayout = 'collapsed';				
-				extraStyle = ';colorFamily=' + shapeColor;
-			}
-			else
-			{
-				useName = shapeName;
 				shapeLayout = 'expanded';				
 				if (spanning_groups.includes(shapeName))
 				{
@@ -184,12 +169,15 @@
 					extraStyle = ';container=1;collapsible=0;recursiveResize=0;colorFamily=' + shapeColor;
 				}
 			}
+			else
+			{
+				shapeLayout = 'collapsed';				
+				extraStyle = ';colorFamily=' + shapeColor;
+			}
 
-			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, shapeId, useName, iconName);
+			var bg = Sidebar.prototype.addIBM2MondrianVertexTemplateFactoryPlus(shapeType, shapeLayout, extraStyle, shapeId, shapeName, iconName);
 	   		return sb.createVertexTemplateFromCells([bg], bg.geometry.width, bg.geometry.height, shapeName);
-		};
-
-		this.setCurrentSearchEntryLibrary('ibm2', 'ibm2Mondrian');
+		};	
 
 		stencils.forEach((section, stencil_index) => {
 			var header = '';
@@ -201,11 +189,11 @@
 				}
 				else
 				{
-					var entryName = (dt + header.replace(/\s/g,'') + name.replace(/\s/g,'')).toLowerCase();
-					entries.push(this.addEntry(entryName, function() { return createVertex(stencil); }))
+					entries.push(this.addEntry(dt + name.toLowerCase(), function() { return createVertex(header, stencil); }))
 				}
 			});
-			this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
+			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header);
+			this.addPaletteFunctions('ibm2' + header, 'IBM 2.0 / ' + header, false, entries);
 		});
 
 		this.setCurrentSearchEntryLibrary();
@@ -238,7 +226,7 @@
 		bg.vertex = true;
 		bg.setValue(mxUtils.createXmlDocument().createElement('UserObject'));
 		bg.setAttribute('placeholders', '1');
-		bg.setAttribute('label', '<B>%Element-Name%</B><BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
+		bg.setAttribute('label', '%Element-Name%<BR><font style=\'font-size: 12px\'>%Element-ID%</font>');
 		bg.setAttribute('Element-ID', shapeId);
 		bg.setAttribute('Element-Name', shapeName);
 		bg.setAttribute('Icon-Name', iconName);
