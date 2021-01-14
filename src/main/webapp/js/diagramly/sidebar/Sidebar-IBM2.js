@@ -194,7 +194,14 @@
 				}
 			});
 			this.setCurrentSearchEntryLibrary('ibm2', 'ibm2' + header);
-			this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
+			//this.addPaletteFunctions('ibm2', 'IBM 2.0 / ' + header, false, entries);
+			this.addPalette('ibm2' + header, 'IBM 2.0 / ' + header, false, mxUtils.bind(this, function(content)
+			{
+				for (var i = 0; i < entries.length; i++)
+				{
+					content.appendChild(entries[i](content));
+				}
+			}))
 		});
 
 		this.setCurrentSearchEntryLibrary();
