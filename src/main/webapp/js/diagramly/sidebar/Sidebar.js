@@ -37,7 +37,7 @@
 
 	Sidebar.prototype.ibm1 = ['Analytics', 'Applications', 'Blockchain', 'Data', 'DevOps', 'Infrastructure', 'Management', 'Miscellaneous', 'Security', 'Social', 'Users', 'VPC', 'Boxes', 'Connectors'];
 
-	Sidebar.prototype.ibm2 = ['Analytics', 'Applications', 'Blockchain', 'Data', 'DevOps', 'Infrastructure', 'Management', 'Miscellaneous', 'Security', 'Social', 'Users', 'VPC', 'Boxes', 'Connectors'];
+	Sidebar.prototype.ibm2 = ['Groups', 'Compute', 'Compute Devices', 'Network', 'Network Devices', 'Security', 'Security Devices', 'Storage', 'Storage Devices', 'Users'];
 
 	Sidebar.prototype.allied_telesis = ['Buildings', 'Computer and Terminals', 'Media Converters', 'Security', 'Storage', 'Switch', 'Wireless'];
 
